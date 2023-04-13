@@ -1,0 +1,41 @@
+local obj_grass_collision = {}
+
+local function net_spawn_object(obj)
+    if IsStalker(obj) or IsMonster(obj) then
+        local id_obj = obj:id()
+        if not obj_grass_collision[id_obj] then
+            obj_grass_collision[id_obj] = function()
+                -- if obj:StepMaterial():ended_with("grass") then
+                    level.set_grass_collision(obj:position(), 1)
+                    if not obj:alive() then
+                        local bone_head = INI:r_string_ex(obj:section(),"bone_head",false)
+                        if bone_head then
+                            level.set_grass_collision(alun_utils.safe_bone_pos(obj, bone_head), 0.7)
+                        end
+
+                        local bone_torso = INI:r_string_ex(obj:section(),"bone_torso",false)
+                        if bone_torso then
+                            level.set_grass_collision(alun_utils.safe_bone_pos(obj, bone_torso), 1.1)
+                        end
+                    end
+                -- end
+            end
+        end
+        AddUniqueCall(obj_grass_collision[id_obj])
+    end
+end
+
+local function net_destroy_object(obj)
+    if IsStalker(obj) or IsMonster(obj) then
+        local id_obj = obj:id()
+        if obj_grass_collision[id_obj] then
+            RemoveUniqueCall(obj_grass_collision[id_obj])
+        end
+    end
+end
+
+
+function on_game_start()
+    RegisterScriptCallback("net_spawn_objects", net_spawn_object)
+    RegisterScriptCallback("net_destroy_objects", net_destroy_object)
+end

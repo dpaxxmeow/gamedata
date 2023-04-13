@@ -1,0 +1,37 @@
+--A.R.E.A. Thirst by Nuor
+--Last edited 03.02.2019 by Surs
+local coeff	= 1
+local weight_coeff = 0.005
+local blur = 0.2
+local force = 0.05
+local itn_mul = 1
+local die_chance = 10
+local force_slp = 15
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_first_update",function()
+		RegisterScriptCallback("actor_on_update",function ()
+			LimitUpdate(test_blur, 300)--5 minutes
+		end)
+		
+		RegisterScriptCallback("actor_on_item_use",function()
+			test_blur()
+		end)
+	end)
+end
+
+function test_blur()
+	level.remove_pp_effector(39568)
+	coeff = area_skills and area_skills.skills_table and area_skills.skills_table.survival_skill/50 or coeff
+	local OW = area_health_system and area_health_system.OverWeight or 0
+	local check = db.actor:cast_Actor():conditions():GetThirst() + (coeff-1)/10 - OW * weight_coeff
+	if check < blur then
+		if check < force and math.random(100) <= force_slp and not db.actor:has_info("actor_is_sleeping") == true then
+			db.actor:give_info_portion("force_slp")
+			sleep_dep.force_sleep()
+		else
+			level.set_pp_effector_factor(39568, (1-check) * itn_mul)
+		end
+	end
+	--SetHudMsg (string.format("thirst [%4.4f]",check),5)
+end

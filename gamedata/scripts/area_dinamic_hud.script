@@ -1,0 +1,982 @@
+--------------------------------------------------------------------------------
+-- A.R.E.A. Dinamic HUD 1.1.1 by Magila
+-- Last edit: 19.12.2022
+--------------------------------------------------------------------------------
+class "dinamic_hud"
+--Иницыализация класса
+function dinamic_hud:__init(obj)
+	self.t_callback = {}									-- Таблица функций для колбеков.
+	self.object = obj										-- Объект Актера.
+	self.HUD = get_hud()									-- Объект Hud.
+	self.dh_ini = ini_file("plugins\\dinamic_hud.ltx")		-- Настройки Huds.
+	self.sound = CreateSound("actor\\gasmask_on")			-- Звук надевания и снятия шлема (динамическое).
+	self.helmet_hidden = false								-- Статус, носите вы шлем или нет (динамическое).
+	self.virtual_hidden = false								-- Виртуальное ли снятие шлема.
+	self.cache_parameters = {}								-- Кэш параметров шлема из раздела.
+	self.condition_helmet = "blue"							-- Состояние шлема (динамическое).
+	self.condition_glass = 1								-- Состояние стекла (динамическое).
+	self.condition_glass_prite = 1							-- Предыдущие состояние стекла (динамическое).
+	self.drop_glass	= 0										-- Интенсивность каплей на стекле (динамическое).
+	self.sound_length = self.sound:length()					-- Продолжительность звука (динамическое).
+	self.obj_helmet = nil									-- Объект шлема (динамическое).
+	self.name_texture = nil									-- Кэш имени текстуры (динамическое).
+	self.zbias = Frect():set(0, 0, 1024, 1024)				-- Основной Frect худа (динамическое).
+	self.anim_state = false									-- Запущена ли анимация (динамическое).
+	self.wpn_slot = 0										-- Активный слот оружия (динамическое).
+	self.pnv_status = {}									-- ПНВ статус (динамическое).
+	self.state_texture = true								-- Статус активности текстур (динамическое).
+	self.wiggle_step = false								-- Переключатель, определяет первый шаг или второй (динамическое).
+	self.power_jitter = 0									-- Сила тряски (динамическое).
+	self.step_power_wiggle = 0.4 							-- Сила покачивания при шаге (динамическое).
+	self.step_power_jitter = 0								-- Сила тряски при шаге (динамическое).
+	self.jump_time = 0										-- Время в воздухе после прижка (динамическое).
+	self.wiggle_num = {										-- Кординаты для расчета покачивания худа (динамическое).
+		X_rights = 0,
+		X_left = 0,
+		Y_bottom = 0,
+		Y_top = 0
+	}
+
+	self.zoom_coff = 0										-- Коэффициент зума (динамическое).
+
+	--Параметры для эффекта запотевания
+	self.blurs = {}
+	for i=1,4 do
+		local pht = {}
+		for ii = 1,10 do
+			local static = string.add_all("hud_blur", i, "_", ii)
+			self.HUD:AddCustomStatic(static)
+			pht[ii] = self.HUD:GetCustomStatic(static):wnd()
+		end
+		self.blurs[i] = pht
+	end
+	self.blurcyctime_start = false 							--Стастус цыкла дыхания true актор выдохнул если fаlse в паузе между выдохом убираем запотивание.
+	self.sped_power = 0
+	self.sped_power_2 = 0
+	self.blurs_effect_start = 1.32 							-- Скорость появления эффекта запотевание (значение динамическое).
+	self.blurs_effect_stop = 0.15							-- Скорость исчезновения запотевания (значение динамическое).
+	self.blurs_effect_force_min = 0.01 						-- Минимально возможная сила запотевания.
+	self.blurs_effect_force_max = 1 						-- Максимально возможная сила запотевания. Выше 1 не указывать!
+
+	self:find_status_options()
+end
+
+function dinamic_hud:Remove()
+	self.helmet_hidden = false
+	self:hiden_texture()
+	self.drop_glass = 0
+	self:send_callback("on_hiden_hud")
+	if self:is_mask() then
+		self.object:enable_night_vision(self:is_pnv_state())
+	elseif not self.virtual_hidden then
+		self.name_texture = nil
+		self.obj_helmet = nil
+	end
+
+	self.virtual_hidden = false
+	self.anim_state = false
+
+	AddUniqueCall(function()
+		self:send_callback("on_stop_anim")
+		return true
+	end)
+end
+
+function dinamic_hud:find_status_options()
+																-- Разрешено дрожание?
+	self.state_jitter = axr_main.config:r_value("mm_options","enable_hud_jitter",1,true)
+																-- Разрешено покачивание?
+	self.state_wiggle = axr_main.config:r_value("mm_options","enable_hud_wiggle",1,true)
+																-- Разрешены капли дождя на худе или нет?
+	self.state_rain_drops = axr_main.config:r_value("mm_options", "hud_rain_drops", 1, true)
+																-- Зум текстуры худа.
+	self.zoom_texture_hud = axr_main.config:r_value("mm_options", "hud_zoom", 2, 0)
+	-- Отключить или включить шейдер капель от дождя в движке, для оптимизации.
+	if self.state_rain_drops then
+		get_console():execute("r2_rain_drops 1")
+	else
+		get_console():execute("r2_rain_drops 0")
+	end
+end
+
+function dinamic_hud:update(delta)
+	if self:is_breakable() then
+		--временно
+		local cond = self:current_helmet():condition()
+		if cond < self.condition_glass then
+			self:hit_glass(self.condition_glass - cond) 
+		else
+			self:heal_glass(cond - self.condition_glass)
+		end
+	end
+	
+	self:glass_wet_progress(delta)
+	self:blurs_progress(delta)
+
+	if self:is_mask() and self:is_glass() and self:is_texture() then
+		self:auto_hide_textures()
+		self:zoom(delta)
+		self:jitter(delta)
+
+		local wchud = self.HUD:GetCustomStatic(self.name_texture)
+		if wchud then
+			wchud:wnd():SetTextureRect(self.zbias)
+		end
+		wchud = self.HUD:GetCustomStatic("hud_nvg")
+		if wchud then
+			wchud:wnd():SetTextureRect(
+				Frect():set(
+					self.zbias.x1/2,
+					self.zbias.y1/2,
+					self.zbias.x2/2,
+					self.zbias.y2/2
+				)
+			)
+		end
+	end
+end
+
+--Получить параметры
+function dinamic_hud:get_parameters(item)
+	if not self:current_helmet() and not item then
+		return {}
+	end
+	local obj = item or self:current_helmet()
+	local section = obj:section()
+	if self.cache_parameters[section] then
+		return self.cache_parameters[section]
+	end
+
+	if self.dh_ini:section_exist(section) then
+		local parameters = self.dh_ini:parameters_table(section)
+		self.cache_parameters[section] = parameters
+		return parameters
+	else
+		return {}
+	end
+end
+
+--Запустим звук
+function dinamic_hud:play_sound()
+	if self:is_respirator() then
+		if self:is_mask() then
+			self.sound = CreateSound("actor\\gasmask_on")
+		else
+			self.sound = CreateSound("actor\\gasmask_off")
+		end
+		self.sound:default_play()
+		self.sound_length = self.sound:length()
+	end
+
+	if IsOutfit(self:current_helmet()) then
+		xr_effects.play_inv_repair_sewing_kit()
+	end
+end
+
+--Переключим текстуру худа или уберём
+function dinamic_hud:hiden_texture()
+	local wchud = self.name_texture and self.HUD:GetCustomStatic(self.name_texture)
+	if wchud then
+		self.HUD:RemoveCustomStatic(self.name_texture)
+	end
+
+	if self:is_mask() then
+		if self:is_breakable() then
+			--переназначем текстуру худа в зависимости от состояния стекла
+			if self.condition_glass > 0.86 then self.condition_helmet = "blue"
+			elseif self.condition_glass > 0.67 then self.condition_helmet = "green"
+			elseif self.condition_glass > 0.52 then self.condition_helmet = "yellow"
+			elseif self.condition_glass > 0.40 then self.condition_helmet = "red"
+			elseif self.condition_glass > 0.25 then self.condition_helmet = "red2"
+			else self.condition_helmet = "red3" end
+		end
+
+		if self:is_texture() then
+			local new_name_texture = self:get_parameters().hud:add_all("_", self.condition_helmet)
+
+			if self.name_texture and self.name_texture ~= new_name_texture then
+				if self.condition_glass < self.condition_glass_prite then
+					CreateSound("material\\glass\\glass_fall03hl"):default_play()
+				end
+			end
+
+			if not self.HUD:GetCustomStatic(new_name_texture) then
+				self.state_texture = true
+				self.HUD:AddCustomStatic(new_name_texture)
+			end
+			
+			self.name_texture = new_name_texture
+		end
+	end
+end
+
+--Старт 
+function dinamic_hud:start(obj)
+	if obj then
+		-- printf("-INI:r_bool_ex(obj:section(), helmet_allowed, true) === %s , is_empty(self:get_parameters(obj)) == %s", INI:r_bool_ex(obj:section(), "helmet_allowed", true), is_empty(self:get_parameters(obj)))
+		if self:there_animation(obj) then
+			local use_anim = INI:r_string_ex(obj:section(), "use_anim", nil)
+			if use_anim and INI:section_exist(use_anim) then
+				local function start()
+					if self:is_anim() then
+						self:callback("on_stop_anim", function()
+							CreateTimeEvent("dinamic_hud_delay", "hands_anim", 0.4, function()
+								self:send_callback("on_hands_anim", use_anim)
+								self:hands_anim(use_anim, obj)
+								return true
+							end)
+							return true
+						end)
+					else
+						self:send_callback("on_hands_anim", use_anim)
+						self:hands_anim(use_anim, obj)
+					end
+				end
+				if TableAnimHands().status and TableAnimHands().use == "backpack_anim" then
+					local anim_hands = level.object_by_id(TableAnimHands().obj.id)
+					if anim_hands then
+						anim_hands:switch_state(2)
+					end
+					CallbackAnimHands('stop_anim', function()
+						CreateTimeEvent("dinamic_hud_delay", "hands_anim", 0.1, function()
+							start()
+							return true
+						end)
+					end)
+				else
+					start()
+				end
+			else
+				if self:is_anim() then
+					self:callback("on_stop_anim", function()
+						CreateTimeEvent("dinamic_hud_delay", "pseudo_anim", 0.4, function()
+							self:pseudo_anim(obj)
+							return true
+						end)
+						return true
+					end)
+				else
+					self:pseudo_anim(obj)
+				end
+			end
+		else
+			local type = IsOutfit(obj) and "outfit" or "helm"
+			actor_effects.use_item(type)
+		end
+	end
+end
+
+-- 3D анимация надивания шлема + события
+function dinamic_hud:hands_anim(use_anim, obj)
+	self.obj_helmet = obj
+	local show = true
+	self.anim_state = true
+	self.object:enable_night_vision(false)
+
+	local wchud = (not self.object:night_vision_enabled()) and self.HUD:GetCustomStatic("hud_nvg")
+	if wchud then
+		self.HUD:RemoveCustomStatic("hud_nvg")
+	end
+
+	level.add_cam_effector('camera_effects\\item_use_slow.anm')
+	
+	--if self:is_mask() then
+	--	level.add_pp_effector("sleep_fast.ppe", 11, false)
+	--end
+
+	local function hiden_hud()
+		self.helmet_hidden = not self.helmet_hidden
+		self:hiden_texture()
+		self.drop_glass = 0
+		self:send_callback("on_hiden_hud")
+	end
+
+	CallbackAnimHands("start_anim", function(anim_hands)
+		local anim = anim_hands.obj and level.object_by_id(anim_hands.obj.id)
+		if anim then
+			if self:is_mask() then
+				-- anim_hands.action_delay.gasmask_anim = nil
+				anim:switch_state(2)
+				hiden_hud()
+				show = false
+			-- else
+			-- 	anim_hands.action_delay.gasmask_anim = function()
+			-- 		--level.add_pp_effector("sleep_fast.ppe", 11, false)
+			-- 	end
+			end
+		end
+		self:send_callback("on_start_anim")
+	end)
+
+	CallbackAnimHands("stop_anim", function(anim_hands)
+		if show and not self:is_mask() then
+			hiden_hud()
+		end
+		
+		if self:is_mask() then
+			self.object:enable_night_vision(self:is_pnv_state())
+		elseif not self.virtual_hidden then
+			self.name_texture = nil
+			self.obj_helmet = nil
+		end
+
+		self.virtual_hidden = false
+		self.anim_state = false
+
+		AddUniqueCall(function()
+			self:send_callback("on_stop_anim")
+			return true
+		end)
+	end)
+
+	StartAnimHands(false,false,false,{
+		use = "gasmask_anim",
+		section = use_anim
+	}).return_the_weapon()
+end
+
+-- Псевдо анимация надивания шлема + события
+function dinamic_hud:pseudo_anim(obj)
+	self:send_callback("on_start_anim")
+	self.obj_helmet = obj
+	self.anim_state = true
+	self.object:enable_night_vision(false)
+	
+	local wchud = (not self.object:night_vision_enabled()) and self.HUD:GetCustomStatic("hud_nvg")
+	if wchud then
+		self.HUD:RemoveCustomStatic("hud_nvg")
+	end
+	
+	self:play_sound()
+	
+	level.add_cam_effector('camera_effects\\item_use_slow.anm')
+	level.add_pp_effector("sleep_fade.ppe", 10, true)
+	
+	if not self.virtual_hidden then
+		AddUniqueCall(function()
+			get_hud():HideActorMenu()
+			return true
+		end)
+		
+		self.wpn_slot = self.object:active_slot()
+		if self.wpn_slot == 0 then self.wpn_slot = actor_menu.active_slot end
+
+		AddUniqueCall(function()
+			if not self:is_anim() then
+				return true
+			end
+			actor_hide_wpn(true)
+			level.Actor():BlockItemsInput(1)
+		end)
+	end
+
+	local function hiden_hud()
+		self.helmet_hidden = not self.helmet_hidden
+		self:hiden_texture()
+		self.drop_glass = 0
+		self:send_callback("on_hiden_hud")
+		return true
+	end
+	CreateTimeEvent("dinamic_hud_send", 0, (self.sound_length*0.4)/1000, hiden_hud)--отобразить или убрать худ
+
+	local function stop()
+		level.remove_pp_effector(10)
+		if not self.virtual_hidden then
+			actor_hide_wpn(false)
+			if self.wpn_slot ~= 0 then
+				CreateTimeEvent("dinamic_hud_show", "weapon", 1, function()
+					if not self:is_anim() then
+						if self.object and not self.object:alive() then
+							return true
+						end
+
+						local active_slot = self.object:active_slot()
+						if active_slot ~= self.wpn_slot then
+							self.object:activate_slot(self.wpn_slot)
+						else
+							self.wpn_slot = 0
+							level.Actor():BlockItemsInput(0)
+							return true
+						end
+					else
+						return true
+					end
+				end)
+			end
+		end
+	
+		if self:is_mask() then
+			self.object:enable_night_vision(self:is_pnv_state())
+		elseif not self.virtual_hidden then
+			self.name_texture = nil
+			self.obj_helmet = nil
+		end
+
+		self.virtual_hidden = false
+		self.anim_state = false
+		self:send_callback("on_stop_anim")
+		return true
+	end
+	CreateTimeEvent("dinamic_hud_send", 1, (self.sound_length*0.9)/1000, stop)
+end
+
+--Автоматически скроем текстуру худа когда это необходимо
+function dinamic_hud:auto_hide_textures()
+	if self.name_texture then
+		if
+			(self.object:bone_position("bip01_head"):distance_to_sqr(device().cam_pos) > 4) or
+			(level.get_active_cam() > 0) or
+			not axr_main.config:r_value("mm_options","enable_mask_hud",1,false)
+		then
+			local wchud = self.HUD:GetCustomStatic(self.name_texture)
+			if wchud then
+				self.HUD:RemoveCustomStatic(self.name_texture)
+			end
+			local wchud = self.object:night_vision_enabled() and self.HUD:GetCustomStatic("hud_nvg")
+			if wchud then
+				self.HUD:RemoveCustomStatic("hud_nvg")
+			end
+			self.state_texture = false
+		else
+			if not self.HUD:GetCustomStatic(self.name_texture) then
+				self.HUD:AddCustomStatic(self.name_texture)
+			end
+			if self.object:night_vision_enabled() and not self.HUD:GetCustomStatic("hud_nvg") then
+				self.HUD:AddCustomStatic("hud_nvg",true)
+			end
+			self.state_texture = true
+		end
+	end
+end
+
+--Переключим текстуру для ПНВ
+function dinamic_hud:on_night_vision(state)
+	if self:is_mask() and not self:is_anim() then
+		self.pnv_status[self:current_helmet():id()] = state
+
+		if state then
+			self.HUD:AddCustomStatic("hud_nvg", true)
+		else
+			local wchud = self.HUD:GetCustomStatic("hud_nvg")
+			if wchud then
+				self.HUD:RemoveCustomStatic("hud_nvg")
+			end
+		end
+	end
+end
+
+--Зум при прицеливании.
+function dinamic_hud:zoom(delta)
+	local wpn = self.object:active_item()
+	local cast = wpn and wpn:cast_Weapon()
+	local num_1 = 0
+	local num_2 = 0
+	local num_3 = 1024
+	if cast then
+		local offset = self:get_parameters().offset_hud
+		if offset then
+			if cast:IsZoomed() then
+				if self.zoom_coff < 1*offset then
+					self.zoom_coff = self.zoom_coff+(delta*(offset*0.022))
+				else
+					self.zoom_coff = 1*offset
+				end
+			elseif self.zoom_coff > 0 then
+				self.zoom_coff = self.zoom_coff-(delta*(offset*0.022))
+			else
+				self.zoom_coff = 0
+			end
+				
+			if wpn:section():is_contain("binoc") then
+				num_1 = 100*self.zoom_coff
+				num_2 = 100*self.zoom_coff
+				num_3 = 1024-100*self.zoom_coff
+			else 
+				num_1 = 350*self.zoom_coff
+				num_2 = 175*self.zoom_coff
+				num_3 = 1024-175*self.zoom_coff
+			end
+		end
+	end
+	
+	self.zbias:set(num_1, num_2, 1024, num_3)
+end
+
+function dinamic_hud:actor_on_foot_step(obj, power)
+	if self.state_jitter and self.state_wiggle then
+		local jitter = self:get_parameters().jitter_hud
+		if jitter then
+			if power > 0.4 then
+				self.step_power_jitter = power*jitter
+			else
+				self.step_power_jitter = 0.4*jitter
+			end	
+		end
+		self.wiggle_step = not self.wiggle_step
+	end
+end
+
+--Задать силу тряски (Например при каждом выстреле)
+function dinamic_hud:set_jitter(num)
+	if self:is_mask() and self.state_jitter then
+		local jitter = self:get_parameters().jitter_hud
+		if jitter then
+			self.step_power_jitter = self.step_power_jitter+(num*jitter)
+		end
+	end
+end
+
+--Тряска текстуры при разных событиях.
+function dinamic_hud:jitter(delta)
+	local random_jitter = 0
+	local parameters = self:get_parameters()
+	local wiggle_multiplier = {}
+	if self.state_jitter then
+		local is_jump = level.Actor():is_jump()
+		
+		if is_jump and self.jump_time == 0 then
+			--тряска в момент прыжка
+			self.step_power_jitter = 2*parameters.jitter_hud
+		end
+		
+		if is_jump then
+			if self.jump_time < 2*parameters.jitter_hud then
+				--тряска при приземлении
+				self.jump_time = self.jump_time + (delta*0.1)
+			end
+		else
+			if self.step_power_jitter == 0 then
+				self.step_power_jitter = self.jump_time
+				self.jump_time = 0
+			end
+		end
+		-- расчитываем эффект тряски
+		if self.power_jitter < self.step_power_jitter then
+			self.power_jitter = self.power_jitter+(delta*0.2)
+		elseif self.power_jitter > 0 and self.step_power_jitter == 0 then
+			self.power_jitter = self.power_jitter-(delta*0.2)
+		else
+			self.power_jitter = 0
+			self.step_power_jitter = 0
+		end
+	end
+	
+	--расчитываем эффект покачивания
+	if self.state_wiggle then
+		local get_move = self.object:get_move_magnitude()
+		if get_move > 0 then
+			self.step_power_wiggle = get_move*0.02
+		else
+			self.step_power_wiggle = 1 --возрат в исходное состояние
+		end
+		local wiggle = parameters.wiggle_hud
+		local wiggle_speed = parameters.wiggle_hud_speed
+		local sped_anim = (delta*(wiggle*(self.step_power_wiggle)))*(wiggle_speed*0.03)
+		--смещение в право
+		if (get_move > 0) and not self.wiggle_step then
+			self.wiggle_num.X_rights = self.wiggle_num.X_rights+sped_anim
+		elseif (self.wiggle_num.X_rights > 0) then
+			self.wiggle_num.X_rights = self.wiggle_num.X_rights-(sped_anim*1.3)
+			if self.wiggle_num.X_rights < 0 then
+				self.wiggle_num.X_rights = 0
+			end
+		end
+		--смещение в лево
+		if (get_move > 0) and self.wiggle_step then
+			self.wiggle_num.X_left = self.wiggle_num.X_left+sped_anim
+		elseif (self.wiggle_num.X_left > 0) then
+			self.wiggle_num.X_left = self.wiggle_num.X_left-(sped_anim*1.3)
+			if self.wiggle_num.X_left < 0 then
+				self.wiggle_num.X_left = 0
+			end
+		end
+		--смещение в низ
+		self.wiggle_num.Y_bottom = (self.wiggle_num.X_rights + self.wiggle_num.X_left) * 0.9
+		--смещение в вверх
+		self.wiggle_num.Y_top = (self.wiggle_num.X_rights + self.wiggle_num.X_left) * 0.1
+	end
+	--парсим в новую таблицу
+	for a,b in pairs(self.wiggle_num) do
+		wiggle_multiplier[a] = b*20
+	end
+	
+	--рандом значение для тряски
+	if self.power_jitter > 0 then
+		random_jitter = math.random(self.power_jitter*3, self.power_jitter*9)
+	end
+	self.zbias:set(
+		self.zbias.x1 + random_jitter + wiggle_multiplier.X_left + (self.zoom_texture_hud*5),
+		self.zbias.y1 + random_jitter + wiggle_multiplier.Y_top + (self.zoom_texture_hud*5),
+		self.zbias.x2 + (-random_jitter) + (-wiggle_multiplier.X_rights) + (self.zoom_texture_hud*-5),
+		self.zbias.y2 + (-random_jitter) + (-wiggle_multiplier.Y_bottom) + (self.zoom_texture_hud*-5)
+	)
+end
+
+--Процесс запотевания.
+function dinamic_hud:blurs_progress(delta)
+	if self.name_texture and self:is_mask() and self:is_texture() and self:is_respirator() and self.state_texture then
+		local stretchy = 0.65/(math.floor(device().height/device().width*1000)/1000)
+		if stretchy < 1 then
+			stretchy = 1
+		end
+		local rect = {x = 0,y = -(stretchy-1)*300,w = 1024,h = 768*stretchy}
+		if self.blurcyctime_start then
+			if self.sped_power_2 > self.sped_power then
+				self.blurcyctime_start = false
+			else
+				self.sped_power_2 = self.sped_power_2+self.sped_power*(delta*(self.blurs_effect_start/100))
+			end 
+		elseif (not self.blurcyctime_start) and self.sped_power_2 > 0 then
+			self.sped_power_2 = self.sped_power_2-self.sped_power*(delta*(self.blurs_effect_start/300))
+		end
+		local tm = math.floor(self.sped_power_2*3)
+		local tmn = (tm+1)
+		local v = self.sped_power_2*3-math.floor(self.sped_power_2*3)
+		v = 1-v
+		local v1 = 1-v
+		local n1 = math.ceil(v*10)
+		local n2 = math.ceil(v1*10)
+		for i=1,4 do
+			for ii=1,10 do
+				if (i == tm and ii == n1) then
+					self.blurs[tm][n1]:SetWndRect(Frect():set(rect.x,rect.y,rect.w,rect.h))
+					self.blurs[tm][n1]:SetTextureRect(Frect():set(self.zbias.x1/4,self.zbias.y1/4,self.zbias.x2/4,self.zbias.y2/4))
+				elseif (i == tmn and ii == n2) then
+					self.blurs[tmn][n2]:SetWndRect(Frect():set(rect.x,rect.y,rect.w,rect.h))
+					self.blurs[tmn][n2]:SetTextureRect(Frect():set(self.zbias.x1/4,self.zbias.y1/4,self.zbias.x2/4,self.zbias.y2/4))
+				else
+					self.blurs[i][ii]:SetWndRect(Frect():set(0,0,0,0))
+				end
+			end
+		end
+	else
+		for i,t in ipairs(self.blurs) do
+			for ii,st in ipairs(t) do
+				st:SetWndRect(Frect():set(0,0,0,0))
+			end
+		end
+	end
+end
+
+--Процесс намокания стекла
+function dinamic_hud:glass_wet_progress(delta)
+	if self:is_mask() and self:is_glass() and self:is_texture() then
+		local red_delta = delta*0.005
+		local rain_factor = level.rain_factor()
+		if rain_factor == 0 then return end
+		
+		local hud_rain_drops_num_max = rain_factor*10
+
+		if level.get_roof(db.actor:position()) then
+			if self.drop_glass > 0 then
+				self.drop_glass = self.drop_glass-(0.1*red_delta)
+			end
+			if self.drop_glass < 0 then
+				self.drop_glass = 0
+			end
+		else
+			self.drop_glass = self.drop_glass+(rain_factor * (0.05*red_delta))
+			if self.drop_glass > hud_rain_drops_num_max then
+				self.drop_glass = hud_rain_drops_num_max
+			end
+		end
+	else
+		self.drop_glass = 0
+	end
+
+	level.set_rain_intensity(self.drop_glass)
+end
+
+--Событие дропа, прервём дроп если анимация шлема окончена.
+function dinamic_hud:drop(item)
+	if self:current_helmet() and self:current_helmet():id() == item:id() and self:is_mask() then
+		if not item:parent() then
+			self:callback("on_start_anim", function()
+				db.actor:take_item(item)
+				return true
+			end)
+			
+			self:callback("on_stop_anim", function()
+				db.actor:drop_item(item)
+				return true
+			end)
+		end
+	end
+end
+
+--Зарегистрировать функцию на выполнение по событию.
+function dinamic_hud:callback(name, _func)
+	if not self.t_callback[name] then
+		self.t_callback[name] = {}
+	end
+
+	for k, v in ipairs(self.t_callback[name]) do
+		if v == _func then
+			return true
+		end
+	end
+
+	table.insert(self.t_callback[name], _func)
+end
+
+--Выполнить функции по событию.
+function dinamic_hud:send_callback(name, _func, ...)
+	if self.t_callback[name] then
+		for i, fn in ipairs(self.t_callback[name]) do
+			if fn and fn(...) then
+				table.remove(self.t_callback[name], i)
+			end
+		end
+	end
+end
+
+function dinamic_hud:loud(data)
+	self.pnv_status = data.pnv_status or {}
+end
+
+function dinamic_hud:save(data)
+	data.pnv_status = self.pnv_status
+end
+
+--Включить худ шлема
+function dinamic_hud:enable(obj)
+	AddUniqueCall(function()
+		if (not self:is_mask()) or not self:there_animation(obj) then
+			if (not self.virtual_hidden) then
+				self:send_callback("on_enable")
+				self:start(obj)
+				return true
+			end
+		end
+	end)
+end
+
+--Выключить худ шлема
+function dinamic_hud:disable(obj)
+	AddUniqueCall(function()
+		if self:is_mask() or not self:there_animation(obj) then
+			if (not self.virtual_hidden) then
+				self:send_callback("on_disable")
+				self:start(obj)
+				return true
+			end
+		end
+	end)
+end
+
+--[[Виртуальные действия снятия и надевания шлема (virtual_enable, virtual_disable)]]
+function dinamic_hud:virtual_enable()
+	if not self:current_helmet() then
+		return
+	end
+	AddUniqueCall(function()
+		if (not self:is_mask()) then
+			self.virtual_hidden = true
+			self:send_callback("on_virtual_enable")
+			self:start(self:current_helmet())
+			return true
+		end
+	end)
+end
+
+function dinamic_hud:virtual_disable()
+	if not self:current_helmet() then
+		return
+	end
+	AddUniqueCall(function()
+		if self:is_mask() then
+			self.virtual_hidden = true
+			self:send_callback("on_virtual_disable")
+			self:start(self:current_helmet())
+			return true
+		end
+	end)
+end
+
+--Задать интенсивность запотевания.
+function dinamic_hud:set_blurs(num)
+	if self:is_mask() and self:is_texture() and self:is_respirator() then
+		if self.condition_helmet:is_contain("red") then return end
+		local sped = num*self:get_parameters().blurs
+		self.blurcyctime_start = true
+		if sped > self.blurs_effect_force_max then 
+			self.sped_power = self.blurs_effect_force_max
+		elseif sped < self.blurs_effect_force_min then
+			self.sped_power = self.blurs_effect_force_min 
+		else 
+			self.sped_power = sped
+		end
+	end
+end
+
+--Нанести урон стеклу.
+function dinamic_hud:hit_glass(num)
+	if self:is_glass() and self:is_texture() and self:is_breakable() then
+		if num > 1 then
+			num = 1
+		end
+		if num < 0 then
+			num = 0
+		end
+		local new_cond = self.condition_glass - num
+		if self.condition_glass > new_cond then
+			self:send_callback("on_hit_glass", num)
+			self.condition_glass_prite = self.condition_glass
+			self.condition_glass = new_cond
+			self:hiden_texture()
+		end
+	end
+end
+
+--Починить стекло.
+function dinamic_hud:heal_glass(num)
+	if self:is_glass() and self:is_texture() and self:is_breakable() then
+		if num > 1 then
+			num = 1
+		end
+		if num < 0 then
+			num = 0
+		end
+		local new_cond = self.condition_glass + num
+		if self.condition_glass < new_cond then
+			self:send_callback("on_heal_glass", num)
+			self.condition_glass = new_cond
+			self:hiden_texture()
+		end
+	end
+end
+
+--Обьект шлема (что автоматически даёт понять что шлем надет на актора).
+function dinamic_hud:current_helmet()
+	return self.obj_helmet
+end
+
+-- Активен ли худ маски.
+function dinamic_hud:is_mask()
+	return self:current_helmet() and self.helmet_hidden
+end
+
+--Получить статус ПНВ шлема
+function dinamic_hud:is_pnv_state()
+	local obj = self:current_helmet()
+	if obj then
+		return self.pnv_status[obj:id()] == true
+	end
+end
+
+-- Есть ли текстура худа в хмл.
+function dinamic_hud:there_animation(obj)
+	if is_empty(self:get_parameters(obj)) then
+		return false
+	end
+
+	if IsOutfit(obj) and INI:r_bool_ex(obj:section(), "helmet_allowed", true) then
+		return false
+	end
+
+	return true
+end
+
+-- Есть ли текстура худа в хмл.
+function dinamic_hud:is_texture()
+	if is_empty(self:get_parameters()) then
+		return false
+	end
+	return self:get_parameters().hud and true
+end
+
+-- Хрупкий или нет.
+function dinamic_hud:is_breakable()
+	if is_empty(self:get_parameters()) then
+		return false
+	end
+	return self:get_parameters().breakable
+end
+
+-- Есть ли репиратор.
+function dinamic_hud:is_respirator()
+	if is_empty(self:get_parameters()) then
+		return false
+	end
+	return self:get_parameters().gas_mask
+end
+
+-- Есть ли стекло.
+function dinamic_hud:is_glass()
+	if is_empty(self:get_parameters()) then
+		return false
+	end
+	return self:get_parameters().blurs and self:get_parameters().blurs > 0
+end
+
+-- Можно ли в шлеме есть.
+function dinamic_hud:is_can_eat()
+	return not (self:is_respirator() and self:is_glass())
+end
+
+-- Запущена ли анимация.
+function dinamic_hud:is_anim()
+	return self.anim_state
+end
+
+--Подключаем внешние события.
+function on_game_start()
+	RegisterScriptCallback("actor_on_breath", function(state, num)
+		if state then
+			db.actor.dinamic_hud:set_blurs(num)
+		end
+	end)
+
+	local m_data_hud = {}
+	RegisterScriptCallback("load_state", function(m_data)
+		m_data_hud = m_data.dinamic_hud_data or {}
+	end)
+
+	RegisterScriptCallback("save_state",function(m_data)
+		if not m_data.dinamic_hud_data then
+			m_data.dinamic_hud_data = {}
+		end
+		db.actor.dinamic_hud:save(m_data.dinamic_hud_data)
+	end)
+
+	RegisterScriptCallback("actor_on_create", function(actor)
+		actor.dinamic_hud = dinamic_hud(actor)
+		AddUniqueCall(function()
+			if db.actor then
+				local delta = time_global_delta("dinamic_hud")/5
+				if delta >= 15 then return end
+				actor.dinamic_hud:update(delta)
+			end
+		end)
+		actor.dinamic_hud:loud(m_data_hud)
+
+		RegisterScriptCallback("actor_on_foot_step", function(...)
+			actor.dinamic_hud:actor_on_foot_step(...)
+		end)
+	end)
+
+	RegisterScriptCallback("actor_on_first_update", function()
+		db.actor.dinamic_hud.obj_helmet = db.actor:item_in_slot(12) or db.actor:get_current_outfit()
+
+		if db.actor.dinamic_hud.obj_helmet then
+			if is_empty(db.actor.dinamic_hud:get_parameters()) then
+				db.actor.dinamic_hud.obj_helmet = false
+				return
+			end
+			db.actor.dinamic_hud.helmet_hidden = true
+			db.actor.dinamic_hud:hiden_texture()
+		end
+
+		RegisterScriptCallback("opt_menu_on_accept", function()
+			db.actor.dinamic_hud:find_status_options()
+		end)
+	
+		RegisterScriptCallback("actor_on_night_vision", function(state)
+			db.actor.dinamic_hud:on_night_vision(state)
+		end)
+
+		RegisterScriptCallback("actor_on_item_drop", function(item)
+			db.actor.dinamic_hud:drop(item)
+		end)
+	end)
+end

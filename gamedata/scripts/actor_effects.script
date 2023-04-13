@@ -1,0 +1,476 @@
+local upd_time = 0
+local time_disabled = 0
+
+function on_game_start()
+	--RegisterScriptCallback("actor_on_info_callback",process_pda_infoportion)
+	local function on_first_update()
+		RegisterScriptCallback("actor_on_item_use", use_item_obj)
+		RegisterScriptCallback("actor_on_update", update)
+		RegisterScriptCallback("actor_item_to_slot", put_on_item)
+		RegisterScriptCallback("actor_item_to_ruck", item_on_ruck)
+		RegisterScriptCallback("actor_on_item_drop", item_on_ruck)
+		RegisterScriptCallback("actor_on_before_death", actor_on_before_death)
+		RegisterScriptCallback("actor_on_hit_callback", actor_on_hit)
+		RegisterScriptCallback("actor_on_jump", on_jump)
+		RegisterScriptCallback("actor_on_climb", on_climb)
+		RegisterScriptCallback("actor_on_foot_step", actor_on_foot_step)
+	end
+	-- RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("load_state", load_state)
+	RegisterScriptCallback("save_state", save_state)
+	RegisterScriptCallback("actor_on_first_update", on_first_update)
+	RegisterScriptCallback("physic_object_on_use_callback", object_on_use_callback)
+	RegisterScriptCallback("npc_on_body_search", object_on_use_callback)
+end
+
+function actor_on_before_death()
+	UnregisterScriptCallback("actor_on_item_use", use_item_obj)
+	UnregisterScriptCallback("actor_on_update", update)
+	UnregisterScriptCallback("actor_item_to_slot", put_on_item)
+	UnregisterScriptCallback("actor_item_to_ruck", item_on_ruck)
+	UnregisterScriptCallback("actor_on_item_drop", item_on_ruck)
+	UnregisterScriptCallback("actor_on_hit_callback", actor_on_hit)
+	UnregisterScriptCallback("physic_object_on_use_callback", object_on_use_callback)
+	UnregisterScriptCallback("npc_on_body_search", object_on_use_callback)
+	level.remove_cam_effector()
+end
+local item_fx = actor_effects_data.item_fx
+local item_in_use = {}
+
+function use_item_obj(item)
+	if (item) then
+		use_item(item:section())
+	end
+end
+
+function use_item(name)
+	if not db.actor:alive() then return end --death anim fix
+	--if (axr_main.config:r_value("mm_options","enable_extra_animations",1,false) == false) then return end
+	--printf("itemfx = %s",name)
+	--this and use_item_update were redone by MAGILA
+	local t = time_global()
+	local name_if_radiated = name:exclude("_radiated")
+	local name_decided = item_fx[name] and name or item_fx[name_if_radiated] and name_if_radiated
+	if item_fx[name_decided] and (t > time_disabled) then
+		local anim_time = item_fx[name_decided]
+		if type (anim_time) == 'string' then
+			anim_time = item_fx[anim_time]
+		end
+		if type (anim_time) ~= 'string' and anim_time['inheritance'] then
+			local anim_time_bekup = item_fx[anim_time['inheritance']]
+				
+			for k, v in pairs(item_fx[anim_time['inheritance']]) do
+				if anim_time[k] then
+					anim_time_bekup[k] = anim_time[k]
+				end
+			end
+			for k, v in pairs(anim_time) do
+				if (not anim_time_bekup[k]) and type (k) == "number" then
+					anim_time_bekup[k] = v
+				end
+			end
+			anim_time = anim_time_bekup
+		end
+		local new_obj = {}
+		for k, v in pairs(anim_time) do
+			new_obj[t+k] = v
+		end
+		item_in_use[name_decided] = new_obj
+	end
+end
+
+function use_item_update()
+	local in_use = true
+
+	for k, v in pairs(item_in_use) do
+		for milli, action in pairs(v) do
+			if time_global() >= milli then
+				if type (action) == "function" then
+					if action() then
+						item_in_use[k] = nil
+						return false
+					end
+				else
+					assert(loadstring(action))()
+				end
+				item_in_use[k][milli] = nil
+			end
+			in_use = not action
+		end
+	end
+	if in_use then 
+		item_in_use = {}
+		return true
+	 end
+end
+
+function update()
+	LimitUpdate(actor_condition, 0.07)
+	
+	LimitUpdate(bleedcondition, 0.4, time_global())
+	
+	use_item_update()
+end
+------------------------------------------------------------------
+local items_slot = {}
+function item_on_ruck(obj)
+	local id = obj:id()
+	if not IsSlotted(obj) then
+		for _,ids in ipairs(items_slot) do
+			if id == ids then
+				if has_alife_info("bar_arena_fight") then
+					db.actor.dinamic_hud:Remove()
+					return
+				end
+
+				local function RemoveSlott()
+					for i,ids in ipairs(items_slot) do
+						if id == ids then
+							table.remove(items_slot, i)
+							break
+						end
+					end
+				end
+
+				if IsOutfit(obj) then
+					db.actor.dinamic_hud:disable(obj)
+					RemoveSlott()
+				elseif IsHeadgear(obj) then
+					db.actor.dinamic_hud:disable(obj)
+					RemoveSlott()
+				elseif IsBackpack(obj) then
+					use_item("backpack")
+					RemoveSlott()
+				end
+				break
+			end
+		end
+	end
+end
+
+function put_on_item(obj)
+	if IsSlotted(obj) then
+		local id = obj:id()
+		for _,ids in ipairs(items_slot) do
+			if id == ids then
+				return
+			end
+		end
+
+		if IsOutfit(obj) then
+			table.insert(items_slot, id)
+			db.actor.dinamic_hud:enable(obj)
+		elseif IsHeadgear(obj) then
+			table.insert(items_slot, id)
+			db.actor.dinamic_hud:enable(obj)
+		elseif IsBackpack(obj) then
+			table.insert(items_slot, id)
+			use_item("backpack")
+		end
+	end
+end
+
+--Visual and sound effects when hitting actor
+function actor_on_hit(actor, amount, direction, who, bone_index, hit_type)
+	local ht = {
+		[hit.fire_wound] = true,
+		[hit.burn] = true,
+		[hit.strike] = true
+	}
+
+	if ht[hit_type] then
+		-- The character's reaction to damage on it
+		if amount > 0.1 then
+			level.add_pp_effector("amk_shoot.ppe",2011,false)
+			level.set_pp_effector_factor(2011, amount)
+			local cameffs
+			local sounds
+			if amount > 0.6 then
+				level.add_pp_effector("total_recall.ppe",2016,false)
+				level.set_pp_effector_factor(2016, amount)
+				cameffs = {"head_shot"}
+				sounds = {"pain_4","pain_1","hit_5","hit_6"}
+			else
+				cameffs = {"shell_shock","hit_front","hit_right","hit_back","hit_left","hit_front_left","hit_back_left","hit_front_right","hit_back_right"}
+				sounds = {"pain_2","pain_3","pain_5","pain_6","pain_7","pain_8"}
+			end
+			level.add_cam_effector(string.add_all("camera_effects\\", cameffs[math.random(#cameffs)], ".anm"))
+			db.actor:play_sound(string.add("actor\\", sounds[math.random(#sounds)]), 2)
+		end
+
+		-- Start animation when actor gets hit in the arms and drop items
+		if db.actor:has_info("anim_hands_status") then return end
+		local power_fracture = 0.4
+		local critical_damage = 0.5
+		local item = actor:active_item()
+		local item_section = item and item:section()
+		if item_section then
+			local condition = db.actor:cast_Actor():conditions()
+			local la = (bone_index >= 21 and bone_index <= 33) and (condition:GetFracture(3) >= power_fracture or amount >= critical_damage)
+			local ra = (bone_index >= 34 and bone_index <= 47) and (condition:GetFracture(4) >= power_fracture or amount >= critical_damage)
+			local single = INI:r_float_ex(item:section(),"single_handed", false)
+			if single and ra or ra or la then
+				local condition = item:condition()
+				condition = condition - 0.01
+
+				if item_section:is_contain("wpn_binoc") then
+					if (condition >= 0.1) then
+						item:set_condition(condition)
+					else
+						actor:move_to_ruck(item)
+						SetHudMsg(game.translate_string("st_bino_defected"),4)
+					end
+				else
+					item:set_condition(condition)
+					actor:drop_item(item)
+					StartAnimHands(false,false,false,{
+						use = "hit",
+						section = "anm_hit"
+					})
+				end
+			end
+		end
+	end
+end
+-----------------------------------------------------------------------------
+
+--Dosimeter, quiet mode by MAGILA.
+local detector_quiet_mode = {}
+function quiet_mode_action_functor(item)
+	if detector_quiet_mode[item:id()] then
+		detector_quiet_mode[item:id()] = false
+	else
+		detector_quiet_mode[item:id()] = true
+	end
+	use_item("detector_quiet_mode")
+end
+
+function quiet_mode_functor(item)
+	if detector_quiet_mode[item:id()] then
+		return game.translate_string("st_enable_sound")
+	else
+		return game.translate_string("st_disable_sound")
+	end
+end
+
+-- local on_key_quiet_mode = 0 --закомментировано из за проблемы определения key_bindings.kDETECTOR
+-- local time_key = 0.4 --время за которое необходимо успеть нажать 2 раза
+-- function on_key_press(key)
+-- 	if not db.actor:alive() then return end --death
+-- 	if dik_to_bind(key) == key_bindings.kDETECTOR then -- исправить.
+-- 		on_key_quiet_mode = on_key_quiet_mode + 1
+-- 		if on_key_quiet_mode == 1 then
+-- 			CreateTimeEvent("on_key_quiet_mode",0,time_key,function()
+-- 				if on_key_quiet_mode >= 2 then
+-- 					local item = db.actor:object("dosimeter")
+-- 					quiet_mode_action_functor(item)
+-- 				end
+-- 				on_key_quiet_mode = 0
+-- 				return true
+-- 			end)
+-- 		end
+-- 	end
+-- end
+
+function actor_condition()
+	local conditions = level.Actor():conditions()
+	local SensorRad = conditions:GetSensorRad()*25*10
+	local radiation = db.actor.radiation
+
+	if radiation > 0 or SensorRad > 0 then
+		if radiation < SensorRad then
+			radiation = SensorRad
+		end
+		if math.random(100)<(radiation*100) then
+			-- No sounds without dosimeter detector by Surs
+			local counter = db.actor:object("dosimeter")
+			if counter and radiation>0.005 then
+				local frequency = 0.8+(radiation/3)
+				if frequency > 1.3 then frequency = 1.3 end
+				frequency = frequency-(math.random(30)/1000)
+				if (not counter:get_item_battery_dead() and not detector_quiet_mode[counter:id()]) then 
+					CreateSound("device\\detectors\\geiger", 2):set_frequency(frequency):default_play()
+				end
+			end
+		end
+	end
+end
+
+------------------------------------------------------------------------------
+local isactcondset --статус маленький уровень хп или нет
+local bleeding_effect = 0 -- таймер эффекта кровотичения
+local ble
+local pain_effect
+local pain_effect_2 = 0
+local pain_critical = 0.9 -- сильная боль
+local pain_no_critical = 0.2 -- слабая боль
+function bleedcondition(time)
+	local get_pain = db.actor:cast_Actor():conditions():GetPain()
+
+	--если боль сильная
+	if get_pain > pain_critical and not pain_effect then
+		level.add_pp_effector("pain.ppe", 200013, true)
+		pain_effect = true
+	elseif get_pain < pain_critical and pain_effect then
+		level.remove_pp_effector(200013)
+		pain_effect = false
+	end
+
+	--если боль слабая
+	if get_pain > pain_no_critical and pain_effect_2 < time  then
+		pain_effect_2 = time+math.random(4000,30000)
+		level.add_pp_effector("pain_2.ppe", 200014, false)
+		level.set_pp_effector_factor(200014, get_pain)
+	end
+
+	--если маленький уровень хп
+	if db.actor.health < 0.31 and not isactcondset then
+		level.add_pp_effector("alcohol.ppe",2012,true)
+		isactcondset = true
+	elseif db.actor.health > 0.30 and isactcondset then
+		level.remove_pp_effector(2012)
+		isactcondset = false
+	end
+
+	--если у нас кровотичение!
+	if db.actor.bleeding > 0.01 and bleeding_effect < time then
+		bleeding_effect = time+math.random(1000,6000)
+		level.add_pp_effector("escape.ppe",2014, false)
+		level.set_pp_effector_factor(2014, db.actor.bleeding)
+	end 
+	
+	if db.actor.bleeding > 0.4 and db.actor.power < 0.35 and not ble then
+		level.add_cam_effector("camera_effects\\pripyat_horror.anm")
+		level.add_pp_effector("snd_shock.ppe",2015,false)
+		ble = true
+	elseif db.actor.bleeding < 0.2 or db.actor.power > 0.7 and ble then
+		level.remove_pp_effector(2015)
+		ble = false
+	end
+end
+
+--The effect of pain when walking after injuries by MAGILA.
+local function pain_effect_step(obj, power)
+	local conditions = obj:cast_Actor():conditions()
+	--если травма ног/головы/туловища
+	local travm = conditions:GetFracture(5) > 0.2 or conditions:GetFracture(6) > 0.2 or conditions:GetFracture(1) > 0.8 or conditions:GetFracture(2) > 0.7
+	local get_pain = conditions:GetPain()
+	if travm then
+		if power > 0.9 then
+			db.actor:play_sound(string.add("actor\\pain_", tostring(math.random(1,8))), 2)
+			if get_pain < pain_critical then conditions:SetPain(get_pain + (power*0.05)) end
+			conditions:SetPower(conditions:GetPower()*0.6)
+			level.add_pp_effector("pain_2.ppe", 200015, false)
+			level.set_pp_effector_factor(200015, get_pain)
+		else
+			conditions:SetPain(get_pain + (power*0.01))
+		end
+	end
+end
+
+--- Feedback effect from item in hands while jumping and landing by MAGILA.
+local function jump_weapon_anim(obj)
+	local wpn = obj:active_item()
+	if wpn and not TableAnimHands().AnmCheck(wpn) then
+		local state = wpn:get_state()
+		if state <= 3 and state ~= 0 then return end
+		if state ~= 7 and state ~= 19 then
+			local anm_jump = "anm_jump"
+			local function new_anm_jump(strng_do)
+				if INI:line_exist(INI:r_string_ex(wpn:section(), "hud"), anm_jump:add(strng_do)) then
+					anm_jump = anm_jump:add(strng_do)
+				end
+			end
+				
+			if wpn:get_launcher_sect() ~= "" then
+				new_anm_jump("_g")
+			elseif wpn:get_ammo_total() == 0 and IsPistol(wpn) then
+				new_anm_jump("_empty")
+			elseif IsShotgun(wpn) and not IsMultiLoad(wpn) then
+				new_anm_jump(string.add("_", wpn:get_ammo_total()))
+			end
+
+			if INI:line_exist(INI:r_string_ex(wpn:section(), "hud"), anm_jump) then
+				wpn:switch_state(21)
+				local function stop_effect()
+					if wpn:get_state() == 21 then
+						wpn:switch_state(0)
+					end
+					return true
+				end
+				RemoveTimeEvent("stop_effect_wpn_jumping", 0)
+				CreateTimeEvent("stop_effect_wpn_jumping", 0, ((wpn:play_hud_motion(anm_jump, true, 21)*0.8)/1000), stop_effect)
+			end
+		end
+	end
+end
+
+function actor_on_foot_step(obj, power, b_play, b_on_ground, b_hud_view, material_name)
+	pain_effect_step(obj, power)
+end
+
+function on_jump(obj, jump, time)
+	if time > 500 or jump then
+		pain_effect_step(obj, 1)
+		jump_weapon_anim(obj)
+	end
+end
+
+--Quickly hide the weapon when climbing pn ladder by MAGILA
+local anim_speed = 1
+function on_climb(obj, boolean)	 
+	local function default_hud()
+		if obj:active_slot() == 0 then
+			level.Actor():setHudAnimSpeed(anim_speed)
+			return true
+		end
+	end
+	
+	if boolean then
+		anim_speed = level.Actor():getHudAnimSpeed()
+		local active_slot = obj:active_slot()
+		if active_slot ~= 0 then
+			level.Actor():setHudAnimSpeed(20)
+			AddUniqueCall(default_hud)
+		end
+	else
+		level.Actor():setHudAnimSpeed(anim_speed)
+		RemoveUniqueCall(default_hud)
+	end
+end
+
+--Make the player sit down and stand up when opening inv_box by MAGILA
+function object_on_use_callback(box, who)
+	if who and db.actor and who:id() == db.actor:id() and (IsInvbox(box) or IsStalker(box)) then
+		local pos_cam = alun_utils.safe_bone_pos(db.actor, db.actor:get_bone_name(15))
+		local Y_POS = pos_cam.y - box:position().y
+		local dist = 0.65	--the distance at which to prohibit the action.
+		if Y_POS > dist or Y_POS < -dist then
+			AddUniqueCall(function()
+				if ActorMenu.get_menu_mode() ~= 0 then
+					local cactor = level.Actor()
+					if not cactor:is_crouch() then
+						cactor:ChangeStateCrouch(1)
+						local function menu_mode(mode)
+							if mode == 0 then
+								cactor:ChangeStateCrouch(3)
+								UnregisterScriptCallback("actor_menu_mode_changed", menu_mode)
+							end
+						end
+						RegisterScriptCallback("actor_menu_mode_changed", menu_mode)
+					end
+				end
+				return true
+			end)
+		end
+	end
+end
+
+function save_state(m_data)
+	m_data.detector_quiet_mode = detector_quiet_mode
+	m_data.active_items_slot = items_slot
+end
+function load_state(m_data)
+	detector_quiet_mode = m_data.detector_quiet_mode or {}
+	items_slot = m_data.active_items_slot or {}
+end

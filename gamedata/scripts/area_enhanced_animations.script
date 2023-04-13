@@ -1,0 +1,881 @@
+-------------------------------------------------------------------------------------------------
+--	A.R.E.A enhanced animations by MAGILA
+--	version: 1.2.1 (27.10.2022)
+-------------------------------------------------------------------------------------------------
+
+anim_hands = {} 
+anim_hands.effects = {}
+anim_hands.action_delay = {}
+local CallbackTable = {}
+--------------------------
+--CallbackEvent - these are the callbacks of the script events
+--CallbackEvent('start_anim') - this is the animation launch event
+--CallbackEvent('stop_anim') - this is the animation stop event
+--CallbackEvent('anim_update') - this is an animation update event
+--CallbackEvent('animation_control') - this is a Unique controller for controlling the current animation
+function CallbackEvent(name,func)
+	if not name or type(name) ~= "string" then
+		printf("!ERROR: CallbackEvent argument 1 is empty or not a string!")
+		return
+	end
+	if not func or type(func) ~= "function" then
+		printf("!ERROR: CallbackEvent argument 2 is not a function!")
+		return
+	end
+	if not CallbackTable[name] then
+		CallbackTable[name] = {}
+	end
+	table.insert(CallbackTable[name], func)
+end
+
+local function CallbackPlay(name,...)
+	local play = false
+	if CallbackTable[name] then
+		for id,func in pairs(CallbackTable[name]) do
+			func(anim_hands,...)
+			play = true
+		end
+	end
+	return play
+end
+-------------------------
+function on_game_start()
+	DefaultDOF()
+	local function actor_on_first_update()
+		RegisterScriptCallback("actor_on_item_pickup",on_item_pickup)
+		RegisterScriptCallback("actor_on_item_take",on_item_take)
+		RegisterScriptCallback("actor_item_to_slot",on_to_slot)
+		RegisterScriptCallback("actor_on_hud_animation_end",hud_animation_end)
+		RegisterScriptCallback("actor_on_before_death",stop_animation_hands)
+		RegisterScriptCallback("inventory_box_can_take",inventory_box_can_take)
+		RegisterScriptCallback("on_before_item_use",use_item)
+		RegisterScriptCallback("on_key_release", function(key)
+			if dik_to_bind(key) == key_bindings.kACCEL and not anim_hands.status then
+				anim_hands.pickup_to_backpack = false
+			end
+		end)
+		RegisterScriptCallback("on_key_hold", function(key)
+			if dik_to_bind(key) == key_bindings.kACCEL and not anim_hands.status then
+				anim_hands.pickup_to_backpack = true
+			end
+		end)
+	
+		db.actor:set_torch_key_ignore(true)
+		db.actor:set_nv_key_ignore(true)
+		db.actor:set_torchmode_key_ignore(true)
+		if not anim_hands.status then
+			disable_info("anim_hands_status")
+		end
+		db.actor:iterate_inventory(function(actor,item)
+			if anim_hands.AnmCheck(item) then
+				local del = alife_object(item:id())
+				if del then
+					alife():release(del,true)
+				end
+			end
+		end)
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	RegisterScriptCallback("on_key_press",on_key_press)
+end
+
+local function sit_down(table,state)
+	local item_pos = table.item_pickup_pos
+	if item_pos then
+		local pos_cam = alun_utils.safe_bone_pos(db.actor, db.actor:get_bone_name(15))
+		local Y_POS = pos_cam.y - item_pos.y
+		local dist = 0.65	--the distance at which to prohibit the action.
+		if (Y_POS > dist or Y_POS < -dist) then
+			local cactor = level.Actor()
+			if not cactor:is_crouch() then
+				cactor:ChangeStateCrouch(state)
+				CallbackEvent("stop_anim", function(table)
+					RemoveTimeEvent("hud_hands_stop_anim", 0)
+					CreateTimeEvent("hud_hands_stop_anim", 0, 0.3, function()
+						if table.status then
+							ResetTimeEvent("hud_hands_stop_anim", 0, 0.3)
+							return false
+						end
+						level.Actor():ChangeStateCrouch(3)
+						return true
+					end)
+				end)
+			end
+		end
+	end
+end
+
+--starting the function when the item take animation starts
+anim_hands.effects["take"] = function(table)	
+	sit_down(table,1)
+	level.add_cam_effector("camera_effects\\actor_move\\go_front.anm")
+end
+
+--starting the function the animation of butchering corpse
+anim_hands.effects["knife"] = function(table)
+	sit_down(table,2)
+	level.add_cam_effector("camera_effects\\items_use\\harvest_lean_down_main.anm") --Running Squatting Animation
+end
+
+--Get a section for the pickup animation
+function anim_hands.pikup_section()
+	local sec_anim = "anm_pickup"
+	if anim_hands.pickup_to_backpack then return sec_anim end
+	local active_item = db.actor:active_item()
+	
+	if active_item and not IsKnife(active_item) and not anim_hands.AnmCheck(active_item) then
+		local state = active_item:get_state()
+		if state == 0 or state == 19 then
+			sec_anim = sec_anim:add("_l")
+		end
+	end
+	return sec_anim
+end
+
+--------------------------------------------------------------
+-- Run the animation and all related methods
+-- control_block = (true/false) - lock the control before starting the animation and unlock it only when it is finished
+-- block_ini_slot = (true/false) - Block the initialization of the active slot before starting the animation
+-- item_interaction = (true/false) - Interaction of the animation with the active item in the hands
+-- table_parameters = (table) - Table for filling in the animation data table
+function start_animation_hands(control_block,block_ini_slot,item_interaction,table_parameters)
+	if not db.actor or not db.actor:alive() or device():is_paused() then return anim_hands end
+	if anim_hands.status then
+		stop_animation_hands()
+	end
+	anim_hands.supplement_data_table(table_parameters)
+	anim_hands.status = true
+	give_info("anim_hands_status")
+	level.Actor():BlockItemsInput(1)
+	if control_block then
+		anim_hands.control_block = true
+		level.disable_input()
+	end
+	if not block_ini_slot then
+		if not anim_hands.active_slot or anim_hands.active_slot == 0 then
+			anim_hands.active_slot = db.actor:active_slot()
+			if anim_hands.active_slot == 0 then anim_hands.active_slot = actor_menu.active_slot end
+		end
+	end
+	
+	if anim_hands.section and INI:section_exist(anim_hands.section) then 
+		anim_hands.obj = alife():create(anim_hands.section, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+	else
+		printf("!ERROR: function start_animation_hands() animation section not found '%s'",anim_hands.section)
+		stop_animation_hands()
+		return anim_hands
+	end
+
+	anim_hands.slot = INI:r_float_ex(anim_hands.section,"slot", 14) + 1
+
+	local actor_menu = ActorMenu.get_actor_menu()
+	if (actor_menu and actor_menu:IsShown()) then
+		actor_menu:HideDialog()
+	end
+
+	AddUniqueCall(function()
+		if db.actor and not db.actor:alive() then
+			stop_animation_hands()
+			return true
+		end
+		if anim_hands.obj then
+			local detector = db.actor:active_detector() or db.actor:active_flashlight()
+			if detector then
+				--safely hide the detector and only then start the animation
+				if detector:get_state() ~= 2 then
+					detector:switch_state(2)
+				end
+				return false
+			end
+
+			local wpn = db.actor:active_item()
+
+			if item_interaction and INI:r_float_ex(INI:r_string_ex(anim_hands.section, "hud"), "attach_place_idx", 0) == 1 and wpn and not anim_hands.pickup_to_backpack then
+				local hands = db.actor:item_in_slot(anim_hands.slot)
+				if not hands then return false end
+
+				--animation of the weapon in the right hand
+				local _start = "anm_use_start"
+				local _end = "anm_use_end"
+
+				if wpn:get_launcher_sect() ~= "" then
+					_start = "anm_use_g_start"
+					_end = "anm_use_g_end"
+				elseif IsShotgun(wpn) and not IsMultiLoad(wpn) then
+					local new_anim = string.add("_", wpn:get_ammo_total())
+					local hud = INI:r_string_ex(wpn:section(), "hud")
+					if INI:line_exist(hud, _start:add(new_anim)) and INI:line_exist(hud, _end:add(new_anim)) then
+						_start = _start:add(new_anim)
+						_end = _end:add(new_anim)
+					end
+				end
+
+				if (anim_hands.pickup) or (anim_hands.door) then
+					_start = _end
+				end
+
+				if INI:line_exist(INI:r_string_ex(wpn:section(), "hud"), _start) and level.get_active_cam() == 0 then
+					wpn:switch_state(19)
+					wpn:play_hud_motion(_start, true, 19)
+					if not anim_hands.pickup then
+						CallbackEvent("stop_anim",function()
+							level.Actor():BlockItemsInput(1)
+						end)
+					end
+					local function right_hand_animation(item,section,motion,state,slot)
+						if state == 19 then
+							local function stop()
+								level.Actor():BlockItemsInput(0)
+								item:switch_state(0)
+								UnregisterScriptCallback("actor_on_hud_animation_end",right_hand_animation)
+							end
+							if motion:ended_with("_end") then
+								stop()
+							elseif motion:ended_with("_start") then
+								if item:play_hud_motion(_end, true, 19) == 0 then
+									stop()
+								end
+							end
+						end
+					end
+					RegisterScriptCallback("actor_on_hud_animation_end",right_hand_animation)
+				end
+				
+				hands:play_script_animation()--Release the left hand for secondary animation
+			elseif db.actor:active_slot() ~= anim_hands.slot then
+				actor_hide_wpn(false)
+				db.actor:activate_slot(anim_hands.slot)
+				return false
+			end
+			
+			for id,fun in pairs(anim_hands.effects) do
+				if anim_hands.use and id then 
+					if type(id) == "string" and (id == anim_hands.use or id:is_contain(anim_hands.use) or anim_hands.use:is_contain(id)) then
+						if fun and type(fun) == "function" then
+							fun(anim_hands)
+						end
+					end
+				end
+			end
+
+			local cam = INI:r_string_ex(anim_hands.section, "anim_camera", false) or false
+			if cam then --If there is a camera pointer in the table
+				level.add_cam_effector(cam, anim_hands.obj.id, false)
+			end
+			
+			local ppe = INI:r_string_ex(anim_hands.section, "anim_ppe", false) or false
+			if ppe then --If a table has a pointer to a post process
+				level.add_pp_effector(ppe, anim_hands.obj.id, false)
+			end
+
+			if INI:section_exist(anim_hands.section, "action_delay") then
+				-- execution of the function after some time specified in the animation section (light_delay)
+				CreateTimeEvent("perform_an_action", 0, INI:r_float_ex(anim_hands.section,"action_delay", 0), function()
+					if not anim_hands.status then return true end
+					for id,fun in pairs(anim_hands.action_delay) do
+						if anim_hands.use and id then 
+							if type(id) == "string" and (id == anim_hands.use or id:is_contain(anim_hands.use) or anim_hands.use:is_contain(id)) then
+								if fun and type(fun) == "function" then
+									fun(anim_hands)
+								end
+							end
+						end
+					end
+					return true
+				end)
+			end
+
+			level.Actor():BlockItemsInput(1)
+
+			anim_hands.fov = INI:r_float_ex(anim_hands.section, "hud_fov")
+			if anim_hands.fov then
+				local global_fov = get_console():get_float("fov")/125
+				if global_fov > anim_hands.fov then
+					anim_hands.fov = anim_hands.fov - (global_fov - anim_hands.fov)
+				else
+					anim_hands.fov = anim_hands.fov + (anim_hands.fov - global_fov)
+				end
+				game.set_hud_fov(anim_hands.fov)
+			end
+			
+			CallbackPlay("start_anim", anim_hands.obj)
+		end
+		
+		AddUniqueCall(function()
+			if anim_hands.status then
+				--And if we have banned weapons in our hands, let's return them.
+				actor_hide_wpn(false)
+				--Callback event
+				CallbackPlay("anim_update", anim_hands)
+			else
+				actor_hide_wpn(false)
+				disable_info("anim_hands_status")
+				return true
+			end
+		end)
+		return true
+	end)
+
+	return anim_hands
+end
+
+-- Force abort the animation or execute the function after the animation is finished.
+function stop_animation_hands()
+	db.actor:iterate_inventory(function(actor, item)
+		if anim_hands.AnmCheck(item) then
+			local del = alife_object(item:id())
+			if del then
+				alife():release(del, true)
+			end
+		end
+	end, db.actor)
+
+	if anim_hands.control_block then
+		level.enable_input()
+	end
+
+	anim_hands.status = false
+	anim_hands.use = nil
+	anim_hands.section = nil
+	level.Actor():BlockItemsInput(0)
+	anim_hands.pickup_to_backpack = false
+	game.set_hud_fov(get_console():get_float("hud_fov"))
+	CallbackPlay("stop_anim")
+	CallbackTable = {}
+	anim_hands.obj = nil
+
+	return anim_hands
+end
+
+-- Fills in new data in the animation data table
+function anim_hands.supplement_data_table(table)
+	if table and type(table) == "table" then
+		for id, value in pairs(table) do
+			local tabl_type = type(value)
+			if tabl_type == "table" then
+				for id_2, value_2 in pairs(value) do
+					if type(value_2) == "function" then
+						anim_hands[id][id_2] = value_2
+					end
+				end
+			else
+				anim_hands[id] = value
+			end
+		end
+	end
+end
+
+-- Return weapon if it was previously in your hands
+local function return_weapon()
+	if not anim_hands.status and not anim_hands.pickup then
+		if db.actor and not db.actor:alive() or not anim_hands.return_weapon then
+			return true
+		end
+		local active_slot = db.actor:active_slot()
+		if active_slot ~= anim_hands.active_slot then
+			db.actor:activate_slot(anim_hands.active_slot)
+		else
+			anim_hands.return_weapon = false
+			anim_hands.active_slot = 0
+			return true
+		end
+	end
+end
+
+function anim_hands.return_the_weapon()
+	anim_hands.return_weapon = true
+	AddUniqueCall(return_weapon)
+	return anim_hands
+end
+
+-- Stop animation when it ends
+function hud_animation_end(item,section,motion,state,slot)
+	if anim_hands.AnmCheck(item) then
+		if CallbackPlay("animation_control",item,section,motion,state,slot) then
+			--Unique Animation control launch event
+			return false
+		end
+		--Normal animation playback and completion
+		stop_animation_hands()
+	end
+end
+
+-- Pick up the item that was placed in the slot if necessary
+function on_to_slot(item)
+	if item and anim_hands.status and not anim_hands.AnmCheck(item) and anim_hands.active_slot == 0 then
+		local id = item:id()
+		for i=1, 14 do
+			local item_slot = db.actor:item_in_slot(i)
+			if (item_slot and IsWeapon(item_slot) and item_slot:id() == id) then 
+				anim_hands.active_slot = i
+				break
+			end
+		end
+	end
+end
+
+-- Display the information that we picked up the item and put it in the backpack
+function inventory_box_can_take(box, item)
+	if (not anim_hands.pickup) or item:id() ~= anim_hands.pickup_item_id then return end
+	local box_section = box:section()
+	if box:id() == db.actor:id() or box_section:match("(no_backpack_[%w_]*)") or box_section:match("(no_[%w_]*container)") then
+		if axr_main.config:r_value("mm_options","enable_pickup_info", 1, false) then
+			local title = game.translate_string("st_pickup_item")
+			db.actor:hud_notification(title, string.add("%c[green]", item:get_inv_name()), "ui_inGame2_Predmet_poluchen", 0, 1200)
+		end
+	end
+end
+
+-- Handling events when items are added to inventory during animation
+function on_item_take(item)
+	if not anim_hands.AnmCheck(item) then
+		local section = item:section()
+		local clsid = item:clsid()
+
+		if anim_hands.use == "take_monster_loot" and clsid then
+			anim_hands.item_snd = area_sounds.get_take_sound(section, clsid)
+		elseif anim_hands.use == "knife" then
+			local Hanim = section and INI:r_string_ex(section, "harvest_anim", nil)
+			if not Hanim then return true end
+			if not anim_hands.skinned_items then anim_hands.skinned_items = {} end
+			table.insert(anim_hands.skinned_items, Hanim)
+			
+			CallbackAnimHands("stop_anim", function(tabls)
+				if tabls.skinned_items then
+					--start the function when the animation "put the trophy in the bag"
+					start_animation_hands(true, true, false, {
+						use = "meat",
+						section = table.remove(tabls.skinned_items),
+						effects = {meat = function(tabls)
+							level.add_cam_effector("camera_effects\\items_use\\harvest_success_hands_eat.anm", 8559, false, "") --Launch meat animation
+						end}
+					}).return_the_weapon()
+				end
+			end)
+		elseif anim_hands.pickup then
+			anim_hands.pickup = false
+			xr_sound.set_sound_play(0, area_sounds.get_take_sound(section, clsid))
+		end
+	end
+end
+
+-- Handling events when pickup items
+function on_item_pickup(obj)
+	local travm = area_utils.power_fracture or 0
+	local actor = level.Actor():conditions()
+	local clsid = obj:clsid()
+	if actor and (actor:GetFracture(3) > travm and actor:GetFracture(4) > travm) then
+		SetHudMsg(game.translate_string("st_arms_damaged"),5) --hands broken, cancel pickup
+		return
+	end
+
+	local function transfer_item()
+		if db.actor:alive() then
+			local box = db.actor:item_in_slot(13)
+			if box and anim_hands.pickup_to_backpack then		
+				local function execute_code(inv_box, containers, detach)
+					local max_volume = inv_box:get_box_max_volume()
+					if (inv_box:box_volume() + obj:volume()) < max_volume then
+						inv_box:take_item(obj)
+						CallbackEvent("stop_anim", function(table)
+							AddUniqueCall(function()
+								local time = bind_container.sped_time_transfer(obj)
+								local section = string.add("anm_", box:section())
+								if INI:section_exist(section) then
+									anim_hands.return_weapon = false
+									StartAnimHands(false,false,false,{
+										use = "backpack_anim",
+										section = string.add("anm_", box:section())
+									}).return_the_weapon()
+
+									level.Actor():ChangeStateCrouch(1)
+									level.Actor():setHudAnimSpeed(1 + (bind_container.max_time_transfer - time))
+									CallbackAnimHands("animation_control", function(table,item,section,motion,state,slot)
+										if state == 1 then
+											xr_sound.set_sound_play(0, area_sounds.get_take_sound(obj:section(), clsid))
+											CreateSound("interface\\inv_drop_bag"):set_frequency(1/time):default_play()
+											item:switch_state(2)
+											detach()
+										elseif state == 2 then
+											level.Actor():setHudAnimSpeed(1)
+											level.Actor():ChangeStateCrouch(3)
+											StopAnimHands()
+										end
+									end)
+								else
+									level.Actor():ChangeStateCrouch(1)
+									CreateSound("interface\\inv_drop_bag"):set_frequency(1/time):default_play()
+									CreateTimeEvent("backpack_menu_on","no_anims", time, function()
+										xr_sound.set_sound_play(0, area_sounds.get_take_sound(obj:section(), clsid))
+										return true
+									end)
+									detach()
+								end
+								return true
+							end)
+						end)
+					else
+						db.actor:take_item(obj)
+					end
+				end
+
+				bind_container.execute_code(box:id(), execute_code)
+			else
+				db.actor:take_item(obj)
+			end
+		end
+	end
+
+	if axr_main.config:r_value("mm_options","enable_cod_pickup_mode",1,false) then
+		anim_hands.pickup = true
+		transfer_item()
+		return
+	end
+	
+	if anim_hands.status or anim_hands.AnmCheck(obj) then return end
+	anim_hands.pickup_item_id = obj:id()
+	anim_hands.pickup = true
+	start_animation_hands(false,false,true,{
+		use = "take",
+		section = anim_hands.pikup_section(),
+		item_pickup_pos = obj:position(),
+		action_delay = {
+			take = transfer_item
+		}
+	}).return_the_weapon()
+end
+
+-- Delete an animation if it was interrupted
+function on_key_press(key)
+	local wpn = db.actor:active_item()
+	if not db.actor:alive() or anim_hands.status or device():is_paused() or wpn and wpn:get_state() ~= 0 or level.Actor():GetActivePDATAB() == 1 then return end
+	if dik_to_bind(key) == key_bindings.kTORCH then
+		local active_torch = db.actor:item_in_slot(10)
+		if active_torch then
+			start_animation_hands(false,false,true,{
+				use = "torch_switch",
+				section = "anm_torch",
+				action_delay = {torch_switch = function(table) db.actor:switch_torch() end}
+			})
+		end
+	elseif dik_to_bind(key) == key_bindings.kTORCH_MODE then
+		local active_torch = db.actor:item_in_slot(10)
+		if active_torch then
+			start_animation_hands(false,false,true,{
+				use = "torch_mode",
+				section = "anm_torch",
+				action_delay = {torch_mode = function(table) db.actor:switch_torch_mode() end}
+			})
+		end
+	elseif dik_to_bind(key) == key_bindings.kNIGHT_VISION then --night_vision
+		local id, base_sect = area_battery_discharge.outfit_NV()
+		local NVItem = id and level.object_by_id(id)
+		local wpn = db.actor:active_item()
+		local cast = wpn and wpn:cast_Weapon()
+		if NVItem and not IsWeapon(NVItem) then
+			if (cast and cast:IsZoomed()) then
+				db.actor:switch_night_vision()
+			else
+				start_animation_hands(false,false,true,{
+					use = "torch_NV",
+					section = "anm_nv",
+					action_delay = {torch_NV = function(table)
+						db.actor:switch_night_vision()
+					end}
+				})
+			end
+		elseif (cast and cast:IsZoomed()) then
+			db.actor:switch_night_vision()
+		end
+	elseif
+		dik_to_bind(key) == key_bindings.kCUSTOM12 and
+		db.actor.dinamic_hud:is_mask() and
+		db.actor.dinamic_hud:is_glass()
+	then
+		--wipe the drops from the mask
+		start_animation_hands(false,false,false,{
+			use = "gasmask_wipe",
+			section = "anm_gasmask_wipe",
+			action_delay = {gasmask_wipe = function()
+				db.actor.dinamic_hud.drop_glass = 0
+			end}
+		}).return_the_weapon()
+	elseif dik_to_bind(key) == key_bindings.kCUSTOM13 and IsWeapon(wpn) then
+		local cast = wpn:cast_Weapon()
+		if cast and cast:IsZoomed() or (IsKnife(wpn) or IsBolt(wpn)) then return end
+
+		if wpn:get_ammo_total() == 0 and IsPistol(wpn) or IsShotgun(wpn) and not IsMultiLoad(wpn) then
+			wpn:switch_state(4)
+			area_utils.check_magazine_text(wpn, true)
+			return
+		end
+
+		local check_magazine = "anm_check_magazine"
+
+		local function new_anm(strng_do)
+			if INI:line_exist(INI:r_string_ex(wpn:section(), "hud"), check_magazine:add(strng_do)) then
+				check_magazine = check_magazine:add(strng_do)
+			end
+		end
+		
+		if wpn:get_launcher_sect() ~= "" then
+			new_anm("_w_g")
+		end
+
+		if not INI:line_exist(INI:r_string_ex(wpn:section(), "hud"), check_magazine) then
+			wpn:switch_state(2)
+			local function check_magazine_hud(item,section,motion,state,slot)
+				if state == 1 then
+					area_utils.check_magazine_text(wpn, true)
+					UnregisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+				end
+			end
+			RegisterScriptCallback("actor_on_hud_animation_end",check_magazine_hud)
+			return
+		end
+
+		local path_sound = INI:r_string_ex(wpn:section(), check_magazine:gsub("anm","snd"), "")
+		if  path_sound == "" then
+			if check_magazine:is_contain("w_g") then
+				path_sound = INI:r_string_ex(wpn:section(), check_magazine:gsub("anm","snd"):exclude("_w_g"),"")
+			end
+			if path_sound == "" then
+				printf("!ERROR: No sound for the magazine check, weapon section (%s), animation parameter (%s)!", wpn:section(), check_magazine:gsub("anm", "snd"))
+			end	
+		end
+
+		local function check_magazine_start()
+			wpn:switch_state(20)
+			level.Actor():BlockItemsInput(1)
+			AddDOF({
+				kernel = 2.5,
+				far = 1.3,
+				sky = 10000,
+				focus = 0.3
+			})
+		end
+		local sound = path_sound ~= "" and CreateSound(path_sound)
+		local check_magazine_state = true
+		local function check_magazine_end()
+			if check_magazine_state then
+				wpn:switch_state(0)
+				level.Actor():BlockItemsInput(0)
+				DefaultDOF()
+				if sound and sound:playing() then
+					sound:stop()
+				end
+				check_magazine_state = false
+			end
+		end
+		
+		local function wpn_state(item, old_state, new_state)
+			if new_state == 20 then
+				level.Actor():BlockItemsInput(1)
+			elseif old_state == 20 then
+				UnregisterScriptCallback("actor_on_wpn_state", wpn_state)
+				check_magazine_end()
+			end
+		end
+		RegisterScriptCallback("actor_on_wpn_state",wpn_state)
+
+		local function anim_play()
+			if sound then
+				sound:play_at_pos(wpn, VEC_Z, 0, sound_object.s2d)
+			end
+			return (wpn:play_hud_motion(check_magazine, true, 20)/1000)
+		end
+		
+		if wpn:get_magazine_sect() ~= "" and wpn:get_magazine_size() <= 1 then
+			SetHudMsg(game.translate_string("st_mag_absent"),3)
+		elseif wpn:get_magazine_sect() ~= "" and wpn:get_magazine_size() > 1 then
+			-- Animation for automatic weapons with magazines.		
+			check_magazine_start()
+
+			CreateTimeEvent("check_magazine_text", 0, anim_play()/2, function()
+				area_utils.check_magazine_text(wpn, true)
+				return true
+			end)
+
+			local function emergency_abort(item, old_state, new_state)
+				if old_state == 20 then
+					check_magazine_end()
+					RemoveTimeEvent("check_magazine_text", 0)
+				end
+				UnregisterScriptCallback("actor_on_hud_animation_end", emergency_abort)
+			end
+			RegisterScriptCallback("actor_on_wpn_state",emergency_abort)
+
+			local function check_magazine_hud(item,section,motion,state,slot)
+				if state == 20 then
+					check_magazine_end()
+				end
+				UnregisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+			end
+			RegisterScriptCallback("actor_on_hud_animation_end",check_magazine_hud)
+		elseif wpn:get_launcher_sect() ~= "" and wpn:weapon_in_grenade_mode() then
+			-- Animations for under-barrel grenade launcher
+			local _start = "anm_hide_g"
+			local _end = "anm_show_g"
+			wpn:play_hud_motion(_start, true, 20)
+			
+			local function check_magazine_hud(item,section,motion,state,slot)
+				if state == 20 then
+					if motion:is_contain("show") then
+						if item:get_ammo_in_magazine() == 1 then
+							SetHudMsg(game.translate_string("st_mag_full"),3)
+						else
+							SetHudMsg(game.translate_string("st_mag_empty"),3)
+						end
+						check_magazine_end()
+						UnregisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+					elseif motion:is_contain("hide") then
+						item:play_hud_motion(_end, true, 20)
+					end
+				end
+			end
+			RegisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+		elseif wpn:get_magazine_sect() == "" and wpn:get_magazine_size() > 1 then
+			-- Animations for pump-action shotguns and bolt-action rifles (mosinki)
+			check_magazine_start()
+			anim_play()
+
+			local function check_magazine_hud(item,section,motion,state,slot)
+				if state == 20 and check_magazine == motion then
+					if item:get_ammo_in_magazine() == 0 then
+						check_magazine = check_magazine:add("_close")
+						path_sound = INI:r_string_ex(item:section(), check_magazine:gsub("anm","snd"), "")
+						if path_sound == "" then
+							printf("!ERROR: No sound for the magazine check, weapon section (%s), animation parameter (%s)!", item:section(),check_magazine:gsub("anm","snd"))
+						else
+							sound = CreateSound(path_sound)
+							sound:play_no_feedback(wpn, sound_object.s2d, 0, VEC_Z, 1)
+						end
+							
+						if item:play_hud_motion(check_magazine, true, 20) == 0 then
+							printf("!ERROR: No store check animation, section (%s) parameter (%s)!", item:section(), check_magazine)
+							check_magazine_end()
+							UnregisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+						else
+							SetHudMsg(game.translate_string("st_mag_empty"), 3)
+						end
+						check_magazine = ""
+					elseif item:get_ammo_in_magazine() < math.ceil(item:get_magazine_size()*0.7) then
+						area_utils.check_magazine_text(wpn, true)
+						check_magazine_end()
+						UnregisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+					else
+						SetHudMsg(game.translate_string("st_mag_unknown"), 3)
+						check_magazine_end()
+						UnregisterScriptCallback("actor_on_hud_animation_end",check_magazine_hud)
+					end
+				elseif state == 20 and motion:ended_with("_close") then
+					check_magazine_end()
+					UnregisterScriptCallback("actor_on_hud_animation_end",check_magazine_hud)
+				end
+			end
+			RegisterScriptCallback("actor_on_hud_animation_end", check_magazine_hud)
+		end
+	end
+end
+
+-- Running animations when using an item
+local state_use_item = false
+function use_item(obj, itm, bodypart, flags)
+	if obj:id() == db.actor:id() and itm then
+		local sect = itm:section()
+		local anim_section = INI:r_string_ex(sect, "anim_section", nil)
+
+		if state_use_item or not anim_section then
+			state_use_item = false
+			return
+		end
+
+		flags.ret_value = false
+		state_use_item = true
+
+		local remove_helm = INI:r_bool_ex(anim_section, "remove_helm", false) and db.actor.dinamic_hud:is_mask() and not db.actor.dinamic_hud:is_can_eat()
+		local active_slot = 0
+
+		local function send()
+			CallbackEvent("start_anim", function()
+				local item_snd = INI:r_string_ex(anim_section, "anim_sound", false)
+				if item_snd then
+					local snd_delay = INI:r_float_ex(anim_section, "sound_delay", 0)
+					db.actor:play_sound(item_snd, 1.2, snd_delay)
+				end
+
+				local time_use = INI:r_float_ex(anim_hands.section,"use_after_while", 0)
+				local function use()
+					if db.actor:alive() then
+						db.actor:eat(itm, bodypart)
+						CallbackPlay("use_item", anim_hands, itm)
+					end
+				end
+					
+				if time_use and time_use ~= 0 then
+					CreateTimeEvent("use_time_start",1,time_use,function()
+						use()
+						return true
+					end)
+				else
+					CallbackEvent("animation_control",function(anim_hands,item,section,motion,state,slot)
+						use()
+						stop_animation_hands()
+					end)
+				end
+			end)
+
+			if remove_helm then
+				CallbackEvent("stop_anim", function(_table)
+					db.actor.dinamic_hud:virtual_enable()
+				end)
+			end
+
+			start_animation_hands(false,false,false,{
+				use = sect,
+				section = anim_section,
+				active_slot = active_slot
+			}).return_the_weapon()
+
+			return true
+		end
+
+		local function default_send()
+			local actor_menu = ActorMenu.get_actor_menu()
+			if (actor_menu and actor_menu:IsShown()) then
+				actor_menu:HideDialog()
+			end
+			send()
+		end
+
+		if remove_helm then
+			active_slot = db.actor:active_slot()
+			if actor_menu.active_slot ~= 0 then active_slot = actor_menu.active_slot end
+			db.actor.dinamic_hud:virtual_disable()
+			db.actor.dinamic_hud:callback("on_stop_anim", send)
+			db.actor.dinamic_hud:callback("on_start_anim", function()
+				get_hud():HideActorMenu()
+				return true
+			end)	
+			actor_hide_wpn(true)
+			level.Actor():BlockItemsInput(1)
+		elseif anim_hands.status and anim_hands.obj and anim_hands.use == "backpack_anim" then
+			local anim = anim_hands.obj and level.object_by_id(anim_hands.obj.id)
+			if anim then
+				anim:switch_state(2)
+				CallbackEvent("stop_anim", function(_table)
+					CreateTimeEvent("use_item_send", anim:id(), 0.1, send)
+				end)
+			else
+				default_send()
+			end
+		else
+			default_send()
+		end
+	end
+end
+
+-- Is the object an animation element
+function anim_hands.AnmCheck(obj)
+	return anim_hands.obj and obj and anim_hands.obj.id and anim_hands.obj.id == obj:id() or obj and obj:section():started_with("anm_")
+end

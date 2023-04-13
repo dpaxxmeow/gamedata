@@ -1,0 +1,84 @@
+slowmo_flag = false
+drug_flag = false
+function on_game_start()
+    RegisterScriptCallback("on_key_press", on_key_press)
+    RegisterScriptCallback("actor_on_update", power_drain_check)
+    RegisterScriptCallback("actor_on_before_death", actor_on_before_death)
+    RegisterScriptCallback("on_game_load", on_game_load)
+    RegisterScriptCallback("actor_on_item_use", drug_module)
+end
+
+function slowmo_on()
+    local slowmo_snd_on = sound_object("slow-mo\\slowmo_on")
+    slowmo_snd_on:play_at_pos(actor, vector():set(0, 0, 0), 0, sound_object.s2d)
+    level.add_pp_effector("blink.ppe", 2004, false)
+    level.set_pp_effector_factor(2004, 0.2) -- here you can change the brightness of the effect (second value, 0-1)
+    get_console():execute("time_factor 0.2")
+    slowmo_flag = true
+end
+
+function slowmo_off()
+    local slowmo_snd_off = sound_object("slow-mo\\slowmo_off")
+    slowmo_snd_off:play_at_pos(actor, vector():set(0, 0, 0), 0, sound_object.s2d)
+    level.add_pp_effector("blink.ppe", 2004, false)
+    level.set_pp_effector_factor(2004, 0.2) -- here you can change the brightness of the effect (second value, 0-1)
+    get_console():execute("time_factor 1")
+    slowmo_flag = false
+end
+
+function actor_on_before_death()
+    slowmo_off()
+end
+
+function on_game_load()
+    get_console():execute("time_factor 1")
+end
+
+function on_key_press(key)
+    if not db.actor:alive() then
+        return
+    end
+
+    -- here you can change slow-mo key
+    if (key == DIK_keys["DIK_C"]) then
+        if not slowmo_flag then
+            slowmo_on()
+        elseif slowmo_flag then
+            slowmo_off()
+        end
+    end
+end
+
+function power_drain_check()
+    if not drug_flag then
+        if (db.actor.power > 0.1 and slowmo_flag) then
+        elseif (db.actor.health < 0.1 and slowmo_flag) then
+            slowmo_off()
+        end
+    end
+end
+
+function drug_module(item)
+    local section = item:section()
+    local drug_tbl = {
+        ["adrenalin"] = true,
+        ["cocaine"] = true
+    }
+    if drug_tbl[section] then
+        CreateTimeEvent(0, "drug_on", 5, drug_on)
+    end
+end
+
+function drug_on()
+    xr_effects.play_snd(db.actor, nil, {[1] = "slow-mo\\adrenalin"})
+    CreateTimeEvent(0, "adrenalin_off", 20, drug_off)
+    drug_flag = true
+    slowmo_on()
+    return true
+end
+
+function drug_off()
+    slowmo_off()
+    drug_flag = false
+    return true
+end

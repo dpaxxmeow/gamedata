@@ -1,0 +1,28 @@
+local SINGLETON = nil
+function get_ui()
+	SINGLETON = SINGLETON or hint_wnd_ext()
+	--SINGLETON:Reset()
+	return SINGLETON
+end
+
+class "hint_wnd_ext" (CUIWindow)
+function hint_wnd_ext:__init(itm1,itm2) super()
+	self.Y = 0
+	self.xml = CScriptXmlInit()
+	self.xml:ParseFile("actor_menu_item.xml")
+	
+	self:SetAutoDelete(false)
+	SendScriptCallback("inventory_hint_ui_item_init", self)
+end
+
+function hint_wnd_ext:normal_y(y, element)
+	local el_pos = element:GetWndPos()
+	element:SetWndPos(vector2():set(el_pos.x, self.Y))
+	self:SetWndSize(vector2():set(290, self.Y))
+	self.Y = self.Y + y
+end
+
+function hint_wnd_ext:__finalize() 
+	SINGLETON = nil
+	self.Y = 0
+end

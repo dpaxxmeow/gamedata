@@ -1,0 +1,308 @@
+local sim = alife()
+local priority_melee 		= {_G.IsKnife}
+local priority_near 		= {_G.IsShotgun,_G.IsRifle,_G.IsPistol}
+local priority_close 		= {_G.IsRifle,_G.IsShotgun,_G.IsPistol,_G.IsSniper}
+local priority_medium 		= {_G.IsLauncher,_G.IsSniper,_G.IsRifle,_G.IsShotgun}
+local priority_far 			= {_G.IsLauncher,_G.IsSniper,_G.IsRifle}
+local priority_veryfar 		= {_G.IsSniper,_G.IsLauncher,_G.IsRifle}
+local priority_heli 		= {_G.IsLauncher,_G.IsSniper,_G.IsRifle,_G.IsPistol,_G.IsShotgun}
+-- if return game_object then it ignores engine. If return nil, then engine tries to find item to kill
+-- called from engine!
+-- update_best_weapon refactoring by MAGILA
+local function choose_weapon(npc, cur_wpn)
+	-- set weapon priority
+	local function prior_r(prior)
+		local wpn_list = {}
+
+		npc:iterate_inventory(function(_, item)
+			if IsWeapon(item) then
+				table.insert(wpn_list, item)
+			end
+		end, npc)
+
+		for it, _fn in ipairs(prior) do
+			local cur_best_weapon, highest_cost = nil, 0
+
+			for k, v in ipairs(wpn_list) do
+				if _fn(v) and v:get_ammo_total() > 0 then
+					local cost = INI:r_float_ex(v:section(), "cost", 0)
+					if cost > highest_cost then 
+						--alun_utils.debug_nearest(npc,"cur_best_weapon=%s  now=%s",cur_best_weapon and cur_best_weapon:name(),wpn:name())
+						highest_cost = cost
+						cur_best_weapon = v
+					end
+				end
+			end
+
+			if cur_best_weapon then
+				return cur_best_weapon
+			end
+		end
+		
+		-- If you haven't found a suitable weapon, choose any available one.
+		for k, v in ipairs(wpn_list) do
+			if v:get_ammo_total() > 0 then
+				return v
+			end
+		end
+
+		-- If there is no suitable one, he will forcibly choose a knife.
+		local cur_best_weapon, highest_cost = nil, 0
+		for k, v in ipairs(wpn_list) do
+			local cost = INI:r_float_ex(v:section(), "cost", 0)
+			if IsKnife(v) and cost > highest_cost then
+				highest_cost = cost
+				cur_best_weapon = v
+			end
+		end
+
+		return cur_best_weapon
+	end
+
+	local be = npc:best_enemy()
+	if (be) then 
+		local alife_switch_distance = axr_main.config:r_value("mm_options", "alife_switch_distance", 2, 150)
+		if (be:position():distance_to_sqr(npc:position()) > alife_switch_distance*0.8) then --if 500 then 400
+            return prior_r(priority_veryfar)
+        elseif (be:position():distance_to_sqr(npc:position()) > alife_switch_distance*0.6) then --if 500 then 300
+            return prior_r(priority_far)
+        elseif (be:position():distance_to_sqr(npc:position()) > alife_switch_distance*0.4) then --if 500 then 200
+            return prior_r(priority_medium)
+        elseif (be:position():distance_to_sqr(npc:position()) > alife_switch_distance*0.2) then --if 500 then 100
+            return prior_r(priority_close)
+        elseif (IsMonster(be) or IsStalker(be)) and (be:position():distance_to_sqr(npc:position()) < 5) then
+            return prior_r(priority_melee)
+        else
+            return prior_r(priority_near)
+        end
+	elseif (axr_npc_vs_heli.is_under_npc_vs_heli(npc)) then
+		return prior_r(priority_heli)
+	else
+		return prior_r(priority_medium)
+	end
+end
+
+function update_best_weapon(npc, cur_wpn)	
+	if not npc:alive() then
+		return
+	end
+	
+	--alun_utils.debug_nearest(npc,"cur_wpn=%s",cur_wpn:name())
+	-- we want to choose new best_weapon every n seconds unless we don't have one
+	local result_choose_weapon = LimitUpdate(choose_weapon, 0.3, npc, cur_wpn)
+	if result_choose_weapon then
+		return result_choose_weapon
+	end
+end
+
+-- Switches the weapon to a sighted variant if available.
+local function b_scope(spawn_sec)
+	local sights = INI:r_list_ex(spawn_sec, "scopes", {})
+	if #sights > 0 then
+		local variant_section = sights[math.random(1, #sights)]
+		if INI:section_exist(variant_section) then
+			return variant_section
+		end
+	end
+end
+-------------------------------------
+
+local function spawn_parameters(spawn_sec, value)
+	local bLauncher, bScope, bSight, bSilencer, ammo_type, cond, prob, count = false, false, false, false, 0, 1, 1, 1
+	if (value and value ~= "") then
+		count = tonumber(value:get_started(",")) or 1
+
+		for a, b in value:gmatch("([%w_%-%s%.]*)=([%w_%-%s%.]*)") do
+			if (a == "cond") then 
+				cond = tonumber(b) or 1
+			elseif (a == "prob") then 
+				prob = tonumber(b) or 1
+			elseif (a == "ammo_type") then
+				local ammos = INI:r_list_ex(spawn_sec, "ammo_class", {})
+				if (b == "r") then 
+					ammo_type = ammos and math.random(0, #ammos-1) or 0
+				else
+					ammo_type = tonumber(b) or 0
+				end
+				if not (ammos and ammo_type >= 0 and ammo_type < #ammos) then
+					ammo_type = 0
+				end
+			elseif (a == "launcher") then
+				bLauncher = math.random() <= (tonumber(b) or 0)
+			elseif (a == "scope") then
+				bScope = math.random() <= (tonumber(b) or 0)
+			elseif (a == "silencer") then
+				bSilencer = math.random() <= (tonumber(b) or 0)
+			end
+		end
+	end
+	return bLauncher, bScope, bSight, bSilencer, ammo_type, cond, prob, count
+end
+
+-- called from engine
+-- return false to use Engine technique, return true to ignore engine technique
+function CSE_ALifeObject_spawn_supplies(se_obj, id, ini_string)
+	local ini = create_ini_file(ini_string)
+	local section = "spawn"
+
+	if ini:section_exist(section) then 
+		local j = ini:line_count(section)-1
+		for i=0, j do
+			local result, spawn_sec, value = ini:r_line_ex(section, i)
+			if spawn_sec and spawn_sec ~= "" and INI:section_exist(spawn_sec) then
+				local bLauncher, bScope, bSight, bSilencer, ammo_type, cond, prob, count = spawn_parameters(spawn_sec, value)
+
+				for k=1, count do 
+					if prob == 1 or math.random() <= prob then
+						--printf("-base spawn wpn=%s ammo_type=%s scope=%s launcher=%s silencer=%s",spawn_sec, ammo_type, bScope, bLauncher, bSilencer)
+						local se_item = sim:create(spawn_sec, se_obj.position, se_obj.m_level_vertex_id, se_obj.m_game_vertex_id, id)
+						SendScriptCallback("object_spawn_supplies", se_obj, se_item, spawn_sec) --SPAWN
+						if IsWeapon(se_item) and not IsKnife(se_item) then 
+							se_item.condition = cond
+							se_item:set_ammo_type(ammo_type)
+
+							local flags = se_item:get_addon_flags()
+							if bScope then
+								local sec_scope = b_scope(spawn_sec)
+								if sec_scope and se_item.scope_status == cse_alife_item_weapon.eAddonAttachable then
+									sim:create(sec_scope, se_obj.position, se_obj.m_level_vertex_id, se_obj.m_game_vertex_id, id)
+								end
+							end
+
+							if (bLauncher and se_item.grenade_launcher_status == cse_alife_item_weapon.eAddonAttachable) then
+								flags:set(cse_alife_item_weapon.eWeaponAddonGrenadeLauncher,true)
+							end
+
+							if (bSilencer and se_item.silencer_status == cse_alife_item_weapon.eAddonAttachable) then
+								flags:set(cse_alife_item_weapon.eWeaponAddonSilencer,true)
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+
+	-- Spawn randomly only a single section from spawn_loadout<n> sections
+	--[[
+		[spawn_loadout] \n
+		wpn_abakan = 2, scope, ammo_type=1,prob=0.5
+		wpn_pm \n
+		wpn_toz \n
+		wpn_gauss, level=l11_pripyat \n
+		
+		In the example above only 1 item will be randomly selected from the 3 listed. 2 boxes of AP ammo will spawn for wpn_abakan, if selected and actor rank is above 500.
+		
+		Can have as many sections as needed:
+			[spawn_loadout]
+			
+			[spawn_loadout2]
+			
+			[spawn_loadout3]
+			
+			...
+	--]]
+	
+	local section = "spawn_loadout"
+	local itr_count = 1
+	while ini:section_exist(section) do
+		local spawn_list = {}
+		local size_t = 0
+		local j = ini:line_count(section)-1
+
+		for i=0, j do
+			local result, spawn_sec, value = ini:r_line_ex(section, i)
+			if spawn_sec and spawn_sec ~= "" and INI:section_exist(spawn_sec) then
+				if value and value ~= "" then
+					local bLauncher, bScope, bSight, bSilencer, ammo_type, cond, prob, count = spawn_parameters(spawn_sec, value)
+					if prob == 1 or math.random() <= prob or i == j then
+						local function spawn()
+							local se_item = sim:create(spawn_sec, se_obj.position, se_obj.m_level_vertex_id, se_obj.m_game_vertex_id, id)
+							SendScriptCallback("object_spawn_supplies_loadout", se_obj, se_item, spawn_sec)--SPAWN loadout
+							if (IsWeapon(se_item) and not IsKnife(se_item)) then 
+								se_item.condition = cond
+								local flags = se_item:get_addon_flags()
+								if bScope then
+									local sec_scope = b_scope(spawn_sec)
+									if sec_scope and se_item.scope_status == cse_alife_item_weapon.eAddonAttachable then
+										sim:create(sec_scope, se_obj.position, se_obj.m_level_vertex_id, se_obj.m_game_vertex_id, id)
+									end
+								end
+
+								if (bLauncher and se_item.grenade_launcher_status == cse_alife_item_weapon.eAddonAttachable) then
+									flags:set(cse_alife_item_weapon.eWeaponAddonGrenadeLauncher,true)
+								end
+
+								if (bSilencer and se_item.silencer_status == cse_alife_item_weapon.eAddonAttachable) then
+									flags:set(cse_alife_item_weapon.eWeaponAddonSilencer,true)
+								end
+								
+								-- Create the ammo 
+								se_item:set_ammo_type(ammo_type)
+								-- printf("-spawn_loadout%s wpn=%s ammo_type=%s scope=%s launcher=%s silencer=%s",itr_count,create_section,ammo_type,bScope,bLauncher,bSilencer)
+
+								local ammos = INI:r_list_ex(spawn_sec, "ammo_class", {})
+								local ammo_section = ammos[ammo_type+1]
+								if ammo_section and INI:section_exist(ammo_section) then 
+									for k=1, count do
+										local se_ammo = sim:create(ammo_section, se_obj.position, se_obj.m_level_vertex_id, se_obj.m_game_vertex_id, id)
+										SendScriptCallback("object_spawn_supplies_loadout", se_obj, se_ammo, ammo_section)--SPAWN loadout
+									end
+								end
+							end
+						end
+
+						if count > 1 then
+							for i=0, count do
+								spawn()
+							end
+						else
+							spawn()
+						end
+						break
+					end
+				end 
+			end
+		end
+
+		itr_count = itr_count + 1
+		section = ("spawn_loadout"):add(itr_count)
+	end
+	return true
+end
+
+-- called from engine
+-- hack to prevent stalkers from sharing the same cover location
+cover_lvid_by_npc_id = {}
+npc_id_by_cover_lvid = {}
+function evaluate_cover_point(npc,point)
+	local lvid = point:level_vertex_id()
+	local id = npc:id()
+	
+	if (point:is_smart_cover()) then
+		-- exclude shotguns
+		local wpn = npc:active_item()
+		if (wpn and IsShotgun(wpn)) then 
+			return false
+		end
+	end
+	
+	-- check if already taken
+	if (npc_id_by_cover_lvid[lvid] and npc_id_by_cover_lvid[lvid] ~= id) then 
+		return false
+	end
+	
+	clear_cover(id)
+	
+	npc_id_by_cover_lvid[lvid] = id
+	cover_lvid_by_npc_id[id] = lvid
+	
+	return true
+end
+
+function clear_cover(id)
+	if (cover_lvid_by_npc_id[id]) then
+		npc_id_by_cover_lvid[ cover_lvid_by_npc_id[id] ] = nil
+		cover_lvid_by_npc_id[id] = nil
+	end
+end

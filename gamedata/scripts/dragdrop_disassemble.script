@@ -1,0 +1,142 @@
+--[[
+Drag and drop disassemble script
+By Alundaio, who was pestered by Axebeard who doesn't know how to script
+--]]
+
+function on_game_start()
+    RegisterScriptCallback("CUIActorMenu_OnItemDropped",OnItemDropped)
+end
+ 
+function OnItemDropped(itm_from,itm_to,slot_from,slot_to)
+    --printf("from=%s to=%s slot_from=%s slot_to=%s  (%s)",itm_from:name(),itm_to:name(),slot_from,slot_to,EDDListType.iActorBag)
+    -- only work if draggin item in actor's bag to another item in actor's bag
+    if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
+        return
+    end
+	
+    local itm_dis
+    local itm_craft_tool
+   
+    if (INI:r_bool_ex(itm_from:section(),"can_disassemble",false) == true) then
+        itm_craft_tool = itm_from
+        itm_dis = itm_to
+    elseif (INI:r_bool_ex(itm_to:section(),"can_disassemble",false) == true) then
+        itm_craft_tool = itm_to
+        itm_dis = itm_from
+    end
+   
+    if not (itm_craft_tool) then
+        return -- item being dragged from or to is not craftitem
+    end
+   
+    local craft_tool_sec = itm_craft_tool:section()
+    local disassemble_categories = INI:r_string_ex(craft_tool_sec,"disassemble_categories","")
+    if (disassemble_categories == "") then
+        return
+    end
+   
+    disassemble_categories = disassemble_categories:to_table()
+    if (#disassemble_categories == 0) then
+        return
+    end
+   
+    local itm_dis_sec = itm_dis:section()
+    local cond = itm_dis:condition()
+   
+    for _,dis_sec in pairs(disassemble_categories) do
+        local line_count = INI:line_count(dis_sec)-1
+        for i=0, line_count do
+            local result, sec, value = INI:r_line(dis_sec, i, "", "")
+            if (sec and sec ~= "" and sec ~= "random_parts" and INI:section_exist(sec)) then  
+                if (sec == itm_dis_sec) then
+                    --gives player Spare Parts item
+                    local random_parts = INI:r_string_ex(dis_sec,"random_parts","spareparts")
+                    if (random_parts ~= "") then
+						
+						local save_chance = math.random(4,10)
+						local break_chance = math.random(1,21)
+						local tools_condition = itm_craft_tool:condition()
+						local break_coeff = area_skills.skills_table.uncraft_skill/10
+						
+						if (save_chance+break_coeff) < break_chance then
+							tools_condition = tools_condition - 0.03
+							itm_craft_tool:set_condition(tools_condition)
+							if tools_condition <= 0 then
+								alife():release(alife_object(itm_craft_tool:id()),true)
+							else
+								itm_craft_tool:set_condition(tools_condition)
+                            end
+						end
+                       
+                        random_parts = random_parts:to_table()
+                        local random_num = #random_parts
+                        if (random_num == 0) then
+                            table.insert(random_parts, "spareparts")
+                            random_num = random_num + 1
+                        end
+
+						local un_chance = area_skills.skills_table.uncraft_skill/area_skills.max_skills_level 
+                        local un_result = math.floor(random_num * un_chance)
+                        un_result =  un_result == 0 and math.random(0, 1) or un_result
+
+                        local amt = math.random(0, un_result)
+                        amt = amt == 0 and itm_dis:condition() > 0.4 and 1 or amt
+                        
+                        if amt > random_num then amt = random_num end
+						if (amt > 0) then   
+                            CreateTimeEvent("create_parts", "create_parts_timer", 2, function()
+                                local msg = amt == 0 and "nothing" or amt == 1 and "skill_up_one" or "skill_up_many"
+                                SetHudMsg(string.format(game.translate_string("st_uncraft_"..msg), amt), 3)
+                                area_skills.raise_skill("uncraft_skill", 0.01)
+                                return true
+                            end)
+
+                            for _index = 1, amt do
+                                if #random_parts == 0 then
+                                    break;
+                                end
+                                local partSec = table.remove(random_parts, math.random(#random_parts))
+                                alife():create(partSec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+                                --printf("AMT = %s, Parts cnt = %s", _index, #random_parts)
+                            end	
+						else
+							CreateTimeEvent("create_parts", "create_parts_timer", 2, function()
+                                SetHudMsg(game.translate_string("st_uncraft_nothing"), 3)
+                                area_skills.raise_skill("uncraft_skill", 0.005)
+								return true
+                            end)
+						end
+                       
+                        local se_obj = alife():object(itm_dis:id())
+                        if (se_obj) and IsOutfit(se_obj) or IsHeadgear(se_obj) then
+                            alife():release(se_obj)
+							actor_effects.use_item("dismantling_outfit")
+						else
+                            alife():release(se_obj)
+							actor_effects.use_item("dismantling_weapon")
+                        end
+						--level.change_game_time(0,0,10) ;(days, hours, minutes)
+                        return
+                    end
+                end
+            end
+        end
+    end
+end
+ 
+--[[ EXAMPLE
+ 
+[itm_hammer]
+can_disassemble = true
+disassemble_categories = dis_cat_1, dis_cat_2
+ 
+[dis_cat_1]
+wpn_pm
+wpn_ak74
+random_parts = spareparts, junk, junk2
+ 
+[dis_cat_2]
+wpn_knife
+wpn_binoc
+random_parts = spareparts, junk, junk2
+--]]

@@ -1,0 +1,260 @@
+--//A.R.E.A items dampness by MAGILA
+--//Last Edit: 26.11.2022
+local update_progress = false
+local item_dampness = {}
+local g_time_h = 0
+
+-- Ignore the list of objects that cannot support this system
+local ignore_list = {
+    IsWeapon,
+    IsGrenade,
+    IsAnomaly,
+    IsStalker,
+    IsTrader,
+    IsMonster,
+    IsHelicopter,
+    isLc,
+    IsBolt,
+    IsArtefact,
+    IsInvbox
+}
+
+-- Spawn objects, adding to the system list
+local function net_spawn_object(obj)
+    if not obj:is_dampness() then
+        return
+    end
+
+    local play = true
+    for _, fn in ipairs(ignore_list) do
+        if fn(obj) then
+            play = false
+            break
+        end
+    end
+
+    if play then
+        table.insert(item_dampness, obj:id())
+    end
+end
+
+-- Destroy objects by removing them from the system
+local function net_destroy_object(obj)
+    if not obj:is_dampness() then
+        return
+    end
+
+    local obj_id = obj:id()
+    forEach(function(_i, _id)
+        if obj_id == _id then
+            table.remove(item_dampness, _i)
+       end
+    end, false, 5, ipairs(item_dampness))
+end
+
+-- Save and upload the last update time in game time
+local function save_state(m_data)
+    m_data.dampness_time = (g_time_h == 0) and game.get_game_time() or g_time_h
+end
+
+local function load_state(m_data)
+    g_time_h = m_data.dampness_time or game.get_game_time()
+end
+---------------------------------------------------
+
+-- Recalculate the multiplier from the section parameters
+local function moisture_protection(sec, coff_dampness)
+    coff_dampness = coff_dampness * (1 - INI:r_float_ex(sec, "moisture_protection", 0))
+    return coff_dampness
+end
+
+local function check_bonfire(obj)
+    for _, binder in pairs(bind_campfire.campfires_all) do
+        local dist = obj:position():distance_to_sqr(binder.object:position())
+        if dist <= 10 then	
+            if (binder.campfire:is_on()) then
+                -- printf("-dist %s", -dist)
+                return -((dist/10)*10)
+            end
+        end
+    end
+    return 0
+end
+
+-- Recalculate rain depending on the position of the object
+local function rain_f_count(obj, rain_f)
+    if level.get_roof(obj:position()) or rain_f == 0 then
+        rain_f = -0.04 --Gradually dries naturally
+    end
+    rain_f = rain_f + check_bonfire(obj)
+
+    -- printf("rain_f_count %s", rain_f)
+
+    return rain_f
+end
+
+-- Assign a object new humidity state
+local function set_dampness_item(item, coff_dampness)
+    local dampness = item:get_dampness()
+    local sec = item:section()
+    dampness = dampness + (coff_dampness * (1 - INI:r_float_ex(sec, " moisture_resistance", 0)))
+    if dampness > 1 then
+        dampness = 1
+    end
+    if dampness < 0 then
+        dampness = 0
+    end
+
+    --If it is wet, prohibit trading.
+    if dampness > 0.1 then
+        item:set_inv_name(game.translate_string(INI:r_string_ex(sec, "inv_name", ""))
+		:add(game.translate_string(string.add("st_dampness_", math.ceil(dampness*2)))))
+
+        item:set_buy(true)
+		item:set_buy_text(game.translate_string("st_cant_buy_damp"))
+    else
+        item:set_inv_name(game.translate_string(INI:r_string_ex(sec, "inv_name", "")))
+        item:set_buy(false)
+		item:set_buy_text("")
+    end
+
+    item:set_dampness(dampness)
+end
+
+-- If the ACTOR has it in his inventory then the calculation depends on the protection of the suit
+local function dampness_item_actor(actor, item, coff_dampness)
+    local suit = actor:item_in_slot(7)
+    if suit then
+        coff_dampness = moisture_protection(suit:section(), coff_dampness)
+    end
+
+    set_dampness_item(item, coff_dampness)
+end
+
+-- If the NPC has it in his inventory then the calculation depends on the protection of the suit
+local function dampness_item_npc(npc, item, coff_dampness)
+    local tbl = death_manager.get_outfit_by_npc_visual(npc:get_visual_name())
+	local outfit_section = tbl and tbl[1]
+    if outfit_section then
+        coff_dampness = moisture_protection(outfit_section, coff_dampness)
+    end
+
+    set_dampness_item(item, coff_dampness)
+end
+
+-- If it is in the backpack, then the calculation depends on the protection of the backpack.
+-- If the backpack is in the backpack, protection from moisture is taken into account by each level.
+local function dampness_item_box(InvBox, item, rain_f, g_time, c_coff_dampness)
+    local se_backpack = bind_container.get_backpack(InvBox:id())
+    if se_backpack then
+        local item_backpack = level.object_by_id(se_backpack.id)
+        if item_backpack then
+            local coff_dampness = c_coff_dampness or rain_f_count(item_backpack, rain_f)*g_time
+            coff_dampness = moisture_protection(item_backpack:section(), coff_dampness)
+
+            local parent = item_backpack:parent()
+            if parent then
+                if parent:id() == db.actor:id() then
+                    if not IsSlotted(item_backpack) then
+                        local suit = parent:item_in_slot(7)
+                        if suit then
+                            coff_dampness = moisture_protection(suit:section(), coff_dampness)
+                        end
+                    end
+                    dampness_item_actor(db.actor, item, coff_dampness)
+                elseif IsStalker(parent) then
+                    dampness_item_npc(parent, item, coff_dampness)
+                elseif IsInvbox(parent) then
+                    dampness_item_box(parent, item, rain_f, g_time, coff_dampness)
+                end
+            end
+        end
+    end
+end
+
+-- The initial level of determining where the object is located
+local function dampness_item(se_item, rain_f, g_time)
+    local item = level.object_by_id(se_item.id)
+    if item and item:is_dampness() then
+        if not item:parent() then
+            set_dampness_item(item, rain_f_count(item, rain_f)*g_time)
+        else
+            if se_item.parent_id == db.actor:id() then
+                dampness_item_actor(db.actor, item, rain_f_count(db.actor, rain_f)*g_time)
+            else
+                local parent = item:parent()
+                if IsStalker(parent) then
+                    dampness_item_npc(parent, item, rain_f_count(parent, rain_f)*g_time)
+                elseif IsInvbox(parent) then
+                    dampness_item_box(parent, item, rain_f, g_time)
+                end
+            end
+        end
+    end
+end
+
+-- We will limit and distribute frame-by-frame iterations to eliminate friezes if there are many such objects.
+local function update()
+    if update_progress then
+       return 
+    end
+    update_progress = true
+
+    local rain_f = level and level.rain_factor() or 0
+    local g_time = game.get_game_time():diffSec(g_time_h)/400
+
+    forEach(function(_i, item_id)
+        local se_item = alife_object(item_id)
+        if se_item then
+            dampness_item(se_item, rain_f, g_time)
+        end
+    end, function()
+        g_time_h = game.get_game_time()
+        update_progress = false
+    end, 5, ipairs(item_dampness)) -- let's process 5 per frame
+end
+
+-- Display information about the status of the item in its description window.
+local function HintWnd(item, item_2, ui)
+	if (not item) then
+		return
+	end
+    local txt = ""
+
+    if item:is_dampness() then
+        local play = true
+        for _, fn in ipairs(ignore_list) do
+            if fn(item) then
+                play = false
+                break
+            end
+        end
+        txt = play and string.format("%s %3.0f%%", game.translate_string("st_dampness"), (item:get_dampness()*100)) or ""
+    end
+
+	if txt ~= "" then
+		ui:normal_y(20, ui.dampness)
+		ui.dampness:SetText(txt)
+	else
+		ui.dampness:SetText(txt)
+	end
+end
+
+function on_game_start()
+    RegisterScriptCallback("net_spawn_objects", net_spawn_object)
+    RegisterScriptCallback("net_destroy_objects", net_destroy_object)
+
+    RegisterScriptCallback("inventory_hint_ui_item", HintWnd)
+    RegisterScriptCallback("inventory_hint_ui_item_init", function (UI)
+		UI.dampness = UI.xml:InitTextWnd("script_static:degrade_item", UI)
+	end)
+
+	RegisterScriptCallback("actor_on_first_update", function()
+		AddUniqueCall(function()
+			LimitUpdate(update, 8)--LIMITED 8 second
+		end)
+	end)
+   
+	RegisterScriptCallback("load_state", load_state)
+	RegisterScriptCallback("save_state", save_state)
+end

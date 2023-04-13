@@ -1,0 +1,614 @@
+--[[
+	--The idea and creation of the concept by Alundaio https://bitbucket.org/revo_lucas/call-of-chernobyl/commits/6d31bb01d8b7c389db3a3c1028a4f9ad05347e29
+	--Global refinement of the system and bringing it into full working condition by Nuor
+	--Refactoring and reworking and the approach of working with inv_box has been redesigned by MAGILA
+]]
+local curBoxID = nil
+local containers = {}
+local quickly_open_backpack = false
+function bind(obj)
+    obj:bind_object(backpack_binder(obj))
+end
+
+function init_container(obj)
+    obj:bind_object(container_binder(obj))
+end
+
+--use "execute_code" to perform your operations with the backpack container, since containers are always
+--offline for full access to them, you need to transfer them online.
+--This function will help you with this.
+--argument 1 - backpack id
+--argument 2 - pass the function to execute the code
+--[[
+	3 arguments are passed for the function you specified.
+	Argument 1 - is the level object of your backpack's container.
+	Argument 2 - is the alife_object of the container for your backpack.
+	Argument 3 - is a required function to execute, it must be executed at the end of your code.
+]]
+local send_code = {}
+local ignore_detach_box = {}
+function execute_code(id, f)
+	local se_container = get_container(id) or get_container(get_backpack(id)) -- returns se alife_object
+	if se_container and type(f) == "function" then	
+		if send_code[id] == nil then send_code[id] = 0 end
+		send_code[id] = send_code[id] + 1
+		EditOnline(se_container.id, true)
+		level_get_object(se_container.id, function(box)
+			local function detach()
+				local se_backpack = alife_object(id)
+
+				local function IsUsed(_backpack)
+					if not _backpack then
+						return false
+					end
+					local actor_id = db.actor:id()
+					local function IsContainerUsed(CONT_)
+						for _id, container in pairs(containers) do
+							if container and container == CONT_.parent_id then
+								local alife_backpack = alife_object(_id)
+								if alife_backpack then
+									if alife_backpack.parent_id ~= actor_id then
+										IsContainerUsed(alife_backpack)
+									else
+										return true
+									end
+								end
+							end
+						end
+						return false
+					end
+
+					if _backpack.parent_id == actor_id then
+						return true
+					end
+					
+					return IsContainerUsed(_backpack)
+				end
+
+				local function reset_detach(queue)
+					if send_code[id] > queue then
+						send_code[id] = send_code[id]-1
+					end
+
+					if ignore_detach_box[id] and not IsTimeEventTime("edit_execute_code", id) then
+						CreateTimeEvent("ignore_detach_box", id, 5, function()
+							if not IsUsed(se_backpack) then
+								ignore_detach_box[id] = nil
+								reset_detach(0)
+								return true
+							end
+							ResetTimeEvent("ignore_detach_box", id, 5)
+						end)
+					elseif send_code[id] == queue then
+						CreateTimeEvent("edit_execute_code", id, 0, function()
+							if ActorMenu.get_menu_mode() ~= 4 and send_code[id] == 0 then
+								EditOnline(se_container.id, false)
+								return true
+							elseif not se_container.active_box then
+								return true
+							end
+						end)
+					end
+				end
+
+				if IsUsed(se_backpack) then
+					ignore_detach_box[id] = true
+					reset_detach(1)
+				else
+					reset_detach(0)
+				end
+			end
+			f(box, se_container, detach)
+		end)
+		
+		return true
+	else
+		return false
+	end
+end
+
+function get_container(id)
+	return id and containers[id] and alife_object(containers[id])
+end
+
+function get_backpack(id)
+	for _id, container in pairs(containers) do
+		if container and container == id then
+			return alife_object(_id)
+		end
+	end
+end
+
+local function on_first_update()
+	--Delete the inv_box for the backpack if it does not exist.
+	for id_backpack, id_box in pairs(containers) do 
+		local se_backpack = alife_object(id_backpack)
+		if not se_backpack then
+			local se_container = alife_object(id_box)
+			if se_container then
+				containers[id_backpack] = nil
+				alife():release(se_container, true)
+			end
+		end
+	end
+end
+
+local function inventory_box_can_take(obj, itm, flags)
+	local obj_id = obj:id()
+	local item_id = itm:id()
+	
+	if not containers[item_id] then return end
+
+	--printf("%s item=%s curBoxID=%s inv_box=%s",obj:name(),itm:name(),curBoxID,containers[curBoxID])
+	if not (curBoxID and containers[curBoxID] == obj_id) then
+		return 
+	end
+
+	-- can't take item that represents self!
+	if containers[item_id] == obj_id then
+		flags.ret_value = false 
+		return
+	end
+
+	-- allow only certain sections or clsid
+	local se_obj = alife_object(obj_id)
+	if se_obj then
+		local cls = itm:clsid()
+		local sec = itm:section()
+		if not is_empty(se_obj.allow_take_items) then
+			for i,v in ipairs(se_obj.allow_take_items) do 
+				if ( sec == v ) or ( clsid[v] and clsid[v] == cls ) then 
+					return 
+				end
+			end
+			flags.ret_value = false
+		elseif not is_empty(se_obj.refuse_take_items) then
+			for i,v in ipairs(se_obj.refuse_take_items) do 
+				if ( sec == v ) or ( clsid[v] and clsid[v] == cls ) then 
+					flags.ret_value = false
+					return
+				end
+			end
+		end
+	end
+end
+
+--Move items with DnD to closed backpack (by MAGILA)
+local stop_item_to_backpack = false
+local normal_volume = 2.5 --the value of the volume that is convenient to move in a backpack (value in liters)
+min_time_transfer, max_time_transfer = 0.3, 1.7 --action delay limits in seconds
+
+function sped_time_transfer(item)
+	--calculation of the delay time for performing an action
+	local num_vol = (item:volume()/normal_volume)
+	if num_vol < min_time_transfer then num_vol = min_time_transfer end
+	if num_vol > max_time_transfer then num_vol = max_time_transfer end
+	return num_vol
+end
+
+local function transfer_item_to_backpack(itm_from, itm_to, section_from, section_to)
+	local from_id, to_id = itm_from:id(), itm_to:id()
+	if stop_item_to_backpack or from_id == to_id or IsSlotted(itm_from) and IsSlotted(itm_to) then return end
+	
+	execute_code(to_id, function(inv_box, containers, detach)
+		local absence = true --allow moving if the item is not in the same place.
+		inv_box:iterate_inventory_box(function(inv_box, itm)
+			if absence and itm:id() == from_id then
+				absence = false
+				return true
+			end
+		end,inv_box)
+			
+		local max_volume = inv_box:get_box_max_volume()
+		if (inv_box:box_volume() + itm_from:volume()) <= max_volume and absence then
+			stop_item_to_backpack = true
+			--transfer item to backpack
+			local time = sped_time_transfer(itm_from)
+
+			local function snd_play()
+				CreateSound("interface\\inv_drop_bag"):set_frequency(1/time):default_play()
+			end
+
+			local from_parent = itm_from:parent()
+			if from_parent then
+				local function send(box, detach_from)
+					local function move_default()
+						--If the backpack animation (any) is running, then we will simplify the move item so as not to torment the player with animations.
+						xr_sound.set_sound_play(0, area_sounds.get_take_sound(itm_from:section(), itm_from:clsid()))
+						box:transfer_item(itm_from, inv_box)
+						stop_item_to_backpack = false
+						if detach_from then
+							detach_from()
+						end
+						detach()
+						return true
+					end
+
+					if TableAnimHands().status and TableAnimHands().use == "backpack_anim" then
+						snd_play()
+						move_default()
+					else
+						local to_section = itm_to:section()
+						local anm_section = ("anm_"):add(to_section)
+						
+						if INI:section_exist(anm_section) then
+							CallbackAnimHands("start_anim", function()
+								if INI:r_bool_ex(to_section, "sitdown_opening", true) then
+									level.Actor():ChangeStateCrouch(1)
+								end
+								level.Actor():setHudAnimSpeed(1 + (max_time_transfer - time))
+							end)
+	
+							snd_play()
+							StartAnimHands(false,false,false,{
+								use = "backpack_anim",
+								section = anm_section
+							}).return_the_weapon()
+	
+							CallbackAnimHands("animation_control", function(table,item,section,motion,state,slot)
+								if state == 1 then
+									xr_sound.set_sound_play(0, area_sounds.get_take_sound(itm_from:section(), itm_from:clsid()))
+									box:transfer_item(itm_from, inv_box)
+									item:switch_state(2)
+									if detach_from then
+										detach_from()
+									end
+									detach()
+								elseif state == 2 then
+									level.Actor():setHudAnimSpeed(1)
+									level.Actor():ChangeStateCrouch(3)
+									StopAnimHands()
+									CreateTimeEvent("backpack_menu_on", 0, 0.05, function()
+										get_hud():ShowActorMenu()
+										stop_item_to_backpack = false
+										return true
+									end)
+								end
+							end)
+						else
+							snd_play()
+							CreateTimeEvent("backpack_menu_on","no_anims", time, move_default)
+						end
+					end
+				end
+				local state = execute_code(from_parent:id(), function(box, ___, detach_from)
+					send(box, detach_from)
+				end)
+
+				if not state then
+					send(from_parent)
+				end
+			else
+				detach()
+			end
+		else
+			detach()
+		end
+	end)
+end
+
+local function on_level_changing()
+	local se_actor = alife():actor()
+	local gvid = se_actor.m_game_vertex_id
+	local vert = game_graph():vertex(gvid)
+	local lvid = vert:level_vertex_id()
+	local pos = vert:level_point()
+
+	for cid, id in pairs(containers) do
+		local inv_box = alife_object(id)
+		if inv_box then
+			inv_box:use_ai_locations(true)
+			EditOnline(id, false)
+			TeleportObject(id, pos, lvid, gvid)
+		end
+	end	
+end
+
+local function OnItemDropped(item_from, item_to, slot_from, slot_to)
+	if slot_from ~= EDDListType.iPartnerTradeBag and slot_to ~= EDDListType.iPartnerTradeBag then
+		transfer_item_to_backpack(item_from, item_to, item_from:section(), item_to:section())
+	end
+end
+
+local function save_state(m_data)
+	m_data.backpack_containers = containers
+end 
+
+local function load_state(m_data)
+	containers = m_data.backpack_containers or {}
+end
+
+local force_close = false
+
+function on_game_start()
+	RegisterScriptCallback("CUIActorMenu_OnItemDropped",OnItemDropped)
+	RegisterScriptCallback("actor_on_first_update", on_first_update)
+	RegisterScriptCallback("inventory_box_can_take",inventory_box_can_take)
+	RegisterScriptCallback("on_level_changing",on_level_changing)
+	RegisterScriptCallback("on_key_release", function(key)
+		if dik_to_bind(key) == key_bindings.kACCEL then
+			quickly_open_backpack = false
+		end
+	end)
+	RegisterScriptCallback("on_key_hold", function(key)
+		if dik_to_bind(key) == key_bindings.kACCEL then
+			quickly_open_backpack = true
+		end
+	end)
+	RegisterScriptCallback("on_key_press", function(key)
+		if dik_to_bind(key) == key_bindings.kINVENTORY and quickly_open_backpack then
+			if ActorMenu.get_menu_mode() ~= 0 then
+				return
+			end
+			db.actor:iterate_slots(function(_, item, slot)
+				if IsBackpack(item) then
+					access_inventory(item)
+				end
+			end)
+		end
+	end)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+end
+-----------------------------
+
+function can_access_inventory(obj)
+	if obj:parent():id() ~= 0 then return end
+	if (curBoxID == obj:id() and ActorMenu.get_menu_mode() == 4) then
+		force_close = true
+		return game.translate_string("st_close")
+	end
+	force_close = false
+	return game.translate_string("st_open")
+end
+
+function access_inventory(obj)
+	if obj:parent():id() ~= 0 then return end
+	local section = string.add("anm_", obj:section())
+	if force_close and (curBoxID and ActorMenu.get_menu_mode() == 4) then
+		if INI:section_exist(section) then
+			local anim_hands = level.object_by_id(TableAnimHands().obj.id)
+			if anim_hands then
+				anim_hands:switch_state(2)
+				get_hud():HideActorMenu()
+				AddUniqueCall(function()
+					if not TableAnimHands().status then
+						get_hud():ShowActorMenu()
+						ActorMenu.get_actor_menu():SetMenuMode(1)
+						return true
+					end
+				end)
+			end
+		else
+			ActorMenu.get_actor_menu():SetMenuMode(1)
+		end
+		return
+	end
+
+	local id = obj:id()
+	if INI:section_exist(section) then
+		local function open()
+			CallbackAnimHands("start_anim", function()
+				if INI:r_bool_ex(obj:section(), "sitdown_opening", true) then
+					level.Actor():ChangeStateCrouch(1)
+				end
+			end)
+
+			StartAnimHands(false,false,false,{
+				use = "backpack_anim",
+				section = section
+			}).return_the_weapon()
+			
+			CallbackAnimHands("animation_control", function(table,item,section,motion,state,slot)
+				if state == 1 then
+					execute_code(id, function(inv_box, container, detach)
+						curBoxID = id
+						inv_box:use(db.actor)
+						AddUniqueCall(function()
+							if ActorMenu.get_menu_mode() ~= 4 and not curBoxID then
+								item:switch_state(2)
+								return true
+							elseif item:get_state() == 2 then
+								get_hud():HideActorMenu()
+								return true
+							end
+						end)
+					end)
+				elseif state == 2 then
+					get_hud():HideActorMenu()
+					StopAnimHands()
+				end
+			end)
+			return true
+		end
+
+		if TableAnimHands().status and TableAnimHands().use == "backpack_anim" then
+			CallbackAnimHands("stop_anim", function(table)
+				CreateTimeEvent("stop_anim","start_anim_backpack", 0.1, open)
+			end)
+			get_hud():HideActorMenu()
+		else
+			open()
+		end
+	else
+		if INI:r_bool_ex(obj:section(), "sitdown_opening", true) then
+			level.Actor():ChangeStateCrouch(1)
+		end
+		execute_code(id, function(inv_box, container, detach)
+			get_hud():HideActorMenu()
+			curBoxID = id
+			inv_box:use(db.actor)
+			detach()
+		end)
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Class "backpack_binder" Backpack parameters processing and container_binder management
+--------------------------------------------------------------------------------
+class "backpack_binder" (object_binder)
+-- Class constructor
+function backpack_binder:__init(obj) super(obj)
+	self.id = self.object:id()
+	self.section = self.object:section()
+	self.size = INI:r_float_ex(self.section, "inv_volume")
+	self.use_condition = INI:r_bool_ex(self.section, "use_condition", false)
+	self.sitdown_opening = INI:r_bool_ex(self.section, "sitdown_opening", true)
+	self.slot_backpack = false
+	--create a container for items
+	self.se_inv_box = get_container(self.id)
+	self:create_container()
+	local function up_values(inv_box, container, detach)
+		self:updating_data()
+		if self.object then
+			db.actor:iterate_inventory(function(source_box, item)
+				if item:id() == self.id then
+					area_volume.on_item_take(self.object)
+				end
+			end, db.actor)
+		end
+		detach()
+	end
+	execute_code(self.id, up_values)
+
+	local function to_ruck(obj)
+		if obj:id() == self.id then
+			self.slot_backpack = false
+			execute_code(self.id, up_values)
+		end
+	end
+
+	local function to_slot(obj)
+		if obj:id() == self.id then
+			self.slot_backpack = true
+			execute_code(self.id, up_values)
+		end
+	end
+
+	local function actor_on_before_death()
+		UnregisterScriptCallback("actor_item_to_ruck",to_ruck)
+		UnregisterScriptCallback("actor_item_to_slot",to_slot)
+	end
+
+	RegisterScriptCallback("actor_item_to_ruck",to_ruck)
+	RegisterScriptCallback("actor_item_to_slot",to_slot)
+	RegisterScriptCallback("actor_on_before_death",actor_on_before_death)
+
+end
+
+function backpack_binder:create_container()
+	local function fill_prohibited_items()
+		self.se_inv_box.allow_take_items = alun_utils.parse_list(INI, self.section, "allow_take_list") -- can be list of sections or clsids
+		self.se_inv_box.refuse_take_items = alun_utils.parse_list(INI, self.section, "refuse_take_list")
+	end
+
+	if self.se_inv_box then
+		fill_prohibited_items()
+		return
+	end
+
+	local pack = self.section:match("(backpack_[%w_]*)") or self.section:match("([%w_]*container)")
+	if pack then 
+		pack = string.add("no_", pack)
+		if not (INI:section_exist(pack)) then
+			printf("!ERROR: Failed to create a container for a (%s), section (%s) does not exist.", self.section, pack)
+			return
+		end
+		-- create inventory_box_s under map		
+		--printf("backpack box name:%s", pack)
+		self.se_inv_box = alife():create(pack, db.actor:position(), level.vertex_id(db.actor:position()), db.actor:game_vertex_id())		
+		containers[self.id] = self.se_inv_box.id
+		fill_prohibited_items()
+		EditOnline(self.se_inv_box.id, false)
+	end
+end
+
+-- Class update
+function backpack_binder:update(delta)
+    object_binder.update(self, delta)
+	-- If actor menu is in dead body search mode then check if it's our ID; if so calculate_weight
+	if self.se_inv_box and self.se_inv_box.active_box then
+		self.inv_box = self.se_inv_box and level.object_by_id(self.se_inv_box.id)
+		if self.se_inv_box.active_box and self.inv_box and self.object:volume() ~= self.inv_box:box_volume() then
+			self:updating_data()
+		end
+	end
+	local actor = level.Actor()
+
+	if (ActorMenu.get_menu_mode() == 4 and curBoxID == self.id and self.se_inv_box.active_box) then
+		actor:BlockItemsInput(1)
+		self:updating_data()
+	elseif curBoxID == self.id and db.actor and db.actor:alive() then
+		if self.sitdown_opening then
+			actor:ChangeStateCrouch(3)
+		end
+		actor:BlockItemsInput(0)
+		curBoxID = nil
+	end
+end
+
+function backpack_binder:updating_data()
+	self.inv_box = self.se_inv_box and level.object_by_id(self.se_inv_box.id)
+	if db.actor and db.actor:alive() and self.object and self.inv_box then
+		self.weight = self.inv_box:box_weight()
+			--printf("actor weight:%s",db.actor:get_total_weight())
+		self.object:set_weight(self.weight)
+		self.maxsize = self.inv_box:get_box_max_volume()
+		self.volume = self.inv_box:box_volume()
+
+		if self.slot_backpack then
+			self.object:set_volume(self.size)
+		else
+			self.object:set_volume(self.volume)
+		end
+
+		self.object:set_condition((self.volume - self.size)/(self.maxsize))
+		--printf("box weight:%s volume:%s objectsect:%s", self.weight,self.volume,self.object:section())
+		--printf("actor weight2:%s actor volume2:%s",db.actor:get_total_weight(),db.actor:get_total_volume())
+		local actor_menu = ActorMenu.get_actor_menu()
+		if actor_menu and self.use_condition and ActorMenu.get_menu_mode() ~= 0 then
+			actor_menu:UpdateConditionProgressBars()
+		end
+	end
+end
+
+--------------------------------------------------------------------------------
+-- Class "container_binder" events
+--------------------------------------------------------------------------------
+class "container_binder" (object_binder)
+-- Class constructor
+function container_binder:__init(obj) super(obj)
+	self.id = self.object:id()
+	self.se_inv_box = alife_object(self.id)
+	if self.se_inv_box then
+		self.se_inv_box:use_ai_locations(true)
+	end
+	-- printf("-Initialization success container_binder id(%s) section(%s)", obj:id(), obj:section())
+end
+
+-- Class net_spawn
+function container_binder:net_spawn(se_abstract)
+	if not object_binder.net_spawn(self, se_abstract) then
+		return false
+	end
+	self.se_inv_box.active_box = true
+	-- self.object:set_callback(callback.use_object, self.use_object, self)
+
+	self.object:iterate_inventory_box(function(source_box, item)
+		if item:section() == "" then
+			area_utils.remove_item_containers(item:id())
+		end
+	end, self.object)
+	return true
+end
+
+-- function container_binder:use_object()
+-- 	level.Actor():ChangeStateCrouch(1)
+-- end
+-- Class net_destroy
+function container_binder:net_destroy()
+	-- printf("-net_destroy container_binder id(%s) section(%s)", self.object:id(), self.object:section())
+	self.se_inv_box.active_box = false
+	-- self.object:set_callback(callback.use_object, nil, nil)
+	object_binder.net_destroy(self)
+end

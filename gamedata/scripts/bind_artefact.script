@@ -1,0 +1,345 @@
+--// -----------------		Artefact Degradation for CoC	 ---------------------
+--// author	: 	Nuor
+--// version:	1.04
+--// created:	9-01-2016
+--// last edit:	07-05-2019
+--//------------------------------------------------------------------------------
+
+--// -----------------		   A.R.E.A Refactoring	 	--------------------------
+--// author	: 	MAGILA
+--// last edit:	01-09-2022
+--//------------------------------------------------------------------------------
+
+art_weight_add = 0
+local feature_is_active = false
+local level_zone_list = {}
+--//-----------	correction factors for hit events
+local imm_mul = {
+	["light_burn_immunity"] = 4.0,
+	["burn_immunity"] = 6.3,
+	["strike_immunity"] = 0.65,
+	["shock_immunity"] = 6.7,
+	["wound_immunity"] = 0.58,
+	["radiation_immunity"] = 0.3,
+	["telepatic_immunity"] = 5.5,
+	["chemical_burn_immunity"] = 6.1,
+	["explosion_immunity"] = 1.7,
+	["fire_wound_immunity"] = 1.5
+}
+
+--//-----------	correction factors for timed checks
+local mul = {
+	["health"]		= 4.3,
+	["radiation"] 	= 2.7,
+	["satiety"] 	= 5.2,
+	["power"] 		= 5.7,
+	["bleeding"] 	= 4.5,
+	--["psy_health"] 	= 1.6,???
+	["weight"]		= 0.09,
+	["volume"]		= 0.1
+}
+
+
+--//-----------	On hit immunities checks
+local hit_to_section = {
+	[hit.light_burn] = "light_burn_immunity",
+	[hit.burn] = "burn_immunity",
+	[hit.strike] = "strike_immunity",
+	[hit.shock] = "shock_immunity",
+	[hit.wound] = "wound_immunity",
+	[hit.radiation] = "radiation_immunity",
+	[hit.telepatic] = "telepatic_immunity",
+	[hit.chemical_burn] = "chemical_burn_immunity",
+	[hit.explosion] = "explosion_immunity",
+	[hit.fire_wound] = "fire_wound_immunity"
+}
+
+--'******************************************************
+--'*  Событие апдейта актора.
+--'******************************************************
+local function actor_on_update()
+	--art_weight_add = 0
+	local delta = time_game_delta("degrade_art_up")*0.08
+	local function it(arte, coff)
+		if IsArtefact(arte) then
+			local sect = arte:section()
+			local cond_loss = 0
+			if db.actor.health < 0.999 then
+				cond_loss = cond_loss + (math.abs(INI:r_float_ex(sect,"health_restore_speed", 0)) * mul["health"])
+			end
+			if db.actor.radiation > 0.001 then
+				cond_loss = cond_loss + (math.abs(INI:r_float_ex(sect,"radiation_restore_speed", 0)) * mul["radiation"])
+			end
+			if db.actor.satiety < 0.999 then
+				cond_loss = cond_loss + (math.abs(INI:r_float_ex(sect, "satiety_restore_speed", 0)) * mul["satiety"])
+			end
+			if db.actor.power < 0.999 then
+				cond_loss = cond_loss + (math.abs(INI:r_float_ex(sect, "power_restore_speed", 0)) * mul["power"])
+			end
+			if db.actor.bleeding > 0.001 then
+				cond_loss = cond_loss + (math.abs(INI:r_float_ex(sect,"bleeding_restore_speed", 0)) * mul["bleeding"])
+			end
+			-- ??????????
+			-- if (db.actor.psy_health < 1.0) then
+			-- 	cond_loss = cond_loss + (INI:r_float_ex(sect,"psy_health_restore_speed", 0) * mul["psy_health"])
+			-- end
+			local cond_art = arte:condition()
+
+			local art_weight = INI:r_float_ex(arte:section(), "additional_inventory_weight", 0)*cond_art
+			if art_weight > 0 then
+				local outfit = db.actor:item_in_slot(7)
+				local backpack = db.actor:item_in_slot(13)
+				local weight = db.actor:get_total_weight()
+				local max_weight = db.actor:get_actor_max_walk_weight()
+				max_weight = max_weight + (outfit and outfit:get_additional_max_weight() or 0)
+				max_weight = max_weight + (backpack and backpack:get_additional_max_weight() or 0)
+				max_weight = max_weight + art_weight
+				if ((weight + art_weight) > max_weight) then	
+					local diff = (weight + art_weight) - max_weight
+					if diff > art_weight then
+						diff = art_weight
+					end
+					cond_loss = cond_loss + ((diff/art_weight)*mul["weight"])*mul["weight"]
+				end  
+			end
+			
+			local art_volume = INI:r_float_ex(arte:section(), "additional_inventory_volume", 0)*cond_art
+			if art_volume > 0 then
+				local outfit = db.actor:item_in_slot(7)
+				local backpack = db.actor:item_in_slot(13)
+				local volume = area_volume.actor_total_volume()
+				local max_volume = db.actor:get_actor_max_volume()
+				max_volume = max_volume + (outfit and outfit:get_additional_max_volume() or 0)
+				max_volume = max_volume + (backpack and backpack:get_additional_max_volume() or 0)
+				max_volume = max_volume + art_volume
+				if ((volume + art_volume) > max_volume) then	
+					local diff = (volume + art_volume) - max_volume
+					if diff > art_volume then
+						diff = art_volume
+					end
+					cond_loss = cond_loss + ((diff/art_volume)*mul["volume"])*mul["volume"]
+				end  
+			end
+
+			if (cond_loss ~= 0) then
+				--printf("%s Degradation: cond_loss=%s",arte:name(),cond_loss)
+				local degrade_rate = (cond_loss*(INI:r_float_ex(sect,"degrade_rate",1) * (coff * delta)))
+				if (cond_art - degrade_rate >= 0.0001) then
+					if degrade_rate > 1 then
+						degrade_rate = 1
+					end
+					arte:set_condition(cond_art - degrade_rate)
+				else
+					arte:set_condition(0.0001)
+				end
+			end
+		end
+	end
+
+	db.actor:iterate_belt(function(_, item)
+		it(item, 1)
+	end)
+
+	db.actor:iterate_ruck(function(_, item)
+		it(item, 0.75)
+	end)
+end
+
+local function actor_up()
+	if feature_is_active then
+		LimitUpdate(actor_on_update, 3)
+	end
+end
+
+--'******************************************************
+--'*  Событие урона по актору.
+--'******************************************************
+local function actor_on_before_hit(s_hit)
+	if s_hit.power > 0 then
+		local imm_sect = hit_to_section[s_hit.type]
+		if imm_sect then
+			local function it(arte, coff)
+				if IsArtefact(arte) then
+					local hit_absorbation_sect = INI:r_string_ex(arte:section(), "hit_absorbation_sect", nil)
+					if hit_absorbation_sect then
+						local cond_loss = (s_hit.power * (imm_mul[imm_sect] * INI:r_float_ex(hit_absorbation_sect, imm_sect, 0)))
+						local temp_cond = arte:condition() - ((cond_loss * INI:r_float_ex(arte:section(),"degrade_rate", 1))*coff)
+						temp_cond = temp_cond > 0.001 and temp_cond or 0.001
+						arte:set_condition(temp_cond)
+					end
+				end
+			end
+
+			db.actor:iterate_belt(function(_, item)
+				it(item, 1)
+			end)
+
+			db.actor:iterate_ruck(function(_, item)
+				it(item, 0.75)
+			end)
+		end	
+	end
+end
+
+--'******************************************************
+--'*  Событие переноса артифакта на пояс.
+--'******************************************************
+local function belt_item(item)
+	if feature_is_active then
+		local sect = item:section()
+		local coint = 0
+		db.actor:iterate_belt(function(_, arte)
+			if sect == arte:section() then
+				coint = coint+1
+			end
+
+			if coint > INI:r_float_ex(sect, "max_count", db.actor:belt_count()) then
+				db.actor:move_to_ruck(item)
+				return true
+			end
+		end)
+	end
+end
+
+--'******************************************************
+--'*  Подключение событий.
+--'******************************************************
+local function on_game_load()
+	local function start_game()
+		if axr_main.config:r_bool_ex("mm_options", "enable_art_degrade", false) then
+			if not feature_is_active then
+				RegisterScriptCallback("actor_on_before_hit", actor_on_before_hit)
+				RegisterScriptCallback("actor_item_to_belt", belt_item)
+				RegisterScriptCallback("actor_on_update", actor_up)
+				RegisterScriptCallback("anomaly_zone_on_net_spawn", function (obj)
+					table.insert(level_zone_list, obj)
+				end)
+
+				RegisterScriptCallback("anomaly_zone_on_net_destroy", function (obj)
+					for pos, s_obj in pairs(level_zone_list) do
+						if s_obj:id() == obj:id() then
+							level_zone_list[pos] = nil
+							break
+						end
+					end
+				end)
+			end
+			feature_is_active = true
+		elseif feature_is_active then
+			UnregisterScriptCallback("actor_on_before_hit", actor_on_before_hit)
+			UnregisterScriptCallback("actor_item_to_belt", belt_item)
+			UnregisterScriptCallback("actor_on_update", actor_up)
+			feature_is_active = false
+		end
+	end
+	RegisterScriptCallback("opt_menu_on_accept", start_game)
+
+	start_game()
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+end
+
+--'******************************************************
+--'*  Биндер объекта артефакт .
+--'******************************************************
+function bind(obj)
+	obj:bind_object(artefact_binder(obj))
+end
+
+class "artefact_binder" (object_binder)
+function artefact_binder:__init(obj) super(obj)
+	self.id = self.object:id()
+	self.up_time = function()
+		self:restoration()
+	end
+	db.storage[self.id] = {}
+end
+
+function artefact_binder:net_spawn(se_abstract)
+	if not object_binder.net_spawn(self, se_abstract) then
+		return false
+	end
+
+	db.add_obj(self.object)
+	if bind_anomaly_zone.artefact_ways_by_id[self.id] ~= nil then
+		local anomal_zone = bind_anomaly_zone.parent_zones_by_artefact_id[self.id]
+		local force_xz	= anomal_zone.applying_force_xz
+		local force_y	= anomal_zone.applying_force_y
+		self.object:get_artefact():FollowByPath(
+			bind_anomaly_zone.artefact_ways_by_id[self.id],
+			bind_anomaly_zone.artefact_points_by_id[self.id],
+			vector():set(force_xz,force_y,force_xz)
+		)
+		--artefact:FollowByPath(bind_anomaly_zone.artefact_ways_by_id[id],0,vector():set(force_xz,force_y,force_xz))
+	end
+
+	self.first_call = true
+	return true
+end
+
+function artefact_binder:update(delta)
+	object_binder.update(self, delta)
+	--printf("pl:art [%s] pos %s", self.object:name(), vec_to_str(self.object:position()))
+	
+    if self.first_call == true then
+		self.first_call = false
+		
+		local ini = self.object:spawn_ini()
+		if (ini and ini:section_exist("fixed_bone")) then
+			local bone_name = ini:r_string_ex("fixed_bone", "name")
+			local ph_shell = self.object:get_physics_shell()
+			if ph_shell then
+				local ph_element = ph_shell:get_element_by_bone_name(bone_name)
+				if not ph_element:is_fixed() then
+					ph_element:fix()
+				end
+			end
+		end
+    end
+
+	LimitUpdate(self.up_time, 1.5)
+end
+
+function artefact_binder:restoration()
+	local type = INI:r_string_ex(self.object:section(), "af_type", nil)
+	if type and type ~= "" and not self.object:parent() then
+		type = type:sub(1, #type-2)
+		for _, se_zone in pairs(level_zone_list) do
+			if se_zone then
+				local zone_sec = se_zone:section()
+				if 
+					zone_sec:is_contain(type) and
+					se_zone:position():distance_to_sqr(self.object:position()) < (INI:r_float_ex(zone_sec, "effective_radius", 0)*7)
+				then
+					local temp_cond = self.object:condition()
+					if temp_cond < 0.95 then
+						local new_cond = temp_cond + ((temp_cond+0.1)*0.5)
+
+						if new_cond > 0.95 then
+							new_cond = 0.95
+						end
+
+						self.object:set_condition(new_cond)
+					end
+
+					break
+				end
+			end
+		end
+	end
+end
+
+function artefact_binder:net_destroy(se_abstract)
+	db.del_obj(self.object)
+	object_binder.net_destroy(self)
+end
+
+function artefact_binder:load(stpk)
+	object_binder.load(self,stpk)
+end
+
+function artefact_binder:save(stpk)
+	object_binder.save(self,stpk)
+end

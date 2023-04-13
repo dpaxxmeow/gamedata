@@ -1,0 +1,283 @@
+function on_game_start()
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+end
+
+function save_state(m_data)
+	if m_data.area_start_anim_played == nil then
+		m_data.area_start_anim_played = false
+	elseif m_data.area_start_anim_played == false then 
+		m_data.area_start_anim_played = true
+	end
+end
+
+function load_state(m_data)
+	if not m_data.area_start_anim_played then
+		RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	end
+end
+
+function actor_on_first_update()
+	AddUniqueCall(area_utils.items_to_backpack)
+	area_utils.items_to_slot()
+	local faction = db.actor:character_community()
+	local start_place = utils.load_var(db.actor,"area_game_faction_position",nil)
+	if faction == "actor_stalker" then
+		if start_place == "fo_cordon" then
+			actor_effects.use_item("esc_fo_start")
+		end
+	elseif faction == "actor_bandit" then
+		if start_place == "northern_factory" then
+			actor_effects.use_item("northern_factory_start")
+		elseif start_place == "esc_factory_bandit" then
+			actor_effects.use_item("esc_factory_bandit_start")
+		elseif start_place == "pole_bandit_base" then
+			actor_effects.use_item("pole_bandit_base_start")
+		elseif start_place == "fo_cordon" then
+			actor_effects.use_item("fo_cordon_start_band")
+		elseif start_place == "fo_darkscape" then
+			actor_effects.use_item("fo_darkscape_start_band")
+		end
+	elseif faction == "actor_dolg" then
+		if start_place == "garbage_blockpost" then
+			actor_effects.use_item("garbage_blockpost_start")
+		elseif start_place == "makeshift_barracks" then
+			actor_effects.use_item("makeshift_barracks_start")
+		end
+	elseif faction == "actor_freedom" then
+		if start_place == "military_base" then
+			actor_effects.use_item("military_base_start")
+		elseif start_place == "barrier" then
+			actor_effects.use_item("barrier_start")
+		end
+	elseif faction == "actor_csky" then
+		if start_place == "hidden_base" then
+			actor_effects.use_item("cs_hidden_base_start")
+		elseif start_place == "pumping_station" then
+			actor_effects.use_item("cs_pumping_station_start")
+		end
+	elseif faction == "actor_ecolog" then
+		if start_place == "sakharovs_bunker" then
+			actor_effects.use_item("sakharovs_bunker_start")
+		elseif start_place == "research_institute" then
+			actor_effects.use_item("research_institute_eco_start")
+		elseif start_place == "southern_checkpoint" then
+			actor_effects.use_item("southern_checkpoint_eco_start")
+		end
+	elseif faction == "actor_killer" then
+		if start_place == "sports_center" then
+			actor_effects.use_item("sports_center_start")
+		elseif start_place == "northern_factory" then
+			actor_effects.use_item("northern_factory_merc_start")
+		end
+	elseif faction == "actor_army" then
+		if start_place == "research_institute" then
+			actor_effects.use_item("research_institute_start")
+		elseif start_place == "southern_checkpoint" then
+			actor_effects.use_item("southern_checkpoint_start")
+		end
+	elseif faction == "actor_monolith" then
+		if start_place == "brain_scorcher" or start_place == "cultural_center" or start_place == "power_station" or start_place == "river_port" or start_place == "kbo_monolith" or start_place == "yanov_depo_monolith" or start_place == "l13_generators" then
+			alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_pri_monolith_monolith_trader_stalker_start_game_1")
+			alun_utils.save_var(db.actor, "drx_sl_current_honcho", "pri_monolith_monolith_trader_stalker")
+			give_info("drx_sl_start_game_pri_monolith_monolith_trader_stalker")
+			db.actor:give_message(game.translate_string("pri_monolith_monolith_trader_stalker_name"):add(":"), game.translate_string("pri_monolith_monolith_trader_stalker_meet"), "ui_inGame2_monolith_trade", 0, 7000)
+		end
+	elseif faction == "actor_zombied" then
+		if start_place == "kopachy_village" then
+		elseif start_place == "river_port" then
+		end
+	end
+end
+
+function esc_trader_random_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_esc_m_trader_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "esc_m_trader")
+	give_info("drx_sl_start_game_esc_m_trader")
+	local p = math.random(1,2)
+	if (p == 1) then
+		db.actor:give_message(game.translate_string("escape_trader_name"):add(":"), game.translate_string("esc_trader_meeting_pda"), "ui_npc_u_trader_1", 0, 7000)
+		xr_sound.set_sound_play(db.actor:id(), "esc_trader_meeting_pda")
+	elseif (p == 2) then
+		db.actor:give_message(game.translate_string("escape_trader_name"):add(":"), game.translate_string("esc_trader_meeting_pda_1"), "ui_npc_u_trader_1", 0, 7000)
+		xr_sound.set_sound_play(db.actor:id(), "esc_trader_meeting_pda_1")
+	end
+end
+
+function esc_fo_meet()
+	db.actor:give_message(game.translate_string("escape_trader_name"):add(":"), game.translate_string("esc_fo_tr_meet"), "ui_npc_u_trader_1", 0, 7000)
+	xr_sound.set_sound_play(db.actor:id(), "esc_tr_fo_meet")
+end
+
+function esc_fo_meet_1()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_esc_m_trader_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "esc_m_trader")
+	give_info("drx_sl_start_game_esc_m_trader")
+	db.actor:give_message(game.translate_string("escape_trader_name"):add(":"), game.translate_string("esc_trader_meeting_pda"), "ui_npc_u_trader_1", 0, 7000)
+	xr_sound.set_sound_play(db.actor:id(), "esc_trader_meeting_pda")
+end
+
+function esc_trader_meet_marsh()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_esc_m_trader_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "esc_m_trader")
+	give_info("drx_sl_start_game_esc_m_trader")
+	db.actor:give_message(game.translate_string("escape_trader_name"):add(":"), game.translate_string("esc_trader_meet_marsh"), "ui_npc_u_trader_1", 0, 7000)
+end
+
+function esc_fo_start_cs()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_mar_smart_terrain_base_stalker_leader_marsh_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "mar_smart_terrain_base_stalker_leader_marsh")
+	give_info("drx_sl_start_game_mar_smart_terrain_base_stalker_leader_marsh")
+	db.actor:give_message(game.translate_string("mar_smart_terrain_base_stalker_leader_marsh_name"):add(":"), game.translate_string("cs_leader_meeting_pda"), "ui_inGame2_cold", 0, 7000)
+end
+
+function cs_fo_marsh_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_mar_smart_terrain_base_stalker_leader_marsh_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "mar_smart_terrain_base_stalker_leader_marsh")
+	give_info("drx_sl_start_game_mar_smart_terrain_base_stalker_leader_marsh")
+	db.actor:give_message(game.translate_string("mar_smart_terrain_base_stalker_leader_marsh_name"):add(":"), game.translate_string("cs_leader_meeting_pda_marsh"), "ui_inGame2_cold", 0, 7000)
+end
+
+function cs_pumping_station_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_mar_smart_terrain_base_stalker_leader_marsh_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "mar_smart_terrain_base_stalker_leader_marsh")
+	give_info("drx_sl_start_game_mar_smart_terrain_base_stalker_leader_marsh")
+	db.actor:give_message(game.translate_string("mar_smart_terrain_base_stalker_leader_marsh_name"):add(":"), game.translate_string("cs_pumping_station_meet"), "ui_inGame2_cold", 0, 7000)
+end
+
+function cs_hidden_base_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_mar_smart_terrain_base_stalker_leader_marsh_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "mar_smart_terrain_base_stalker_leader_marsh")
+	give_info("drx_sl_start_game_mar_smart_terrain_base_stalker_leader_marsh")
+	db.actor:give_message(game.translate_string("mar_smart_terrain_base_stalker_leader_marsh_name"):add(":"), game.translate_string("cs_hidden_base_meet"), "ui_inGame2_cold", 0, 7000)
+end
+
+function dasc_fo_sawwil_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_dasc_trade_mlr_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "dasc_trade_mlr")
+	give_info("drx_sl_start_game_dasc_trade_mlr")
+	db.actor:give_message(game.translate_string("st_dasc_trade_mlr_name"):add(":"), game.translate_string("dasc_fo_sawwil_meet"), "ui_inGame2_neutral_2_mask", 0, 7000)
+end
+
+function fo_cordon_start_band_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_zat_b7_bandit_boss_sultan_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "zat_b7_bandit_boss_sultan")
+	give_info("drx_sl_start_game_zat_b7_bandit_boss_sultan")
+	db.actor:give_message(game.translate_string("st_zat_b7_bandit_boss_sultan_name"):add(":"), game.translate_string("fo_cordon_start_band"), "ui_inGame2_Sultan", 0, 7000)
+end
+
+function fo_darkscape_start_band()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_zat_b7_bandit_boss_sultan_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "zat_b7_bandit_boss_sultan")
+	give_info("drx_sl_start_game_zat_b7_bandit_boss_sultan")
+	db.actor:give_message(game.translate_string("st_zat_b7_bandit_boss_sultan_name"):add(":"), game.translate_string("fo_darkscape_start_band"), "ui_inGame2_Sultan", 0, 7000)
+end
+
+function fo_marsh_start_band_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_zat_b7_bandit_boss_sultan_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "zat_b7_bandit_boss_sultan")
+	give_info("drx_sl_start_game_zat_b7_bandit_boss_sultan")
+	db.actor:give_message(game.translate_string("st_zat_b7_bandit_boss_sultan_name"):add(":"), game.translate_string("fo_marsh_start_band_meet"), "ui_inGame2_Sultan", 0, 7000)
+end
+
+function northern_factory_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_zat_b7_bandit_boss_sultan_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "zat_b7_bandit_boss_sultan")
+	give_info("drx_sl_start_game_zat_b7_bandit_boss_sultan")
+	db.actor:give_message(game.translate_string("st_zat_b7_bandit_boss_sultan_name"):add(":"), game.translate_string("northern_factory_meet"), "ui_inGame2_Sultan", 0, 7000)
+end
+
+function esc_factory_bandit_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_zat_b7_bandit_boss_sultan_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "zat_b7_bandit_boss_sultan")
+	give_info("drx_sl_start_game_zat_b7_bandit_boss_sultan")
+	db.actor:give_message(game.translate_string("st_zat_b7_bandit_boss_sultan_name"):add(":"), game.translate_string("esc_factory_bandit_meet"), "ui_inGame2_Sultan", 0, 7000)
+end
+
+function pole_bandit_base_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_zat_b7_bandit_boss_sultan_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "zat_b7_bandit_boss_sultan")
+	give_info("drx_sl_start_game_zat_b7_bandit_boss_sultan")
+	db.actor:give_message(game.translate_string("st_zat_b7_bandit_boss_sultan_name"):add(":"), game.translate_string("pole_bandit_base_meet"), "ui_inGame2_Sultan", 0, 7000)
+end
+
+function garbage_blockpost_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_bar_dolg_general_petrenko_stalker_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "bar_dolg_general_petrenko_stalker")
+	give_info("drx_sl_start_game_bar_dolg_general_petrenko_stalker")
+	db.actor:give_message(game.translate_string("bar_petrenko_name"):add(":"), game.translate_string("garbage_blockpost_meet"), "ui_inGame2_petrenko", 0, 7000)
+end
+
+function makeshift_barracks_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_bar_dolg_general_petrenko_stalker_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "bar_dolg_general_petrenko_stalker")
+	give_info("drx_sl_start_game_bar_dolg_general_petrenko_stalker")
+	db.actor:give_message(game.translate_string("bar_petrenko_name"):add(":"), game.translate_string("makeshift_barracks_meet"), "ui_inGame2_petrenko", 0, 7000)
+end
+
+function military_base_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_mil_smart_terrain_7_7_freedom_leader_stalker_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "mil_smart_terrain_7_7_freedom_leader_stalker")
+	give_info("drx_sl_start_game_mil_smart_terrain_7_7_freedom_leader_stalker")
+	db.actor:give_message(game.translate_string("mil_freedom_leader_name"):add(":"), game.translate_string("military_base_meet"), "ui_inGame2_Freedom_3", 0, 7000)
+end
+
+function barrier_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_mil_smart_terrain_7_7_freedom_leader_stalker_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "mil_smart_terrain_7_7_freedom_leader_stalker")
+	give_info("drx_sl_start_game_mil_smart_terrain_7_7_freedom_leader_stalker")
+	db.actor:give_message(game.translate_string("mil_freedom_leader_name"):add(":"), game.translate_string("barrier_meet"), "ui_inGame2_Freedom_3", 0, 7000)
+end
+
+function research_institute_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "agr_smart_terrain_1_6_near_2_military_colonel_kovalski")
+	give_info("drx_sl_start_game_agr_smart_terrain_1_6_near_2_military_colonel_kovalski")
+	db.actor:give_message(game.translate_string("agr_kuznetsov_name"):add(":"), game.translate_string("research_institute_meet"), "ui_inGame2_Kuznetsov", 0, 7000)
+end
+
+function southern_checkpoint_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "agr_smart_terrain_1_6_near_2_military_colonel_kovalski")
+	give_info("drx_sl_start_game_agr_smart_terrain_1_6_near_2_military_colonel_kovalski")
+	db.actor:give_message(game.translate_string("agr_kuznetsov_name"):add(":"), game.translate_string("southern_checkpoint_meet"), "ui_inGame2_Kuznetsov", 0, 7000)
+end
+
+function sakharovs_bunker_start_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_yan_stalker_sakharov_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "yan_stalker_sakharov")
+	give_info("drx_sl_start_game_yan_stalker_sakharov")
+	db.actor:give_message(game.translate_string("yan_st_sakharov_name"):add(":"), game.translate_string("sakharovs_bunker_start_meet"), "ui_inGame2_sakharov", 0, 7000)
+end
+
+function southern_checkpoint_eco_start_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_yan_stalker_sakharov_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "yan_stalker_sakharov")
+	give_info("drx_sl_start_game_yan_stalker_sakharov")
+	db.actor:give_message(game.translate_string("yan_st_sakharov_name"):add(":"), game.translate_string("southern_checkpoint_eco_start_meet"), "ui_inGame2_sakharov", 0, 7000)
+end
+
+function research_institute_eco_start_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_yan_stalker_sakharov_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "yan_stalker_sakharov")
+	give_info("drx_sl_start_game_yan_stalker_sakharov")
+	db.actor:give_message(game.translate_string("yan_st_sakharov_name"):add(":"), game.translate_string("research_institute_eco_start_meet"), "ui_inGame2_sakharov", 0, 7000)
+end
+
+function northern_factory_merc_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_cit_killers_merc_trader_stalker_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "cit_killers_merc_trader_stalker")
+	give_info("drx_sl_start_game_cit_killers_merc_trader_stalker")
+	db.actor:give_message(game.translate_string("cit_killers_merc_trader_stalker_name"):add(":"), game.translate_string("northern_factory_merc_meet"), "ui_inGame2_merc_trade", 0, 7000)
+end
+
+function sports_center_meet()
+	alun_utils.save_var(db.actor, "drx_sl_start_task", "drx_sl_cit_killers_merc_trader_stalker_start_game_1")
+	alun_utils.save_var(db.actor, "drx_sl_current_honcho", "cit_killers_merc_trader_stalker")
+	give_info("drx_sl_start_game_cit_killers_merc_trader_stalker")
+	db.actor:give_message(game.translate_string("cit_killers_merc_trader_stalker_name"):add(":"), game.translate_string("sports_center_meet"), "ui_inGame2_merc_trade", 0, 7000)
+end
+
+function fo_darkscape_teleport()
+	db.actor:set_actor_position(vector():set(357.74835205078,17.903923034668,292.19427490234))
+end

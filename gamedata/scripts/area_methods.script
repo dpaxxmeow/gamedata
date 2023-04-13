@@ -1,0 +1,589 @@
+--[ A.R.E.A Adding methods to standard LUA objects ]
+
+function main()
+	--GLOBAL STRING ________
+	--[[
+		Returns the number of substring matches in a string. To search, you need to pass a string.
+		Returns 0 if the substring does not exist, or no substring matches were found in the string.
+		Author MAGILA
+	]]
+	function string.find_matches(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:find_matches(string_2)
+		end
+		return 0
+	end
+
+	function string:find_matches(string_)
+		if string_ and type(string_) == "string" then
+			local matches = 0
+			self:gsub(string_, function(symbol)
+				if string_ == symbol then
+					matches = matches+1
+				end
+			end)
+			return matches
+		end
+		return 0
+	end
+	
+	--GLOBAL STRING ________
+	--[[
+		Converts a row to a table accepts a divisor in the argument, if not specify the divisor will be used by default ",".
+		In case of an error, it will return an empty table.
+		Author MAGILA
+	]]
+	function string.to_table(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:to_table(string_2)
+		end
+		return {}
+	end
+	
+	function string:to_table(string_)
+		local t = {}
+		if not string_ then
+			string_ = ","
+		end
+
+		if type(string_) == "string" then
+			local _std = ""
+			local index = 1
+			for i = 1, #self do
+				local symbol = self:sub(i, i)
+				if symbol ~= string_ then
+					_std = _std:add(symbol)
+				else
+					t[index] = _std:trim()
+					_std = ""
+					index = index+1
+				end
+			end
+			t[index] = _std:trim()
+		end
+		return t
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns the beginning of a string, up to a certain character.
+		Author MAGILA
+	]]
+	function string.get_started(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:started_with(string_2)
+		end
+		return false
+	end
+	
+	function string:get_started(string_)
+		local state = false
+		if not string_ then
+			error("string:started_with it is not possible to add nil to the string!")
+			return self
+		end
+
+		local _std = ""
+
+		if type(string_) == "string" then
+			for i = 1, #self do
+				local symbol = self:sub(i, i)
+				if symbol ~= string_ then
+					_std = _std:add(symbol)
+				else
+					break
+				end
+			end
+		end
+		return _std
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns true if the substring matches the beginning of the string.
+		Author MAGILA
+	]]
+	function string.started_with(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:started_with(string_2)
+		end
+		return false
+	end
+	
+	function string:started_with(string_)
+		local state = false
+		if not string_ then
+			error("string:started_with: Impossible to add nil to the string!")
+			return self
+		end
+
+		if type(string_) == "string" then
+			local _std = ""
+			local len_str = #string_
+			for i = 1, #self do
+				local symbol = self:sub(i, i)
+				_std = _std:add(symbol)
+
+				if len_str < i then
+					return false
+				end
+				if _std == string_ then
+					return true
+				end
+			end
+		end
+		return false
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns true if the substring matches the end of the string.
+		Author MAGILA
+	]]
+	function string.ended_with(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:ended_with(string_2)
+		end
+		return false
+	end
+	
+	function string:ended_with(string_)
+		local state = false
+		if not string_ then
+			error("string.ended_with: Impossible to add nil to the string!")
+			return self
+		end
+
+		if type(string_) == "string" then
+			local _std = ""
+			local len_str = #self
+			for i = (len_str - #string_) + 1, len_str do
+				local symbol = self:sub(i, i)
+				_std = _std:add(symbol)
+				if _std == string_ then
+					return true
+				end
+			end
+		end
+		return false
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns true if the substring is present in the string.
+		Author MAGILA
+	]]
+	function string.is_contain(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:is_contain(string_2)
+		end
+		return false
+	end
+	
+	function string:is_contain(string_)
+		local state = false
+		if not string_ then
+			error("string:is_contain: Impossible to add nil to the string!")
+			return self
+		end
+
+		if type(string_) == "string" then
+			local len_str = #string_
+			local sub_str_num = 0
+			for i = 1, #self do
+				sub_str_num = sub_str_num+1
+				local symbol = self:sub(i, i)
+				local sub_symbol = string_:sub(sub_str_num, sub_str_num)
+				if symbol ~= sub_symbol then
+					sub_str_num = 0
+				elseif len_str == sub_str_num then
+					return true
+				end
+			end
+		end
+		return false
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns the modified text, deletes if the substring is present in the string.
+		Author MAGILA
+	]]
+	function string.exclude(string_, string_2)
+		if string_ and type(string_) == "string" then
+			return string_:exclude(string_2)
+		end
+		return string_
+	end
+	
+	function string:exclude(string_)
+		if not string_ then
+			error("string:exclude: Impossible to add nil to the string!")
+			return self
+		end
+
+		if type(string_) ~= "string" then
+			error("string:exclude the function cannot add to a string not a string whose data type was attempted to add is [%s]!", type(string_))
+			return self
+		end
+		return self:gsub(string_, "")
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns the modified text, adds a substring to the string.
+		Author MAGILA
+	]]
+	function string.add(string_, string_2)
+		if string_ then
+			if type(string_) ~= "string" then
+				string_ = tostring(string_)
+			end
+			return string_:add(string_2)
+		end
+		return string_
+	end
+	
+	function string:add(string_)
+		if not string_ then
+			error("string:add: Impossible to add nil to the string!")
+			return self
+		end
+
+		if type(string_) ~= "string" and type(string_) ~= "number" then
+			error("string:add the function cannot add to a string not a string whose data type was attempted to add is [%s]!", type(string_))
+			return self
+		end
+
+		return self..string_
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Returns the modified text, adds substrings to the string.
+		Author MAGILA
+	]]
+	function string.add_all(string_, ...)
+		if string_ then
+			if type(string_) ~= "string" then
+				string_ = tostring(string_)
+			end
+			return string_:add_all(...)
+		end
+		return string_
+	end
+	
+	function string:add_all(...)
+		local t = {self, ...}
+
+		for i=1, #t do
+			local val = t[i]
+			if val then
+				t[i] = tostring(t[i])
+			else
+				error("string:add_all in the set of passed strings, the parameter number %s is nil!", i)
+				return self
+			end			
+		end
+
+		return table.concat(t)
+	end
+
+	--GLOBAL STRING ________
+	--[[
+		Splits the string
+		The author of the methods below is not known
+	]]
+	function string.gsplit(s, sep, plain)
+		return s:gsplit(sep, plain)
+	end
+
+	function string:gsplit(sep, plain)
+		local start = 1
+		local done = false
+		local function pass(i, j, ...)
+			if i then
+				local seg = self:sub(start, i - 1)
+				start = j + 1
+				return seg, ...
+			else
+				done = true
+				return self:sub(start)
+			end
+		end
+		return function()
+			if done then return end
+			if sep == '' then done = true return self end
+			return pass(self:find(sep, start, plain))
+		end
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Translates parameters from a section to a table
+		Author MAGILA
+	]]
+	function ini_file.parameters_table(ini, section)
+		return ini:parameters_table(section)
+	end
+	function ini_file:parameters_table(section)
+		local t = {}
+		if not section or not self:section_exist(section) then
+			error("ini_file parameters_table no section [%s]!", section)
+		end
+
+		if type(section) == "string" then
+			 for i = 0, self:line_count(section)-1 do
+				local result, id, value = self:r_line_ex(section, i)
+				if id and value then
+					value = value:trim()
+					local number = tonumber(value)
+					if number or number == 0 then
+						t[id] = number
+					elseif value == "true" then
+						t[id] = true
+					elseif value == "false" then
+						t[id] = false
+					elseif value == "nil" then
+						t[id] = nil
+					elseif value:started_with("{") and value:ended_with("}") then
+						value = value:gsub("^{*(.-)}*$", "%1")
+						t[id] = t[id]:to_table()
+					else
+						t[id] = value
+					end
+				end
+			end
+		end
+		return t
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		The author of the methods below is not known
+		INI Extensions
+	]]
+	local ini_cache = {}
+	-- memoize ini results
+	local function r_memoize(ini,s,k,def,typ)
+		if not s or not k then
+			error("No section or parameter is specified, section %s, parameter %s.", s, k)
+			return def
+		end
+
+		if not (ini:section_exist(s) and ini:line_exist(s,k)) then
+			-- error("~No section or parameter is specified, section %s, parameter %s.", s, k)
+			return def
+		end
+
+		local fname = ini:fname()
+		local name = fname:add(typ)
+		local result
+		--printf("r_memoize %s  [%s] %s",fname,s,k)
+		if (ini_cache[name] and ini_cache[name][s]) then
+			result = ini_cache[name][s][k]
+			if result ~= nil then
+				return result
+			end
+		end
+		
+		if typ == "bool" then
+			result = ini:r_bool(s,k)
+		elseif typ == "float" then
+			result = ini:r_float(s,k)
+		elseif typ == "u32" then
+			result = ini:r_u32(s,k)
+		else
+			result = ini:r_string(s,k)
+		end
+		
+		if result ~= nil and fname ~= "" then
+			if not ini_cache[name] then
+				ini_cache[name] = {}
+			end
+			if not ini_cache[name][s] then
+				ini_cache[name][s] = {}
+			end
+			ini_cache[name][s][k] = result
+		end
+		
+		return result == nil and def or result
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Return the contents of the parameter from the section.
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_string_ex(ini,s,k,def)
+		return r_memoize(ini,s,k,def,"string")
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Return containing the boolean value of the parameter from the section.
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_bool_ex(ini,s,k,def)
+		return r_memoize(ini,s,k,def,"bool")
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Returns a value containing the floating-point parameter value from the section.
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_float_ex(ini,s,k,def)
+		return r_memoize(ini,s,k,def,"float")
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Returns a value containing the floating-point parameter value from the section.
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_u32_ex(ini,s,k,def)
+		return r_memoize(ini,s,k,def,"u32")
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Returns the section line.
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_line_ex(ini,s,k)
+		local fname = ini:fname()
+		local type = "line"
+		local name = fname:add(type)
+
+		if ini_cache[name] and ini_cache[name][s] then
+			local result = ini_cache[name][s][k]
+			if result then
+				return unpack(result)
+			end
+			
+		end
+		
+		local a,b,c = ini:r_line(s,k,"","")
+
+		if fname ~= "" then
+			if not ini_cache[name] then
+				ini_cache[name] = {}
+			end
+			if not ini_cache[name][s] then
+				ini_cache[name][s] = {}
+			end
+			ini_cache[name][s][k] = {a,b,c}
+		end
+		
+		return a,b,c
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_string_to_condlist(ini,s,k,def)
+		local src = ini:r_string_ex(s,k,def)
+		if src ~= nil then
+			return xr_logic.parse_condlist(nil, s, k, src)
+		end
+	end
+
+		--GLOBAL ini_file ________
+	--[[
+		Returns the section list.
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_list_ex(ini,s,k,def)
+		local fname = ini:fname()
+		local type = "list"
+		local name = fname:add(type)
+		local result
+		if ini_cache[name] and ini_cache[name][s] then
+			result = ini_cache[name][s][k]
+			if result ~= nil then
+				return result
+			end
+		end
+		
+		result = ini:r_list(s,k,def)
+		
+		if fname ~= "" then
+			if not ini_cache[name] then
+				ini_cache[name] = {}
+			end
+			if not ini_cache[name][s] then
+				ini_cache[name][s] = {}
+			end
+			ini_cache[name][s][k] = result
+		end
+		
+		return result
+	end
+
+	--GLOBAL ini_file ________
+	--[[
+		
+		Value caching is applied.
+		The author of the methods below is not known.
+	]]
+	function ini_file.r_list(ini,s,k,def)
+		local src = ini:r_string_ex(s, k, nil)
+		if not src then
+			-- error("ini:r_string_ex returned nil")
+			return def
+		end
+
+		if type(src) ~= "string" then
+			error("ini:r_string_ex returned an incorrect data type [%s]", type(src))
+			return src
+		end
+
+		return parse_names(src)
+	end
+
+	function ini_file.r_mult(ini,s,k,...)
+		local src = ini:r_string_ex(s,k,nil)
+		if not src then
+			-- error("ini:r_string_ex returned nil")
+			return ...
+		end
+
+		if type(src) ~= "string" then
+			error("ini:r_string_ex returned an incorrect data type [%s]", type(src))
+			return ...
+		end
+
+		return unpack(parse_names(src))
+	end
+	
+	--GLOBAL math ________
+	--[[
+		Rounding the number to the specified precision.
+	]]
+	function math.round(num, idp)
+		local mult = 10^(idp or 0)
+		return math.floor(num * mult + 0.5) / mult
+	end
+
+	function math.round100(num, idp)
+		return math.round(num, idp)*100
+	end
+	
+	--GLOBAL math ________
+	--[[
+		Clamps a number to within a certain range
+	]]
+	function math.clamp(val, min, max)
+		return val < min and min or val > max and max or val
+	end
+	------
+end

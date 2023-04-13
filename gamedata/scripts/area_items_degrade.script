@@ -1,0 +1,117 @@
+---------------------------------------------------------------------------------------
+--	A.R.E.A. Item Degrade by Nuor, refactoring by MAGILA
+--	version: 1.3.0 (29.10.2022)
+---------------------------------------------------------------------------------------
+
+function BadItem(item)
+    local degrade_time = INI:r_float_ex(item:section(), "item_degrade", 0)
+	if degrade_time ~= 0 then
+		local m_data = alife_storage_manager.get_se_obj_state(alife_object(item:id()))
+		if m_data and m_data.EatTime then 
+			local diff = game.get_game_time():diffSec(m_data.EatTime) > (degrade_time*3600)
+			if diff then
+				item:set_buy(true)
+				item:set_buy_text("st_cant_be_sold_spoiled")
+				item:set_inv_name(
+					game.translate_string(
+						INI:r_string_ex(item:section(), "inv_name", "")
+					):add(
+						string.add("[", game.translate_string("st_item_spoiled")):add("]")
+					)
+				)
+				return true
+			else
+				item:set_buy(false)
+				item:set_buy_text("")
+			end
+		else
+			local m_data = alife_storage_manager.get_se_obj_state(alife_object(item:id()),true)
+			if m_data and not m_data.EatTime then
+				m_data.EatTime = game.get_game_time()
+			end
+		end
+	end
+	return false
+end
+
+local function actor_on_item_take(obj)
+	BadItem(obj)
+end
+
+local function actor_on_item_use(item)
+	if BadItem(item) then
+		local m_data = alife_storage_manager.get_se_obj_state(alife_object(item:id()))
+		if m_data and m_data.EatTime then
+			local degrade_time = INI:r_float_ex(item:section(), "item_degrade", 0)
+			local diff = degrade_time - math.floor(game.get_game_time():diffSec(m_data.EatTime)/3600)
+			local cactor = db.actor:cast_Actor():conditions()
+
+			diff = diff/degrade_time
+			if diff > 0.95 then
+				diff = 0.95
+			end
+			
+			cactor:SetToxicity(cactor:GetToxicity() + diff)
+			SetHudMsg(game.translate_string("st_item_spoiled_warning"), 4)
+		end
+    end
+end
+
+local function menu_mode_change (mode, last_mode)
+	if (mode ~= 1) or (last_mode == 1) then return end
+	local function cond_check(dummy, item)
+		if not item then
+			return
+		end
+
+		BadItem(item)
+
+		bind_container.execute_code(item:id(), function(inv_box, containers, detach)
+			inv_box:iterate_inventory_box(cond_check, inv_box)
+			detach()
+		end)
+	end
+	db.actor:iterate_inventory(cond_check, db.actor)
+end
+
+local function HintWnd(item, item_2, ui)
+	if (not item) then
+		return
+	end
+
+	local txt
+	if BadItem(item) then
+		txt = game.translate_string("st_item_spoiled")
+	else
+		local degrade_time = INI:r_float_ex(item:section(), "item_degrade", 0)
+		if degrade_time > 0 then
+			local m_data = alife_storage_manager.get_se_obj_state(alife_object(item:id()))
+			if m_data and m_data.EatTime then 
+				local diff = degrade_time - math.floor(game.get_game_time():diffSec(m_data.EatTime)/3600)
+
+				local days, hours = math.floor(diff/24), math.mod(diff,24)
+				if hours > 0 or days > 0 then
+					txt = strformat(game.translate_string("st_item_spoiled_time_display"), days, hours) or game.translate_string("st_item_spoiled_within_hour")
+				end
+			end
+		end
+	end
+	
+	if txt then
+		ui:normal_y(20, ui.expiration)
+		ui.expiration:SetText(txt)
+	else
+		ui.expiration:SetText("")
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_take", actor_on_item_take)
+	RegisterScriptCallback("actor_on_item_use", actor_on_item_use)
+	RegisterScriptCallback("actor_menu_mode_changed", menu_mode_change)
+	RegisterScriptCallback("inventory_hint_ui_item", HintWnd)
+
+	RegisterScriptCallback("inventory_hint_ui_item_init", function (UI)
+		UI.expiration = UI.xml:InitTextWnd("script_static:degrade_item",UI)
+	end)
+end

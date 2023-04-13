@@ -1,0 +1,84 @@
+--A.R.E.A News Manager v1.0 by MAGILA [methods for notifying messages in the pda]
+function on_game_start()
+	RegisterScriptCallback("actor_on_create",actor_on_create)  
+end
+
+function actor_on_create(actor)
+    actor.hud_icon_PDA = hud_icon_PDA(get_hud())
+
+    RegisterScriptCallback("actor_on_net_destroy",function()
+        actor.hud_icon_PDA:__finalize()
+    end)
+
+    if actor:has_info("unread_messages_icon") then
+        actor.hud_icon_PDA:show()
+    end
+
+    RegisterScriptCallback("pda_active_subdialog",  function(section)
+        if section == "eptLogs" then
+            disable_info("unread_messages_icon")
+            actor.hud_icon_PDA:hide()
+        end
+    end)
+
+    --news report
+	function actor:give_news(header, text, icon, delay, time)
+        self.hud_icon_PDA:show()
+        give_info("unread_messages_icon")
+        CreateSound("device\\pda\\pda_news"):default_play()
+        self:give_game_news(header,text, icon, delay, time, false)
+    end	
+
+    -- regular messages, suitable for sending messages from NPCs
+    function actor:give_message(header, text, icon, delay, time)
+        self.hud_icon_PDA:show()
+        give_info("unread_messages_icon")
+        CreateSound("device\\pda\\pda_tip"):default_play()
+        self:give_game_news(header,text, icon, delay, time, 1, false)
+    end
+
+    --Normal notifications in the lower-left corner of the screen, not written in the actor's PDA
+    function actor:hud_notification(header, text, icon, delay, time)
+        self:give_game_news(header,text, icon, delay, time, 2, true)
+    end
+
+    --Set the status that we have a new event in the actor PDA
+    function actor:send_message_state()
+        self.hud_icon_PDA:show()
+        give_info("unread_messages_icon")
+    end
+end
+
+
+----------------icon hud about unread messages------------------
+class "hud_icon_PDA" (CUIScriptWnd)
+
+function hud_icon_PDA:__init(obj_hud) super(obj_hud)
+    self.obj_hud = obj_hud
+	self:SetWndRect(Frect():set(0, 0, device().width, device().height))
+	self.xml = CScriptXmlInit()
+	self.xml:ParseFile("maingame.xml")
+	self.ui_hud_icon_PDA    = self.xml:InitStatic("flashing_icons:flashing_icon", self)
+	self.ui_hud_icon_PDA:Show(false)
+    self.to_render = false
+end
+
+function hud_icon_PDA:__finalize()
+    if self.to_render then
+        self.ui_hud_icon_PDA:Show(false)
+        self.obj_hud:RemoveDialogToRender(self)
+        self.to_render = false
+    end
+end
+
+function hud_icon_PDA:show()
+    if not self.to_render then
+        self.obj_hud:AddDialogToRender(self)
+        self.to_render = true
+    end
+    self.ui_hud_icon_PDA:Show(true)
+end
+
+function hud_icon_PDA:hide()
+    self:__finalize()
+end

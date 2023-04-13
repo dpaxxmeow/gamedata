@@ -1,0 +1,387 @@
+-- ui_loot
+-- Alundaio
+-------------------------------------------------------------------
+class "load_item" (CUIListBoxItem)
+function load_item:__init(height) super(height)
+	self.file_name		= "filename"
+
+	self:SetTextColor(GetARGB(255, 170, 170, 170))
+
+	self.fn = self:GetTextItem()
+	self.fn:SetFont(GetFontLetterica18Russian())
+	self.fn:SetEllipsis(true)
+end
+
+function load_item:__finalize()
+end
+
+-------------------------------------------------------------------
+class "loot_ui" (CUIScriptWnd)
+
+function loot_ui:__init(owner,obj) super()
+	self.owner = owner
+	self.section = obj:section()
+	self.clsid = obj:clsid()
+	self.id = obj:id()
+	self.name = obj:name()
+	self.give_list = {}
+	self.loot = utils.se_obj_load_var( self.id, self.name, "loot" )
+	self.is_succeed = false
+
+	self:InitControls()
+	self:InitCallBacks()
+
+	self:FillList()
+end
+
+function loot_ui:__finalize()
+end
+
+function loot_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+
+	self:SetAutoDelete(true)
+
+	self.xml				= CScriptXmlInit()
+	local ctrl
+	self.xml:ParseFile			("ui_itm_main.xml")
+
+	ctrl					= CUIWindow()
+	ctrl:SetAutoDelete(true)
+	self.xml:InitWindow			("loot:file_item:main",0,ctrl)
+
+	self.file_item_main_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("loot:file_item:fn",0,ctrl)
+	self.file_item_fn_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow			("loot:file_item:fd",0,ctrl)
+	self.file_item_fd_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.form				= self.xml:InitStatic("loot:form",self)
+	--self.form:SetWndPos(vector2():set(device().width/4-(self.form:GetWidth()/4), device().height/2 - self.form:GetHeight()))
+
+	-- Mutant image
+	self:SetMutantImage()
+
+	-- Item Icon
+	self.picture 			= self.xml:InitStatic("loot:form:icon",self)
+
+	-- List Box
+	self.xml:InitFrame			("loot:form:list_frame",self.form)
+
+	self.list_box			= self.xml:InitListBox("loot:form:list",self.form)
+
+	self.list_box:ShowSelectedItem	(true)
+	self:Register			(self.list_box, "list_window")
+
+	-- Button OK
+	ctrl = self.xml:Init3tButton("loot:form:btn_ok",self.form)
+	self:Register(ctrl, "button_ok")
+
+	-- Button Cancel
+	ctrl = self.xml:Init3tButton("loot:form:btn_quit",self.form)
+	self:Register(ctrl, "button_quit")
+end
+
+function loot_ui:SetMutantImage()
+	-- ponney68: This table based on "species" of mutants
+	local killed_mutant_tbl = {
+	snork				= {file="ui\\ui_actor_monsters_pda",x="393",y="0",special="0"},
+	dog					= {file="ui\\ui_actor_monsters_pda",x="0",y="800",special="0"},
+	pseudodog			= {file="ui\\ui_actor_monsters_pda",x="393",y="200",special="0"},
+	psy_dog				= {file="ui\\ui_actor_monsters_pda",x="393",y="200",special="0"},
+	poltergeist			= {file="ui\\ui_actor_monsters_pda",x="0",y="400",special="0"},
+	bloodsucker			= {file="ui\\ui_actor_monsters_pda",x="393",y="400",special="0"},
+	controller			= {file="ui\\ui_actor_monsters_pda",x="393",y="800",special="0"},
+	chimera				= {file="ui\\ui_actor_monsters_pda",x="0",y="600",special="0"},
+	tushkano			= {file="ui\\ui_actor_monsters_pda",x="0",y="0",special="0"},
+	flesh				= {file="ui\\ui_actor_monsters_pda",x="393",y="600",special="0"},
+
+	burer				= {file="ui\\ui_actor_monsters_pda_1",x="0",y="0",special="0"},
+	boar				= {file="ui\\ui_actor_monsters_pda_1",x="393",y="0",special="0"},
+	giant				= {file="ui\\ui_actor_monsters_pda_1",x="0",y="200",special="0"},
+	
+	cat					= {file="ui\\ui_actor_monsters_pda_2",x="0",y="0",special="0"},
+	fracture			= {file="ui\\ui_actor_monsters_pda_2",x="393",y="200",special="0"},
+	bird				= {file="ui\\ui_actor_monsters_pda_2",x="393",y="0",special="0"},
+	zombie				= {file="ui\\ui_actor_monsters_pda_2",x="0",y="200",special="0"},
+	medwed				= {file="ui\\ui_actor_monsters_pda_3",x="0",y="0",special="0"},
+	rat					= {file="ui\\ui_actor_monsters_pda_3",x="0",y="200",special="0"},
+	karlik				= {file="ui\\ui_actor_monsters_pda_3",x="393",y="200",special="0"},
+	leshyi				= {file="ui\\ui_actor_monsters_pda_3",x="0",y="400",special="0"},
+	stronglav			= {file="ui\\ui_actor_monsters_pda_3",x="0",y="600",special="0"},
+	vodianoy			= {file="ui\\ui_actor_monsters_pda_3",x="393",y="600",special="0"},
+	
+	bloodsucker_arena	= {file="ui\\ui_actor_monsters_pda",x="393",y="400",special="0"},
+	burer_arena			= {file="ui\\ui_actor_monsters_pda_1",x="0",y="0",special="0"},
+	pseudodog_arena		= {file="ui\\ui_actor_monsters_pda",x="393",y="200",special="0"},
+	snork_arena			= {file="ui\\ui_actor_monsters_pda",x="393",y="0",special="0"}
+	}
+
+	local mutant_id = game.translate_string(INI:r_string_ex(self.section,"species") or "")
+	local mutant_f = "ui\\ui_actor_monsters_pda_1"
+	local mutant_x = 0
+	local mutant_y = 0
+
+	mutant_f = tostring(killed_mutant_tbl[mutant_id].file)
+	mutant_x = tostring(killed_mutant_tbl[mutant_id].x)
+	mutant_y = tostring(killed_mutant_tbl[mutant_id].y)
+
+	local x1 = mutant_x
+	local y1 = mutant_y
+	local mutant_width = 393
+	local mutant_height = 200
+
+	local x2 = x1 + mutant_width
+	local y2 = y1 + mutant_height
+
+	self.image = self.xml:InitStatic("loot:form:image",self.form)
+	self.image:InitTexture(tostring(mutant_f))
+	self.image:SetTextureRect(Frect():set(x1,y1,x2,y2))
+end
+
+function loot_ui:InitCallBacks()
+	self:AddCallback("button_ok",ui_events.BUTTON_CLICKED,self.OnButton_ok,self)
+	self:AddCallback("button_quit",ui_events.BUTTON_CLICKED,self.OnButton_quit,self)
+	self:AddCallback("list_window",ui_events.LIST_ITEM_CLICKED,self.OnListItemClicked,self)
+	self:AddCallback("list_window",ui_events.WINDOW_LBUTTON_DB_CLICK,self.OnListItemDbClicked,self)
+end
+
+function loot_ui:FillList()
+	self.list_box:RemoveAll()
+
+	if is_empty(self.loot) then
+		SetHudMsg(game.translate_string("st_body_useless"),5)
+	else
+		for section,count in pairs(self.loot) do
+			self:AddItemToList( section, count )
+		end
+		self:ShowDialog(true)
+		self.on_before = function()
+			self:OnButton_quit()
+		end
+		RegisterScriptCallback("actor_on_before_death",self.on_before)
+	end
+end
+
+function loot_ui:OnListItemClicked()
+	if self.list_box:GetSize()==0 then return end
+
+	local item = self.list_box:GetSelectedItem()
+
+	if not (item) then
+		return
+	end
+
+	-- Detect widescreen
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+	w,h = w/1,h/0.85
+	else
+	w,h = w/0.85,h/0.85
+	end
+	self.picture:InitTexture("ui\\ui_icon_equipment")
+	self.picture:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture.x) then
+		local pos = self.picture:GetWndPos()
+		local posform = self.form:GetWndPos()
+		self.picture.x = pos.x + posform.x
+		self.picture.y = pos.y + posform.y
+	end
+
+	self.picture:SetWndPos(vector2():set(self.picture.x-w/2, self.picture.y-h/2))
+end
+
+-- Added by Dimeyne
+function loot_ui:OnListItemDbClicked()
+	self:OnButton_ok()
+end
+
+-- A.R.E.A. Skills
+function loot_ui:OnButton_ok()
+	local item = self.list_box:GetSelectedItem()
+	if not item or db.actor:has_info("anim_hands_status") then return end
+
+	self.loot = utils.se_obj_load_var(self.id, self.name, "loot")
+
+	if self.loot[item.sec] then
+		local kithunt = db.actor:object("kit_hunt") and 7 or 0
+		local welldressed = has_alife_info("achieved_well_dressed") and 10 or 0
+		if INI:line_exist(item.sec, "harvest_anim") then
+			local knife_section = "anm_harv_"
+			local kn = db.actor:active_item()
+			kn = kn and kn:section()
+			if kn then 
+				if kn:find("wpn_knife") or kn:find("wpn_axe") then
+					-- Start the animation of skinning monsters
+					local sped_anim_hand = level.Actor():getHudAnimSpeed()
+					local boost = area_skills and area_skills.skills_table.hunting_skill / 100 or 0
+					boost = kithunt ~= 0 and boost + 0.3 or boost
+					boost = has_alife_info("achieved_well_dressed") and boost + 0.4 or boost
+					boost = math.clamp(boost,0,1)
+
+					knife_section = knife_section .. kn
+					if not INI:section_exist(knife_section) then
+						knife_section = "anm_harv_wpn_knife"
+					end
+
+					local monster_obj = level.object_by_id(self.id)
+
+					StartAnimHands(true,false,false,{
+						use = "knife",
+						section = knife_section,
+						item_pickup_pos = monster_obj and monster_obj:position()
+					}).return_the_weapon()
+
+					level.Actor():setHudAnimSpeed(sped_anim_hand+boost)
+					CallbackAnimHands("stop_anim", function(table)
+						level.Actor():setHudAnimSpeed(sped_anim_hand)
+					end)
+				end
+			end
+			
+			if (math.random(1,100) < (50 + math.floor(area_skills.skills_table.hunting_skill/3) + kithunt + welldressed)) then
+				self.is_succeed = true
+				give_object_to_actor(item.sec)
+				self.loot[item.sec] = self.loot[item.sec] - 1
+				if (self.loot[item.sec] == 0) then
+					self.loot[item.sec] = nil
+				end
+				if area_skills.skills_table.hunting_skill < area_skills.max_skills_level then
+					area_skills.raise_skill("hunting_skill",0.025)
+				end
+				dxr_statistics.increment_statistic("field_dressings")
+			elseif (math.random(1,100) < (65 + math.floor(area_skills.skills_table.hunting_skill/3) + kithunt + welldressed)) then
+				self.is_succeed = false
+				CallbackAnimHands("stop_anim", function(table)
+					area_sounds.screwing()
+					SetHudMsg(game.translate_string("st_bad_looting"),5)
+				end)
+				if area_skills.skills_table.hunting_skill < area_skills.max_skills_level then
+					area_skills.raise_skill("hunting_skill",0.015)
+				end
+			else
+				self.is_succeed = false
+				CallbackAnimHands("stop_anim", function(table)
+					area_sounds.screwing()
+					SetHudMsg(game.translate_string("st_failed_looting"),5)
+				end)
+				self.loot[item.sec] = self.loot[item.sec] - 1
+				if (self.loot[item.sec] == 0) then
+					self.loot[item.sec] = nil
+				end
+				if area_skills.skills_table.hunting_skill < area_skills.max_skills_level then
+					area_skills.raise_skill("hunting_skill",0.005)
+				end
+			end
+			area_knife_manager.wearout()
+		else
+			give_object_to_actor(item.sec)
+			self.loot[item.sec] = self.loot[item.sec] - 1
+			if (self.loot[item.sec] == 0) then
+				self.loot[item.sec] = nil
+			end
+			local monster_obj = level.object_by_id(self.id)
+			StartAnimHands(true,false,false,{
+				use = "take_monster_loot",
+				section = "anm_pickup",
+				action_delay = {take_monster_loot = function(table)
+					xr_sound.set_sound_play(0, table.item_snd)
+				end},
+				item_pickup_pos = monster_obj and monster_obj:position()
+			}).return_the_weapon()
+		end
+		
+		self:OnButton_quit()
+	end
+
+	if is_empty(self.loot) then
+		utils.se_obj_save_var(self.id,self.name,"looted",true)
+	else
+		CallbackAnimHands("stop_anim", function(table)
+			if area_knife_manager.get_condition() > 0.15 then
+				if is_empty(table.skinned_items) then
+					self:FillList()
+				else
+					AddUniqueCall(function()
+						if db.actor:has_info("anim_hands_status") then 
+							CallbackAnimHands("stop_anim", function()
+								self:FillList()
+							end)
+							return true
+						end
+					end)
+				end
+			end
+		end)
+	end
+end
+
+function loot_ui:OnButton_quit()
+	if self:IsShown() then
+		UnregisterScriptCallback("actor_on_before_death",self.on_before)
+		self:HideDialog()
+		DefaultDOF()
+	end
+end
+
+function loot_ui:OnKeyboard(dik, keyboard_action)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_ESCAPE) then
+			while #self.give_list > 0 do
+				local item = table.remove(self.give_list)
+				if self.loot[item] then
+					self.loot[item] = self.loot[item] + 1
+				else
+					self.loot[item] = 1
+				end
+			end
+			self:OnButton_quit()
+		end
+	end
+	return true
+end
+
+function loot_ui:AddItemToList(sec,count)
+	local _itm			= load_item(self.file_item_main_sz.y)
+	local inv_name 		= game.translate_string(INI:r_string_ex(sec,"inv_name") or "none")
+
+	_itm:SetWndSize		(self.file_item_main_sz)
+
+	_itm.fn:SetWndPos(vector2():set(0,0))
+	_itm.fn:SetWndSize	(self.file_item_fn_sz)
+	_itm.fn:SetText		(inv_name)
+
+	_itm.fage			= _itm:AddTextField("x"..count, self.file_item_fd_sz.x)
+	_itm.fage:SetFont	(GetFontLetterica16Russian())
+	_itm.fage:SetWndPos	(vector2():set(self.file_item_fn_sz.x+4, 0))
+	_itm.fage:SetWndSize(self.file_item_fd_sz)
+
+	_itm.sec = sec
+
+	local inv_grid_width = INI:r_float_ex(sec,"inv_grid_width") or 0
+	local inv_grid_height = INI:r_float_ex(sec,"inv_grid_height") or 0
+	local inv_grid_x = INI:r_float_ex(sec,"inv_grid_x") or 0
+	local inv_grid_y = INI:r_float_ex(sec,"inv_grid_y") or 0
+
+	_itm.x1 = inv_grid_x*50
+	_itm.y1 = inv_grid_y*50
+
+	_itm.width = inv_grid_width*50
+	_itm.height = inv_grid_height*50
+
+	_itm.x2 = _itm.x1 + _itm.width
+	_itm.y2 = _itm.y1 + _itm.height
+
+	self.list_box:AddExistingItem(_itm)
+	AddDOF({
+		kernel = 8,
+		far = 1.3,
+		sky = 10000,
+		focus = 0.3
+	})
+end

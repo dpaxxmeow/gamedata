@@ -1,0 +1,170 @@
+--Script refactoring by MAGIlA
+local drop_list = {}
+function on_game_start()
+	local function actor_on_first_update()
+		RegisterScriptCallback("actor_on_item_take",on_item_take)
+		RegisterScriptCallback("actor_item_to_ruck",item_to_ruck)
+		RegisterScriptCallback("actor_item_to_slot",item_to_slot)
+		RegisterScriptCallback("actor_on_item_drop",on_item_drop)
+		RegisterScriptCallback("actor_menu_mode_changed",mode_change)
+		RegisterScriptCallback("actor_on_wpn_state",on_wpn_state)
+	end
+	local function actor_on_before_death()
+		UnregisterScriptCallback("actor_on_item_take",on_item_take)
+		UnregisterScriptCallback("actor_item_to_ruck",item_to_ruck)
+		UnregisterScriptCallback("actor_item_to_slot",item_to_slot)
+		UnregisterScriptCallback("actor_on_item_drop",on_item_drop)
+		UnregisterScriptCallback("actor_menu_mode_changed",mode_change)
+		UnregisterScriptCallback("actor_on_wpn_state",on_wpn_state)
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	RegisterScriptCallback("actor_on_before_death",actor_on_before_death)
+	
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+end
+
+function load_state(m_data)
+	drop_list = m_data.drop_item_list or {}
+end
+
+function save_state(m_data)
+	m_data.drop_item_list = drop_list
+end
+
+local start_wpn_state = false
+function on_wpn_state(wpn, old_state, new_state)
+	if wpn and not TableAnimHands().AnmCheck(wpn) and start_wpn_state then
+		item_drop()
+	elseif old_state == 2 and new_state == 3 then
+		start_wpn_state = true
+	end
+end
+
+function get_max()
+	if db.actor and db.actor:alive() then
+		local outfit = db.actor:item_in_slot(7)
+		local backpack = db.actor:item_in_slot(13)
+		local max_volume = db.actor:get_actor_max_volume()
+		max_volume = max_volume + (outfit and outfit:get_additional_max_volume() or 0)
+		max_volume = max_volume + (backpack and backpack:get_additional_max_volume() or 0)
+		local function it(item, coff)
+			if IsArtefact(item) then
+				max_volume = max_volume + ((INI:r_float_ex(item:section(), "additional_inventory_volume", 0)*item:condition())*coff)
+			end
+		end
+
+		db.actor:iterate_belt(function(_, item)
+			it(item, 1)
+		end)
+	
+		db.actor:iterate_ruck(function(_, item)
+			it(item, 0.75)
+		end)
+
+		return max_volume
+	end
+	return 0
+end
+
+function actor_total_volume()
+	local total_volume = 0
+	if db.actor and db.actor:alive() then
+		db.actor:iterate_inventory(function(actor,item)
+			total_volume = total_volume + item:volume()
+		end, db.actor)
+	end
+	return total_volume
+end
+
+function on_item_take(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+	if actor_total_volume() > get_max() then
+		drop_list[obj:id()] = obj:volume()
+	end
+	item_drop()
+end
+
+function item_to_slot(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+	if drop_list[obj:id()] then
+		drop_list[obj:id()] = nil
+	end
+end
+
+function item_to_ruck(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+	if actor_total_volume() > get_max() then
+		drop_list[obj:id()] = obj:volume()
+	else
+		drop_list[obj:id()] = nil
+	end
+end
+
+function on_item_drop(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+	if actor_total_volume() <= get_max() then
+		drop_list = {}
+		return
+	end
+	if drop_list[obj:id()] then
+		drop_list[obj:id()] = nil
+	end
+end
+
+function mode_change(mode, last)
+	if mode == 0 then
+		item_drop()
+	end
+end
+
+local max_volume_items = 2	--total volume of all small items that the character can carry in his hands
+local max_coint_items = 5	--max items number that the character can hold in his hands when exceeding the volume
+function item_drop()
+	if db.actor and db.actor:alive() then
+		local actor_menu = ActorMenu.get_actor_menu()
+		if is_empty(drop_list) or (actor_menu and actor_menu:IsShown()) or GodMode() then return end
+
+		local active_item = db.actor:active_item()
+		if active_item and not TableAnimHands().AnmCheck(active_item) then
+			for id, volume in pairs(drop_list) do
+				if not volume then return end
+				local item = level.object_by_id(id)
+				if item then
+					if IsSlotted(item) then 
+						drop_list[id] = nil
+					elseif drop_list[id] then
+						drop_list[id] = nil
+						db.actor:drop_item(item)
+					end
+				end
+			end
+			drop_list = {}
+			return
+		end
+
+		local volume_items = 0
+		local items = 0
+		for id, volume in pairs(drop_list) do
+			if (not volume) ~= true then
+				local item = level.object_by_id(id)
+				if item then
+					volume_items = volume_items+volume
+					items = items+1	
+					if volume_items > max_volume_items and items > 1 or items > max_coint_items then
+						if IsSlotted(item) then 
+							drop_list[id] = nil
+						elseif drop_list[id] then
+							drop_list[id] = nil
+							db.actor:drop_item(item)
+						end
+					end
+				end
+			end
+		end
+
+		if items == 0 then
+			drop_list = {}
+		end
+	end
+end
