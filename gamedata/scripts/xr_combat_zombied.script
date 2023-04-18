@@ -6,18 +6,33 @@
 	- анимация поворота
 ------------------------------------------------------------------------------------------------------------]]
 
-class "evaluator_combat_zombied" ( property_evaluator )
-function evaluator_combat_zombied:__init( name, glob_storage ) super ( nil, name )
-	self.gst = glob_storage
+class "evaluator_combat_zombied" (property_evaluator)
+
+function evaluator_combat_zombied:__init(name, glob_storage)
+    super(nil, name)
+    self.gst = glob_storage
+    self.character_community_cache = nil
 end
 
 function evaluator_combat_zombied:evaluate()
-	if not (self.object:alive()) then 
-		return false 
-	end 
-	
-	return self.object:character_community() == "zombied"
+    local obj_alive = self.object:alive()
+    if not obj_alive then
+        return false
+    end
+
+    local obj = self.object
+    local char_cache = self.character_community_cache
+    if char_cache == nil then
+        char_cache = obj:character_community()
+        self.character_community_cache = char_cache
+    end
+    return char_cache == "zombied"
 end
+
+
+
+
+
 
 --------------------------------------------------------------------------------------------------------------
 
