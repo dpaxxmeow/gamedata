@@ -1,525 +1,528 @@
 <?xml version="1.0" encoding="windows-1251" ?>
 <string_table>
 	<string id="Time">
-		<text>Время</text>
+		<text>Time</text>
 	</string>
 	<string id="filter_secondary_tasks_text">
-		<text>Попутные задания</text>
+		<text>Secondary Tasks</text>
 	</string>
 	<string id="filter_treasures_text">
-		<text>Тайники</text>
+		<text>Treasures</text>
 	</string>
 	<string id="missions_list">
-		<text>Список заданий</text>
+		<text>Missions List</text>
 	</string>
 	<string id="month_april">
-		<text>Апрель</text>
+		<text>April</text>
 	</string>
 	<string id="month_august">
-		<text>Август</text>
+		<text>August</text>
 	</string>
 	<string id="month_december">
-		<text>Декабрь</text>
+		<text>December</text>
 	</string>
 	<string id="month_february">
-		<text>Февраль</text>
+		<text>February</text>
 	</string>
 	<string id="month_january">
-		<text>Январь</text>
+		<text>January</text>
 	</string>
 	<string id="month_july">
-		<text>Июль</text>
+		<text>July</text>
 	</string>
 	<string id="month_june">
-		<text>Июнь</text>
+		<text>June</text>
 	</string>
 	<string id="month_march">
-		<text>Март</text>
+		<text>March</text>
 	</string>
 	<string id="month_may">
-		<text>Май</text>
+		<text>May</text>
 	</string>
 	<string id="month_november">
-		<text>Ноябрь</text>
+		<text>November</text>
 	</string>
 	<string id="month_october">
-		<text>Октябрь</text>
+		<text>October</text>
 	</string>
 	<string id="month_september">
-		<text>Сентябрь</text>
+		<text>September</text>
 	</string>
 	<string id="pda_btn_close">
-		<text>Выключить КПК</text>
+		<text>Close PDA</text>
 	</string>
 	<string id="pda_btn_logs">
-		<text>Сообщения</text>
+		<text>Logs</text>
 	</string>
 	<string id="pda_btn_logs_hint">
-		<text>Показать историю сообщений</text>
+		<text>Show Log Messages</text>
 	</string>
 	<string id="pda_btn_quests">
-		<text>Карта</text>
+		<text>Quests</text>
 	</string>
 	<string id="pda_btn_skills">
-		<text>Навыки</text>
-	</string>
 	<string id="pda_btn_quests_hint">
-		<text>Показать карту Зоны и список заданий</text>
+		<text>Show the Quests list and Secondary Tasks</text>
 	</string>
 	<string id="pda_btn_skills_hint">
-		<text>Показать навыки персонажа</text>
+		<text>Show Character Skills</text>
 	</string>
 	<string id="pda_btn_ranking">
-		<text>Статистика</text>
+		<text>Rankings</text>
 	</string>
 	<string id="pda_btn_ranking_hint">
-		<text>Показать личную статистику</text>
+		<text>Show the Leaderboards</text>
 	</string>
 	<string id="pda_cur_time">
-		<text>Текущее время:</text>
+		<text>Current time:</text>
 	</string>
 	<string id="pda_date_filter">
-		<text>Фильтр даты</text>
+		<text>Date filter</text>
 	</string>
 	<string id="pda_filter_news">
-		<text>Показать новости</text>
+		<text>Show News</text>
 	</string>
 	<string id="pda_filter_talk">
-		<text>Показать диалоги</text>
+		<text>Show Discussions</text>
 	</string>
 	<string id="pda_legend_caption">
-		<text>Условные обозначения</text>
+		<text>Legend</text>
 	</string>
 	<string id="pda_stat_1">
-		<text>Время в зоне:</text>
+		<text>Time in-game:</text>
 	</string>
 	<string id="pda_stat_2">
-		<text>Пережито выбросов:</text>
+		<text>Completed quests:</text>
 	</string>
 	<string id="pda_stat_3">
-		<text>Выполнено заданий:</text>
+		<text>Total missions:</text>
 	</string>
 	<string id="pda_stat_4">
-		<text>Убито мутантов:</text>
+		<text>Enemies killed:</text>
 	</string>
 	<string id="pda_stat_5">
-		<text>Убито сталкеров:</text>
+		<text>Artifacts found:</text>
 	</string>
 	<string id="pda_stat_6">
-		<text>Разбито ящиков:</text>
+		<text>Monsters defeated:</text>
 	</string>
 	<string id="pda_stat_7">
-		<text>Найдено тайников:</text>
+		<text>Traders visited:</text>
 	</string>
 	<string id="pda_stat_8">
-		<text>Пережито пси-штормов:</text>
+		<text>ГЏГҐГ°ГҐГ¦ГЁГІГ® ГЇГ±ГЁ-ГёГІГ®Г°Г¬Г®Гў:</text>
 	</string>
-	<string id="pda_stat_9">
-		<text>Добыто ПДА:</text>
+<string id="pda_stat_8">
+	<text>Number of bandits killed:</text>
+</string>
+<string id="pda_stat_9">
+	<text>Total time played:</text>
+</string>
+<string id="pda_stat_10">
+	<text>Artifacts found:</text>
+</string>
+<string id="pda_stat_11">
+	<text>Anomalies visited:</text>
+</string>
+<string id="pda_stat_12">
+	<text>Distance traveled:</text>
+</string>
+<string id="pda_stat_13">
+	<text>Tasks completed:</text>
+</string>
+<string id="pda_stat_14">
+	<text>Mutants killed:</text>
+</string>
+<string id="pda_stat_15">
+	<text>Number of enemies killed:</text>
+</string>
+<string id="pda_stat_16">
+	<text>Rank:</text>
+</string>
+<string id="pda_stat_17">
+	<text>Reputation:</text>
+</string>
+<string id="pda_stat_18">
+	<text>Number of achievements:</text>
+</string>
+<string id="pda_stat_money">
+    <text>Money:</text>
+</string>
+<string id="pda_stat_mutant_killed">
+	<text>Number of killed mutants:</text>
+</string>
+<string id="st_location">
+	<text>Location:</text>
+</string>
+<string id="st_target">
+	<text>Target</text>
+</string>
+<string id="st_ui_pda_legend_additional_task">
+	<text>Additional task</text>
+</string>
+<string id="st_ui_pda_legend_enemies">
+	<text>Enemies</text>
+</string>
+<string id="st_ui_pda_legend_friends">
+	<text>Allies</text>
+</string>
+<string id="st_ui_pda_legend_leader">
+	<text>Leader of a group</text>
+</string>
+<string id="st_ui_pda_legend_main_task">
+	<text>Main task</text>
+</string>
+<string id="st_ui_pda_legend_neutrals">
+	<text>Neutral characters</text>
+</string>
+<string id="st_ui_pda_legend_scout">
+	<text>Scout</text>
+</string>
+<string id="st_ui_pda_legend_secrets">
+	<text>Secrets</text>
+</string>
+<string id="st_ui_pda_legend_squad">
+	<text>Members of a squad</text>
+</string>
+<string id="st_ui_pda_legend_trader">
+	<text>Trader</text>
+</string>
+<string id="ui_logs_center_caption">
+	<text>Log entries</text>
+</string>
+<string id="ui_map_btn_center">
+	<text>Center map</text>
+</string>
+<string id="ui_map_btn_down">
+	<text>Move down</text>
+</string>
+<string id="ui_map_btn_left">
+	<text>Move left</text>
+</string>
+<string id="ui_map_btn_legend">
+	<text>Show legend</text>
+</string>
+<string id="ui_map_btn_right">
+	<text>Move right</text>
 	</string>
-	<string id="pda_stat_10">
-		<text>Сбито вертолётов:</text>
-	</string>
-	<string id="pda_stat_11">
-		<text>Найдено артефактов:</text>
-	</string>
-	<string id="pda_stat_12">
-		<text>Вылечено раненых:</text>
-	</string>
-	<string id="pda_stat_13">
-		<text>Переходы по локациям:</text>
-	</string>
-	<string id="pda_stat_14">
-		<text>Взято пленных:</text>
-	</string>
-	<string id="pda_stat_15">
-		<text>Взято частей мутантов:</text>
-	</string>
-	<string id="pda_stat_16">
-		<text>Статьи:</text>
-	</string>
-	<string id="pda_stat_17">
-		<text>Достижения:</text>
-	</string>
-	<string id="pda_stat_18">
-		<text>Посещено локаций:</text>
-	</string>
-	<string id="pda_stat_money">
-	    <text>Деньги:</text>
-	</string>
-	<string id="pda_stat_mutant_killed">
-		<text>Самый сильный убитый мутант</text>
-	</string>
-	<string id="st_location">
-		<text>Местонахождение:</text>
-	</string>
-	<string id="st_target">
-		<text>Цель</text>
-	</string>
-	<string id="st_ui_pda_legend_additional_task">
-		<text>Побочное задание</text>
-	</string>
-	<string id="st_ui_pda_legend_enemies">
-		<text>Враги</text>
-	</string>
-	<string id="st_ui_pda_legend_friends">
-		<text>Друзья</text>
-	</string>
-	<string id="st_ui_pda_legend_leader">
-		<text>Лидер группировки</text>
-	</string>
-	<string id="st_ui_pda_legend_main_task">
-		<text>Основное задание</text>
-	</string>
-	<string id="st_ui_pda_legend_neutrals">
-		<text>Нейтралы</text>
-	</string>
-	<string id="st_ui_pda_legend_scout">
-		<text>Проводник</text>
-	</string>
-	<string id="st_ui_pda_legend_secrets">
-		<text>Тайники</text>
-	</string>
-	<string id="st_ui_pda_legend_squad">
-		<text>Командир отряда</text>
-	</string>
-	<string id="st_ui_pda_legend_trader">
-		<text>Торговец</text>
-	</string>
-	<string id="ui_logs_center_caption">
-		<text>История сообщений</text>
-	</string>
-	<string id="ui_map_btn_center">
-		<text>Центрировать положение</text>
-	</string>
-	<string id="ui_map_btn_down">
-		<text>Переместить вниз</text>
-	</string>
-	<string id="ui_map_btn_left">
-		<text>Переместить влево</text>
-	</string>
-	<string id="ui_map_btn_legend">
-		<text>Показать легенду</text>
-	</string>
-	<string id="ui_map_btn_right">
-		<text>Переместить вправо</text>
-	</string>
-	<string id="ui_map_btn_up">
-		<text>Переместить вверх</text>
-	</string>
-	<string id="ui_map_btn_zmreset">
-		<text>Максимальное отдаление</text>
-	</string>
-	<string id="ui_map_btn_zoom_in">
-		<text>Приблизить</text>
-	</string>
-	<string id="ui_map_btn_zoom_out">
-		<text>Отдалить</text>
-	</string>
-	<string id="ui_ranking_center_caption">
-		<text>Достижения</text>
-	</string>
-	<string id="ui_task_btn_focus_center">
-		<text>Центрировать карту на задании</text>
-	</string>
-	<string id="ui_task_btn_focus_center2">
-		<text>Центрировать карту на задании</text>
-	</string>
-	<string id="zoom_in_btn_hint">
-		<text>масштаб +</text>
-	</string>
-	<string id="zoom_out_btn_hint">
-		<text>масштаб -</text>
-	</string>
-	<string id="st_ui_pda_legend_mechanic">
-		<text>Техник</text>
-	</string>
-	<string id="st_ui_pda_legend_medic">
-		<text>Медик</text>
-	</string>
-	<string id="ui_pda_secondary_task">
-		<text>Текущие задания</text>
-	</string>
-	<string id="ui_show_second_task_wnd">
-		<text>Скрыть или отобразить список заданий</text>
-	</string>
-	<string id="st_ui_pda_actor_box">
-		<text>Личный ящик</text>
-	</string>
-	<string id="filter_primary_objects_text">
-		<text>Важные территории</text>
-	</string>
-	<string id="filter_quest_npcs_text">
-		<text>Важные объекты</text>
-	</string>
-	<string id="st_ui_pda_legend_primary_objects">
-		<text>Локация</text>
-	</string>
-	<string id="st_jup_b32_has_af">
-		<text>Сканеры регистрируют присутствие артефактов:</text>
-	</string>
-	<string id="st_jup_b32_no_af">
-		<text>Согласно данным сканеров, артефакты отсутствуют</text>
-	</string>
+<strings>
+  <string id="ui_map_btn_up">
+    <text>Move up</text>
+  </string>
+  <string id="ui_map_btn_zmreset">
+    <text>Reset zoom</text>
+  </string>
+  <string id="ui_map_btn_zoom_in">
+    <text>Zoom in</text>
+  </string>
+  <string id="ui_map_btn_zoom_out">
+    <text>Zoom out</text>
+  </string>
+  <string id="ui_ranking_center_caption">
+    <text>Ranking</text>
+  </string>
+  <string id="ui_task_btn_focus_center">
+    <text>Focus on center of task</text>
+  </string>
+  <string id="ui_task_btn_focus_center2">
+    <text>Focus on center of task</text>
+  </string>
+  <string id="zoom_in_btn_hint">
+    <text>Zoom in +</text>
+  </string>
+  <string id="zoom_out_btn_hint">
+    <text>Zoom out -</text>
+  </string>
+  <string id="st_ui_pda_legend_mechanic">
+    <text>Mechanic</text>
+  </string>
+  <string id="st_ui_pda_legend_medic">
+    <text>Medic</text>
+  </string>
+  <string id="ui_pda_secondary_task">
+    <text>Secondary tasks</text>
+  </string>
+  <string id="ui_show_second_task_wnd">
+    <text>Show or hide secondary task list</text>
+  </string>
+  <string id="st_ui_pda_actor_box">
+    <text>Selected character</text>
+  </string>
+  <string id="filter_primary_objects_text">
+    <text>Primary objects</text>
+  </string>
+  <string id="filter_quest_npcs_text">
+    <text>Quest NPCs</text>
+  </string>
+  <string id="st_ui_pda_legend_primary_objects">
+    <text>Legend</text>
+  </string>
+  <string id="st_jup_b32_has_af">
+    <text>Available upgrades for weapons:</text>
+  </string>
+  <string id="st_jup_b32_no_af">
+    <text>No upgrades available for this weapon</text>
+  </string>
+</strings>
 	<string id="st_ui_pda_secret">
-		<text>Тайник</text>
+		<text>Г’Г Г©Г­ГЁГЄ</text>
 	</string>
 	<string id="st_ui_pda_secret_searched">
-		<text>Тайник (частично разграблен)</text>
+		<text>Г’Г Г©Г­ГЁГЄ (Г·Г Г±ГІГЁГ·Г­Г® Г°Г Г§ГЈГ°Г ГЎГ«ГҐГ­)</text>
 	</string>
 	<string id="st_ui_pda_secret_tourist">
-		<text>Тайник туриста</text>
+		<text>Г’Г Г©Г­ГЁГЄ ГІГіГ°ГЁГ±ГІГ </text>
 	</string>
 	<string id="st_ui_pda_sleep_place">
-		<text>Место сна</text>
+		<text>ГЊГҐГ±ГІГ® Г±Г­Г </text>
 	</string>
 	<string id="st_ui_pda_legend_vip">
-        <text>Важный персонаж</text>
+        <text>Г‚Г Г¦Г­Г»Г© ГЇГҐГ°Г±Г®Г­Г Г¦</text>
 	</string>
 	<string id="st_ui_pda_companion">
-		<text>Напарник</text>
+		<text>ГЌГ ГЇГ Г°Г­ГЁГЄ</text>
 	</string>
 	<string id="zombie_name">
-        <text>Бенито</text>
+        <text>ГЃГҐГ­ГЁГІГ®</text>
 	</string>
 	<string id="st_ui_pda_task_unknown_enemy">
-        <text>Неизвестный противник</text>
+        <text>ГЌГҐГЁГ§ГўГҐГ±ГІГ­Г»Г© ГЇГ°Г®ГІГЁГўГ­ГЁГЄ</text>
 	</string>
 	<string id="st_items_sold">
-		<text>Вещей продано</text>
+		<text>Г‚ГҐГ№ГҐГ© ГЇГ°Г®Г¤Г Г­Г®</text>
 	</string>
 	<string id="st_last_seen">
-		<text>Был замечен</text>
+		<text>ГЃГ»Г« Г§Г Г¬ГҐГ·ГҐГ­</text>
 	</string>
 	<string id="st_artefacts_found">
-		<text>Артефактов найдено</text>
+		<text>ГЂГ°ГІГҐГґГ ГЄГІГ®Гў Г­Г Г©Г¤ГҐГ­Г®</text>
 	</string>
 	<string id="st_stalkers_killed">
-		<text>Убито сталкеров</text>
+		<text>Г“ГЎГЁГІГ® Г±ГІГ Г«ГЄГҐГ°Г®Гў</text>
 	</string>
 	<string id="st_mutants_killed">
-		<text>Убито мутантов</text>
+		<text>Г“ГЎГЁГІГ® Г¬ГіГІГ Г­ГІГ®Гў</text>
 	</string>
 	<string id="pda_btn_relations">
-		<text>Отношения</text>
+		<text>ГЋГІГ­Г®ГёГҐГ­ГЁГї</text>
 	</string>
 	<string id="pda_btn_relations_hint">
-		<text>Показ отношений группировок</text>
+		<text>ГЏГ®ГЄГ Г§ Г®ГІГ­Г®ГёГҐГ­ГЁГ© ГЈГ°ГіГЇГЇГЁГ°Г®ГўГ®ГЄ</text>
 	</string>
 	<string id="pda_relations_header">
-		<text>Отношения группировок</text>
+		<text>ГЋГІГ­Г®ГёГҐГ­ГЁГї ГЈГ°ГіГЇГЇГЁГ°Г®ГўГ®ГЄ</text>
 	</string>
 	<string id="pda_skills_header">
-		<text>Навыки персонажа</text>
+		<text>ГЌГ ГўГ»ГЄГЁ ГЇГҐГ°Г±Г®Г­Г Г¦Г </text>
 	</string>
 	<string id="pda_companions_header">
-		<text>Напарники</text>
+		<text>ГЌГ ГЇГ Г°Г­ГЁГЄГЁ</text>
 	</string>
     <string id="pda_table_value_on">
-        <text>Показ текста</text>
+        <text>ГЏГ®ГЄГ Г§ ГІГҐГЄГ±ГІГ </text>
     </string>
     <string id="pda_table_value_off">
-        <text>Показ значений</text>
+        <text>ГЏГ®ГЄГ Г§ Г§Г­Г Г·ГҐГ­ГЁГ©</text>
     </string>
     <string id="pda_companions_auto">
-        <text>Обновление</text>
+        <text>ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ</text>
     </string>
     <string id="pda_show_enemy">
-        <text>Показывать врагов</text>
+        <text>ГЏГ®ГЄГ Г§Г»ГўГ ГІГј ГўГ°Г ГЈГ®Гў</text>
     </string>
 	
     <string id="st_pda_mode_on">
-        <text>Вкл</text>
+        <text>Г‚ГЄГ«</text>
     </string>
     <string id="st_pda_mode_off">
-        <text>Выкл</text>
+        <text>Г‚Г»ГЄГ«</text>
     </string>
     <string id="st_pda_mode_dist_far">
-        <text>Далеко</text>
+        <text>Г„Г Г«ГҐГЄГ®</text>
     </string>
     <string id="st_pda_mode_dist_near">
-        <text>Недалеко</text>
+        <text>ГЌГҐГ¤Г Г«ГҐГЄГ®</text>
     </string>
     <string id="st_pda_mode_true">
-        <text>Да</text>
+        <text>Г„Г </text>
     </string>
     <string id="st_pda_mode_false">
-        <text>Нет</text>
+        <text>ГЌГҐГІ</text>
     </string>
     <string id="st_pda_mode_enabled">
-        <text>Вкл</text>
+        <text>Г‚ГЄГ«</text>
     </string>
     <string id="st_pda_mode_disabled">
-        <text>Выкл</text>
+        <text>Г‚Г»ГЄГ«</text>
     </string>	
     <string id="st_pda_distance_state_far">
-        <text>Держаться в отдалении</text>
+        <text>Г„ГҐГ°Г¦Г ГІГјГ±Гї Гў Г®ГІГ¤Г Г«ГҐГ­ГЁГЁ</text>
     </string>
     <string id="st_pda_distance_state_near">
-        <text>Держаться рядом</text>
+        <text>Г„ГҐГ°Г¦Г ГІГјГ±Гї Г°ГїГ¤Г®Г¬</text>
     </string>
     <string id="st_pda_cant_trade">
-        <text>Важные НПС не торгуют</text>
+        <text>Г‚Г Г¦Г­Г»ГҐ ГЌГЏГ‘ Г­ГҐ ГІГ®Г°ГЈГіГѕГІ</text>
     </string>
     <string id="st_pda_cant_trade_dist">
-        <text>Слишком далеко для обмена вещами!</text>
+        <text>Г‘Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ® Г¤Г«Гї Г®ГЎГ¬ГҐГ­Г  ГўГҐГ№Г Г¬ГЁ!</text>
     </string>
 	<!-- PDA Relations Action list -->
 	<string id="st_pda_action_back">
-		<text>Назад</text>
+		<text>ГЌГ Г§Г Г¤</text>
 	</string>
 	<string id="st_pda_action_1__1">
-		<text>Отдать вещи</text>
+		<text>ГЋГІГ¤Г ГІГј ГўГҐГ№ГЁ</text>
 	</string>
 	<string id="st_pda_action_1__2">
-		<text>Команды</text>
+		<text>ГЉГ®Г¬Г Г­Г¤Г»</text>
 	</string>
 	<string id="st_pda_action_1__2_2">
-		<text>Движение</text>
+		<text>Г„ГўГЁГ¦ГҐГ­ГЁГҐ</text>
 	</string>
 	<string id="st_pda_action_1__2_2_2_on">
-		<text>Следование</text>
+		<text>Г‘Г«ГҐГ¤Г®ГўГ Г­ГЁГҐ</text>
 	</string>
 	<string id="st_pda_action_1__2_2_2_off">
-		<text>Ожидание</text>
+		<text>ГЋГ¦ГЁГ¤Г Г­ГЁГҐ</text>
 	</string>
 	<string id="st_pda_action_1__2_2_3_on">
-		<text>Расстояние (близко)</text>
+		<text>ГђГ Г±Г±ГІГ®ГїГ­ГЁГҐ (ГЎГ«ГЁГ§ГЄГ®)</text>
 	</string>
 	<string id="st_pda_action_1__2_2_3_off">
-		<text>Расстояние (далеко)</text>
+		<text>ГђГ Г±Г±ГІГ®ГїГ­ГЁГҐ (Г¤Г Г«ГҐГЄГ®)</text>
 	</string>
 	<string id="st_pda_action_1__2_3">
-		<text>Бой</text>
+		<text>ГЃГ®Г©</text>
 	</string>
 	<string id="st_pda_action_1__2_4">
-		<text>Собирательство</text>
+		<text>Г‘Г®ГЎГЁГ°Г ГІГҐГ«ГјГ±ГІГўГ®</text>
 	</string>
 	<string id="st_pda_action_1__2_5_on">
-		<text>Скрытность выкл.</text>
+		<text>Г‘ГЄГ°Г»ГІГ­Г®Г±ГІГј ГўГ»ГЄГ«.</text>
 	</string>
 	<string id="st_pda_action_1__2_5_off">
-		<text>Скрытность вкл.</text>
+		<text>Г‘ГЄГ°Г»ГІГ­Г®Г±ГІГј ГўГЄГ«.</text>
 	</string>
 	<string id="st_pda_action_1__2_3_2">
-		<text>Пассивный режим</text>
+		<text>ГЏГ Г±Г±ГЁГўГ­Г»Г© Г°ГҐГ¦ГЁГ¬</text>
 	</string>
 	<string id="st_pda_action_1__2_3_3">
-		<text>Охрана</text>
+		<text>ГЋГµГ°Г Г­Г </text>
 	</string>
 	<string id="st_pda_action_1__2_3_4">
-		<text>Агрессивный режим</text>
+		<text>ГЂГЈГ°ГҐГ±Г±ГЁГўГ­Г»Г© Г°ГҐГ¦ГЁГ¬</text>
 	</string>
 	<string id="st_pda_action_1__2_4_2_on">
-		<text>Собирательство откл</text>
+		<text>Г‘Г®ГЎГЁГ°Г ГІГҐГ«ГјГ±ГІГўГ® Г®ГІГЄГ«</text>
 	</string>
 	<string id="st_pda_action_1__2_4_2_off">
-		<text>Собирательство вкл</text>
+		<text>Г‘Г®ГЎГЁГ°Г ГІГҐГ«ГјГ±ГІГўГ® ГўГЄГ«</text>
 	</string>
 	<string id="st_pda_action_1__2_4_3_on">
-		<text>Откл. обыск тел</text>
+		<text>ГЋГІГЄГ«. Г®ГЎГ»Г±ГЄ ГІГҐГ«</text>
 	</string>
 	<string id="st_pda_action_1__2_4_3_off">
-		<text>Вкл. обыск тел</text>
+		<text>Г‚ГЄГ«. Г®ГЎГ»Г±ГЄ ГІГҐГ«</text>
 	</string>
 	<string id="pda_btn_contacts">
-		<text>Контакты</text>
+		<text>ГЉГ®Г­ГІГ ГЄГІГ»</text>
 	</string>
 	<string id="pda_btn_contacts_hint">
-		<text>Показать контакты</text>
+		<text>ГЏГ®ГЄГ Г§Г ГІГј ГЄГ®Г­ГІГ ГЄГІГ»</text>
 	</string>
 	<string id="pda_show_known_contacts">
-		<text>Известные контакты</text>
+		<text>Г€Г§ГўГҐГ±ГІГ­Г»ГҐ ГЄГ®Г­ГІГ ГЄГІГ»</text>
 	</string>
     <string id="pda_msg_all">
-        <text>Все</text>
+        <text>Г‚Г±ГҐ</text>
     </string>
 	<string id="st_mm_pda_statistics">
-		<text>Статистика</text>
+		<text>Г‘ГІГ ГІГЁГ±ГІГЁГЄГ </text>
 	</string>
 	<string id="st_mm_pda_stalkers_killed">
-		<text>Убито сталкеров</text>
+		<text>Г“ГЎГЁГІГ® Г±ГІГ Г«ГЄГҐГ°Г®Гў</text>
 	</string>
 	<string id="st_mm_pda_mutants_killed">
-		<text>Убито мутантов</text>
+		<text>Г“ГЎГЁГІГ® Г¬ГіГІГ Г­ГІГ®Гў</text>
 	</string>
 	<string id="st_mm_pda_artes_found">
-		<text>Артефактов найдено</text>
+		<text>ГЂГ°ГІГҐГґГ ГЄГІГ®Гў Г­Г Г©Г¤ГҐГ­Г®</text>
 	</string>
 	<string id="st_mm_pda_items_sold">
-		<text>Вещей продано</text>
+		<text>Г‚ГҐГ№ГҐГ© ГЇГ°Г®Г¤Г Г­Г®</text>
 	</string>
 	<string id="st_mm_pda_level_travel">
-		<text>Переходы по локациям</text>
+		<text>ГЏГҐГ°ГҐГµГ®Г¤Г» ГЇГ® Г«Г®ГЄГ Г¶ГЁГїГ¬</text>
 	</string>
 	
 	<string id="st_mm_pda_dismissable">
-		<text>Возможность прогнать</text>
+		<text>Г‚Г®Г§Г¬Г®Г¦Г­Г®Г±ГІГј ГЇГ°Г®ГЈГ­Г ГІГј</text>
 	</string>
 	<string id="st_mm_pda_stealth">
-		<text>Режим скрытности</text>
+		<text>ГђГҐГ¦ГЁГ¬ Г±ГЄГ°Г»ГІГ­Г®Г±ГІГЁ</text>
 	</string>
 	<string id="st_mm_pda_keep_distance">
-		<text>Держать дистанцию</text>
+		<text>Г„ГҐГ°Г¦Г ГІГј Г¤ГЁГ±ГІГ Г­Г¶ГЁГѕ</text>
 	</string>
 	<string id="st_mm_pda_loot_corpses">
-		<text>Обыск тел</text>
+		<text>ГЋГЎГ»Г±ГЄ ГІГҐГ«</text>
 	</string>
 	<string id="st_mm_pda_pickup_items">
-		<text>Собирать вещи</text>
+		<text>Г‘Г®ГЎГЁГ°Г ГІГј ГўГҐГ№ГЁ</text>
 	</string>
 	<string id="st_mm_pda_combat">
-		<text>Бой</text>
+		<text>ГЃГ®Г©</text>
 	</string>
 	<string id="st_mm_pda_movement">
-		<text>Движение</text>
+		<text>Г„ГўГЁГ¦ГҐГ­ГЁГҐ</text>
 	</string>
 	<string id="st_mm_pda_states">
-		<text>Состояние</text>
+		<text>Г‘Г®Г±ГІГ®ГїГ­ГЁГҐ</text>
 	</string>
 	<string id="st_mm_pda_location">
-		<text>Локация</text>
+		<text>Г‹Г®ГЄГ Г¶ГЁГї</text>
 	</string>
 	<string id="st_pda_fast_travel">
-		<text>Быстрый переход</text>
+		<text>ГЃГ»Г±ГІГ°Г»Г© ГЇГҐГ°ГҐГµГ®Г¤</text>
 	</string>
 	<string id="st_pda_display_values">
-		<text>Показ значений</text>
+		<text>ГЏГ®ГЄГ Г§ Г§Г­Г Г·ГҐГ­ГЁГ©</text>
 	</string>
 	<string id="st_pda_change_spot_hint">
-		<text>Изменить</text>
+		<text>Г€Г§Г¬ГҐГ­ГЁГІГј</text>
 	</string>
 	<string id="st_pda_delete_spot">
-		<text>Удалить</text>
+		<text>Г“Г¤Г Г«ГЁГІГј</text>
 	</string>
 	<string id="st_distance_to">
-		<text>Расстояние</text>
+		<text>ГђГ Г±Г±ГІГ®ГїГ­ГЁГҐ</text>
 	</string>
 	<string id="craft">
-		<text>Крафт</text>
+		<text>ГЉГ°Г ГґГІ</text>
 	</string>
 	<string id="hunting">
-		<text>Охота</text>
+		<text>ГЋГµГ®ГІГ </text>
 	</string>
 	<string id="shooting">
-		<text>Стрельба</text>
+		<text>Г‘ГІГ°ГҐГ«ГјГЎГ </text>
 	</string>
 	<string id="uncrafting">
-		<text>Разборка</text>
+		<text>ГђГ Г§ГЎГ®Г°ГЄГ </text>
 	</string>
 	<string id="marauder">
-		<text>Мародёрство</text>
+		<text>ГЊГ Г°Г®Г¤ВёГ°Г±ГІГўГ®</text>
 	</string>
 	<string id="survival">
-		<text>Выживание</text>
+		<text>Г‚Г»Г¦ГЁГўГ Г­ГЁГҐ</text>
 	</string>
 	<string id="repair">
-		<text>Ремонт</text>
+		<text>ГђГҐГ¬Г®Г­ГІ</text>
 	</string>
 	<string id="slowing_coeff">
-		<text>Коф. мастерства</text>
+		<text>ГЉГ®Гґ. Г¬Г Г±ГІГҐГ°Г±ГІГўГ </text>
 	</string>
 	<string id="pda_cond_header">
-		<text>Характеристики</text>
+		<text>Г•Г Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄГЁ</text>
 	</string>
 </string_table>
