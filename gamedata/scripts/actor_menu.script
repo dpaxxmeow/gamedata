@@ -1,267 +1,174 @@
 -----------------------------------
--- actor_menu_mode                --
--- Modified by Surs for A.R.E.A.  --
+-- actor_menu_mode 				 --
+-- Modified by Surs for A.R.E.A. --
 -----------------------------------
 -- int mode:
--- 0 =  Undefined = закрыто
--- 1 =  Inventory
--- 2 =  Trade
--- 3 =  Upgrade
--- 4 =  DeadBodySearch
+-- 0 = 	Undefined = закрыто
+-- 1 = 	Inventory
+-- 2 = 	Trade
+-- 3 = 	Upgrade
+-- 4 = 	DeadBodySearch
 -- 10 = Talk dialog show
 -- 11 = Talk dialog hide
-
--- Store the last mode the player was in
 local last_mode = 0
 local active_cam_flag = false
-
--- Function to close the previous mode, based on the last_mode value
-local function close_previous_mode()
-    -- Define a table of mode closing functions
-    local mode_functions = {
-        [1] = inventory_wnd_closed,
-        [2] = trade_wnd_closed,
-        [3] = upgrade_wnd_closed,
-        [4] = dead_body_search_wnd_closed
-    }
-
-    -- Call the appropriate closing function if it exists
-    if mode_functions[last_mode] then
-        mode_functions[last_mode]()
-    end
-end
-
--- Function to open the specified mode, based on the mode value
-local function open_mode(mode)
-    -- Define a table of mode opening functions
-    local mode_functions = {
-        [1] = inventory_wnd_opened,
-        [2] = trade_wnd_opened,
-        [3] = upgrade_wnd_opened,
-        [4] = dead_body_search_wnd_opened,
-        [10] = dialog_wnd_showed,
-        [11] = dialog_wnd_closed
-    }
-
-    -- Call the appropriate opening function if it exists
-    if mode_functions[mode] then
-        mode_functions[mode]()
-    end
-end
-
--- Main function to handle mode changes
 function actor_menu_mode(mode)
-    -- Notify other scripts about the mode change
-    SendScriptCallback("actor_menu_mode_changed", mode, last_mode)
+	SendScriptCallback("actor_menu_mode_changed",mode,last_mode)
 
-    if mode == 0 then
-        -- Close the previous mode if mode is 0 (Undefined)
-        close_previous_mode()
-    else
-        -- Close the previous mode and open the new mode
-        close_previous_mode()
-        open_mode(mode)
-    end
+	if (mode==0) then
+		if (last_mode==1) then
+			inventory_wnd_closed()
+		elseif (last_mode==2) then
+			trade_wnd_closed()
+		elseif (last_mode==3) then
+			upgrade_wnd_closed()
+		elseif (last_mode==4) then
+			dead_body_search_wnd_closed()
+		end
+		last_mode = 0
+	elseif (mode==1) then
+		last_mode = 1
+		inventory_wnd_opened()
+	elseif (mode==2) then
+		last_mode = 2
+		trade_wnd_opened()
+	elseif (mode==3) then
+		last_mode = 3
+		upgrade_wnd_opened()
+	elseif (mode==4) then
+		last_mode = 4
+		dead_body_search_wnd_opened()
+	elseif (mode==10) then
+		dialog_wnd_showed()
+	elseif (mode==11) then
+		dialog_wnd_closed()
+	end
 
-    -- Update the last_mode variable
-    last_mode = mode
-
-    -- Handle camera and weapon visibility based on mode
-    if mode ~= 0 and mode <= 10 then
-        if axr_main.config:r_value("mm_options", "enable_switch_camera", 1, false) then
-            change_camera()
-        end
-        if not TableAnimHands().status then actor_hide_wpn(true) end
-    else
-        if mode == 12 and not TableAnimHands().status then
-            actor_hide_wpn(true)
-        else
-            actor_hide_wpn(false)
-        end
-        reset_camera()
-        DefaultDOF()
-    end
+	if mode ~= 0 and mode <= 10 then
+		if axr_main.config:r_value("mm_options","enable_switch_camera",1,false) then 
+			change_camera()
+		end
+		if not TableAnimHands().status then actor_hide_wpn(true) end
+	else
+		if 12 == mode then
+			if not TableAnimHands().status then actor_hide_wpn(true) end
+		else
+			actor_hide_wpn(false)
+		end
+		reset_camera()
+		DefaultDOF()
+	end
 end
 
--- Variables for handling the inventory window
 active_slot = 0
-
--- Open inventory window and apply relevant settings
 function inventory_wnd_opened()
-    -- Store the active inventory slot
-    active_slot = db.actor:active_slot()
-
-    -- Notify other scripts that the inventory window has been opened
-    SendScriptCallback("InvWndOpened")
-
-    -- Apply depth of field settings for inventory window
-    AddDOF({
-        kernel = 10,
-        far = 1.5,
-        sky = 10000
-    })
-
-    -- Display health progress UI if enabled in options
-    ActorMenu.get_actor_menu():HealthProgressUI(axr_main.config:r_value("mm_options", "enable_health_progressbar", 1, true))
-
-    -- Uncomment the lines below to play inventory open sound
-    -- actor_effects.use_item("inventory_open")
-    -- printf("---:>Inventory opened")
+	active_slot = db.actor:active_slot()
+	SendScriptCallback("InvWndOpened")
+	AddDOF({
+		kernel = 10,
+		far = 1.5,
+		sky = 10000
+	})
+	ActorMenu.get_actor_menu():HealthProgressUI(axr_main.config:r_value("mm_options","enable_health_progressbar",1,true))
+	--actor_effects.use_item("inventory_open")
+	-- printf("---:>Inventory opened")
 end
 
--- Close inventory window and reset active slot
 function inventory_wnd_closed()
-    -- Notify other scripts that the inventory window has been closed
-    SendScriptCallback("InvWndClosed")
-
-    -- Uncomment the lines below to play inventory close sound
-    -- actor_effects.use_item("inventory_close")
-
-    -- Reset the active slot after a delay of 0.2 seconds
-    CreateTimeEvent("inventory_wnd_closed", 0, 0.2, function()
-        active_slot = 0
-        return true
-    end)
+	SendScriptCallback("InvWndClosed")
+	--actor_effects.use_item("inventory_close")
+	CreateTimeEvent("inventory_wnd_closed",0,0.2,function()
+		active_slot = 0
+		return true
+	end)
 end
 
--- Open trade window and apply relevant settings
 function trade_wnd_opened()
-    -- Notify other scripts that the trade window has been opened
-    SendScriptCallback("TrdWndOpened")
-
-    -- Play trade window open sound
-    actor_effects.use_item("inventory_trade_open")
-
-    -- Apply depth of field settings for trade window
-    AddDOF({
-        kernel = 6,
-        far = 1.5,
-        sky = 10000
-    })
-
-    -- Uncomment the line below to print trade window opened message
-    -- printf("---:>Trade opened")
+	SendScriptCallback("TrdWndOpened")
+	actor_effects.use_item("inventory_trade_open")
+	AddDOF({
+		kernel = 6,
+		far = 1.5,
+		sky = 10000
+	})
+	--printf("---:>Trade opened")
 end
 
--- Close trade window
 function trade_wnd_closed()
-    -- Notify other scripts that the trade window has been closed
-    SendScriptCallback("TrdWndClosed")
-
-    -- Set trade closed flag
-    xr_meet_trade_closed = true
-
-    -- Play inventory close sound
-    actor_effects.use_item("inventory_close")
-
-    -- Uncomment the line below to print trade window closed message
-    -- printf("---:>Trade closed")
+	--printf("---:>Trade closed")
+	SendScriptCallback("TrdWndClosed")
+	xr_meet_trade_closed = true
+	actor_effects.use_item("inventory_close")
 end
 
--- Open upgrade window and play sound
 function upgrade_wnd_opened()
-    -- Play upgrade window open sound
-    actor_effects.use_item("inventory_close2")
-
-    -- Uncomment the line below to print upgrade window opened message
-    -- printf("---:>Upgrade opened")
+	actor_effects.use_item("inventory_close2")
+	--printf("---:>Upgrade opened")
 end
 
--- Close upgrade window
 function upgrade_wnd_closed()
-    -- Uncomment the line below to print upgrade window closed message
-    -- printf("---:>Upgrade closed")
+	--printf("---:>Upgrade closed")
 end
 
--- Open dead body search window and apply relevant settings
 function dead_body_search_wnd_opened()
-    -- Apply depth of field settings for dead body search window
-    AddDOF({
-        kernel = 6,
-        far = 1.5,
-        sky = 10000
-    })
-
-    -- Uncomment the lines below to play dead body search open sound
-    -- actor_effects.use_item("inventory_open")
-    -- printf("---:>DeadBodySearch opened")
+	--printf("---:>DeadBodySearch opened")
+	AddDOF({
+		kernel = 6,
+		far = 1.5,
+		sky = 10000
+	})
+	--actor_effects.use_item("inventory_open")
 end
 
--- Close dead body search window
 function dead_body_search_wnd_closed()
-    -- Uncomment the lines below to play dead body search close sound
-    -- actor_effects.use_item("inventory_close")
-    -- printf("---:>DeadBodySearch closed")
+	--printf("---:>DeadBodySearch closed")
+	--actor_effects.use_item("inventory_close")
 end
 
--- Show dialog window and apply relevant settings
 function dialog_wnd_showed()
-    -- Apply depth of field settings for dialog window
-    AddDOF({
-        kernel = 6,
-        far = 1.5,
-        sky = 10000
-    })
-
-    -- Uncomment the line below to print dialog window shown message
-    -- printf("---:>Talk Dialog show")
-
-    -- Use pda.script for dialog window functionality
+	AddDOF({
+		kernel = 6,
+		far = 1.5,
+		sky = 10000
+	})
+	--printf("---:>Talk Dialog show")
+	-- use pda.script for dialog_wnd
 end
 
--- Close dialog window
 function dialog_wnd_closed()
-    -- Uncomment the line below to print dialog window hidden message
-    -- printf("---:>Talk Dialog hide")
-
-    -- Use pda.script for dialog window functionality
-    -- Uncomment the line below to unhide the weapon after closing dialog
-    -- actor_hide_wpn(false)
+	--printf("---:>Talk Dialog hide")
+	-- use pda.script for dialog_wnd
+	-- actor_hide_wpn(false)
 end
 
--- Variables for handling camera changes
 local active_cam = 0
-
--- Change camera view when opening certain windows
 function change_camera()
-    if not active_cam_flag then
-        -- Store the current active camera
-        active_cam = level.get_active_cam()
-
-        -- Set the new active camera
-        level.set_active_cam(1)
-
-        -- Set the flag to indicate camera change
-        active_cam_flag = true
-    end
+	if not active_cam_flag then
+		active_cam = level.get_active_cam()
+		level.set_active_cam(1)
+		active_cam_flag = true
+	end
 end
-
--- Reset camera view when closing certain windows
 function reset_camera()
-    if active_cam_flag then
-        -- Restore the original active camera
-        level.set_active_cam(active_cam)
-
-        -- Reset the flag to indicate camera reset
-        active_cam_flag = false
-    end
+	if active_cam_flag then
+		level.set_active_cam(active_cam)
+		active_cam_flag = false
+	end
 end
 
 -- Called from engine! return CUIWindow or nil
 local function up_inventory_hint_init_item(itm1, itm2, UI)
-    UI.Y = 0
-    -- Notify other scripts about the inventory hint UI item
-    SendScriptCallback("inventory_hint_ui_item", itm1, itm2, UI)
+	UI.Y = 0
+	SendScriptCallback("inventory_hint_ui_item", itm1, itm2, UI)
 end
 
--- Initialize inventory hint item
-function inventory_hint_init_item(itm1, itm2)
-    -- if (itm1:cast_EatableItem()) then
-    local UI = ui_actor_hint_wnd_ext.get_ui(itm1, itm2)
-    LimitUpdate(up_inventory_hint_init_item, 0.3, itm1, itm2, UI)
-    if UI.Y == 0 then
-        UI:SetWndSize(vector2():set(290, UI.Y))
-    end
-    return UI
-    -- end
+function inventory_hint_init_item(itm1,itm2)
+	-- if (itm1:cast_EatableItem()) then
+	local UI = ui_actor_hint_wnd_ext.get_ui(itm1, itm2)
+	LimitUpdate(up_inventory_hint_init_item, 0.3, itm1, itm2, UI)
+	if UI.Y == 0 then
+		UI:SetWndSize(vector2():set(290, UI.Y))
+	end
+	return UI
+	-- end
 end

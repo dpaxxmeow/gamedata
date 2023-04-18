@@ -1,0 +1,54 @@
+;Dynamic weather
+;Atmosfear A.R.E.A. by MAGILA
+;we will indicate the sounds and effects of thunder near the actor
+[weather_settings]
+thunder_sounds              =   nature\thunder_6, nature\thunder_new_1, nature\thunder_new_2, nature\thunder_new_3, nature\thunder_new_5, nature\thunder_new_6,nature\thunder_new_7, nature\thunder_4, nature\thunder_5, nature\thundernew5
+thunder_effects             =   crommcruac\thunderbolts_00 ;crommcruac\thunderbolts_distant, crommcruac\thunderbolts, crommcruac\thunderbolts_v
+
+;we will indicate the weather patterns that exist
+[weather_patterns]
+clear
+partly
+foggy
+veryfoggy
+cloudy
+rain
+storm
+foggy_no_sun
+veryfoggy_no_sun
+cloudy_no_sun
+
+[weather_day_night]
+;we will indicate when to start shading at the location and when to lighten
+start_transition_night              = 19:00
+end_transition_night                = 23:00
+
+start_transition_day                = 03:00
+end_transition_day                  = 08:00
+
+;percentage of darkening surfaces on location
+;the higher the value the darker
+;maximum shading value at night
+clear_night_hemi                    = 0       
+partly_night_hemi                   = 0
+foggy_night_hemi                    = 0
+veryfoggy_night_hemi                = 0
+cloudy_night_hemi                   = 0
+rain_night_hemi                     = 0
+storm_night_hemi                    = 0
+foggy_no_sun_night_hemi             = 0
+veryfoggy_no_sun_night_hemi         = 0
+cloudy_no_sun_night_hemi            = 0
+
+;maximum shading value per day
+clear_day_hemi                      = 0
+partly_day_hemi                     = 0
+foggy_day_hemi                      = 0
+veryfoggy_day_hemi                  = 0
+cloudy_day_hemi                     = 0
+rain_day_hemi                       = 0
+storm_day_hemi                      = 0
+foggy_no_sun_day_hemi               = 0
+veryfoggy_no_sun_day_hemi           = 0
+cloudy_no_sun_day_hemi              = 0
+

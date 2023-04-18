@@ -63,7 +63,7 @@ function knife_hit(hit_pwr,w_id,target_material_idx,t_id,bone_index,direction,hi
 		end
 		--printf("knife_hit::cond:%s bullet_id:%s weapon id:%s material idx:%s Knife damaged:%s bone_index:%s", knifecond, bullet_id, w_id, target_material_idx, knifedesc, bone_index)
 		if knifecond - knifedesc > 0 then
-			act_item:set_condition(knifecond - (knifedesc/100)) --misterkat
+			act_item:set_condition(knifecond - knifedesc)
 		else
 			--act_item:set_condition(0)
 			alife():release(alife():object(act_item:id()), true)
@@ -124,7 +124,7 @@ function wearout()
 		if (name == "wpn_axe3") then num = 0.03 end			--Охотничий топор
 		
 		if (cond > num) then 
-			obj:set_condition(cond-(num/200)) --misterkat
+			obj:set_condition(cond-num/4) 
 		else
 			obj:set_condition(0.01)
 		end

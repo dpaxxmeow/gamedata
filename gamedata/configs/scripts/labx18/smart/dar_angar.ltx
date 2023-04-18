@@ -1,0 +1,21 @@
+[smart_terrain]
+squad_id = 1
+max_population = 2
+respawn_params = respawn@dar_angar
+respawn_idle = 30000
+respawn_radius = 300
+
+[respawn@dar_angar]
+spawn_tushkanos
+spawn_bloodsucker_leshyi
+
+[spawn_tushkanos]
+spawn_squads = simulation_tushkano
+spawn_num = {+dar_military_scout_squad_killed} 6, 2
+
+[spawn_bloodsucker_leshyi]
+spawn_squads = simulation_bloodsucker_leshyi
+spawn_num = 2
+
+[exclusive]
+angar_gigant = labx18\dar_angar_gigant.ltx

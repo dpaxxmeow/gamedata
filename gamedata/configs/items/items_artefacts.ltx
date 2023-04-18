@@ -1,0 +1,2386 @@
+;--------------------------------------------------------------------------------
+; SCRPTARTS
+;--------------------------------------------------------------------------------
+;Артефакты, которые при активизации создают аномальные зоны
+;формат: {секция_артефакта} = {секция_зоны},Radius,Power
+[artefact_spawn_zones]
+af_medusa						= zone_mosquito_bald_weak, 2.0, 30.0
+af_cristall_flower				= zone_mosquito_bald_weak, 3.0, 50.0
+af_night_star					= zone_mosquito_bald_weak, 5.0, 100.0
+af_vyvert						= zone_gravi_zone_weak, 2.0, 30.0
+af_gravi						= zone_gravi_zone_weak, 3.0, 50.0
+af_gold_fish					= zone_gravi_zone_weak, 5.0, 100.0
+af_cristall						= torrid_zone, 3.0, 50.0
+af_blood						= zone_mincer_weak, 2, 30.0
+af_mincer_meat					= zone_mincer_weak, 3, 50.0
+af_soul							= zone_mincer_weak, 5, 100.0
+af_electra_sparkler				= zone_witches_galantine, 2, 30.0
+af_electra_flash				= zone_witches_galantine, 3, 50.0
+af_electra_moonlight			= zone_witches_galantine, 5, 100.0
+
+[af_activation_gravi]
+;----------------------------------------------------------------------------------------------------------------------------------------
+;format:						time(sec),	sound_name,				light_R,G,B,		light_range,	particle_name,						af_animation_name
+;----------------------------------------------------------------------------------------------------------------------------------------
+starting						= 5.0,		anomaly\gravi_idle00,		0.5, 1.0, 1.5,		5.0,			"anomaly2\artefact_gravi_blast_start",	"idle"
+flying							= 2.0,		anomaly\gravi_idle01,		0.8, 1.0, 1.2,		3.0,			"artefact\artefact_gravi",				"idle"
+idle_before_spawning			= 5.0,		anomaly\gravi_blowout5,		1.0, 1.0, 1,		0.0,			"anomaly2\artefact_gravi_blast_finished",	"idle"
+spawning						= 1,		anomaly\gravity_entrance,	0.9, 1.1, 1.01,		0.0,			"",		"idle"
+
+[af_activation_bold]
+;----------------------------------------------------------------------------------------------------------------------------------------
+;format:						time(sec),	sound_name,				light_R,G,B,		light_range,	particle_name,						af_animation_name
+;----------------------------------------------------------------------------------------------------------------------------------------
+starting						= 5.0,		anomaly\gravi_idle00,	0.8, 1.5, 0.9,		5.0,			"anomaly2\artefact_bold_blast_start",	"idle"
+flying							= 2.0,		anomaly\gravi_idle01,	0.8, 0.9, 0.8,		2.0,			"artefact\artefact_zharka",				"idle"
+idle_before_spawning			= 2.0,		anomaly\gravity_entrance,1.0, 1.1, 1.0,		0.0,			"anomaly2\artefact_bold_blast_finished",	"idle"
+spawning						= 0.5,		anomaly\pux_blast,		1.0, 1.0, 0.5,		5.0,			"anomaly2\gravi_anomaly_00",		"idle"
+
+[af_activation_mincer]
+;----------------------------------------------------------------------------------------------------------------------------------------
+;format:						time(sec),	sound_name,				light_R,G,B,		light_range,	particle_name,						af_animation_name
+;----------------------------------------------------------------------------------------------------------------------------------------
+starting						= 5.0,		anomaly\gravi_idle00,	0.5, 1.0, 1.5,		5.0,			"anomaly2\artefact_gravi_blast_start",	"idle"
+flying							= 2.0,		anomaly\gravi_idle01,	0.8, 1.0, 1.2,		3.0,			"artefact\artefact_mincer",				"idle"
+idle_before_spawning			= 5.0,		anomaly\gravi_blowout2,	1.0, 1.0, 1.0,		0.0,			"anomaly2\artefact_gravi_blast_finished",	"idle"
+spawning						= 0.0,		"",						1.0, 1.0, 0.5,		0.0,			"",		"idle"
+
+[af_activation_electra]
+;----------------------------------------------------------------------------------------------------------------------------------------
+;format:						time(sec),	sound_name,				light_R,G,B,		light_range,	particle_name,						af_animation_name
+;----------------------------------------------------------------------------------------------------------------------------------------
+starting						= 5.0,		anomaly\bfuzz_blowout,	0.8, 1.0, 1.5,		5.0,			"anomaly2\artefact_electra_blast_start",	"idle"
+flying							= 2.0,		anomaly\electra_idle1,	1.0, 1.0, 1.0,		5.0,			"artefact\artefact_electra",				"idle"
+idle_before_spawning			= 0.0,		"",						1.0, 1.0, 2.5,		0,				"",	"idle"
+spawning						= 2,		"anomaly\pux_blast",	1.0, 1.0, 1.5,		5.0,			"anomaly2\artefact_electra_blast_finished",		"idle"
+
+[af_base]:base_section
+GroupControlSection				= spawn_group
+class							= SCRPTART	; будет подпрыгивать
+cform							= skeleton
+hud								= artefact_hud
+animation_slot					= 11
+allow_inertion					= true
+attach_angle_offset				= 0,0,0
+attach_position_offset			= -0.1,-0.1,0
+attach_bone_name				= bip01_root
+inv_volume						= 1.0
+belt							= true
+slot							= -1
+default_to_ruck					= true
+af_actor_properties				= on
+actor_properties				= on
+af_type							= gravitational
+det_show_particles				= anomaly2\plasma_generator_death
+det_hide_particles				= anomaly2\plasma_generator_death
+det_show_snd					= anomaly\bfuzz_blowout
+det_hide_snd					= anomaly\pux_blast
+af_rank							= 0
+can_be_controlled				= true
+script_binding					= bind_artefact.bind
+particles_bone					= link
+additional_inventory_weight		= 0
+idle_light_shadow				= false
+;use_condition					= true
+degrade_rate					= 1.0		; Artefact Degradation
+pickup_color					= 55, 55, 170, 255	; Blue
+;========================= Artefact properties============================
+health_restore_speed			= 0.00		; Восстановление здоровья			1 еденица = 0.00015	(+ лечение/- повреждение)
+radiation_restore_speed			= 0.00		; Вывод радиации					1 еденица = 0.001	(- вывод/+ облучение)
+satiety_restore_speed			= 0.00		; Сытость							1 еденица = 0.1
+thirst_restore_speed			= 0.00		; Жажда								1 еденица = 0.1
+power_restore_speed				= 0.00		; Восстановление сил				1 еденица = 0.0001	(+ восстановление/- убывание)
+bleeding_restore_speed			= 0.00		; Заживление ран					1 еденица = 0.001
+fracture_restore_speed			= 0.00		; Заживление перелома				1 еденица = 0.001
+additional_inventory_weight		= 0			; Дополнительный переносимый вес	1 еденица = 1Кг		(+ увеличение/- уменьшение)
+additional_inventory_weight2	= 0			; Дополнительный переносимый вес	1 еденица = 1Кг		(+ увеличение/- уменьшение)
+additional_inventory_volume		= 0			; Дополнительный объём инвентаря	1 еденица = 1Л		(+ увеличение/- уменьшение)
+jump_speed						= 1.0		; Изменение скорости прыжка			1 еденица = 0.04	(+ увеличение/- уменьшение)
+walk_accel						= 1.0		; Изменение скорости движения		1 еденица = 0.1		(+ увеличение/- уменьшение)
+overweight_walk_accel			= 1.0		; Изменение скорости движения		1 еденица = 0.1		(+ увеличение/- уменьшение)
+;=========================================================================
+hit_absorbation_sect			= af_base_absorbation
+[af_base_absorbation]
+burn_immunity					= 0			; Термозащита						1 еденица = 0.0115 (1.150 = 100%)
+strike_immunity					= 0			; Защита от разрыва					1 еденица = 0.0115 (1.150 = 100%)
+shock_immunity					= 0			; Электрозащита						1 еденица = 0.0398 (0.380 = 100%)
+wound_immunity					= 0			; Зашита от ранений					1 еденица = 0.0115 (1.150 = 100%)
+radiation_immunity				= 0			; Радиозащита						1 еденица = 0.0115 (1.150 = 100%)
+telepatic_immunity				= 0			; Пси-защита						1 еденица = 0.0025 (0.250 = 100%)
+chemical_burn_immunity			= 0			; Хим. защита						1 еденица = 0.0025 (0.250 = 100%)
+explosion_immunity				= 0			; Зашита от взрыва
+fire_wound_immunity				= 0			; Зашита от пуль
+
+[artefact_hud]:hud_base
+item_visual						= dynamics\artefacts\artefact_electra_blue_hud
+attach_place_idx				= 0
+
+hands_position					= 0,0,0
+hands_orientation				= 0,0,0
+hands_position_16x9				= 0,0,0
+hands_orientation_16x9			= 0,0,0
+
+item_position					= 0,0,0
+item_orientation				= 0,0,0
+aim_hud_offset_pos				= 0,0,0
+aim_hud_offset_rot				= 0,0,0
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos				= 0,0,0
+lean_hud_offset_rot				= 0,0,0
+
+anm_idle						= dev_artefact_idle
+anm_idle_sprint					= dev_artefact_idle
+anm_hide						= dev_artefact_holster
+anm_show						= dev_artefact_draw
+anm_activate					= dev_artefact_use
+
+;--------------------------------------------------------------------------------
+; Гравитационные артефакты
+;--------------------------------------------------------------------------------
+; «Кокон»
+;--------------------------------------------------------------------------------
+[af_cocoon]:af_base
+$spawn							= "artefacts\af_cocoon"
+visual							= dynamics\artefacts\af_cocoon.ogf
+inv_name						= st_af_cocoon_name
+inv_name_short					= st_af_cocoon_name
+description						= st_af_cocoon_descr
+inv_weight						= 1.20, 1.25
+inv_volume						= 1.7, 1.75
+inv_grid_x						= 0
+inv_grid_y						= 72
+cost							= 4779
+jump_height						= 0.05
+;particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 0
+af_type							= gravitational
+lights_enabled					= false
+trail_light_color 				= 0.9,0.4,0.2
+trail_light_range 				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Клетка»
+;--------------------------------------------------------------------------------
+[af_cell]:af_base
+$spawn							= "artefacts\af_cell"
+visual							= dynamics\artefacts\af_cell.ogf
+description						= st_af_cell_descr
+inv_name						= st_af_cell_name
+inv_name_short					= st_af_cell_name
+inv_weight						= 2.1, 2.25
+inv_volume						= 2, 2.2
+inv_grid_x						= 1
+inv_grid_y						= 72
+cost							= 9500
+jump_height						= 0.1
+;particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 0
+af_type							= gravitational
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Медуза»
+;--------------------------------------------------------------------------------
+[af_medusa]:af_base
+$spawn							= "artefacts\gravitational_1_medusa"
+visual							= dynamics\artefacts\af_medusa.ogf
+description						= st_af_medusa_descr
+inv_name						= st_af_medusa_name
+inv_name_short					= st_af_medusa_name
+inv_weight						= 2.45, 2.65
+inv_volume						= 2, 2.2
+inv_grid_x						= 0
+inv_grid_y						= 73
+cost							= 10000
+jump_height						= .5			; высота прыжка
+particles						= artefact\af_gravi_idle
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 1
+af_type							= gravitational
+lights_enabled					= true
+trail_light_color				= 0.14, 0.85, 0.74
+trail_light_range				= 3.0
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= -0.00017
+additional_inventory_weight		= 2.620
+additional_inventory_weight2	= 2.620
+hit_absorbation_sect			= af_medusa_absorbation
+artefact_activation_seq			= af_activation_bold
+hud								= af_medusa_hud
+
+[af_medusa_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_medusa.ogf
+
+[af_medusa_absorbation]:af_base_absorbation
+strike_immunity					= 0.05414
+wound_immunity					= 0.02042
+explosion_immunity				= 0.01629
+fire_wound_immunity				= 0.01323
+;---------------------------------------------------------------------------------------------
+; «Каменный цветок»
+;---------------------------------------------------------------------------------------------
+[af_cristall_flower]:af_base
+$spawn							= "artefacts\gravitational_2_cristall_flower"
+visual							= dynamics\artefacts\af_cristall_flower_2.ogf
+description						= st_af_cristall_flower_descr
+inv_name						= st_af_cristall_flower_name
+inv_name_short					= st_af_cristall_flower_name
+inv_weight						= 2.5, 2.65
+inv_volume						= 2.3, 2.6
+inv_grid_x						= 1
+inv_grid_y						= 73
+cost							= 15000
+jump_height						= .6
+particles						= artefact\af_gravi_idle
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 1
+af_type							= gravitational
+lights_enabled					= true
+trail_light_color				= 0.37, 0.72, 0.93
+trail_light_range				= 3.0
+hit_absorbation_sect			= af_cristall_flower_absorbation
+hud								= af_cristall_flower_hud
+artefact_activation_seq			= af_activation_bold
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00014
+additional_inventory_weight		= 3.106
+additional_inventory_weight2	= 3.106
+
+[af_cristall_flower_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_cristall_flower.ogf
+
+[af_cristall_flower_absorbation]:af_base_absorbation
+strike_immunity					= 0.07857
+wound_immunity					= 0.03128
+explosion_immunity				= 0.04382
+fire_wound_immunity				= 0.03794
+;--------------------------------------------------------------------------------
+; «Ночная звезда»
+;--------------------------------------------------------------------------------
+[af_night_star]:af_base
+$spawn							= "artefacts\gravitational_3_night_star"
+visual							= dynamics\artefacts\af_night_star.ogf
+description						= st_af_night_star_descr
+inv_name						= st_af_night_star_name
+inv_name_short					= st_af_night_star_name
+inv_weight						= 2.65, 2.75
+inv_volume						= 2.0, 2.2
+inv_grid_x						= 2
+inv_grid_y						= 73
+cost							= 17000
+jump_height						= 0.7
+;particles						= artefact\af_gravi_idle
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 2
+af_type							= gravitational
+lights_enabled					= true
+trail_light_color				= 0.73, 0.66, 0.93 
+trail_light_range				= 10.0
+hit_absorbation_sect			= af_night_star_absorbation
+hud								= af_night_star_hud
+artefact_activation_seq			= af_activation_bold
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00022
+additional_inventory_weight		= 4.117
+additional_inventory_weight2	= 4.117
+
+[af_night_star_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_night_star.ogf
+
+[af_night_star_absorbation]:af_base_absorbation
+strike_immunity					= 0.10166
+wound_immunity					= 0.04226
+explosion_immunity				= 0.05782
+fire_wound_immunity				= 0.05626
+;--------------------------------------------------------------------------------
+; «Выверт»
+;--------------------------------------------------------------------------------
+[af_vyvert]:af_base
+$spawn							= "artefacts\gravitational_4_vyvert"
+visual							= dynamics\artefacts\af_vyvert_2.ogf
+description						= st_af_vyvert_descr
+inv_name						= st_af_vyvert_name
+inv_name_short					= st_af_vyvert_name
+inv_weight						= 2.75, 2.95
+inv_volume						= 2, 2.2
+inv_grid_x						= 3
+inv_grid_y						= 73
+cost							= 22000
+jump_height						= .8
+particles						= artefact\af_gravi_idle_fobos
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 2
+af_type							= gravitational
+particles_bone					= link
+lights_enabled					= true
+trail_light_color				= 0.99, 0.97, 0.85
+trail_light_range				= 2.0
+hit_absorbation_sect			= af_vyvert_absorbation
+hud								= af_vyvert_hud
+artefact_activation_seq			= af_activation_gravi
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00025
+additional_inventory_weight		= 5.953
+additional_inventory_weight2	= 5.953
+
+[af_vyvert_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_vyvert.ogf
+
+[af_vyvert_absorbation]:af_base_absorbation
+strike_immunity					= 0.12928
+wound_immunity					= 0.07422
+explosion_immunity				= 0.09929
+fire_wound_immunity				= 0.09263
+;--------------------------------------------------------------------------------
+; «Грави»
+;--------------------------------------------------------------------------------
+[af_gravi]:af_base
+$spawn							= "artefacts\gravitational_5_gravi"
+visual							= dynamics\artefacts\af_gravi.ogf
+description						= st_af_gravi_descr
+inv_name						= st_af_gravi_name
+inv_name_short					= st_af_gravi_name
+inv_weight						= 2.9, 3.2
+inv_volume						= 2, 2.4
+inv_grid_x						= 4
+inv_grid_y						= 73
+cost							= 30000
+jump_height						= .9
+particles						= artefact\af_gravi_idle_fobos
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 3
+af_type							= gravitational
+lights_enabled					= true
+trail_light_color				= 0.98, 0.98, 0.7
+trail_light_range				= 2.0
+artefact_activation_seq			= af_activation_gravi
+hit_absorbation_sect			= af_gravi_absorbation
+hud								= af_gravi_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00036
+additional_inventory_weight		= 7.338
+additional_inventory_weight2	= 7.338
+
+[af_gravi_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_gravi.ogf
+
+[af_gravi_absorbation]:af_base_absorbation
+strike_immunity					= 0.16982
+wound_immunity					= 0.10612
+explosion_immunity				= 0.12672
+fire_wound_immunity				= 0.12141
+;--------------------------------------------------------------------------------
+; «Золотая рыбка»
+;--------------------------------------------------------------------------------
+[af_gold_fish]:af_base
+$spawn							= "artefacts\gravitational_6_gold_fish"
+visual							= dynamics\artefacts\af_gold_fish.ogf
+description						= st_af_gold_fish_descr
+inv_name						= st_af_gold_fish_name
+inv_name_short					= st_af_gold_fish_name
+inv_weight						= 3.1, 3.35 
+inv_volume						= 2.0, 2.4
+inv_grid_x						= 5
+inv_grid_y						= 73
+cost							= 38000
+jump_height						= 1
+particles						= artefact\af_gravi_idle
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 3
+af_type							= gravitational
+lights_enabled					= true
+trail_light_color				= 0.98, 0.98, 0.7
+trail_light_range				= 3.0
+artefact_activation_seq			= af_activation_gravi
+hit_absorbation_sect			= af_gold_fish_absorbation
+hud								= af_gold_fish_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00015
+radiation_restore_speed			= 0.00044
+power_restore_speed				= 0.0015
+bleeding_restore_speed			= 0.0005
+additional_inventory_weight		= 10.440
+additional_inventory_weight2	= 10.440
+
+[af_gold_fish_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_gold_fish.ogf
+
+[af_gold_fish_absorbation]:af_base_absorbation
+strike_immunity					= 0.22981
+wound_immunity					= 0.12681
+explosion_immunity				= 0.17868
+fire_wound_immunity				= 0.17297
+;--------------------------------------------------------------------------------
+; «Колючка»
+;--------------------------------------------------------------------------------
+[af_rusty_thorn]:af_base
+$spawn							= "artifacts\rusty_thorn"
+visual							= dynamics\artefacts\artefact_needles1.ogf
+description						= st_af_rusty_thorn_descr
+inv_name						= af_rusty_thorn
+inv_name_short					= af_rusty_thorn
+inv_weight						= 0.28, 0.4
+inv_volume						= 0.4, 0.5
+inv_grid_x						= 33
+inv_grid_y						= 73
+cost							= 5543
+jump_height						= .3
+lights_enabled					= false
+af_rank							= 1
+af_type							= gravitational
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= -0.00011
+bleeding_restore_speed			= -0.003
+;--------------------------------------------------------------------------------
+; «Кристальная колючка»
+;--------------------------------------------------------------------------------
+[af_rusty_kristall]:af_base
+$spawn							= "artifacts\rusty_cristall"
+visual							= dynamics\artefacts\artefact_needles2.ogf
+description						= st_af_rusty_kristall_descr
+inv_name						= af_rusty_kristall
+inv_name_short					= af_rusty_kristall
+inv_weight						= 0.3, 0.5
+inv_volume						= 0.4, 0.5
+inv_grid_x						= 34
+inv_grid_y						= 73
+cost							= 12000
+jump_height						= .4
+af_rank							= 2
+af_type							= gravitational
+lights_enabled					= false
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= -0.00008
+bleeding_restore_speed			= -0.00349
+;--------------------------------------------------------------------------------
+; «Морской Ёж»
+;--------------------------------------------------------------------------------
+[af_rusty_sea]:af_base
+$spawn							= "artifacts\rusty_sea"
+visual							= dynamics\artefacts\af_rusty_sea_urchin.ogf
+description						= st_af_rusty_sea_urchin_descr
+inv_name						= af_rusty_sea_urchin
+inv_name_short					= af_rusty_sea_urchin
+inv_weight						= 0.4, 0.5
+inv_volume						= 0.6, 0.75 
+inv_grid_x						= 35
+inv_grid_y						= 73
+cost							= 15000
+jump_height						= .5
+af_rank							= 3
+af_type							= gravitational
+lights_enabled					= false
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= -0.00010
+bleeding_restore_speed			= -0.004
+
+;--------------------------------------------------------------------------------
+; 								Термальные артефакты
+;--------------------------------------------------------------------------------
+; «Глаз дракона»
+;--------------------------------------------------------------------------------
+[af_dragon_eye]:af_base
+$spawn 							= "artefacts\af_dragon_eye"
+visual							= dynamics\artefacts\af_dragon_eye.ogf
+inv_name						= st_af_dragon_eye_name
+inv_name_short					= st_af_dragon_eye_name
+description						= st_af_dragon_eye_descr
+inv_weight						= 1.1, 1.25
+inv_volume						= 1.0, 1.2
+inv_grid_x						= 34
+inv_grid_y						= 72
+cost							= 4806
+jump_height						= 0.08
+af_rank							= 0
+af_type							= fiery
+;particles		        		= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+lights_enabled                  = false
+trail_light_color 				= 0.9,0.4,0.2
+trail_light_range 				= 2.0
+;--------------------------------------------------------------------------------
+; «Петля»
+;--------------------------------------------------------------------------------
+[af_fire_loop]:af_base
+$spawn							= "artefacts\af_loop"
+visual							= dynamics\artefacts\af_fire_loop.ogf
+inv_name						= st_af_fire_loop_name
+inv_name_short					= st_af_fire_loop_name
+description						= st_af_fire_loop_descr
+inv_weight						= 1.65, 1.72
+inv_volume						= 2.0, 2.2
+inv_grid_x						= 12
+inv_grid_y						= 72
+cost							= 6723
+jump_height						= 0.05
+;particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 0
+af_type							= fiery
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+hit_absorbation_sect			= af_fire_loop_absorbation
+
+[af_fire_loop_absorbation]:af_base_absorbation
+burn_immunity					= 0.0115	; 1%
+;--------------------------------------------------------------------------------
+; «Кристалл»
+;--------------------------------------------------------------------------------
+[af_cristall]:af_base
+$spawn							= "artefacts\thermal_1_cristall"
+visual							= dynamics\artefacts\af_cristall_2.ogf
+description						= st_af_cristall_descr
+inv_name						= st_af_cristall_name
+inv_name_short					= st_af_cristall_name
+inv_weight						= 1.4, 1.55
+inv_volume						= 2.1, 2.3
+inv_grid_x						= 6
+inv_grid_y						= 73
+cost							= 9000
+particles						= artefact\artefact_zharka_fobos
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint6
+af_rank							= 1
+af_type							= fiery
+lights_enabled					= true
+trail_light_color				= 0.99, 0.38, 0.18
+trail_light_range				= 4.0
+hit_absorbation_sect			= af_cristall_absorbation
+hud								= af_cristall_hud
+artefact_activation_seq			= af_activation_mincer
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0
+radiation_restore_speed			= 0.00013
+satiety_restore_speed			= 0
+power_restore_speed				= 0
+bleeding_restore_speed			= 0.00106
+
+[af_cristall_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_cristall.ogf
+
+[af_cristall_absorbation]:af_base_absorbation
+burn_immunity					= 0.0230	; 2%
+;--------------------------------------------------------------------------------
+; «Огненный шар»
+;--------------------------------------------------------------------------------
+[af_fireball]:af_base
+$spawn							= "artefacts\thermal_2_fireball"
+visual							= dynamics\artefacts\af_fireball.ogf
+description						= st_af_fireball_descr
+inv_name						= st_af_fireball_name
+inv_name_short					= st_af_fireball_name
+inv_weight						= 1.5, 1.65
+inv_volume						= 2.0, 2.2
+inv_grid_x						= 7
+inv_grid_y						= 73
+cost							= 18000
+impulse_threshold				= 10
+radius							= 10
+strike_impulse					= 20
+particles						= artefact\artefact_zharka_fobos
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+af_type							= fiery
+lights_enabled					= true
+trail_light_color				= 1, 0.1, 0.1
+trail_light_range				= 4.0
+hit_absorbation_sect			= af_fireball_absorbation
+hud								= af_fireball_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00013
+bleeding_restore_speed			= 0.00138
+
+[af_fireball_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_fireball.ogf
+
+[af_fireball_absorbation]:af_base_absorbation
+burn_immunity					= 0.0345	; 3%
+;--------------------------------------------------------------------------------
+; «Капли»
+;--------------------------------------------------------------------------------
+[af_drops]:af_base
+$spawn							= "artifacts\zharka drops"
+visual							= dynamics\artefacts\artefact_kaply.ogf
+description						= st_af-drops_descr
+inv_name						= af_drops
+inv_name_short					= af_drops
+inv_weight						= 0.4, 0.6
+inv_volume						= 0.5, 0.65
+inv_grid_x						= 30
+inv_grid_y						= 73
+cost							= 6132
+jump_height						= .1
+particles						= anomaly2\artefact\artefact_zharka
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+af_rank							= 1
+af_type							= fiery
+lights_enabled					= true
+trail_light_color				= 0.6,0.7,0.5
+trail_light_range				= 0.5
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= -0.00002
+power_restore_speed				= -0.00125
+hit_absorbation_sect			= af_drops_absorbation
+
+[af_drops_absorbation]:af_base_absorbation
+burn_immunity					= 0.0460	; 4%
+;--------------------------------------------------------------------------------
+; «Мамины бусы»
+;--------------------------------------------------------------------------------
+[af_dummy_glassbeads]:af_base
+$spawn							= "artefacts\thermal_3_dummy_glassbeads"
+visual							= dynamics\artefacts\af_dummy_glassbeads.ogf
+description						= st_af_dummy_glassbeads_descr
+inv_name						= st_af_dummy_glassbeads_name
+inv_name_short					= st_af_dummy_glassbeads_name
+inv_weight						= 1.5, 1.7 
+inv_volume						= 1.35, 1.5
+inv_grid_x						= 8
+inv_grid_y						= 73
+cost							= 29000
+jump_height						= .01
+particles						= _samples_particles_\sparks_r
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= link
+af_rank							= 2
+af_type							= fiery
+lights_enabled					= true
+trail_light_color				= 1, 0.1, 0.1
+trail_light_range				= 2.0
+hit_absorbation_sect			= af_dummy_glassbeads_absorbation
+hud								= af_dummy_glassbeads_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00022
+bleeding_restore_speed			= 0.00206
+
+[af_dummy_glassbeads_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_dummy_glassbeads.ogf
+
+[af_dummy_glassbeads_absorbation]:af_base_absorbation
+burn_immunity					= 0.0575	; 5%
+;--------------------------------------------------------------------------------
+; «Глаз»
+;--------------------------------------------------------------------------------
+[af_eye]:af_base
+$spawn							= "artefacts\thermal_4_eye"
+visual							= dynamics\artefacts\af_eye.ogf
+description						= st_af_eye_descr
+inv_name						= st_af_eye_name
+inv_name_short					= st_af_eye_name
+inv_weight						= 1.65, 1.75
+inv_volume						= 0.65, 0.8
+inv_grid_x						= 9
+inv_grid_y						= 73
+cost							= 35000
+jump_height						= .05
+particles						= artefact\artefact_zharka_fobos
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+af_rank							= 3
+af_type							= fiery
+lights_enabled					= true
+trail_light_color 				= 0.99, 0.38, 0.18
+trail_light_range				= 2.0
+hit_absorbation_sect			= af_eye_absorbation
+hud								= af_eye_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00036
+bleeding_restore_speed			= 0.00303
+
+[af_eye_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_eye.ogf
+
+[af_eye_absorbation]:af_base_absorbation
+burn_immunity					= 0.0805	; 7%
+;--------------------------------------------------------------------------------
+; «Пламя»
+;--------------------------------------------------------------------------------
+[af_fire]:af_base
+$spawn							= "artefacts\thermal_5_fire"
+visual							= dynamics\artefacts\af_fire.ogf
+description						= st_af_fire_descr
+inv_name						= st_af_fire_name
+inv_name_short					= st_af_fire_name
+inv_weight						= 1.8, 2.0
+inv_volume						= 1.5, 1.6
+inv_grid_x						= 10
+inv_grid_y						= 73
+cost							= 40000
+jump_height						= .1
+particles						= artefact\artefact_zharka_fobos
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+af_rank							= 3
+af_type							= fiery
+lights_enabled					= true
+trail_light_color				= 0.99, 0.35, 0.1
+trail_light_range				= 4.0
+hit_absorbation_sect			= af_fire_absorbation
+hud								= af_fire_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00044	; +4mzv/sec
+bleeding_restore_speed			= 0.00394	; +59ml/min
+
+[af_fire_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_fire.ogf
+
+[af_fire_absorbation]:af_base_absorbation
+burn_immunity					= 0.115 	; 10%
+
+;--------------------------------------------------------------------------------
+; 								Химические артефакты
+;--------------------------------------------------------------------------------
+; «Кислушка»
+;--------------------------------------------------------------------------------
+[af_kislushka]:af_base
+$spawn							= "artefacts\af_kislushka"
+visual							= dynamics\artefacts\af_kislushka.ogf
+inv_name						= st_af_kislushka_name
+inv_name_short					= st_af_kislushka_name
+description						= st_af_kislushka_descr
+inv_weight						= 0.5, 0.65
+inv_volume						= 0.8, 0.9
+inv_grid_x						= 16
+inv_grid_y						= 72
+cost							= 2415
+inv_weight						= 1.378
+jump_height						= 0.05
+;particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+af_rank							= 0
+af_type							= chemical
+particles_bone					= joint2
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+hit_absorbation_sect			= af_kislushka_absorbation
+
+[af_kislushka_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0025	; 1%
+;--------------------------------------------------------------------------------
+; «Кровь камня»
+;--------------------------------------------------------------------------------
+[af_blood]:af_base
+$spawn							= "artefacts\acidic_1_blood"
+visual							= dynamics\artefacts\af_blood.ogf
+description						= st_af_blood_descr
+inv_name						= st_af_blood_name
+inv_name_short					= st_af_blood_name
+inv_weight						= 0.7, 0.85
+inv_volume						= 1.2, 1.3
+inv_grid_x						= 11
+inv_grid_y						= 73
+cost							= 12000
+jump_height						= .01
+particles						= _samples_particles_\sparks_g
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+af_rank							= 1
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.6, 0.79, 0.3
+trail_light_range				= 2.5
+artefact_activation_seq			= af_activation_mincer
+hit_absorbation_sect			= af_blood_absorbation
+hud								= af_blood_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00012
+radiation_restore_speed			= 0.00013
+
+[af_blood_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_blood.ogf
+
+[af_blood_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0075	; 3%
+;--------------------------------------------------------------------------------
+; «Ломоть мяса»
+;--------------------------------------------------------------------------------
+[af_mincer_meat]:af_base
+$spawn							= "artefacts\acidic_2_mincer_meat"
+visual							= dynamics\artefacts\af_mincer_meat.ogf
+description						= st_af_mincer_meat_descr
+inv_name						= st_af_mincer_meat_name
+inv_name_short					= st_af_mincer_meat_name
+inv_weight						= 0.75, 0.85
+inv_volume						= 1.5, 1.6
+inv_grid_x						= 12
+inv_grid_y						= 73
+cost							= 14000
+jump_height						= .01
+particles						= _samples_particles_\sparks_g
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+af_rank							= 1
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.6, 0.79, 0.3
+trail_light_range				= 2.5
+artefact_activation_seq			= af_activation_mincer
+hit_absorbation_sect			= af_mincer_meat_absorbation
+hud								= af_mincer_meat_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00015
+radiation_restore_speed			= 0.00013
+
+[af_mincer_meat_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_mincer_meat.ogf
+
+[af_mincer_meat_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0100	; 4%
+;--------------------------------------------------------------------------------
+; «Душа»
+;--------------------------------------------------------------------------------
+[af_soul]:af_base
+$spawn							= "artefacts\acidic_3_soul"
+visual							= dynamics\artefacts\af_soul.ogf
+description						= st_af_soul_descr
+inv_name						= st_af_soul_name
+inv_name_short					= st_af_soul_name
+inv_weight						= 0.8, 0.95
+inv_volume						= 1.5, 1.6
+inv_grid_x						= 13
+inv_grid_y						= 73
+cost							= 20000
+jump_height						= .01
+particles						= artefact\af_dusha_fobos
+det_show_particles				= artefact\effects\af_electra_show_death_00
+det_hide_particles				= artefact\effects\af_electra_show_death_00
+af_rank							= 2
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.49, 0.44, 0.9
+trail_light_range				= 5.0
+artefact_activation_seq			= af_activation_mincer
+hit_absorbation_sect			= af_soul_absorbation
+hud								= af_soul_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00020
+radiation_restore_speed			= 0.00022
+
+[af_soul_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_soul.ogf
+
+[af_soul_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0125	; 5%
+;--------------------------------------------------------------------------------
+; «Колобок»
+;--------------------------------------------------------------------------------
+[af_fuzz_kolobok]:af_base
+$spawn							= "artefacts\acidic_4_fuzz_kolobok"
+visual							= dynamics\artefacts\af_fuzz_kolobok.ogf
+description						= st_af_fuzz_kolobok_descr
+inv_name						= st_af_fuzz_kolobok_name
+inv_name_short					= st_af_fuzz_kolobok_name
+inv_weight						= 0.82, 0.92
+inv_volume						= 1.5, 1.6
+inv_grid_x						= 14
+inv_grid_y						= 73
+cost							= 25000
+jump_height						= .5
+particles						= _samples_particles_\sparks_g
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+af_rank							= 2
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.64, 0.84, 0.11
+trail_light_range				= 3.5
+hit_absorbation_sect			= af_fuzz_kolobok_absorbation
+hud								= af_fuzz_kolobok_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00025	; 2%
+radiation_restore_speed			= 0.00025	; 2%
+
+[af_fuzz_kolobok_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_fuzz_kolobok.ogf
+
+[af_fuzz_kolobok_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0150	; 6%
+;--------------------------------------------------------------------------------
+; «Пузырь»
+;--------------------------------------------------------------------------------
+[af_baloon]:af_base
+$spawn							= "artefacts\acidic_5_baloon"
+visual							= dynamics\artefacts\af_baloon.ogf
+description						= st_af_baloon_descr
+inv_name						= st_af_baloon_name
+inv_name_short					= st_af_baloon_name
+inv_weight						= 0.7, 0.85
+inv_volume						= 1.7, 1.9 
+inv_grid_x						= 15
+inv_grid_y						= 73
+cost							= 30000
+jump_height						= 0.01
+particles						= artefact\af_acidic_fobos
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+af_rank							= 3
+af_type							= chemical
+lights_enabled					= true
+trail_light_color 				= 0.09, 0.87, 0.52
+trail_light_range 				= 2.5
+hit_absorbation_sect			= af_baloon_absorbation
+hud								= af_baloon_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00030	; 2%
+radiation_restore_speed			= 0.00030	; 3%
+satiety_restore_speed			= -0.00012	; -3%
+
+[af_baloon_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_baloon.ogf
+
+[af_baloon_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0200	; 8%
+;--------------------------------------------------------------------------------
+; «Светляк»
+;--------------------------------------------------------------------------------
+[af_glass]:af_base
+$spawn							= "artefacts\acidic_6_glass"
+visual							= dynamics\artefacts\af_glass.ogf
+description						= st_af_glass_descr
+inv_name						= st_af_glass_name
+inv_name_short					= st_af_glass_name
+inv_weight						= 1.0, 1.15
+inv_volume						= 1.3, 1.4
+inv_grid_x						= 16
+inv_grid_y						= 73
+cost							= 35000
+jump_height						= 0.01
+particles						= artefact\af_acidic_fobos
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+af_rank							= 3
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.64, 0.98, 0.53
+trail_light_range				= 7.5
+hit_absorbation_sect			= af_glass_absorbation
+hud								= af_glass_hud
+
+;скорости увеличения (уменьшения)
+health_restore_speed			= 0.00045	; 3%
+radiation_restore_speed			= 0.0004	; 4%
+satiety_restore_speed			= -0.00012	; -3%
+
+[af_glass_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_glass.ogf
+
+[af_glass_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0250	; 10%
+;--------------------------------------------------------------------------------
+; «Плёнка»
+;--------------------------------------------------------------------------------
+[af_dummy_pellicle]:af_base
+$spawn							= "artifacts\dummy pellicle"
+visual							= dynamics\artefacts\af_pellicle.ogf
+description						= st_af_dummy_pellicle_descr
+inv_name						= st_af_dummy_pellicle
+inv_name_short					= st_af_dummy_pellicle
+inv_weight						= 0.5, 0.6
+inv_volume						= 0.5, 0.6
+inv_grid_x						= 31
+inv_grid_y						= 73
+jump_height						= .2
+cost							= 21189
+particles						= anomaly2\artefact\artefact_ameba
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+particles_bone					= joint1
+af_rank							= 2
+lights_enabled					= false
+af_type							= chemical
+
+;скорости увеличения (уменьшения)
+hit_absorbation_sect			= af_dummy_pellicle_absorbation
+
+[af_dummy_pellicle_absorbation]:af_base_absorbation
+chemical_burn_immunity			= 0.0300 	; +12%
+;--------------------------------------------------------------------------------
+; «Cлизь»
+;--------------------------------------------------------------------------------
+[af_ameba_slime]:af_base
+$spawn							= "artifacts\ameba slime"
+visual							= dynamics\artefacts\artefact_ameba3.ogf
+description						= st_af_ameba_slime_descr
+inv_name						= af_ameba_slime
+inv_name_short					= af_ameba_slime
+inv_weight						= 0.5, 0.6
+inv_volume					 	= 0.6, 0.8
+inv_grid_x						= 27
+inv_grid_y						= 73
+cost							= 6756
+jump_height						= .0
+particles						= anomaly2\artefact\artefact_ameba
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide			 
+af_rank							= 1
+af_type							= chemical
+lights_enabled					= false
+
+;скорости увеличения (уменьшения)
+bleeding_restore_speed			= 0.001
+hit_absorbation_sect			= af_ameba_slime_absorbation
+
+[af_ameba_slime_absorbation]:af_base_absorbation
+burn_immunity					= -0.0025	; +1%
+chemical_burn_immunity			= -0.0025	; +1%
+;--------------------------------------------------------------------------------
+; «Слизняк»
+;--------------------------------------------------------------------------------
+[af_ameba_slug]:af_base
+$spawn							= "artifacts\ameba slug"
+visual							= dynamics\artefacts\artefact_ameba2.ogf
+description						= st_af_ameba_slug_descr
+inv_name						= af_ameba_slug
+inv_name_short					= af_ameba_slug
+inv_weight						= 0.6, 0.8
+inv_volume					 	= 0.8, 1.0
+inv_grid_x						= 28
+inv_grid_y						= 73
+cost							= 10500
+jump_height						= .1
+particles						= anomaly2\artefact\artefact_ameba
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 2
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.6,0.6,0.5
+trail_light_range				= 1.0
+
+;скорости увеличения (уменьшения)
+bleeding_restore_speed			= 0.00225 
+hit_absorbation_sect			= af_ameba_absorbation
+
+[af_ameba_absorbation]:af_base_absorbation
+burn_immunity					= -0.0125	; +5%
+chemical_burn_immunity			= -0.0125	; +5%
+;--------------------------------------------------------------------------------
+; «Слюда»
+;--------------------------------------------------------------------------------
+[af_ameba_mica]:af_base
+$spawn							= "artifacts\ameba mica"
+visual							= dynamics\artefacts\artefact_ameba1.ogf
+description						= st_af_ameba_mica_descr
+inv_name						= af_ameba_mica
+inv_name_short					= af_ameba_mica
+inv_weight						= 0.7, 0.9
+inv_volume					 	= 0.8, 1.0
+inv_grid_x						= 29
+inv_grid_y						= 73
+cost							= 12552
+jump_height						= .1
+particles						= anomaly2\artefact\artefact_ameba
+det_show_particles				= artefact\af_gravi_show
+det_hide_particles				= artefact\af_gravi_hide
+af_rank							= 3
+af_type							= chemical
+lights_enabled					= true
+trail_light_color				= 0.6,0.7,0.6
+trail_light_range				= 1
+
+;скорости увеличения (уменьшения)
+bleeding_restore_speed			= 0.0035
+hit_absorbation_sect			= af_ameba_mica_absorbation
+
+[af_ameba_mica_absorbation]:af_base_absorbation
+burn_immunity					= -0.015
+chemical_burn_immunity			= -0.015
+
+;--------------------------------------------------------------------------------
+; Электрические артефакты
+;--------------------------------------------------------------------------------
+; «Генератор»
+;--------------------------------------------------------------------------------
+[af_generator]:af_base
+$spawn							= "artefacts\af_generator"
+visual							= dynamics\artefacts\af_generator.ogf
+inv_name						= st_af_generator_name
+inv_name_short					= st_af_generator_name
+description						= st_af_generator_descr
+inv_weight						= 5.3, 5.6
+inv_volume						= 3.8, 4.1 
+inv_grid_x						= 23
+inv_grid_y						= 72
+cost							= 13324
+jump_height						= 0.05
+;particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 0
+af_type							= electrical
+lights_enabled					= true
+trail_light_color 				= 0.6,0.7,0.9
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Бенгальский огонь»
+;--------------------------------------------------------------------------------
+[af_electra_sparkler]:af_base
+$spawn							= "artefacts\electric_1_electra_sparkler"
+visual							= dynamics\artefacts\af_electra_sparkler.ogf
+description						= st_af_electra_sparkler_descr
+inv_name						= st_af_electra_sparkler_name
+inv_name_short					= st_af_electra_sparkler_name
+inv_weight						= 0.12, 1.18
+inv_volume						= 1.0, 1.2
+inv_grid_x						= 17
+inv_grid_y						= 73
+cost							= 8000
+jump_height						= .5
+particles						= artefact\af_electra_fobos
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 1
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.87, 0.98, 1.0
+trail_light_range				= 4.0
+artefact_activation_seq			= af_activation_electra
+hit_absorbation_sect			= af_electra_sparkler_absorbation
+hud								= af_electra_sparkler_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00013
+power_restore_speed				= 0.00050
+
+[af_electra_sparkler_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_electra_sparkler.ogf
+
+[af_electra_sparkler_absorbation]:af_base_absorbation
+shock_immunity					= 0.1763
+telepatic_immunity				= 0.00091
+;--------------------------------------------------------------------------------
+; «Вспышка»
+;--------------------------------------------------------------------------------
+[af_electra_flash]:af_base
+$spawn							= "artefacts\electric_2_electra_flash"
+visual							= dynamics\artefacts\af_electra_flash.ogf
+description						= st_af_electra_flash_descr
+inv_name						= st_af_electra_flash_name
+inv_name_short					= st_af_electra_flash_name
+inv_weight						= 0.2, 0.3
+inv_volume						= 1.6, 1.8
+inv_grid_x						= 18
+inv_grid_y						= 73
+cost							= 13000
+jump_height						= .1
+particles						= artefact\af_electra_fobos_00
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 1
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.49, 0.69, 0.99
+trail_light_range				= 5.0
+hit_absorbation_sect			= af_electra_flash_absorbation
+hud								= af_electra_flash_hud
+artefact_activation_seq			= af_activation_electra
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00013
+power_restore_speed				= 0.00065
+
+[af_electra_flash_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_electra_flash.ogf
+
+[af_electra_flash_absorbation]:af_base_absorbation
+shock_immunity					= 0.1696
+telepatic_immunity				= 0.00138
+;--------------------------------------------------------------------------------
+; «Лунный свет»
+;--------------------------------------------------------------------------------
+[af_electra_moonlight]:af_base
+$spawn							= "artefacts\electric_3_electra_moonlight"
+visual							= dynamics\artefacts\af_electra_moonlight_2.ogf
+description						= st_af_electra_moonlight_descr
+inv_name						= st_af_electra_moonlight_name
+inv_name_short					= st_af_electra_moonlight_name
+inv_weight						= 0.3, 0.4
+inv_volume						= 2.4, 2.6
+inv_grid_x						= 19
+inv_grid_y						= 73
+cost							= 17000
+jump_height						= .1
+particles						= artefact\af_electra_fobos
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 2
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.66, 0.62, 0.98
+trail_light_range				= 4.0
+artefact_activation_seq			= af_activation_electra
+hit_absorbation_sect			= af_electra_moonlight_absorbation
+hud								= af_electra_moonlight_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00022
+power_restore_speed				= 0.00085
+
+[af_electra_moonlight_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_electra_moonlight.ogf
+
+[af_electra_moonlight_absorbation]:af_base_absorbation
+shock_immunity					= 0.2044
+telepatic_immunity				= 0.00189
+;--------------------------------------------------------------------------------
+; «Батарейка»
+;--------------------------------------------------------------------------------
+[af_dummy_battery]:af_base
+$spawn							= "artefacts\electric_4_dummy_battery"
+visual							= dynamics\artefacts\af_dummy_battery.ogf
+description						= st_af_dummy_battery_descr
+inv_name						= st_af_dummy_battery_name
+inv_name_short					= st_af_dummy_battery_name
+inv_weight						= 0.3, 0.4
+inv_volume						= 1.4, 1.55
+inv_grid_x						= 20
+inv_grid_y						= 73
+jump_height						= .01
+cost							= 22000
+particles						= artefact\af_electra_fobos
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 2
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.35, 0.76, 0.98
+trail_light_range				= 6.0
+hit_absorbation_sect			= af_dummy_battery_absorbation
+hud								= af_dummy_battery_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00025
+power_restore_speed				= 0.00110
+
+[af_dummy_battery_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_dummy_battery.ogf
+
+[af_dummy_battery_absorbation]:af_base_absorbation
+shock_immunity					= 0.31269
+telepatic_immunity				= 0.00239
+;--------------------------------------------------------------------------------
+; «Пустышка»
+;--------------------------------------------------------------------------------
+[af_dummy_dummy]:af_base
+$spawn							= "artefacts\electric_5_dummy_dummy"
+visual							= dynamics\artefacts\af_dummy_dummy.ogf
+description						= st_af_dummy_dummy_descr
+inv_name						= st_af_dummy_dummy_name
+inv_name_short					= st_af_dummy_dummy_name
+inv_weight						= 0.15, 1.18
+inv_volume						= 0.4, 0.6
+inv_grid_x						= 21
+inv_grid_y						= 73
+cost							= 28000
+jump_height						= .0
+particles						= artefact\af_electra_fobos
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 3
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.48, 0.73, 0.91
+trail_light_range				= 2.0
+hit_absorbation_sect			= af_dummy_dummy_absorbation
+hud								= af_dummy_dummy_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00044
+power_restore_speed				= 0.00143
+
+[af_dummy_dummy_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_dummy_dummy.ogf
+
+[af_dummy_dummy_absorbation]:af_base_absorbation
+shock_immunity					= 0.4206
+telepatic_immunity				= 0.00318
+;--------------------------------------------------------------------------------
+; «Василиск»
+;--------------------------------------------------------------------------------
+[af_vaselisk]:af_base
+$spawn 							= "artefacts\af_vaselisk"
+visual							= dynamics\artefacts\af_vaselisk.ogf
+inv_name						= st_af_vaselisk_name
+inv_name_short					= st_af_vaselisk_name
+description						= st_af_vaselisk_descr
+inv_volume						= 1.0, 1.2
+inv_weight						= 0.5, 0.6
+inv_grid_x						= 19
+inv_grid_y						= 72
+cost							= 128425
+jump_height						= 0.3
+particles						= artefact\af_electra_idle
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 3
+af_type							= electrical
+lights_enabled          		= true
+trail_light_color 				= 0.6,0.7,0.9
+trail_light_range 				= 2.0
+hit_absorbation_sect            = af_vaselisk_absorbation
+
+[af_vaselisk_absorbation]:af_base_absorbation
+strike_immunity 				= 0.25
+wound_immunity 					= 0.25
+explosion_immunity 				= 0.25
+fire_wound_immunity  	        = 0.25
+;--------------------------------------------------------------------------------
+; «Гелий»
+;--------------------------------------------------------------------------------
+[af_geliy]:af_base
+$spawn 							= "artefacts\af_geliy"
+visual							= dynamics\artefacts\artefact_electra_blue.ogf
+inv_name						= st_af_geliy_name
+inv_name_short					= st_af_geliy_name
+description						= st_af_geliy_descr
+inv_weight						= 0.4
+inv_volume						= 0.5
+inv_grid_x						= 20
+inv_grid_y						= 72
+cost							= 150430
+jump_height						= 0.5
+particles						= artefact\af_electra_idle
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 3
+af_type							= electrical
+lights_enabled					= true
+trail_light_color 				= 0.6,0.7,0.9
+trail_light_range 				= 2.0
+health_restore_speed			= 0.00075
+radiation_restore_speed			= -0.00025
+power_restore_speed				= 0.0003
+bleeding_restore_speed			= 0.0006
+additional_inventory_weight		= 1.89
+additional_inventory_weight2	= 1.89
+;--------------------------------------------------------------------------------
+; «Буравчик»
+;--------------------------------------------------------------------------------
+[af_gimlet]:af_base
+$spawn							= "artefacts\af_gimlet"
+visual							= dynamics\artefacts\af_gimlet.ogf
+inv_name						= st_af_gimlet_name
+inv_name_short					= st_af_gimlet_name
+description						= st_af_gimlet_descr
+inv_weight						= 0.25
+inv_volume						= 0.4
+inv_grid_x						= 24
+inv_grid_y						= 72
+cost							= 123309
+jump_height						= 0.5
+particles						= artefact\af_electra_idle
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 3
+af_type							= electrical
+lights_enabled      			= true
+trail_light_color 				= 0.6,0.7,0.9
+trail_light_range 				= 2.0
+health_restore_speed    		= 0.0012
+radiation_restore_speed 		= -0.00020
+power_restore_speed	    		= 0.005
+bleeding_restore_speed			= 0.0001
+;--------------------------------------------------------------------------------
+; «Монолит»
+;--------------------------------------------------------------------------------
+[af_monolith]:af_base
+$spawn 							= "artefacts\af_monolith"
+visual							= dynamics\artefacts\artefact_electra_green.ogf
+description						= st_af_monolith_descr
+inv_name						= st_af_monolith_name
+inv_name_short					= st_af_monolith_name
+inv_weight						= 1.0
+inv_volume						= 1.5
+inv_grid_x						= 25
+inv_grid_y						= 72
+cost							= 180000
+jump_height						= 0.5
+particles						= artefact\af_electra_idle
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 3
+af_type							= electrical
+lights_enabled          		= true
+trail_light_color 				= 0.5,0.7,0.2
+trail_light_range 				= 2.0
+health_restore_speed			= 0.0003
+radiation_restore_speed			= 0.0003
+power_restore_speed				= 0.01
+bleeding_restore_speed			= 0.002
+additional_inventory_weight		= 1.99
+additional_inventory_weight2	= 1.99
+;--------------------------------------------------------------------------------
+; «Пружина»
+;--------------------------------------------------------------------------------
+[af_dummy_spring]:af_base
+$spawn							= "artifacts\dummy spring"
+visual							= dynamics\artefacts\artefact_pustishka.ogf
+description						= st_af_dummy_spring_descr
+inv_name						= st_af_dummy_spring
+inv_name_short					= st_af_dummy_spring
+inv_weight						= 0.5
+inv_volume						= 0.5
+inv_grid_x						= 32
+inv_grid_y						= 73
+cost							= 14525
+jump_height						= .2
+af_rank							= 3
+af_type							= electrical
+lights_enabled					= false
+hit_absorbation_sect			= af_dummy_spring_absorbation
+
+[af_dummy_spring_absorbation]:af_base_absorbation
+strike_immunity					= 0.0375
+;--------------------------------------------------------------------------------
+; «Снежинка»
+;--------------------------------------------------------------------------------
+[af_ice]:af_base
+$spawn							= "artefacts\electric_6_ice"
+visual							= dynamics\artefacts\af_ice_2.ogf
+description						= st_af_ice_descr
+inv_name						= st_af_ice_name
+inv_name_short					= st_af_ice_name
+inv_weight						= 0.19
+inv_volume						= 1
+inv_grid_x						= 22
+inv_grid_y						= 73
+cost							= 38000
+jump_height						= .0
+particles						= artefact\af_electra_fobos
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 3
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.66, 1.0, 0.97
+trail_light_range				= 5.0
+hit_absorbation_sect			= af_ice_absorbation
+hud								= af_ice_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00047
+power_restore_speed				= 0.00186
+
+[af_ice_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_ice.ogf
+
+[af_ice_absorbation]:af_base_absorbation
+shock_immunity 					= 0.48973
+telepatic_immunity 				= 0.004768
+
+;--------------------------------------------------------------------------------
+; Безсвойственные артефакты
+;--------------------------------------------------------------------------------
+; «Фонтан»
+;--------------------------------------------------------------------------------
+[af_fountain]:af_base
+$spawn							= "artefacts\af_fountain"
+visual							= dynamics\artefacts\af_fountain.ogf
+inv_name						= st_af_fountain_name
+inv_name_short					= st_af_fountain_name
+description						= st_af_fountain_descr
+inv_volume						= 0.5
+inv_weight						= 1.920
+inv_grid_x						= 2
+inv_grid_y						= 72
+cost							= 6115
+jump_height						= 0.1
+particles						= artefact\af_acidic_idle
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+particles_bone					= joint2
+af_rank							= 1
+af_type							= chemical
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Спайка»
+;--------------------------------------------------------------------------------
+[af_spaika]:af_base
+$spawn							= "artefacts\af_spaika"
+visual							= dynamics\artefacts\af_spaika.ogf
+inv_name						= st_af_spaika_name
+inv_name_short					= st_af_spaika_name
+description						= st_af_spaika_descr
+inv_weight						= 2.098
+inv_volume						= 2
+inv_grid_x						= 3
+inv_grid_y						= 72
+cost							= 7182
+jump_height						= 0.05
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+af_type							= fiery
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Перстень»
+;--------------------------------------------------------------------------------
+[af_signet]:af_base
+$spawn							= "artefacts\af_signet"
+visual							= dynamics\artefacts\af_signet.ogf
+inv_name						= st_af_signet_name
+inv_name_short					= st_af_signet_name
+description						= st_af_signet_descr
+inv_weight						= 0.756
+inv_volume						= 0.8
+inv_grid_x						= 4
+inv_grid_y						= 72
+cost							= 4023
+jump_height						= 0.05
+particles						= artefact\af_electra_fobos
+det_show_particles              = artefact\af_electra_show
+det_hide_particles              = artefact\af_electra_hide
+particles_bone					= joint2
+af_rank							= 1
+af_type							= electrical
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+walk_accel						= 1.05
+;--------------------------------------------------------------------------------
+; «Репейник»
+;--------------------------------------------------------------------------------
+[af_repei]:af_base
+$spawn 							= "artefacts\af_repei"
+visual							= dynamics\artefacts\af_repei.ogf
+inv_name						= st_af_repei_name
+inv_name_short					= st_af_repei_name
+description						= st_af_repei_descr
+inv_weight						= 0.345
+inv_volume						= 0.5
+inv_grid_x						= 5
+inv_grid_y						= 72
+cost							= 3855
+jump_height						= 0.05
+particles						= artefact\af_acidic_idle
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+particles_bone					= bone01
+af_rank							= 1
+af_type							= chemical
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Летучая мышь»
+;--------------------------------------------------------------------------------
+[af_bat]:af_base
+$spawn							= "artefacts\af_bat"
+visual							= dynamics\artefacts\af_bat.ogf
+inv_name						= st_af_bat_name
+inv_name_short					= st_af_bat_name
+description						= st_af_bat_descr
+inv_weight						= 2.971
+inv_volume						= 2.2
+inv_grid_x						= 6
+inv_grid_y						= 72
+cost							= 12055
+jump_height						= 0.01
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+af_type							= fiery
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Солнце»
+;--------------------------------------------------------------------------------
+[af_sun]:af_base
+$spawn							= "artefacts\af_8_sun"
+visual							= dynamics\artefacts\af_sun.ogf
+inv_name						= st_af_sun_name
+inv_name_short					= st_af_sun_name
+description						= st_af_sun_descr
+inv_weight						= 4.890
+inv_volume						= 3
+inv_grid_x						= 7
+inv_grid_y						= 72
+cost							= 16173
+jump_height						= 0.08
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+af_type							= fiery
+lights_enabled					= true
+trail_light_color				= 0.4,0.4,0.0
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Сердце»
+;--------------------------------------------------------------------------------
+[af_ear]:af_base
+$spawn 							= "artefacts\af_ear"
+visual							= dynamics\artefacts\af_ear.ogf
+inv_name						= st_af_ear_name
+inv_name_short					= st_af_ear_name
+description						= st_af_ear_descr
+inv_weight						= 0.678
+inv_volume						= 1.4
+inv_grid_x						= 8
+inv_grid_y						= 72
+cost							= 2524
+jump_height						= 0.05
+particles						= artefact\af_acidic_idle
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+particles_bone					= bone01
+af_rank							= 1
+af_type							= chemical
+lights_enabled					= false
+trail_light_color 				= 0.9,0.4,0.2
+trail_light_range 				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Цепь»
+;--------------------------------------------------------------------------------
+[af_chelust]:af_base
+$spawn							= "artefacts\af_chelust"
+visual							= dynamics\artefacts\af_chelust.ogf
+inv_name						= st_af_chelust_name
+inv_name_short					= st_af_chelust_name
+description						= st_af_chelust_descr
+inv_weight						= 2.932
+inv_volume						= 1.5
+inv_grid_x						= 9
+inv_grid_y						= 72
+cost							= 22329
+jump_height						= 0.12
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= bone01
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Атом»
+;--------------------------------------------------------------------------------
+[af_atom]:af_base
+$spawn 							= "artefacts\af_atom"
+visual							= dynamics\artefacts\af_atom.ogf
+inv_name						= st_af_atom_name
+inv_name_short					= st_af_atom_name
+description						= st_af_atom_descr
+inv_weight						= 0.789
+inv_volume						= 1.5
+inv_grid_x						= 10
+inv_grid_y						= 72
+cost							= 9153
+jump_height						= 0.05
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= bone01
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Маяк»
+;--------------------------------------------------------------------------------
+[af_lighthouse]:af_base
+$spawn							= "artefacts\af_lighthouse"
+visual							= dynamics\artefacts\af_lighthouse.ogf
+inv_name						= st_af_lighthouse_name
+inv_name_short					= st_af_lighthouse_name
+description						= st_af_lighthouse_descr
+inv_weight						= 2.346
+inv_volume						= 1.75
+inv_grid_x						= 11
+inv_grid_y						= 72
+cost							= 8707
+jump_height						= 0.02
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Черный ангел»
+;--------------------------------------------------------------------------------
+[af_black_angel]:af_base
+$spawn							= "artefacts\af_black_angel"
+visual							= dynamics\artefacts\af_black_angel.ogf
+inv_name						= st_af_black_angel_name
+inv_name_short					= st_af_black_angel_name
+description						= st_af_black_angel_descr
+inv_weight						= 0.5
+inv_volume						= 0.5
+inv_grid_x						= 13
+inv_grid_y						= 72
+cost							= 9004
+inv_weight						= 4.850
+jump_height						= 0.15
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Виноград»
+;--------------------------------------------------------------------------------
+[af_grapes]:af_base
+$spawn							= "artefacts\af_grapes"
+visual							= dynamics\artefacts\af_grapes.ogf
+inv_name						= st_af_grapes_name
+inv_name_short					= st_af_grapes_name
+description						= st_af_grapes_descr
+inv_weight						= 3.678
+inv_volume						= 1.5
+inv_grid_x						= 14
+inv_grid_y						= 72
+cost							= 15754
+jump_height						= 0.01
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Череп скряги»
+;--------------------------------------------------------------------------------
+[af_skull_miser]:af_base
+$spawn							= "artefacts\af_skull_miser"
+visual							= dynamics\artefacts\af_skull_miser.ogf
+inv_name						= st_af_skull_miser_name
+inv_name_short					= st_af_skull_miser_name
+description						= st_af_skull_miser_descr
+inv_weight						= 0.350
+inv_volume						= 0.8
+inv_grid_x						= 15
+inv_grid_y						= 72
+cost							= 2403
+jump_height						= 0.1
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Призрачная звезда»
+;--------------------------------------------------------------------------------
+[af_star_phantom]:af_base
+$spawn							= "artefacts\af_star_phantom"
+visual							= dynamics\artefacts\af_star_phantom.ogf
+inv_name						= st_af_star_phantom_name
+inv_name_short					= st_af_star_phantom_name
+description						= st_af_star_phantom_descr
+inv_weight						= 5.490
+inv_volume						= 3.0
+inv_grid_x						= 16
+inv_grid_y						= 72
+cost							= 12109
+jump_height						= 0.2
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Медальон»
+;--------------------------------------------------------------------------------
+[af_medallion]:af_base
+$spawn							= "artefacts\af_medallion"
+visual							= dynamics\artefacts\af_medallion.ogf
+inv_name						= st_af_medallion_name
+inv_name_short					= st_af_medallion_name
+description						= st_af_medallion_descr
+inv_weight						= 3.56
+inv_volume						= 3.0
+inv_grid_x						= 17
+inv_grid_y						= 72
+cost							= 9301
+jump_height						= 0.05
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Луна»
+;--------------------------------------------------------------------------------
+[af_peas]:af_base
+$spawn							= "artefacts\af_peas"
+visual							= dynamics\artefacts\af_peas.ogf
+inv_name						= st_af_peas_name
+inv_name_short					= st_af_peas_name
+description						= st_af_peas_descr
+inv_weight						= 0.9
+inv_volume						= 2
+inv_grid_x						= 21
+inv_grid_y						= 72
+cost							= 2524
+jump_height						= 0.1
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled      			= true
+trail_light_color 				= 0.5,0.7,0.2
+trail_light_range 				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Мяч»
+;--------------------------------------------------------------------------------
+[af_ball]:af_base
+$spawn 							= "artefacts\af_ball"
+visual							= dynamics\artefacts\af_ball.ogf
+inv_name						= st_af_ball_name
+inv_name_short					= st_af_ball_name
+description						= st_af_ball_descr
+inv_weight						= 0.5
+inv_volume						= 2
+inv_grid_x						= 22
+inv_grid_y						= 72
+cost							= 2403
+inv_weight						= 0.82
+jump_height						= 1
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Фонарь»
+;--------------------------------------------------------------------------------
+[af_fonar]:af_base
+$spawn 							= "artefacts\af_fonar"
+visual							= dynamics\artefacts\af_fonar.ogf
+inv_name						= st_af_fonar_name
+inv_name_short					= st_af_fonar_name
+description						= st_af_fonar_descr
+inv_weight						= 0.980
+inv_volume						= 1.2
+inv_grid_x						= 26
+inv_grid_y						= 72
+cost							= 6723
+jump_height						= 0.08
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= bone01
+af_rank							= 1
+lights_enabled					= true
+trail_light_color				= 0.1,0.2,0.8
+trail_light_range				= 1.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Цепень»
+;--------------------------------------------------------------------------------
+[af_tapeworm]:af_base
+$spawn							= "artefacts\af_tapeworm"
+visual							= dynamics\artefacts\af_tapeworm.ogf
+inv_name						= st_af_tapeworm_name
+inv_name_short					= st_af_tapeworm_name
+description						= st_af_tapeworm_descr
+inv_weight						= 0.89
+inv_volume						= 1.3
+inv_grid_x						= 27
+inv_grid_y						= 72
+cost							= 4954
+jump_height						= 0.4
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Мох»
+;--------------------------------------------------------------------------------
+[af_moh]:af_base
+$spawn 							= "artefacts\af_moh"
+visual							= dynamics\artefacts\af_moh.ogf
+inv_name						= st_af_moh_name
+inv_name_short					= st_af_moh_name
+description						= st_af_moh_descr
+inv_weight						= 0.45
+inv_volume						= 0.6
+inv_grid_x						= 28
+inv_grid_y						= 72
+cost							= 5660
+jump_height						= 0.05
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= rootbone
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Серафим»
+;--------------------------------------------------------------------------------
+[af_serofim]:af_base
+$spawn							= "artefacts\af_serofim"
+visual							= dynamics\artefacts\af_serofim.ogf
+inv_name						= st_af_serofim_name
+inv_name_short					= st_af_serofim_name
+description						= st_af_serofim_descr
+inv_weight						= 0.6
+inv_volume						= 1.2
+inv_grid_x						= 29
+inv_grid_y						= 72
+cost							= 4023
+jump_height						= 0.4
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= joint2
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+fracture_restore_speed			= 0.0004 ;1%
+;--------------------------------------------------------------------------------
+; «Электрон»
+;--------------------------------------------------------------------------------
+[af_elektron]:af_base
+$spawn 							= "artefacts\af_elektron"
+visual							= dynamics\artefacts\af_elektron.ogf
+inv_name						= st_af_elektron_name
+inv_name_short					= st_af_elektron_name
+description						= st_af_elektron_descr
+inv_weight						= 2.1
+inv_volume						= 2.5
+inv_grid_x						= 30
+inv_grid_y						= 72
+cost							= 13324
+jump_height						= 0.05
+particles		       			= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= bone01
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color 				= 0.9,0.4,0.2
+trail_light_range 				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Коготь»
+;--------------------------------------------------------------------------------
+[af_kogot]:af_base
+$spawn 							= "artefacts\af_kogot"
+visual							= dynamics\artefacts\af_kogot.ogf
+inv_name						= st_af_kogot_name
+inv_name_short					= st_af_kogot_name
+description						= st_af_kogot_descr
+inv_weight						= 0.670
+inv_volume						= 0.75
+inv_grid_x						= 31
+inv_grid_y						= 72
+cost							= 2889
+jump_height						= 0.05
+particles		       		 	= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= bone01
+af_rank							= 1
+lights_enabled                  = false
+trail_light_color 				= 0.9,0.4,0.2
+trail_light_range 				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740   
+attach_position_offset          = 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Рубец» 
+;--------------------------------------------------------------------------------
+[af_zhelch]:af_base
+$spawn 							= "artefacts\af_zhelch"
+visual							= dynamics\artefacts\af_zhelch.ogf
+inv_name						= st_af_zhelch_name
+inv_name_short					= st_af_zhelch_name
+description						= st_af_zhelch_descr
+inv_weight						= 0.456
+inv_volume						= 0.6
+inv_grid_x						= 32
+inv_grid_y						= 72
+cost							= 4954
+jump_height						= 0.15
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= bone01
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+;--------------------------------------------------------------------------------
+; «Песчаник»
+;--------------------------------------------------------------------------------
+[af_sandstone]:af_base
+$spawn							= "artefacts\af_sandstone"
+visual							= dynamics\artefacts\af_sandstone.ogf
+inv_name						= st_af_sandstone_name
+inv_name_short					= st_af_sandstone_name
+description						= st_af_sandstone_descr
+inv_weight						= 2.960
+inv_volume						= 2.4
+inv_grid_x						= 23
+inv_grid_y						= 74
+cost							= 7803
+jump_height						= 0.05
+particles						= artefact\af_thermal_idle
+det_show_particles				= artefact\af_thermal_show
+det_hide_particles				= artefact\af_thermal_hide
+particles_bone					= link
+af_rank							= 1
+lights_enabled					= false
+trail_light_color				= 0.9,0.4,0.2
+trail_light_range				= 2.0
+attach_angle_offset				= 1.922,1.551,-0.740
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+
+;--------------------------------------------------------------------------------
+; Квестовые артефакты 
+;--------------------------------------------------------------------------------
+; «Компас»
+;--------------------------------------------------------------------------------
+[af_compass]:af_base
+$spawn                          = "artefacts\compass"
+visual							= dynamics\artefacts\af_compass_2.ogf
+description                     = st_compass_descr
+inv_name                        = st_compass
+inv_name_short                  = st_compass
+inv_weight						= 3.25
+inv_volume						= 3
+inv_grid_x                      = 23
+inv_grid_y                      = 73
+jump_height                     = .2
+cost							= 75000
+slot							= 1
+particles						= artefact\af_electra_fobos
+det_show_particles              = artefact\af_electra_show
+det_hide_particles              = artefact\af_electra_hide
+af_rank                         = 0
+af_type							= gravitational
+lights_enabled                  = true
+trail_light_color               = 1.0,1.0,0.75
+trail_light_range               = 2.0
+hud								= af_compass_hud
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed 		= 0.00082
+power_restore_speed 			= 0.00324
+hit_absorbation_sect            = af_compass_absorbation
+
+[af_compass_hud]:artefact_hud
+item_visual						= dynamics\artefacts\af_compass_1.ogf
+
+[af_compass_absorbation]
+burn_immunity 					= 0.00536			;коэффициенты иммунитета
+strike_immunity 				= 0.21448
+shock_immunity 					= -0.51987
+wound_immunity 					= 0.09426
+radiation_immunity              = 0
+telepatic_immunity 				= -0.00519
+chemical_burn_immunity 			= 0.00576
+explosion_immunity 				= 0.12162
+fire_wound_immunity  			= 0.11643
+;--------------------------------------------------------------------------------
+; «Сердце Оазиса»
+;--------------------------------------------------------------------------------
+[af_oasis_heart]:af_base
+$spawn                          = "artefacts\af_oasis_heart"
+story_id 						= jup_b16_oasis_artifact
+visual							= dynamics\artefacts\af_cristall_plant_2.ogf
+description                     = st_oasis_heart_descr
+inv_name                        = st_oasis_heart
+inv_name_short                  = st_oasis_heart
+inv_weight						= 3.69
+inv_volume						= 2.5
+inv_grid_x                      = 24
+inv_grid_y                      = 73
+jump_height                     = .2
+cost							= 100000
+particles						= _samples_particles_\effects\smoke_z
+det_show_particles              = artefact\af_acidic_show
+det_hide_particles              = artefact\af_acidic_hide
+particles_bone                  = cristall
+af_rank                         = 3
+af_type							= chemical
+lights_enabled                  = true
+trail_light_color 				= 0.45, 0.96, 0.75 
+trail_light_range 				= 4.0
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed 		= 0.00022
+power_restore_speed				= 0.00100
+bleeding_restore_speed			= 0.0008
+hit_absorbation_sect            = af_oasis_heart_absorbation
+
+[af_oasis_heart_absorbation]
+burn_immunity 					= -0.00412				;коэффициенты иммунитета
+strike_immunity 				= 0.17627
+shock_immunity 					= -0.31841
+wound_immunity 					= 0.17964
+radiation_immunity              = 0
+telepatic_immunity 				= -0.00348
+chemical_burn_immunity 			= 0.00882
+explosion_immunity 				= 0.20234
+fire_wound_immunity  			= 0.19674
+;--------------------------------------------------------------------------------
+; Изменённый изолятор
+;--------------------------------------------------------------------------------
+[jup_b1_half_artifact]:af_base
+$spawn							= "artefacts\af_psi_field"
+story_id						= jup_b1_half_artifact
+visual							= dynamics\artefacts\af_psi_field.ogf
+description						= jup_b1_half_artifact_descr
+inv_name						= jup_b1_half_artifact
+inv_name_short					= jup_b1_half_artifact
+particles						= artefact\artefact_mincer
+inv_weight						= 5.42
+inv_volume						= 4
+inv_grid_x						= 25
+inv_grid_y						= 73
+jump_height						= .2
+cost							= 16000
+;particles						= artefact\af_electra_idle
+det_show_particles				= artefact\af_electra_show
+det_hide_particles				= artefact\af_electra_hide
+af_rank							= 0
+af_type							= electrical
+lights_enabled					= true
+trail_light_color				= 0.4,0.2,0.1
+trail_light_range				= 2.0
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00094
+hit_absorbation_sect			= jup_b1_half_artifact_absorbation
+
+[jup_b1_half_artifact_absorbation]
+shock_immunity					= 0.55736
+telepatic_immunity				= 0.00544
+;--------------------------------------------------------------------------------
+; Изменённый штурвал
+;--------------------------------------------------------------------------------
+[af_quest_b14_twisted]:af_base
+$spawn							= "artefacts\af_control"
+visual							= dynamics\artefacts\af_control.ogf
+description						= st_af_quest_b14_twisted_descr
+inv_name						= st_af_quest_b14_twisted_name
+inv_name_short					= st_af_quest_b14_twisted_name
+inv_weight						= 4.62
+inv_volume						= 3
+inv_grid_x						= 26
+inv_grid_y						= 73
+jump_height						= .2
+cost							= 12000
+;particles						= artefact\af_acidic_idle
+det_show_particles				= artefact\af_acidic_show
+det_hide_particles				= artefact\af_acidic_hide
+af_rank							= 0
+af_type							= gravitational
+lights_enabled					= true
+trail_light_color				= 0.4,0.6,1.0
+trail_light_range				= 7.5
+attach_angle_offset				= 1.922,1.551,-0.740	;устанавливается в радианах Angle*PI/180
+attach_position_offset			= 0.15,0.002,0.25
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+
+;скорости увеличения (уменьшения)
+radiation_restore_speed			= 0.00103
+power_restore_speed				= 0.00189
+hit_absorbation_sect			= af_control_absorbation
+
+[af_control_absorbation]:af_base_absorbation
+shock_immunity					= 0.51227
+radiation_immunity				= -0.40966
+;--------------------------------------------------------------------------------
+#include "items_monsters.ltx"
+#include "items_attachments.ltx"
+#include "items_container.ltx"

@@ -1,0 +1,118 @@
+;camping
+[logic@esc_smart_terrain_7_11_camp_work_1]
+active = animpoint@esc_smart_terrain_7_11_camp_work_1
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_7_11_camp_work_2]
+active = animpoint@esc_smart_terrain_7_11_camp_work_2
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_7_11_camp_work_3]
+active = animpoint@esc_smart_terrain_7_11_camp_work_3
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_7_11_camp_work_4]
+active = animpoint@esc_smart_terrain_7_11_camp_work_4
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_7_11_camp_work_5]
+active = animpoint@esc_smart_terrain_7_11_camp_work_5
+suitable = {!surge_started} true
+prior = 45
+
+[animpoint@esc_smart_terrain_7_11_camp_work_1]
+cover_name = esc_smart_terrain_7_11_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_7_11_camp_work_2]
+cover_name = esc_smart_terrain_7_11_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_7_11_camp_work_3]
+cover_name = esc_smart_terrain_7_11_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_7_11_camp_work_4]
+cover_name = esc_smart_terrain_7_11_animpoint_kamp4
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_7_11_camp_work_5]
+cover_name = esc_smart_terrain_7_11_animpoint_kamp5
+use_camp = true
+turn_on_campfire = true
+
+[logic@esc_smart_terrain_7_11_camp_work_6]
+	active = beh@esc_smart_terrain_7_11_camp_work_6
+	suitable = {!surge_started} true
+	prior = 45
+
+[beh@general_01]
+	behavior_state = beh_move
+	target = waypoint
+	walk_dist = 100
+	jog_dist = 220
+	wait_anim = guard_chasovoy
+	walk_anim = patrol
+	jog_anim = rush
+	run_anim = rush    
+	delay_anim = guard
+	gather_items_enabled = true
+	help_wounded_enabled = true
+	corpse_detection_enabled = true
+	invulnerable = {!actor_enemy} true, false 
+	relationship = neutral
+	turn_on_campfire = true
+
+[beh@esc_smart_terrain_7_11_camp_work_6]:beh@general_01 ;
+	pt1 = 150000, guard_chasovoy | pos:92.802604675293,-7.1528000831604,-18.90615272522 look:86.530380249023,-8.2839832305908,-18.928621292114 ;
+	path_end = loop
+	
+[logic@esc_smart_terrain_7_11_camp_work_7]:logic@esc_smart_terrain_7_11_camp_work_6
+	active = beh@esc_smart_terrain_7_11_camp_work_7
+	
+[beh@esc_smart_terrain_7_11_camp_work_7]:beh@general_01 ;
+	pt1 = 150000, sit_ass | pos:126.01084136963,-7.6048126220703,11.267411231995 look:128.14799499512,-7.5941500663757,8.7647647857666 ;
+	path_end = loop
+	
+[logic@esc_smart_terrain_7_11_camp_work_8]:logic@esc_smart_terrain_7_11_camp_work_6
+	active = beh@esc_smart_terrain_7_11_camp_work_8
+	
+[beh@esc_smart_terrain_7_11_camp_work_8]:beh@general_01 ;
+	pt1 = 150000, sit_ass | pos:125.50691986084,-7.6048126220703,8.8250961303711 look:128.30085754395,-7.5999765396118,8.8040409088135 ;
+	path_end = loop
+	
+[logic@esc_smart_terrain_7_11_camp_work_9]:logic@esc_smart_terrain_7_11_camp_work_6
+	active = beh@esc_smart_terrain_7_11_camp_work_9
+	
+[beh@esc_smart_terrain_7_11_camp_work_9]:beh@general_01 ;
+	pt1 = 150000, sit_ass | pos:131.08404541016,-7.6037359237671,10.871820449829 look:128.76977539063,-7.4120049476624,9.1535806655884 ;
+	path_end = loop
+	
+[logic@esc_smart_terrain_7_11_camp_work_10]:logic@esc_smart_terrain_7_11_camp_work_6
+	active = beh@esc_smart_terrain_7_11_camp_work_10
+	
+[beh@esc_smart_terrain_7_11_camp_work_10]:beh@general_01 ;
+	pt1 = 150000, binocular | pos:137.88665771484,-7.6887912750244,-22.333301544189 look:147.78680419922,-7.9780426025391,-19.544322967529 ;
+	path_end = loop
+	
+[logic@esc_smart_terrain_7_11_camp_work_11]:logic@esc_smart_terrain_7_11_camp_work_6
+	active = beh@esc_smart_terrain_7_11_camp_work_11
+	
+[beh@esc_smart_terrain_7_11_camp_work_11]:beh@general_01 ;
+	pt1 = 150000, binocular | pos:85.408332824707,-7.956262588501,-40.424880981445 look:76.607749938965,-8.7393369674683,-42.831245422363 ;
+	path_end = loop
+	
+[logic@esc_smart_terrain_7_11_camp_work_12]:logic@esc_smart_terrain_7_11_camp_work_6
+	active = beh@esc_smart_terrain_7_11_camp_work_12
+	
+[beh@esc_smart_terrain_7_11_camp_work_12]:beh@general_01 ;
+	pt1 = 150000, sit_ass | pos:112.43124389648,-2.8574798107147,-0.20005139708519 look:108.42855072021,-2.8666613101959,-0.46914982795715 ;
+	path_end = loop

@@ -1,0 +1,96 @@
+[logic@esc_2_12_stalker_fanat]	; Fanat
+	active = beh@fanat_job_00
+	suitable = {=target_squad_name(esc_2_12_stalker_fanat_squad)} true
+	prior = 140
+	level_spot = quest_npc
+	relationship = neutral   
+
+[beh@general_01]
+	behavior_state = beh_move
+	target = waypoint
+	walk_dist = 100
+	jog_dist = 220
+	wait_anim = guard_chasovoy
+	walk_anim = patrol
+	jog_anim = rush
+	run_anim = rush    
+	delay_anim = guard
+	gather_items_enabled = true
+	help_wounded_enabled = true
+	corpse_detection_enabled = true
+	invulnerable = {!actor_enemy} true, false 
+	relationship = neutral
+	
+	turn_on_campfire = true
+	on_info = {=is_night} beh@fanat_job_04
+	on_info2 = {=surge_started} beh@surge_cover
+	on_info3 = {=is_rain} beh@fanat_job_02
+
+[beh@fanat_job_00]:beh@general_01 ; Select
+	pt1 = 100000, use_pda | pos:-200.29368591309,-19.893102645874,-135.41656494141 look:-206.60836791992,-19.605833053589,-140.30186462402 ;Rest - Kostr|Fanat
+	path_end = loop
+	on_timer = 50000 | {~33} beh@fanat_job_01, {~33} beh@fanat_job_02, beh@fanat_job_03
+
+[beh@fanat_job_01]:beh@general_01 ; Rest
+	pt1 = 75000, use_pda | pos:-200.29368591309,-19.893102645874,-135.41656494141 look:-206.60836791992,-19.605833053589,-140.30186462402 ;Rest - Kostr|Fanat
+	pt2 = 75000, eat_vodka | pos:-200.29368591309,-19.893102645874,-135.41656494141 look:-206.60836791992,-19.605833053589,-140.30186462402 ;Rest - Kostr|Fanat
+	pt3 = 75000, sit_ass_eat_kolbasa | pos:-200.29368591309,-19.893102645874,-135.41656494141 look:-206.60836791992,-19.605833053589,-140.30186462402 ;Rest - Kostr|Fanat
+	pt4 = 75000, sit_ass_eat_bread | pos:-200.29368591309,-19.893102645874,-135.41656494141 look:-206.60836791992,-19.605833053589,-140.30186462402 ;Rest - Kostr|Fanat
+	pt5 = 75000, sit_ass_eat_bread | pos:-233.60858154297,-14.905596733093,-188.77458190918 look:-204.25421142578,-22.598913192749,-216.712890625 ;Rest - Binokl
+	path_end = loop
+	on_timer = 235000 | {~50} beh@fanat_job_03, beh@fanat_job_02
+
+[beh@fanat_job_02]:beh@general_01 ; Rest 2
+	pt1 = 75000, use_pda | pos:-235.22624206543,-20.037851333618,-154.34603881836 look:-235.19110107422,-19.739448547363,-156.43121337891 ;Rest - Kostr|Fanat Hide
+	pt2 = 75000, eat_vodka | pos:-235.22624206543,-20.037851333618,-154.34603881836 look:-235.19110107422,-19.739448547363,-156.43121337891 ;Rest - Kostr|Fanat Hide
+	pt3 = 75000, sit_ass_eat_kolbasa | pos:-235.22624206543,-20.037851333618,-154.34603881836 look:-235.19110107422,-19.739448547363,-156.43121337891 ;Rest - Kostr|Fanat Hide
+	pt4 = 75000, sit_ass_eat_bread | pos:-235.22624206543,-20.037851333618,-154.34603881836 look:-235.19110107422,-19.739448547363,-156.43121337891 ;Rest - Kostr|Fanat Hide
+	pt5 = 170000, search | pos:-104.09595489502,-20.940149307251,-210.56092834473 look:-98.282508850098,-20.955787658691,-210.02725219727 ;Fanat - Army|Hide
+	path_end = loop
+	on_timer = 235000 | {~50} beh@fanat_job_01, beh@fanat_job_03
+
+[beh@fanat_job_03]:beh@general_01 ; Hunting
+	pt1 = 15000, binocular | pos:-107.73513793945,-9.2016477584839,-147.57620239258 look:-84.740676879883,-8.6809577941895,-128.87854003906 ;Hunt 1| Bino +
+	pt2 = 15000, hide | pos:-33.66682434082,-18.138383865356,-191.44314575195 look:-33.599628448486,-18.543493270874,-181.10305786133 ;Hunt 2| Hide +
+	pt3 = 15000, hide | pos:6.6170310974121,-15.863605499268,-141.11193847656 look:5.5815463066101,-15.012086868286,-137.01272583008 ;Hunt 3| Hide +
+	pt4 = 15000, binocular | pos:25.5133934021,-0.93772238492966,-62.736305236816 look:33.008625030518,-2.6481950283051,-59.278854370117 ;Hunt 4| Bino
+	pt5 = 35000, sit_ass_eat_kolbasa | pos:-45.34024810791,-10.057899475098,-65.655494689941 look:-46.580165863037,-10.057849884033,-67.221519470215 ;Rest |Sit
+	pt6 = 25000, hide | pos:-112.94975280762,-4.5473260879517,-91.185852050781 look:-114.21143341064,-3.4087662696838,-81.357093811035 ;Hunt 5| Hide
+	path_end = loop
+	on_timer = 710000 | {~50} beh@fanat_job_01, beh@fanat_job_02
+	
+[beh@fanat_job_04]:beh@general_01 ; Evening
+	pt1 = 45000, eat_vodka | pos:-204.59826660156,-19.899318695068,-133.33277893066 look:-206.63409423828,-19.588520050049,-140.65734863281 ;Sit Drunk
+	pt2 = 45000, drunk_behindwall | pos:-204.59826660156,-19.899318695068,-133.33277893066 look:-199.5319519043,-19.87610244751,-132.99656677246 ;Drunk
+	pt3 = 35000, sleep_sit | pos:-204.59826660156,-19.899318695068,-133.33277893066 look:-206.63409423828,-19.588520050049,-140.65734863281 ;Sit Drunk
+	pt4 = 105000, drunk_sit_ass | pos:-204.59826660156,-19.899318695068,-133.33277893066 look:-206.63409423828,-19.588520050049,-140.65734863281 ;Drunk
+	path_end = loop
+	on_info = {=is_dark_night} beh@fanat_sleep
+
+[beh@fanat_sleep]:beh@general_01 ; Sleep
+	pt1 = 5000000, sleep | pos:-239.18267822266,-20.039552688599,-157.19786071777 look:-240.3731842041,-20.03723526001,-154.76644897461 ;Sleep
+	path_end = loop
+	meet = no_meet
+	on_info = {!is_night} beh@fanat_job_00
+
+[beh@surge_cover]:beh@general_01 ; Surge
+	pt1 = 100000, eat_vodka | pos:-239.18267822266,-20.039552688599,-157.19786071777 look:-240.3731842041,-20.03723526001,-154.76644897461 ;Run bicth! RUUUN!
+	path_end = loop
+	walk_anim = sprint
+	jog_anim = sprint
+	on_info = {!surge_started} beh@fanat_job_00
+
+[logic@esc_1_11_stalker_fanat]
+suitable = {=target_squad_name(esc_2_12_stalker_fanat_squad)} true
+prior = 140
+active = walker@esc_1_11_stalker_fanat
+level_spot = quest_npc
+
+[walker@esc_1_11_stalker_fanat]
+path_walk = guardermlr_1_walk
+path_look  = guardermlr_1_look
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false

@@ -1,0 +1,728 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Alcohol drinks
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[vodka]:booster, ver_qs
+$spawn									= "food and drugs\vodka"
+visual									= dynamics\devices\dev_vodka\dev_vodka.ogf
+description								= st_vodka_descr
+inv_name								= st_vodka
+inv_name_short							= st_vodka
+inv_weight								= 0.37
+inv_volume								= 0.75
+inv_grid_height							= 2
+inv_grid_x								= 13
+inv_grid_y								= 53
+cost									= 2250
+break_particles							= destroy_fx\destroy_bottle
+break_sound								= material\bottle\collide\bottle_break_1
+boost_time								= 35
+boost_slowed_pulse						= 0.12
+boost_radiation_restore					= 0.00032
+boost_pain								= 0.001
+eat_alcohol								= 0.300
+eat_satiety								= 0.025
+eat_thirst								= -0.150
+eat_sleepiness							= 4
+eat_toxicity							= 0.06
+repair_part_bonus						= 0.03
+max_uses								= 3
+use_condition							= true
+volume_scale							= false
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+next_use_item							= bottle_empty
+take_sound								= bottle_take
+anim_section							= anm_vodka
+consume_type							= drink
+
+[vodka_radiated]:vodka
+inv_name								= st_vodka_radiated
+inv_name_short							= st_vodka_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[vodka_script]:vodka ;не использовать
+$spawn									= "food and drugs\vodka_script"
+inv_weight								= 0
+inv_volume								= 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[vodka2]:vodka, ver_qs
+visual									= dynamics\devices\dev_eat\drinks\bottle_vodka_smirnov.ogf
+description								= st_vodka2_descr
+inv_name								= st_vodka2
+inv_name_short							= st_vodka2
+inv_grid_x								= 15
+inv_grid_y								= 53
+cost									= 2572
+boost_time								= 36
+boost_slowed_pulse						= 0.12
+boost_radiation_restore					= 0.00038
+eat_alcohol								= 0.290
+eat_satiety								= 0.026
+eat_thirst								= -0.140
+eat_sleepiness							= 4
+repair_part_bonus						= 0.03
+next_use_item							= bottle_empty_2
+take_sound								= bottle_take
+anim_section							= anm_vodka2
+
+[vodka2_radiated]:vodka2
+inv_name								= st_vodka2_radiated
+inv_name_short							= st_vodka2_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[vodka_quality]:booster
+$spawn									= "food and drugs\vodka"
+visual									= dynamics\items\drinks\vodka_quality.ogf
+description								= st_vodka_quality_descr
+inv_name								= st_vodka_quality
+inv_name_short							= st_vodka_quality
+inv_weight								= 0.8
+inv_volume								= 1.0
+cost									= 2773
+inv_grid_x								= 6
+inv_grid_y								= 64
+break_particles							= destroy_fx\destroy_bottle
+break_sound								= material\bottle\collide\bottle_break_1
+boost_time								= 37
+boost_pain								= 0.002
+boost_slowed_pulse						= 0.1
+boost_radiation_restore					= 0.00044
+eat_alcohol								= 0.280
+eat_satiety								= 0.028
+eat_thirst								= -0.130
+eat_sleepiness							= 5
+eat_toxicity							= 0.05
+max_uses								= 3
+use_condition							= true
+volume_scale							= false
+repair_part_bonus						= 0.04
+next_use_item							= flask_2_empty
+take_sound								= bottle_take
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+consume_type							= drink
+anim_section							= anm_flask_black
+
+[vodka_quality_radiated]:vodka_quality
+inv_name								= st_vodka_quality_radiated
+inv_name_short							= st_vodka_quality_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[wine]:vodka ;1L
+$spawn									= "food and drugs\wine"
+visual									= dynamics\devices\dev_vodka\dev_vodka.ogf
+description								= st_wine_descr
+inv_name								= st_wine
+inv_name_short							= st_wine
+inv_weight								= 0.598
+inv_volume								= 0.75
+inv_grid_x								= 10
+cost									= 1357
+boost_time								= 51
+boost_pain								= 0.0005
+boost_slowed_pulse						= 0.050
+boost_radiation_restore					= 0.00036
+eat_alcohol								= 0.160
+eat_satiety								= 0.035
+eat_thirst								= 0.100
+eat_sleepiness							= 3
+eat_toxicity							= 0.02
+water_item								= true
+use_sound								= interface\inv_drink_flask_effect
+
+[wine_radiated]:wine
+inv_name								= st_wine_radiated
+inv_name_short							= st_wine_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[beer]:vodka
+$spawn									= "food and drugs\vodka"
+visual									= dynamics\items\drinks\beer.ogf
+description								= st_beer_descr
+inv_name								= st_beer
+inv_name_short							= st_beer
+inv_weight								= 0.520
+inv_grid_x								= 9
+cost									= 380
+boost_time								= 19
+boost_pain								= 0.0001
+boost_slowed_pulse						= 0.025
+boost_radiation_restore					= 0.00022
+eat_alcohol								= 0.060
+eat_satiety								= 0.030
+eat_thirst								= 0.300
+eat_sleepiness							= 1
+eat_toxicity							= 0.01
+water_item								= true
+use_condition							= false
+anim_section							= anm_beer
+next_use_item							= beer_empty
+
+[beer_radiated]:beer
+inv_name								= st_beer_radiated
+inv_name_short							= st_beer_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_metal]:booster
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\items\drinks\bottle_metal.ogf
+inv_name_short							= st_bottle_metal
+inv_name								= st_bottle_metal
+description								= st_bottle_metal_descr
+cost									= 2388
+inv_grid_x								= 12
+inv_grid_y								= 64
+inv_weight								= 0.95
+inv_volume								= 0.75
+eat_alcohol								= 0.320
+eat_thirst								= -0.130
+eat_satiety								= 0.25
+eat_sleepiness							= 3
+eat_toxicity							= 0.05
+boost_slowed_pulse						= 0.075
+boost_time								= 50
+boost_pain								= 0.001
+boost_radiation_restore					= 0.00055
+max_uses								= 3
+use_condition							= true
+volume_scale							= false
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+next_use_item							= bottle_metal_empty
+repair_part_bonus						= 0.02
+anim_section							= anm_flask_metal
+consume_type							= drink
+
+[bottle_metal_radiated]:bottle_metal
+inv_name								= st_bottle_metal_radiated
+inv_name_short							= st_bottle_metal_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_metal_quest]:booster ;1L
+$spawn									= "food and drugs\bottle_metal_quest"
+visual									= dynamics\items\drinks\bottle_metal
+inv_name_short							= st_bottle_metal_quest
+inv_name								= st_bottle_metal_quest
+description								= st_bottle_metal_quest_descr
+cost									= 0
+inv_grid_x								= 12
+inv_grid_y								= 64
+inv_weight								= 0.358
+inv_volume								= 0.750
+boost_time								= 29
+boost_radiation_restore					= 0.00035
+eat_alcohol								= 0.500
+eat_satiety								= 0.022
+eat_thirst								= -0.110
+eat_sleepiness							= -1
+eat_toxicity							= 0.028
+use_condition							= false
+anim_section							= anm_flask_metal
+use_sound								= interface\inv_drink_flask_effect
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Non alcohol drinks
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mineral_water]:booster, ver_qs
+$spawn									= "food_and_drugs\mineral_water"
+visual									= dynamics\items\drinks\mineral_water.ogf
+inv_name								= st_mineral_water
+inv_name_short							= st_mineral_water
+description								= st_mineral_water_descr
+cost									= 1520
+inv_grid_width							= 1
+inv_grid_height							= 2
+inv_grid_x								= 11
+inv_grid_y								= 53
+inv_weight								= 1.0
+inv_volume								= 1.0
+empty_volume							= 0.4
+boost_time								= 20
+boost_radiation_restore					= 0.00016
+eat_alcohol								= -0.12
+eat_satiety								= 0.025
+eat_thirst								= 0.750
+eat_sleepiness							= -1
+repair_part_bonus						= 0.01
+water_item								= true
+use_condition							= true
+max_uses								= 3
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+next_use_item							= mineral_water_empty
+take_sound								= bottle_take
+anim_section							= anm_mineral_water
+consume_type							= drink
+
+[mineral_water_radiated]:mineral_water
+inv_name								= st_mineral_water_radiated
+inv_name_short							= st_mineral_water_radiated
+eat_radiation							= 0.200
+
+[bottle_water]:mineral_water
+cost									= 700
+inv_name								= st_bottle_water
+inv_name_short							= st_bottle_water
+description								= st_bottle_water_descr
+
+[bottle_water_radiated]:bottle_water
+inv_name								= st_bottle_water_radiated
+inv_name_short							= st_bottle_water_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[tea]:booster, ver_qs ;1L
+$spawn									= "food and drugs\tea"
+visual									= dynamics\items\drinks\thermos.ogf
+inv_name								= st_tea
+inv_name_short							= st_tea
+description								= st_tea_descr
+cost									= 3120
+inv_grid_width							= 1
+inv_grid_height							= 2
+inv_grid_x								= 14
+inv_grid_y								= 64
+inv_weight								= 1.175
+inv_volume								= 1.0
+boost_time								= 48
+boost_radiation_restore					= 0.00044
+eat_alcohol								= -0.12
+eat_satiety								= 0.050
+eat_thirst								= 0.600
+eat_sleepiness							= -3
+use_condition							= true
+volume_scale							= false
+max_uses								= 3
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+anim_section							= anm_thermos
+next_use_item							= termos_empty
+consume_type							= drink
+
+[tea_radiated]:tea
+inv_name								= st_tea_radiated
+inv_name_short							= st_tea_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[flask]:booster
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\items\drinks\flask
+inv_name								= st_flask
+inv_name_short							= st_flask
+description								= st_flask_descr
+cost									= 1875
+inv_grid_x								= 15
+inv_grid_y								= 64
+inv_weight								= 0.950
+inv_volume								= 0.750
+boost_time								= 25
+boost_radiation_restore					= 0.00016
+eat_alcohol								= -0.10
+eat_satiety								= 0.025
+eat_thirst								= 0.450
+eat_sleepiness							= -1
+repair_part_bonus						= 0.01
+max_uses								= 3
+use_condition							= true
+volume_scale							= false
+water_item								= true
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+anim_section							= anm_flask_green
+next_use_item							= flask_empty
+consume_type							= drink
+
+[flask_radiated]:flask
+inv_name								= st_flask_radiated
+inv_name_short							= st_flask_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[juice]:booster
+$spawn									= "food and drugs\juice"
+visual									= dynamics\items\drinks\juice.ogf
+description								= st_juice_descr
+inv_name								= st_juice
+inv_name_short							= st_juice
+inv_weight								= 0.212
+inv_volume								= 0.35
+inv_grid_x								= 7
+inv_grid_y								= 43
+cost									= 432
+eat_alcohol								= -0.16
+eat_satiety								= 0.035
+eat_thirst								= 0.350
+eat_sleepiness							= 1
+eat_toxicity							= -0.0025
+use_sound								= interface\inv_softdrink
+consume_type							= drink
+
+[juice_radiated]:juice
+inv_name								= st_juice_radiated
+inv_name_short							= st_juice_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Energizers
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[drink_crow]:booster
+$spawn									= "food and drugs\energy_drink"
+inv_name								= st_drink_crow
+inv_name_short							= st_drink_crow
+visual									= dynamics\items\drinks\drink_crow.ogf
+description								= st_drink_crow_descr
+cost									= 1860
+inv_grid_x								= 15
+inv_grid_y								= 65
+inv_weight								= 0.223
+inv_volume								= 0.240
+boost_time								= 130
+boost_radiation_restore					= 0.00044
+eat_alcohol								= -0.200
+eat_satiety								= 0.100
+eat_thirst								= 0.500
+eat_sleepiness							= -5
+use_sound								= interface\inv_drink_flask_2
+consume_type							= drink
+
+[drink_crow_radiated]:drink_crow
+inv_name								= st_drink_crow_radiated
+inv_name_short							= st_drink_crow_radiated
+eat_radiation							= 0.200
+can_clean								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[sprite]:booster
+$spawn									= "food and drugs\water"
+visual									= dynamics\items\drinks\water_can
+description								= st_sprite_descr
+inv_name								= st_sprite
+inv_name_short							= st_sprite
+inv_weight								= 0.35
+inv_volume								= 0.55
+inv_grid_x								= 15
+inv_grid_y								= 56
+cost									= 563
+break_sound								= material\material\small-weapon\collide\hithard01hl
+boost_time								= 22
+boost_radiation_restore					= 0.00016
+eat_alcohol								= -0.10
+eat_satiety								= 0.025
+eat_thirst								= 0.750
+eat_sleepiness							= -5
+anim_section							= anm_water_can_1
+;use_sound								= interface\inv_softdrink
+consume_type							= drink
+
+[sprite_radiated]:sprite
+inv_name								= st_sprite_radiated
+inv_name_short							= st_sprite_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cocacola]:sprite
+visual									= dynamics\items\drinks\sprite_can
+description								= st_cocacola_descr
+inv_name								= st_cocacola
+inv_name_short							= st_cocacola
+inv_weight								= 0.33
+inv_volume								= 0.55
+inv_grid_x								= 16
+inv_grid_y								= 55
+cost									= 1268
+boost_time								= 40
+boost_radiation_restore					= 0.00022
+boost_power_restore						= 0.0012
+eat_alcohol								= -0.12
+eat_satiety								= 0.025
+eat_thirst								= 0.350
+eat_sleepiness							= -4
+
+[cocacola_radiated]:cocacola
+inv_name								= st_cocacola_radiated
+inv_name_short							= st_cocacola_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[energy_drink]:booster ;250ml
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\devices\dev_drink_stalker\dev_drink_stalker
+inv_name								= st_energy_drink
+inv_name_short							= st_energy_drink
+description								= st_energy_drink_descr
+cost									= 950
+inv_grid_x								= 10
+inv_grid_y								= 64
+inv_weight								= 0.33
+inv_volume								= 0.55
+boost_time								= 180
+boost_max_weight						= 1.554
+boost_radiation_restore					= 0.00004
+boost_power_restore						= 0.0028
+boost_slowed_pulse						= 0.5
+eat_alcohol								= -0.15
+eat_satiety								= 0.020
+eat_thirst								= 0.075
+eat_sleepiness							= -5
+anim_section							= anm_energy_drink
+consume_type							= drink
+
+[energy_drink_radiated]:energy_drink
+inv_name								= st_energy_drink_radiated
+inv_name_short							= st_energy_drink_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[redbull]:energy_drink
+$spawn									= "food and drugs\energy_drink"
+inv_name								= st_redbull
+inv_name_short							= st_redbull
+visual									= dynamics\devices\dev_drink_stalker\dev_drink_stalker
+description								= st_redbull_descr
+cost									= 1212
+inv_grid_x								= 16
+inv_grid_y								= 56
+inv_weight								= 0.25
+inv_volume								= 0.55
+boost_time								= 210
+boost_radiation_restore					= 0.00008
+boost_power_restore						= 0.0032
+eat_thirst								= 0.080
+eat_toxicity							= 0.004
+empty_weight							= 0.1
+allow_repair							= false
+anim_section							= anm_redbull
+
+[redbull_radiated]:redbull
+inv_name								= st_redbull_radiated
+inv_name_short							= st_redbull_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[jaguar]:energy_drink
+$spawn									= "food and drugs\jaguar"
+visual									= dynamics\items\drinks\jaguar.ogf
+inv_name								= st_jaguar
+inv_name_short							= st_jaguar
+description								= st_jaguar_descr
+cost									= 1302
+inv_grid_x								= 8
+inv_grid_y								= 43
+inv_weight								= 0.321
+inv_volume								= 0.55
+boost_time								= 200
+boost_radiation_restore					= 0.00011
+boost_power_restore						= 0.0025
+eat_alcohol								= 0.100
+eat_satiety								= 0.010
+eat_thirst								= 0.070
+eat_toxicity							= 0.005
+allow_repair							= false
+
+[jaguar_radiated]:jaguar
+inv_name								= st_jaguar_radiated
+inv_name_short							= st_jaguar_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Empty vessel
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[empty_vessel]
+class									= II_DOC
+use1_functor                			=
+use1_action_functor         			=
+use_condition							= false
+show_on_use								= false
+
+[flask_empty]:flask, empty_vessel
+inv_name								= st_flask_empty
+inv_name_short							= st_flask_empty
+description								= st_flask_empty_descr
+cost									= 200
+inv_weight								= 0.200
+inv_volume								= 0.750
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[flask_2_empty]:vodka_quality, empty_vessel
+inv_name								= st_flask_empty
+inv_name_short							= st_flask_empty
+description								= st_flask_empty_descr
+cost									= 500
+inv_grid_x								= 6
+inv_grid_y								= 64
+inv_weight								= 0.420
+inv_volume								= 0.75
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mineral_water_empty]:mineral_water, empty_vessel
+inv_name								= st_mineral_water_empty
+inv_name_short							= st_mineral_water_empty
+description								= st_mineral_water_empty_descr
+take_sound								= generic_take
+cost									= 30
+inv_grid_x								= 12
+inv_grid_y								= 53
+inv_weight								= 0.050
+inv_volume								= 0.4
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_empty]:vodka, empty_vessel
+inv_name								= st_bottle_empty
+inv_name_short							= st_bottle_empty
+description								= st_bottle_empty_descr
+take_sound								= bottle_empty_take
+cost									= 20
+inv_grid_x								= 14
+inv_weight								= 0.140
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_empty_2]:bottle_empty
+visual									= dynamics\items\drinks\vodka_2.ogf
+cost									= 20
+inv_grid_x								= 16
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[beer_empty]:bottle_empty
+visual									= dynamics\items\drinks\bottle_beer.ogf
+description								= st_bottle_beer_empty_descr
+cost									= 20
+inv_grid_x								= 9
+inv_weight								= 0.060
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_metal_empty]:bottle_metal, empty_vessel
+inv_name								= st_bottle_metal_empty
+inv_name_short							= st_bottle_metal_empty
+description								= st_bottle_metal_empty_descr
+cost									= 500
+inv_weight								= 0.220
+inv_volume								= 1.0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[termos_empty]:tea, empty_vessel
+inv_name								= st_termos_empty
+inv_name_short							= st_termos_empty
+description								= st_termos_empty_descr
+cost									= 500
+inv_grid_x								= 14
+inv_grid_y								= 64
+inv_weight								= 0.175
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Vessel with water
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[termos_water]:booster, ver_qs
+$spawn									= "food_and_drugs\termos_water"
+visual									= dynamics\items\drinks\thermos.ogf
+inv_name								= st_termos_water
+inv_name_short							= st_termos_water
+description								= st_termos_water_descr
+cost									= 1891
+inv_grid_width							= 1
+inv_grid_height							= 2
+inv_grid_x								= 14
+inv_grid_y								= 64
+inv_weight								= 1.175
+inv_volume								= 1.0
+boost_time								= 25
+boost_radiation_restore					= 0.00021
+eat_alcohol								= -0.10
+eat_satiety								= 0.025
+eat_thirst								= 0.400
+eat_sleepiness							= -1
+repair_part_bonus						= 0.01
+use_condition							= true
+water_item								= true
+volume_scale							= false
+max_uses								= 4
+use1_functor                			= area_utils.pour_out
+use1_action_functor         			= area_utils.action_pour_out
+anim_section							= anm_thermos
+next_use_item							= termos_empty
+consume_type							= drink
+
+[termos_water_radiated]:termos_water
+inv_name								= st_termos_water_radiated
+inv_name_short							= st_termos_water_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[flask_2_water]:termos_water
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\items\drinks\flask
+inv_name								= st_flask
+inv_name_short							= st_flask
+description								= st_flask_descr
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 6
+inv_grid_y								= 64
+cost									= 1875
+inv_weight								= 0.950
+inv_volume								= 0.750
+eat_thirst								= 0.250
+max_uses								= 3
+ignore_size								= false
+anim_section							= anm_flask_black
+next_use_item							= flask_2_empty
+
+[flask_2_water_radiated]:flask_2_water
+inv_name								= st_flask_radiated
+inv_name_short							= st_flask_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_metal_water]:flask_2_water
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\items\drinks\flask
+inv_name								= st_bottle_metal_water
+inv_name_short							= st_bottle_metal_water
+description								= st_bottle_metal_water_descr
+cost									= 1875
+inv_weight								= 0.950
+inv_volume								= 0.750
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 12
+inv_grid_y								= 64
+ignore_size								= false
+anim_section							= anm_flask_metal
+next_use_item							= bottle_metal_empty
+
+[bottle_metal_water_radiated]:bottle_metal_water
+inv_name								= st_flask_radiated
+inv_name_short							= st_flask_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_glass_water]:flask_2_water, ver_qs
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\devices\dev_vodka\dev_vodka.ogf
+inv_name								= st_bottle_glass_water
+inv_name_short							= st_bottle_glass_water
+description								= st_bottle_glass_water_descr
+cost									= 825
+inv_weight								= 0.950
+inv_volume								= 0.750
+inv_grid_width							= 1
+inv_grid_height							= 2
+inv_grid_x								= 13
+inv_grid_y								= 53
+anim_section							= anm_vodka
+next_use_item							= bottle_empty
+
+[bottle_glass_water_radiated]:bottle_glass_water
+inv_name								= st_bottle_glass_radiated
+inv_name_short							= st_bottle_glass_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_glass_water2]:bottle_glass_water
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\items\drinks\vodka_2.ogf
+inv_name								= st_bottle_glass_water
+inv_name_short							= st_bottle_glass_water
+description								= st_bottle_glass_water_descr
+cost									= 845
+inv_grid_x								= 15
+anim_section							= anm_vodka2
+next_use_item							= bottle_empty_2
+
+[bottle_glass_water2_radiated]:bottle_glass_water2
+inv_name								= st_bottle_glass_radiated
+inv_name_short							= st_bottle_glass_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[bottle_glass_water3]:bottle_glass_water
+$spawn									= "food and drugs\energy_drink"
+visual									= dynamics\items\drinks\vodka_2.ogf
+inv_name								= st_bottle_glass_water
+inv_name_short							= st_bottle_glass_water
+description								= st_bottle_glass_water_descr
+cost									= 845
+inv_grid_x								= 9
+anim_section							= anm_beer
+next_use_item							= beer_empty
+
+[bottle_glass_water3_radiated]:bottle_glass_water3
+inv_name								= st_bottle_glass_radiated
+inv_name_short							= st_bottle_glass_radiated
+eat_radiation							= 0.200

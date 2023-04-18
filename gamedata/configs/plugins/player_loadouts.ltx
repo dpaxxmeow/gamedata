@@ -1,0 +1,410 @@
+;; =================================< Loadout >======================================
+;; To add items in the item lists:
+;; "item_section": is the section name of the your item
+;; "value_1": (boolean) determines wether this item should be added to player's inventory list (false) or to the loadout pick list (true)
+;; "value_2": (number) purchase price, leave blank for config price
+;; "value_3": (number) available quantity, leave blank for unlimited stock
+;; "value_4": (number) required rank 0-3
+;; "value_5": (sring) item section names, divided by comma, only one will be selected, not mandatory
+;; ==================================================================================
+[shared]				; Loadout, Price, #, Rank, Random pick
+;--Weapons
+wpn_knife				= true,,1,0
+wpn_knife_swiss			= true,,1,0
+wpn_axe					= true,,1,0
+wpn_binoc				= true,,1,0
+;--Outfit and gear
+helm_respirator_half	= true,3800,1,0
+backpack_small			= true,,1,0
+backpack_sport			= true,,1,0
+;--Food and drinks
+bread					= true,,,0
+breadold				= true,,,0
+sausage					= true,,,0
+conserva				= true,,,0
+tushonka				= true,,,0
+mineral_water			= true,,,0
+tea						= true,,,0
+juice					= true,,,0
+energy_drink			= true,,,0
+cocacola				= true,,,0
+sprite					= true,,,0
+beer					= true,,,0
+vodka					= true,,,0
+vodka2					= true,,,0
+vodka_quality			= true,,,0
+wine					= true,,,0
+cigarettes_marlboro		= true,,,0
+cigarettes_lucky		= true,,,0
+cigarettes_russian		= true,,,0
+cigarettes_joint		= true,,,0
+;--Drugs
+bandage					= true,,,0
+medkit					= true,,,0
+stimpack				= true,,,0
+tetanus					= true,,,0
+antirad					= true,,5,0
+antirad_iodid			= true,,5,0
+salicidic_acid			= true,,5,0
+survival_kit			= true,,5,0
+morphine				= true,,,0
+drug_booster			= true,,,0
+drug_hangover			= true,,,0
+drug_radioprotector		= true,,,0
+drug_sleepingpills		= true,,,0
+caffeine				= true,,,0
+diazepam				= true,,,0
+activated_charcoal		= true,,5,0
+;--Devices and tools
+dosimeter				= true,,1,0
+kit_hunt				= true,,,0
+army_bowler				= true,8000,1,0
+saucepan				= true,,,0
+fieldcooker				= true,7000,1,0
+wood_stove				= true,4000,1,0
+charcoal				= true,1200,,0
+device_torch			= true,,1,0
+device_flashlight		= true,,1,0
+item_lantern			= true,,1,0
+itm_sleepbag			= true,,1,0
+wallet_container		= true,,1,0
+battery_1_5v_aa			= true,,5,0
+battery_1_5v_d			= true,,5,0
+battery_9v				= true,,5,0
+gun_oil					= true,,5,0
+radio					= true,,,0
+sharpening_stones		= true,,5,0
+lighter					= true,,1,0
+matches					= true,,5,0
+packet_bolts			= true,,,0
+
+magazine_9x18_cnt_8		= true,3000,3,0
+magazine_9x18_cnt_12	= true,3500,3,0
+magazine_9x18_cnt_30	= true,5000,3,0
+magazine_9x19_cnt_13	= true,3800,3,0
+magazine_9x19_cnt_16	= true,4000,3,0
+magazine_545_cnt_30		= true,6000,3,0
+magazine_762x39_cnt_10	= true,5000,3,0
+magazine_762x54_cnt_5	= true,4000,3,0
+
+[stalker_loadout]:shared
+novice_outfit 			= true,4500,,0,novice_outfit,novice_outfit_7,novice_outfit_1m,novice_outfit_2m,novice_outfit_3m,novice_outfit_4m,novice_outfit_5m,novice_outfit_6m,novice_outfit_1,novice_outfit_2,novice_outfit_3,novice_outfit_4,novice_outfit_5,novice_outfit_6
+cloak_outfit			= true,12000,,0
+trenchcoat_novice		= true,15000,,0
+helm_respirator			= true,7000,,0,helm_respirator_2_camo,helm_respirator_2,helm_respirator
+helm_respirator_gp5		= true,5000,,0
+helm_respirator_gp9		= true,9000,,0
+helm_cloth_mask			= true,1000,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo
+helm_rp_metro_furhat	= true,500,,0	
+wpn_bm16_full			= true,19000,,0
+wpn_ak74u_worn			= true,25000,,1
+wpn_ak74u_rusty			= true,23000,,1
+wpn_kiparis				= true,22000,,1
+wpn_ppsh41				= true,22000,,0
+wpn_ppsh41_redworn		= true,20000,,0
+wpn_mosin_rusty			= true,16500,,0
+wpn_sks_worn			= true,17200,,0
+wpn_toz34				= true,17000,,0
+wpn_toz34_obrez			= true,12000,,0
+wpn_toz34_obrez_rusty	= true,8000,,0
+wpn_fort				= true,9500,,0
+wpn_pm					= true,8000,,0
+wpn_pm_rusty			= true,5000,,0
+wpn_walther				= true,14000,,0
+wpn_walther_worn		= true,9000,,0
+ammo_5.45x39_fmj		= true,2000,,1
+ammo_7.62x39_fmj		= true,2200,,0
+ammo_7.62x54_7h1		= true,4500,,1
+ammo_12x70_buck			= true,1400,,0
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+container_tool			= true,5000,,0
+
+[army_loadout]:shared
+army_patch 				= false,0
+military_novice_outfit 	= false,0
+specops_outfit			= true,40000,,2
+stalker_outfit_travel_army = true,35000,,2
+army_outfit				= true,28000,,1
+helm_tactichat			= true,27000,,0
+helm_respirator_2_camo	= true,8000,,0,helm_respirator,helm_respirator_2_camo
+helm_cloth_mask			= true,1200,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_cloth_mask,helm_rp_bandana,helm_rp_beret_blue,helm_rp_beret_black
+wpn_ak74				= true,30000,,2
+wpn_ak74_worn			= true,25000,,0
+wpn_ak74u				= true,27000,,2
+wpn_ak74u_worn			= true,25000,,1
+wpn_ak74u_rusty			= true,23000,,0
+wpn_pm					= true,8000,,0
+wpn_pb					= true,10000,,0
+wpn_fort				= true,8500,,0
+grenade_gd-05			= true,2800,,1
+grenade_rgd5			= true,3000,,0
+ammo_5.45x39_fmj		= true,2000,,1
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+lead_box				= true,10000,,1
+container_tool			= true,8000,,1
+
+[bandit_loadout]:shared
+bandit_patch			= false,0
+bandit_novice_outfit 	= true,4000,,0,bandit_novice_outfit_1,bandit_novice_outfit_2,bandit_novice_outfit_3,bandit_novice_outfit_1m,bandit_novice_outfit_2m,bandit_novice_outfit_3m
+cloak_outfit			= true,12000,,0
+trenchcoat_outfit		= true,20000,,0,trenchcoat_outfit_1,trenchcoat_outfit_2,trenchcoat_outfit_3,trenchcoat_outfit_1m,trenchcoat_outfit_2m,trenchcoat_outfit_3m
+helm_respirator			= true,7000,,0,helm_respirator_2_camo,helm_respirator_2,helm_respirator
+helm_respirator_gp5		= true,6000,,0
+helm_cloth_mask			= true,1100,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_rp_metro_furhat,helm_cloth_mask
+wpn_ak74u_worn			= true,25000,,1
+wpn_ak74u_rusty			= true,20000,,1
+wpn_kiparis				= true,22000,,0
+wpn_vz65_rusty			= true,13000,,0
+wpn_ppsh41				= true,22000,,0
+wpn_ppsh41_redworn		= true,20000,,0
+wpn_sks_worn			= true,20000,,0
+wpn_mosin_rusty			= true,18000,,0
+wpn_bm16_full			= true,23000,,0
+wpn_toz34				= true,22000,,0
+wpn_toz34_obrez			= true,14000,,0
+wpn_toz34_obrez_rusty	= true,10000,,0
+wpn_pm					= true,8000,,0
+wpn_pm_rusty			= true,5000,,0
+wpn_pb					= true,9800,,0
+wpn_fort				= true,9200,,0
+wpn_hpsa				= true,14000,,0
+wpn_tt33				= true,15000,,1
+wpn_tt33_worn			= true,12000,,1
+ammo_5.45x39_fmj		= true,2000,,1
+ammo_7.62x54_7h1		= true,4500,,1
+ammo_7.62x39_fmj		= true,2200,,0
+ammo_12x70_buck			= true,1400,,0
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+magazine_9x18_cnt_20_vz65 = true,3500,3,0
+lead_box				= true,4000,,1
+container_tool			= true,2500,,1
+morphine				= true,2500,,0
+marijuana				= true,1500,,0
+cigarettes_joint		= true,570,,0
+
+[csky_loadout]:shared
+csky_patch				= false,,0
+cs_novice_outfit 		= true,6000,,0
+cs_light_novice_outfit_b= true,28000,,0,cs_light_novice_outfit,cs_light_novice_outfit_b
+stalker_outfit_travel_csky = true,34000,,0,stalker_outfit_travel_csky,stalker_outfit_travel_csky_2,stalker_outfit_travel_csky_3,stalker_outfit_travel_csky_4,stalker_outfit_travel_csky_1
+helm_hardhat			= true,18000,,0
+helm_respirator_2		= true,7000,,0,helm_respirator,helm_respirator_2
+helm_cloth_mask			= true,2500,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_rp_metro_furhat,helm_cloth_mask
+wpn_ak74				= true,34000,,0
+wpn_akms_worn			= true,31000,,0
+wpn_ak74u_worn			= true,26000,,0
+wpn_ak74u_rusty			= true,23000,,0
+wpn_kiparis				= true,22000,,0
+wpn_sig550_rusty		= true,33000,,0
+wpn_bm16_full			= true,25000,,0
+wpn_toz34_obrez			= true,14000,,0
+wpn_pm					= true,7500,,0
+wpn_pb					= true,10000,,0
+wpn_fort				= true,8500,,0
+ammo_5.45x39_fmj		= true,2000,,0
+ammo_5.56x45_ss190		= true,2000,,0
+ammo_12x70_buck			= true,1400,,0
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+container_tool			= true,2500,,0
+lead_box				= true,4000,,0
+cigarettes_joint		= true,570,,0
+morphine				= true,2500,,0
+
+[dolg_loadout]:shared
+duty_patch				= false,0
+dolg_novice_outfit 		= true,7000,,0
+dolg_outfit				= true,28000,,2
+helm_tactichat_dolg		= true,18000,,0
+helm_respirator2		= true,8000,,0,helm_respirator_2_dolg,helm_respirator2
+helm_cloth_mask			= true,1200,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_rp_metro_furhat,helm_cloth_mask
+wpn_ak74				= true,32000,,2
+wpn_ak74u				= true,27000,,2
+wpn_ak74u_worn			= true,25000,,1
+wpn_ak74u_rusty			= true,23000,,0
+wpn_kiparis				= true,22000,,1
+wpn_pp2000				= true,29000,,1
+wpn_bm16_full			= true,23000,,0
+wpn_toz34				= true,22000,,0
+wpn_pm					= true,8000,,0
+wpn_pb					= true,9800,,0
+wpn_fort				= true,9200,,0
+wpn_hpsa				= true,14000,,0
+ammo_5.45x39_fmj		= true,2000,,2
+ammo_12x70_buck			= true,1400,,0
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+container_tool			= true,2500,,1
+magazine_9x19_cnt_20_pp2000 = true,5000,3,0
+
+[ecolog_loadout]:shared
+ecolog_patch			= false,0
+novice_outfit 			= true,6000,,0
+isg_outfit 				= true,26000,,2
+ecolog_guard_outfit		= true,28000,,2
+helm_respirator			= true,8000,,0,helm_respirator_2_camo,helm_respirator_2,helm_respirator
+helm_respirator_gp9		= true,12000,,0
+helm_cloth_mask			= true,1200,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_cloth_mask
+wpn_ak74u				= true,27000,,2
+wpn_ak74u_worn			= true,25000,,1
+wpn_pp2000				= true,24000,,1
+wpn_kiparis				= true,22000,,1
+wpn_hpsa				= true,14000,,0
+wpn_fort				= true,9000,,0
+wpn_walther				= true,15000,,0
+wpn_pm					= true,8000,,0
+wpn_crowbar				= true,4000,,0
+ammo_5.45x39_fmj		= true,2000,,2
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+magazine_9x19_cnt_20_pp2000 = true,4000,3,0
+container_tool			= false,0
+lead_box				= false,0
+
+[freedom_loadout]:shared
+freedom_patch			= false,0
+svoboda_novice_outfit 	= true,7000,,0
+svoboda_light_outfit	= true,26000,,2
+svoboda_heavy_outfit_2	= true,32000,,1
+helm_battle_freedom		= true,18000,,1
+helm_respirator3		= true,8000,,0,helm_respirator_2_freedom,helm_respirator3
+helm_cloth_mask			= true,1200,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_rp_metro_furhat,helm_cloth_mask
+wpn_lr300				= true,38000,,2
+wpn_lr300_worn			= true,32000,,1
+wpn_mp5					= true,29000,,2
+wpn_kiparis				= true,22000,,1
+wpn_bm16_full			= true,22000,,0
+wpn_toz34				= true,21000,,0
+wpn_pm					= true,8000,,0
+wpn_fort				= true,9000,,0
+wpn_beretta				= true,11800,,0
+wpn_walther				= true,14000,,0
+wpn_colt1911			= true,13000,,0
+ammo_5.56x45_ss190		= true,2000,,2
+ammo_9x19_fmj			= true,900,,0
+ammo_9x18_fmj			= true,800,,0
+ammo_12x70_buck			= true,1400,,0
+ammo_11.43x23_fmj		= true,2000,,0
+magazine_9x19_cnt_15	= true,3000,3,0
+magazine_9x19_cnt_30	= true,5000,3,0
+magazine_1143x23_cnt_7	= true,4000,3,0
+lead_box				= true,4500,,1
+container_tool			= true,4000,,1
+morphine				= true,2500,,0
+marijuana				= true,1500,,0
+cigarettes_joint		= true,500,,0
+
+[killer_loadout]:shared
+merc_patch				= false,0
+merc_novice_outfit 		= true,7000,,0
+merc_outfit				= true,28000,,1
+merc_sun_outfit			= true,32000,,3
+helm_tactichat_merc		= true,20000,,3
+helm_m40				= true,24000,,0
+helm_respirator_2		= true,7000,,0
+helm_respirator_gp9		= true,12000,,0
+helm_cloth_mask			= true,1100,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_rp_metro_furhat,helm_cloth_mask
+wpn_ak74u				= true,28000,,2
+wpn_ak74u_worn			= true,25000,,1
+wpn_ak74				= true,30000,,2
+wpn_ak74_worn			= true,28000,,1
+wpn_kiparis				= true,22000,,0
+wpn_mp5					= true,29000,,1
+wpn_lr300_rusty			= true,26000,,2
+wpn_bm16_full			= true,23000,,0
+wpn_toz34				= true,22000,,0
+wpn_pm					= true,8000,,0
+wpn_fort				= true,8500,,0
+wpn_beretta				= true,9800,,0
+wpn_walther				= true,14000,,0
+wpn_colt1911			= true,13000,,0
+ammo_5.45x39_fmj		= true,2000,,1
+ammo_9x18_fmj			= true,800,,0
+ammo_9x19_fmj			= true,900,,0
+ammo_12x70_buck			= true,1400,,0
+ammo_11.43x23_fmj		= true,2000,,0
+grenade_gd-05			= true,4500,,1
+grenade_rgd5			= true,5000,,0
+magazine_9x19_cnt_15	= true,3000,3,0
+magazine_9x19_cnt_30	= true,5000,3,0
+magazine_556_cnt_30		= true,6000,3,0
+magazine_1143x23_cnt_7	= true,4000,3,0
+lead_box				= true,3600,,1
+container_tool			= true,2000,,1
+morphine				= true,2500,,0
+marijuana				= true,1500,,0
+cigarettes_joint		= true,570,,0
+
+[monolith_loadout]:shared
+monolith_patch 			= false,0
+monolith_novice_outfit 	= true,6000,,0
+monolith_outfit			= true,28000,,3
+monolith_merc_outfit	= true,32000,,3
+stalker_outfit_travel_monolith = true,38000,,2,stalker_outfit_travel_monolith,stalker_outfit_travel_monolith_1,stalker_outfit_travel_monolith_2,stalker_outfit_travel_monolith_3
+helm_respirator			= true,6000,,0
+helm_respirator4		= true,10000,,0
+helm_cloth_mask			= true,2000,,0,helm_cloth_mask_camo,helm_rp_bala,helm_rp_bala_camo,helm_rp_metro_furhat,helm_cloth_mask
+wpn_akms_worn			= true,31000,,3
+wpn_ak74u				= true,25000,,2
+wpn_ak74u_worn			= true,23000,,1
+wpn_kiparis				= true,22000,,0
+wpn_lr300_rusty			= true,26000,,2
+wpn_sig550_rusty		= true,33000,,3
+wpn_pm					= true,8000,,0
+wpn_pb					= true,10000,,0
+wpn_fort				= true,8500,,0
+ammo_5.45x39_fmj		= true,2000,,2
+ammo_5.56x45_ss190		= true,2000,,2
+ammo_9x19_fmj			= true,1000,,0
+ammo_9x18_fmj			= true,900,,0
+magazine_556_cnt_30		= true,6000,3,0
+container_tool			= true,2000,,1
+lead_box				= true,3600,,1
+cigarettes_joint		= true,570,,0
+morphine				= true,2500,,0
+marijuana				= true,1500,,0
+
+[zombied_loadout]:stalker_loadout
+
+[stalker_money]
+money_min = 40000
+money_max = 40000
+
+[bandit_money]
+money_min = 40000
+money_max = 40000
+
+[ecolog_money]
+money_min = 40000
+money_max = 40000
+
+[dolg_money]
+money_min = 40000
+money_max = 40000
+
+[freedom_money]
+money_min = 40000
+money_max = 40000
+
+[killer_money]
+money_min = 50000
+money_max = 50000
+
+[army_money]
+money_min = 40000
+money_max = 40000
+
+[monolith_money]
+money_min = 50000
+money_max = 50000
+
+[csky_money]
+money_min = 40000
+money_max = 40000
+
+[zombied_money]
+money_min = 50000
+money_max = 50000

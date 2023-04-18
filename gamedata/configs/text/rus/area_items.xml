@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+	<string id="st_conservnaya_banka_name">
+		<text>Консервная банка</text>
+	</string>
+	<string id="st_conservnaya_banka">
+		<text>Обычная консервная банка, коих в Зоне немерено. Лучше не собирать и не злить этим старого торговца.\n \n%c[default]СВОЙСТВА:\n\n%c[255,238,153,26] • %c[default] мусор</text>
+	</string>	
+	
+	<string id="st_hangover">
+		<text>Таблетки от похмелья</text>
+	</string>
+	<string id="st_hangover_descr">
+		<text>Пластинка таблеток зелёного цвета, которые хорошо отрезвляют организм и даже немного бодрят.\n \n%c[default]СВОЙСТВА:\n\n%c[0,153,255,255] • %c[default] медикамент \n\n%c[0,153,255,255] • %c[default] хорошее отрезвляющее действие \n\n%c[0,153,255,255] • %c[default] небольшое снижение сонливости</text>
+	</string>
+	<string id="packet_bolts_name">
+		<text>Пакет болтов</text>
+	</string>
+	<string id="packet_bolts_descr">
+		<text>Достаточно большой пакет болтов, содержит около 25 штук. Обычные, ничем не примечательные болты, которые сталкеры используют для обнаружения аномалий. \n \n%c[default]СВОЙСТВА:\n\n%c[255,238,153,26] • %c[default] распространённый предмет</text>
+	</string>	
+	
+	<string id="st_ammo_shell_pistol">
+		<text>Гильза от пистолетного патрона</text>
+	</string>
+	<string id="st_ammo_shell_smg">
+		<text>Гильза от автоматного патрона</text>
+	</string>
+	<string id="st_ammo_shell_rifle">
+		<text>Гильза от винтовочного патрона</text>
+	</string>
+	<string id="st_ammo_shell_shotgun">
+		<text>Гильза от ружейного патрона</text>
+	</string>
+	<string id="st_ammo_shell_descr">
+		<text>Отстрелянная гильза, многие сталкеры используют их для обнаружения аномалий.\n \n%c[default]СВОЙСТВА:\n\n%c[255,238,153,26] • %c[default] распространённый предмет</text>
+	</string>
+	
+	<string id="mutant_part_psy_dog_brain">
+ 		<text>Мозг пси-собаки</text>
+ 	</string>
+   <string id="mutant_part_psy_dog_brain_description">
+ 		<text>Пси-собаки отличаются мощными умственными способностями, в частности - генерацией иллюзий и воздействием на мозг других существ, и можно с уверенностью сказать, что эти силы зарождаются в их мозге. Что интересно, каждый мутант, обладающий такого рода способностями, связанными с пси-волнами, имеет подобную структуру мозга. Учёные щедро заплатят за образцы таких тканей. Мозг имеет запах прокисших овощей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] мутировавшая часть тела\n%c[0,153,255,255] • %c[default] редкий научный экземпляр\n%c[0,153,255,255] • %c[default] высокая ценность</text>
+ 	</string>
+	
+	<string id="st_deactivate_mix">
+		<text>Смесь для дезактивации</text>
+	</string>
+	<string id="st_deactivate_mix_descr">
+		<text>Смесь из марганцовки и спиртосодержащего вещества. Подойдёт для наружной дезактивации предметов путём физического удаления радиоактивных веществ. Невозможно дезактивировать незапечатанные или негерметичные предметы.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default]позволяет дезактивировать предметы\n%c[0,153,255,255] • %c[default]самодельный предмет</text>
+	</string>
+	
+	<string id="st_wine">
+ 		<text>Вино "Мерло"</text>
+ 	</string>
+	<string id="st_wine_descr">
+ 		<text>Бутылка красного вина Мерло. Входит в десятку международных сортов и является вторым по популярности после знаменитого Каберне Совиньон. Натуральное красное вино повышает сопротивляемость организма к вирусному, электромагнитному и радиационному воздействию, содержит природный антиоксидант, защищающий от воздействия радиации, а благодаря наличию ресвератрола, способен предотвращать вызываемые ею некоторые повреждения, благодаря наличию в нём рубидия, ускоряет вывод из организма радиоактивного цезия. В 70–80 годы минувшего столетия натуральные красные вина ввели в рацион экипажей атомных подводных лодок и персонала, обслуживающего радиоактивные установки. Чернобыльская трагедия заставила отступить ханжеству и пропаганде в борьбе за «трезвый образ жизни». Буквально на следующий день после аварии в Киев были доставлены огромные запасы красного сухого вина.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] напиток\n%c[0,153,255,255] • %c[default] стимулятор\n%c[ui_green] • %c[default] крепкий алкоголь\n%c[ui_green] • %c[default] умеренное повышение сонливости</text>
+ 	</string>
+	
+	<string id="st_spareparts">
+		<text>Старые оружейные запчасти</text>
+	</string>
+	<string id="st_spareparts_descr">
+		<text>Запасные части старого оружия. Деревянные элементы не сказать, что находятся в хорошем состоянии, наверняка только новички могут заинтересоваться покупкой. Металлические элементы тоже относительно в неплохом состоянии.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте дробовиков(+5%)</text>
+	</string>	
+	<string id="st_sov_r_spareparts">
+		<text>Советские автоматные оружейные запчасти</text>
+	</string>
+	<string id="st_sov_r_spareparts_descr">
+		<text>Запасные части автоматического оружия с простор СНГ: пружины, бойки, ствольные коробки, приклады, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением деревянных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте советского оружия(+7%)</text>
+	</string>
+	<string id="st_nato_r_spareparts">
+		<text>Натовские автоматные оружейные запчасти</text>
+	</string>
+	<string id="st_nato_r_spareparts_descr">
+		<text>Запасные части автоматического оружия из Европы: пружины, бойки, ствольные коробки, приклады, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением некоторых полимерных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте оружия НАТО(+7%)</text>
+	</string>	
+	<string id="st_sov_p_spareparts">
+		<text>Советские пистолетные оружейные запчасти</text>
+	</string>
+	<string id="st_sov_p_spareparts_descr">
+		<text>Запасные части пистолетов с простор СНГ: пружины, бойки, рамы, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением некоторых пластиковых частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте советских  пистолетов(+6%)</text>
+	</string>
+	<string id="st_nato_p_spareparts">
+		<text>Натовские пистолетные оружейные запчасти</text>
+	</string>
+	<string id="st_nato_p_spareparts_descr">
+		<text>Запасные части пистолетов из Европы: пружины, бойки, рамы, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением некоторых полимерных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте пистолетов(+6%)</text>
+	</string>	
+	<string id="st_sov_s_spareparts">
+		<text>Советские винтовочные оружейные запчасти</text>
+	</string>
+	<string id="st_sov_s_spareparts_descr">
+		<text>Запасные части снайперского оружия с простор СНГ: пружины, бойки, ствольные коробки, приклады, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением деревянных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте советского оружия(+8%)</text>
+	</string>
+	<string id="st_nato_s_spareparts">
+		<text>Натовские винтовочные оружейные запчасти</text>
+	</string>
+	<string id="st_nato_s_spareparts_descr">
+		<text>Запасные части снайперского оружия из Европы: пружины, бойки, ствольные коробки, приклады, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением некоторых полимерных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте оружия НАТО(+8%)</text>
+	</string>
+	<string id="st_shot_spareparts">
+		<text>Оружейные запчасти для дробовиков</text>
+	</string>
+	<string id="st_shot_spareparts_descr">
+		<text>Запасные части для дробовиков: пружины, бойки, ствольные коробки, рамы, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением некоторых полимерных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте дробовиков(+7%)</text>
+	</string>
+	<string id="st_pp_spareparts">
+		<text>Оружейные запчасти для ПП</text>
+	</string>
+	<string id="st_pp_spareparts_descr">
+		<text>Запасные части для пистолетов-пулемётов: пружины, бойки, ствольные коробки, рамы, обоймы и много другое. Составляющие находятся в относительно неплохом состоянии за исключением некоторых полимерных частей.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется при:%c[0,170,170,170] ремонте пистолетов и автоматов(+6%)</text>
+	</string>
+	
+	<string id="st_itm_cutting_tools">
+		<text>Тонкие инструменты для резки</text>
+	</string>
+	<string id="st_itm_cutting_tools_descr">
+		<text>Набор из подручных средств и промышленных высокотехнологичных инструментов высшего качества для раскроя и разрезки. Позволяют разрезать и разобрать любой костюм или шлем.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,155,155,155] • %c[default]технологические приспособления\n%c[0,255,1,1] • %c[0,230,230,230]позволяют работать с высокотехнологичными предметами</text>
+	</string>
+	<string id="st_itm_cutting_tools_2">
+		<text>Инструменты для резки</text>
+	</string>
+	<string id="st_itm_cutting_tools_2_descr">
+		<text>Набор из заводских инструментов и подручных средств для раскроя и разрезки. Позволяют разобрать любой среднетехнологичный костюм, а также противогазы.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,155,155,155] • %c[default]технологические приспособления\n%c[0,255,1,1] • %c[0,230,230,230]позволяют работать с среднетехнологичными костюмами</text>
+	</string>
+	<string id="st_itm_cutting_tools_3">
+		<text>Грубые инструменты для резки</text>
+	</string>
+	<string id="st_itm_cutting_tools_3_descr">
+		<text>Набор из инструментов для раскроя и разрезки, который был собран из подручных средств. Позволяют разобрать только тканевые низкотехнологичные предметы, а также противогазы.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,155,155,155] • %c[default]технологические приспособления\n%c[0,255,1,1] • %c[0,230,230,230]позволяют работать с низкотехнологичными костюмами</text>
+	</string>	
+	<string id="st_itm_uncraft_tools_1">
+		<text>Грубые инструменты для разборки</text>
+	</string>
+	<string id="st_itm_uncraft_tools_1_descr">
+		<text>Набор из подручных средств и грубых инструментов для разборки. Позволяет разбирать пистолеты в любом виде, на большее технологичности инструментов не хватает. \n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,155,155,155] • %c[default]технологические приспособления\n%c[0,255,1,1] • %c[0,230,230,230]позволяют разбирать и обслуживать: пистолеты</text>
+	</string>
+	<string id="st_itm_uncraft_tools_2">
+		<text>Инструменты для разборки</text>
+	</string>
+	<string id="st_itm_uncraft_tools_2_descr">
+		<text>Заводской набор из инструментов и подручных средств для разборки. Позволяет разобрать почти всё кроме винтовок калибра 7.92 и некоторых снайперских винтовок.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,155,155,155] • %c[default]технологические приспособления\n%c[0,255,1,1] • %c[0,230,230,230]позволяют разбирать и обслуживать: пистолеты, пистоле-пулемёты, ружья и дробовики</text>
+	</string>
+	<string id="st_itm_uncraft_tools_3">
+		<text>Тонкие инструменты для разборки</text>
+	</string>
+	<string id="st_itm_uncraft_tools_3_descr">
+		<text>Набор из высококачественных промышленных инструментов и подручных средств для разборки. Позволяет разбирать абсолютно любое оружие.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,155,155,155] • %c[default]технологические приспособления\n%c[0,255,1,1] • %c[0,230,230,230]позволяют разбирать и обслуживать: пистолеты, пистоле-пулемёты, ружья и дробовики, винтовки и автоматы</text>
+	</string>	
+	<string id="plate_seva_name">
+		<text>Бронеэлемент «СЕВА»</text>
+	</string>
+	<string id="plate_seva_descr">
+		<text>Бронеэлемент модели «СЕВА», вырезанный из костюма. Сделан по технологии одного из киевских оборонных НИИ. Способен остановить пистолетную пулю и абсорбировать урон от холодного оружия. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+8%)</text>
+	</string>
+	<string id="plate_heavy_name">
+		<text>Бронеэлемент «ESAPI»</text>
+	</string>
+	<string id="plate_heavy_descr">
+		<text>Керамико-композитная панель модели «ESAPI». Обеспечивает защиту класса 4. Сделан из высококачественных композитных материалов и керамики, поверх элемента были нанесены защитные вещества. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+13%)</text>
+	</string>
+	<string id="plate_medium_name">
+		<text>Бронепанель «SAPI»</text>
+	</string>
+	<string id="plate_medium_descr">
+		<text>Бронепанель «SAPI» из лёгкой комбинированной брони. Обеспечивает защиту класса 3. Сделан из высококачественных материалов. С лицевой стороны бронепанелей, поверх керамического слоя, находится защитный слой, предназначенный для повышения эксплуатационной живучести бронепанели. Снаружи панель оклеена нейлоном. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+10%)</text>
+	</string>
+	<string id="plate_light_name">
+		<text>Кустарный бронеэлемент</text>
+	</string>
+	<string id="plate_light_descr">
+		<text>Кустарный бронеэлемент из кевлара и арамида. Обеспечивает защиту класса 2. Сделан в Зоне из материалов, привезённых из-за периметра. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+7%)</text>
+	</string>
+	<string id="plate_cloth_name">
+		<text>Тканевый бронеэлемент</text>
+	</string>
+	<string id="plate_cloth_descr">
+		<text>Самодельный бронеэлемент из кевлара и плотной ткани. Обеспечивает защиту класса 1. Сделан в Зоне из материалов, привезённых из-за периметра. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+5%)</text>
+	</string>
+	<string id="plate_military_name">
+		<text>Панель «Гранит-4М»</text>
+	</string>
+	<string id="plate_military_descr">
+		<text>Отечественная тяжёлая бронепанель «Гранит-4М» из композитных материалов и керамики. Обеспечивает защиту класса 5. Сделан по заказу охраняющих периметр военных частей для костюмов. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+15%)</text>
+	</string>
+	<string id="plate_monolith_name">
+		<text>Неизвестный бронеэлемент</text>
+	</string>
+	<string id="plate_monolith_descr">
+		<text>Неизвестный бронеэлемент, сделан из сплавов и армированных тканей. Крайне тяжёл. Обеспечивает защиту класса 5. Очевидно что не кустарного производства. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+15%)</text>
+	</string>
+	<string id="plate_unload_name">
+		<text>Разгрузочный карман</text>
+	</string>
+	<string id="plate_unload_descr">
+		<text>Вырезанный рагрузочный карман из разгрузки костюма. Сделан из плотной и качественной ткани. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+3%)</text>
+	</string>
+	<string id="plate_small_name">
+		<text>Небольшая бронепанель</text>
+	</string>
+	<string id="plate_small_descr">
+		<text>Небольшая самодельная бронепластина из подручных средств. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+4%)</text>
+	</string>	
+	<string id="cloth_green_name">
+		<text>Зелёная ткань</text>
+	</string>
+	<string id="cloth_green_descr">
+		<text>Зелёная ткань, выкроенная из костюма соответствующего цвета. Весьма качественная и плотная ткань. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+3%)</text>
+	</string>	
+	<string id="cloth_black_name">
+		<text>Чёрная ткань</text>
+	</string>
+	<string id="cloth_black_descr">
+		<text>Чёрная ткань, выкроенная из костюма соответствующего цвета. Весьма качественная и плотная ткань. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+3%)</text>
+	</string>
+	<string id="cloth_brown_name">
+		<text>Коричневая ткань</text>
+	</string>
+	<string id="cloth_brown_descr">
+		<text>Коричневая ткань, выкроенная из костюма соответствующего цвета. Весьма качественная и плотная ткань. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+3%)</text>
+	</string>
+	<string id="cloth_white_name">
+		<text>Светлая ткань</text>
+	</string>
+	<string id="cloth_white_descr">
+		<text>Светлая ткань, выкроенная из костюма соответствующего цвета. Весьма качественная и плотная ткань. Можно использовать в качестве ремонтного материала.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта брони(+3%)</text>
+	</string>
+	<string id="servomotor_name">
+		<text>Сервопривод</text>
+	</string>
+	<string id="servomotor_descr">
+		<text>Один из сервоприводов, который был снят с какого-либо экзоскелета. При наличии набора для ремонта можно заменить существующий сервопривод у экзоскелета.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] высокотехнологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта экзоскелетов(+20%)</text>
+	</string>
+	<string id="plastic_pieces_name">
+		<text>Полимерные материалы</text>
+	</string>
+	<string id="plastic_pieces_descr">
+		<text>Части откуда-то вырезанных полимерных деталей. Могут использоваться в качестве заплаток для костюмов или противогазов.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта костюмов и шлемов(+4%)</text>
+	</string>	
+	<string id="glass_pieces_name">
+		<text>Стекло</text>
+	</string>
+	<string id="glass_pieces_descr">
+		<text>Куски стекла вырезанного из противогазов или шлемов. Могут заменить разбитое стекло почти в любом шлеме при наличии хорошего ремонтного набора.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта шлемов(+3%)</text>
+	</string>
+	<string id="circuit_board_name">
+		<text>Печатная плата</text>
+	</string>
+	<string id="circuit_board_descr">
+		<text>Печатная плата  — пластина из диэлектрика, на поверхности и/или в объёме которой сформированы электропроводящие цепи электронной схемы. Печатная плата предназначена для электрического и механического соединения различных электронных компонентов. Электронные компоненты на печатной плате соединяются своими выводами с элементами проводящего рисунка обычно пайкой.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет\n%c[255,238,153,26] • %c[default] используется для:%c[0,170,170,170] ремонта шлемов(+3%)</text>
+	</string>	
+	<string id="servokit_name">
+		<text>Комплект для замены сервопривода</text>
+	</string>
+	<string id="servokit_descr">
+		<text>Специализированный комплект для замены сервопривода экзоскелета в полевых условиях. Включает необходимые материалы, а также инструменты для калибровки. Может быть использован только для замены сервопривода.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] военное изделие\n%c[255,238,153,26] • %c[default] используется с:%c[0,170,170,170] ремонт экзоскелетов</text>
+	</string>	
+
+	<string id="ammo-12x70-buck_self">
+		<text>Самодельная дробь</text>
+	</string>
+	<string id="ammo-12x70-buck_self_descr">
+		<text>Самодельный патрон 12-го калибра, снаряжённый дробью диаметром 6 мм. На близких дистанциях обладает огромным убойным и останавливающим действием. Предназначен для стрельбы из гладкоствольного оружия и дробовиков.\n \n%c[0,93,0,116] • %c[default] Пробивает броню класса: %c[0,170,170,170]отсутствует\n%c[0,93,0,116] • %c[default] Повреждение тканей: %c[0,170,170,170]среднее\n \n%c[0,170,170,170]ОСОБЕННОСТЬ:\n \n%c[0,93,0,116] • %c[default] увеличенный разброс шариков на малом расстоянии</text>
+	</string>	
+	<string id="ammo12x70_base_name">
+		<text>Набор для изготовления дроби 12x70</text>
+	</string>
+	<string id="ammo12x70_base_descr">
+		<text>Пыжи, гильзы, дробь, перед вами все необходимые составляющие патронов калибра 12x70. Похоже, что их хватит на 10 патронов.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default]технологическое приспособление\n%c[0,253,155,155] • %c[0,240,140,140]необходимы инструменты для изготовления дроби</text>
+	</string>
+	<string id="st_ammo12x76zhekan_base">
+		<text>Набор для изготовления патронов 12x76 Жекан</text>
+	</string>
+	<string id="st_ammo12x76zhekan_base_descr">
+		<text>Пыжи, гильзы, дробь, перед вами все необходимые составляющие патронов калибра 12x76. Похоже, что их хватит на 30 штук.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	<string id="ammo12x70_tools_name">
+		<text>Инструменты для изготовления дроби 12x70</text>
+	</string>
+	<string id="ammo12x70_tools_descr">
+		<text>Все необходимые инструменты для изготовления кустарных патронов 12x70.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default]технологическое приспособление\n%c[0,153,255,255] • %c[default]технологический предмет</text>
+	</string>
+	<string id="sew_tools_name">
+		<text>Швейный набор</text>
+	</string>
+	<string id="sew_tools_descr">
+		<text>Нитки, иглы, молнии и собачки. Набор со всем необходимым для шитья и вышивания.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default]технологические приспособления\n%c[0,153,255,255] • %c[default]технологический предмет</text>
+	</string>
+	<string id="sleepbag_base_name">
+		<text>Набор из ткани, поролона и молнии</text>
+	</string>
+	<string id="sleepbag_base_descr">
+		<text>Все основные компоненты для изготовления спальника. Ткань, поролон, молния и многое другое.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default]технологические приспособления\n%c[0,253,155,155] • %c[0,240,140,140]необходим швейный набор</text>
+	</string>
+	<string id="backpack_base_name">
+		<text>Набор из ткани, молнии и заклёпок</text>
+	</string>
+	<string id="backpack_base_descr">
+		<text>Все основные компоненты для изготовления одежды или тканевого предмета. Прорезиненная ткань, молнии, заклёпки и многое другое.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default]технологические приспособления\n%c[0,253,155,155] • %c[0,240,140,140]необходим швейный набор</text>
+	</string>
+	<string id="st_selfroll_name">
+		<text>Самокрутки</text>
+	</string>
+	<string id="st_selfroll_descr">
+		<text>Самокрутки сделанные из табака и подручной бумаги.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] стимулятор\n%c[0,153,255,255] • %c[default] низкокачественное изделие\n%c[0,153,255,255] • %c[default] средняя защита от пси-воздействий\n%c[0,153,255,255] • %c[default] среднее повышение сонливости\n%c[ui_green] • %c[default] вредно для организма</text>
+	</string>
+
+	<!-- Radiated Items -->
+	<string id="st_antirad_radiated">
+		<text>Противорадиационный препарат Б-190 «Индралин» (облучённый)</text>
+	</string>
+	<string id="st_antirad_iodid_radiated">
+		<text>Противорадиационный препарат йодистый калий РС-2 (облучённый)</text>
+	</string>
+	<string id="st_psy_complex_radiated">
+		<text>Психоделин (облучённый)</text>
+	</string>
+	<string id="st_bread_radiated">
+		<text>Свежий хлеб (облучённый)</text>
+	</string>
+	<string id="st_breadold_radiated">
+		<text>Старый хлеб (облучённый)</text>
+	</string>
+	<string id="st_sandwich_radiated">
+		<text>Бутерброд с колбасой (облучённый)</text>
+	</string>
+	<string id="st_joint_radiated">
+		<text>Косяк конопли (облучённый)</text>
+	</string>
+	<string id="st_rebirth_radiated">
+		<text>Наркотический анальгетик «Возрождение» (облучённый)</text>
+	</string>
+	<string id="st_beans_radiated">
+		<text>Тушёная фасоль (облучённая)</text>
+	</string>
+	<string id="st_beans_radiated_opened">
+		<text>Тушёная фасоль (облучённая, открытая)</text>
+	</string>
+	<string id="st_beef_radiated">
+		<text>Тушёнка (облучённая)</text>
+	</string>
+	<string id="st_beef_radiated_opened">
+		<text>Тушёнка (облучённая, открытая)</text>
+	</string>
+	<string id="st_bullheads_radiated">
+		<text>Бычки в томате (облучённые)</text>
+	</string>
+	<string id="st_bullheads_radiated_opened">
+		<text>Бычки в томате (облучённые, открытые)</text>
+	</string>
+	<string id="st_chili_radiated">
+		<text>Бобы «Чили» (облучённые)</text>
+	</string>
+	<string id="st_chili_radiated_opened">
+		<text>Бобы «Чили» (облучённые, открытые)</text>
+	</string>
+	<string id="st_conserva_radiated">
+		<text>Консервы «Завтрак туриста» (облучённая)</text>
+	</string>
+	<string id="st_conserva_radiated_opened">
+		<text>Консервы «Завтрак туриста» (облучённая, открытая)</text>
+	</string>
+	<string id="st_corn_radiated">
+		<text>Консервированная кукуруза (облучённая)</text>
+	</string>
+	<string id="st_corn_radiated_opened">
+		<text>Консервированная кукуруза (облучённая, открытая)</text>
+	</string>
+	<string id="st_olivki_radiated">
+		<text>Банка маслин (облучённая)</text>
+	</string>
+	<string id="st_olivki_radiated_opened">
+		<text>Банка маслин (облучённая, открытая)</text>
+	</string>
+	<string id="st_sardina_radiated">
+		<text>Сардины «Пиратские» (облучённые)</text>
+	</string>
+	<string id="st_sardina_radiated_opened">
+		<text>Сардины «Пиратские» (облучённые, открытые)</text>
+	</string>
+	<string id="st_tomato_radiated">
+		<text>Консервированные томаты (облучённые)</text>
+	</string>
+	<string id="st_tomato_radiated_opened">
+		<text>Консервированные томаты (облучённые, открытые)</text>
+	</string>
+	<string id="st_tushonka_radiated">
+		<text>Тушёнка из говядины «Абакан» (облучённая)</text>
+	</string>
+	<string id="st_tushonka_radiated_opened">
+		<text>Тушёнка из говядины «Абакан» (облучённая, открытая)</text>
+	</string>
+	<string id="st_drug_anabiotic_radiated">
+		<text>Анабиотик (облучённый)</text>
+	</string>
+	<string id="st_drug_antidot_radiated">
+		<text>Антидот (облучённый)</text>
+	</string>
+	<string id="st_drug_booster_radiated">
+		<text>«Геркулес» (облучённый)</text>
+	</string>
+	<string id="st_drug_coagulant_radiated">
+		<text>«Барвинок» (облучённый)</text>
+	</string>
+	<string id="st_drug_psy_blockade_radiated">
+		<text>Пси-блокада (облучённая)</text>
+	</string>
+	<string id="st_drug_radioprotector_radiated">
+		<text>Радиопротектор (облучённый)</text>
+	</string>
+	<string id="st_drink_crow_radiated">
+		<text>«Клюв» (облучённый)</text>
+	</string>
+	<string id="st_energy_drink_radiated">
+		<text>Крепкий энергетик (облучённый)</text>
+	</string>
+	<string id="st_kolbasa_radiated">
+		<text>Колбаса «Диетическая» (облучённая)</text>
+	</string>
+	<string id="st_medkit_radiated">
+		<text>Аптечка первой помощи АИ-4 (облучённая)</text>
+	</string>
+	<string id="st_medkit_army_radiated">
+		<text>Армейская аптечка АИ-4 (облучённая)</text>
+	</string>
+	<string id="st_medkit_scientic_radiated">
+		<text>Научная аптечка АИ-4 (облучённая)</text>
+	</string>
+	<string id="st_medkit_elite_radiated">
+		<text>Элитная аптечка АИ-5 (облучённый)</text>
+	</string>
+	<string id="st_glucose_s_radiated">
+		<text>Малая инъекция глюкозы (облучённая)</text>
+	</string>
+	<string id="st_glucose_radiated">
+		<text>Большая инъекция глюкозы (облучённая)</text>
+	</string>
+	<string id="st_injector_radiated">
+		<text>Медицинский инжектор "Гюрза" с новокаином (облучённый)</text>
+	</string>
+	<string id="st_injector_empty_radiated">
+		<text>Медицинский инжектор "Гюрза" (облучённый)</text>
+	</string>
+	<string id="st_sleepingpills_radiated">
+		<text>Снотворное (облучённое)</text>
+	</string>
+	<string id="st_vodka_radiated">
+		<text>Водка «Немирофф» (облучённая)</text>
+	</string>
+	<string id="st_vodka2_radiated">
+		<text>Водка «Путинка» (облучённая)</text>
+	</string>
+	<string id="st_tea_radiated">
+		<text>Термос с чаем (облучённый)</text>
+	</string>
+	<string id="st_cocaine_radiated">
+		<text>Кокаин (облучённый)</text>
+	</string>
+	<string id="st_tetanus_radiated">
+		<text>Вакцина от столбняка (облучённая)</text>
+	</string>
+	<string id="st_adrenalin_radiated">
+		<text>Эпинефрин (облучённый)</text>
+	</string>
+	<string id="st_morphine_radiated">
+		<text>Инжектор с гидрохлорид морфина (облучённый)</text>
+	</string>
+	<string id="st_novocaine_radiated">
+		<text>Ампула с новокаином (облучённая)</text>
+	</string>
+	<string id="st_salicidic_acid_radiated">
+		<text>Ампула салициловой кислоты (облучённая)</text>
+	</string>
+	<string id="st_sausage_radiated">
+		<text>Копчёная колбаса (облучённая)</text>
+	</string>
+	<string id="st_mineral_water_radiated">
+		<text>Минеральная вода (облучённая)</text>
+	</string>
+	<string id="st_termos_water_radiated">
+		<text>Термос с водой (облучённый)</text>
+	</string>
+	<string id="st_beer_radiated">
+		<text>Украинское пиво (облучённое)</text>
+	</string>
+	<string id="st_raisins_radiated">
+		<text>Изюм (облучённый)</text>
+	</string>
+	<string id="st_chocolate_radiated">
+		<text>Шоколад «Российский» (облучённый)</text>
+	</string>
+	<string id="st_mint_radiated">
+		<text>Мятные конфеты «Altoids» (облучённые)</text>
+	</string>
+	<string id="st_caffeine_radiated">
+		<text>Таблетки кофеина (облучённые)</text>
+	</string>
+	<string id="st_cuban_cigar_radiated">
+		<text>Кубинская сигара (облучённая)</text>
+	</string>
+	<string id="st_cigarettes_marlboro_radiated">
+		<text>Сигареты «Marlboro» (облучённые)</text>
+	</string>
+	<string id="st_cigarettes_lucky_radiated">
+		<text>Сигареты «Lucky Strike» (облучённые)</text>
+	</string>
+	<string id="st_cigarettes_russian_radiated">
+		<text>Сигареты «Искра» (облучённые)</text>
+	</string>
+	<string id="st_cigarettes_slava_radiated">
+		<text>Сигареты «Слава» (облучённые)</text>
+	</string>
+	<string id="st_nuts_radiated">
+		<text>Банка с орешками (облучённая)</text>
+	</string>
+	<string id="st_nuts_radiated_opened">
+		<text>Банка с орешками (облучённая, открытая)</text>
+	</string>
+	<string id="st_salmon_radiated">
+		<text>Копчёный лосось (облучённый)</text>
+	</string>
+	<string id="st_salmon_radiated_opened">
+		<text>Копчёный лосось (облучённый, открытый)</text>
+	</string>
+	<string id="st_mre_radiated">
+		<text>Сухой паёк (облучённый)</text>
+	</string>
+	<string id="st_ration_ru_radiated">
+		<text>Российский рацион питания ИРП-Б (облучённый)</text>
+	</string>
+	<string id="st_ration_ukr_radiated">
+		<text>Украинский рацион питания (облучённый)</text>
+	</string>
+	<string id="st_survival_kit_radiated">
+		<text>Медицинский набор "ИШ-3" (облучённый)</text>
+	</string>
+	<string id="st_improvised_splint_radiated">
+		<text>Самодельная шина (облучённая)</text>
+	</string>
+	<string id="st_pot_permanganate_radiated">
+		<text>Марганцовка (облучённая)</text>
+	</string>
+	<string id="st_activated_charcoal_radiated">
+		<text>Активированный уголь (облучённая)</text>
+	</string>
+	<string id="st_flask_radiated">
+		<text>Фляжка с очищенной водой (облучённая)</text>
+	</string>
+	<string id="st_bottle_metal_radiated">
+		<text>Металлическая фляжка с самогоном (облучённая)</text>
+	</string>
+	<string id="st_bottle_water_radiated">
+		<text>Пластиковая бутылка c очищенной водой (облучённая)</text>
+	</string>
+	<string id="st_bottle_glass_radiated">
+		<text>Бутылка c очищенной водой (облучённая)</text>
+	</string>
+	<string id="st_tobacco_radiated">
+		<text>Российский табак (облучённый)</text>
+	</string>
+	<string id="st_marijuana_radiated">
+		<text>Марихуана (облучённая)</text>
+	</string>
+	<string id="st_vodka_quality_radiated">
+		<text>Водка «Столичная» (облучённая)</text>
+	</string>
+	<string id="st_wine_radiated">
+ 		<text>Вино "Мерло" (облучённое)</text>
+ 	</string>
+	<string id="st_sprite_radiated">
+		<text>"Спрайт" (облучённый)</text>
+	</string>	
+	<string id="st_cocacola_radiated">
+		<text>"Кока-Кола" (облучённая)</text>
+	</string>	
+	<string id="st_redbull_radiated">
+		<text>Энергетик "Ред Булл" (облучённый)</text>
+	</string>	
+	<string id="st_jaguar_radiated">
+		<text>Энергетик "Ягуар" (облучённый)</text>
+	</string>
+	<string id="st_twix_radiated">
+		<text>Шоколадно-протеиновая смесь (облучённая)</text>
+	</string>
+	<string id="st_snickers_radiated">
+		<text>"Сникерс" (облучённый)</text>
+	</string>
+	<string id="st_mars_radiated">
+		<text>"Марс" (облучённый)</text>
+	</string>
+	<string id="st_cheese_radiated">
+		<text>Плавленый сыр «Янтарь» (облучённый)</text>
+	</string>
+	<string id="st_galet_radiated">
+		<text>Галеты (облучённые)</text>
+	</string>	
+	<string id="st_shokolad_radiated">
+		<text>Шоколад «Алёнушка» (облучённый)</text>
+	</string>
+	<string id="st_batonchik_radiated">
+		<text>Шоколадный батончик (облучённый)</text>
+	</string>
+	<string id="st_chips_radiated">
+		<text>Чипсы (облучённые)</text>
+	</string>
+	<string id="st_juice_radiated">
+		<text>Апельсиновый сок (облучённый)</text>
+	</string>
+	<string id="st_amphetamines_radiated">
+		<text>Амфетамин (облучённый)</text>
+	</string>	
+	<string id="st_diazepam_radiated">
+		<text>Диазепам (облучённый)</text>
+	</string>
+	<string id="st_bandage_radiated">
+		<text>Бинт (облучённый)</text>
+	</string>
+	<string id="st_bandage_enhanced_radiated">
+		<text>Спец бинт (облучённый)</text>
+	</string>
+	<string id="st_bandage_special_radiated">
+		<text>Специальный бинт (облучённый)</text>
+	</string>
+	<string id="st_bandage_selfmade_radiated">
+		<text>Самодельная повязка (облучённая)</text>
+	</string>
+	<string id="st_drug_engine_radiated">
+		<text>«ЛСД Протектор» (облучённый)</text>
+	</string>
+	<string id="st_drug_cat_eye_radiated">
+		<text>Таблетки «Кошачий глаз» (облучённые)</text>
+	</string>
+	<string id="st_bag_medkit_1_radiated">
+		<text>Сумка СМВ (облучённая)</text>
+	</string>
+	<string id="st_bag_medkit_2_radiated">
+		<text>Армейская сумка СМВ (облучённая)</text>
+	</string>
+	<string id="st_bag_medkit_3_radiated">
+		<text>Сумка СМВ учёных (облучённая)</text>
+	</string>
+	<string id="st_bag_medkit_4_radiated">
+		<text>Особая сумка СМВ (облучённая)</text>
+	</string>
+	<string id="st_hangover_radiated">
+		<text>Таблетки от похмелья (облучённые)</text>
+	</string>
+	<string id="st_tranquilizer_radiated">
+		<text>Транквилизатор (облучённый)</text>
+	</string>
+	<string id="st_detonator">
+		<text>Детонатор</text>
+	</string>
+	<string id="st_detonator_descr">
+		<text>Представляет из себя часть взрывного устройства, содержащая заряд взрывчатого вещества, более чувствительного к внешним воздействиям, чем бризантное взрывчатое вещество основного заряда. Детонатор предназначен для надёжного возбуждения взрыва основного заряда артиллерийского снаряда, мины, авиабомбы, боевой части ракеты, торпеды, а также подрывного заряда. \n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	<string id="st_blades">
+		<text>Лезвия для бритья</text>
+	</string>
+	<string id="st_blades_descr">
+		<text>Старые лезвия для бритья, очень острые. Можно применить для разрезания тканей и других материалов. \n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	<string id="st_scissors">
+		<text>Ножницы</text>
+	</string>
+	<string id="st_scissors_descr">
+		<text>Нержавеющие ножницы, заточенные.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	<string id="st_scissors_and_blades">
+		<text>Ножницы и лезвия для бритья</text>
+	</string>
+	<string id="st_scissors_and_blades_descr">
+		<text>Набор из старых лезвий для бритья и заточенных, нержавеющих ножниц.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	<string id="st_scissors_and_blades_and_knife">
+		<text>Ножницы, лезвия и швейцарский нож</text>
+	</string>
+	<string id="st_scissors_and_blades_and_knife_descr">
+		<text>Набор из старых лезвий для бритья и заточенных, нержавеющих ножниц, а так же мультифункциональный швейцарский нож. Отличный набор чтобы разобрать любую экипировку.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	<string id="st_knife_and_cutlery">
+		<text>Швейцарский нож и столовые приборы</text>
+	</string>
+	<string id="st_knife_and_cutlery_descr">
+		<text>Набор из швейцарского ножа и столовых приборов. Хорошо подойдёт для разборки чего нибудь мелкого.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет</text>
+	</string>
+	
+	<string id="st_sd_hacking_soft_title">
+		<text>Флэш карта с программой xHack</text>
+	</string>
+	<string id="st_sd_hacking_soft_descr">
+		<text>Флэш карта с записанной опасной программой вирусом - xHack версии 1.0. В узких кругах известна тем, что способна взломать любые учётные записи и счета на устройстве жертвы, перенаправляя все найденные ресурсы на указанные адреса. Может взломать любой вид цифрового устройство, независимо от установленной операционной системы.\n \n%c[default]СВОЙСТВА:\n%c[0,153,255,255] • %c[default] взлом счетов и личных файлов.\n%c[255,238,153,26] • %c[default] Внимание:%c[0,170,170,170] использование данного ПО нелегально</text>
+	</string>
+	
+	<string id="st_delivery_container_name">
+		<text>Контейнер</text>
+	</string>
+	<string id="st_delivery_container_descr">
+		<text>Тяжёлый металлический контейнер, в котором можно перевозить снаряжение или провизию. Достаточно тяжёлый чтобы переносить в одиночку.\n \n%c[default]СВОЙСТВА:\n \n%c[0,153,255,255] • %c[default] технологичный предмет \n%c[0,153,255,255] • %c[default] используется для снабжения местными торговцами</text>
+	</string>
+	
+	<string id="st_mushroom">
+		<text>Чернобыльский гриб</text>
+	</string>
+	<string id="st_mushroom_descr">
+		<text>Один из съедобных видов грибов, произрастающих на территории Зоны и за её пределами. Не имеет каких-либо мутаций. Съедобен после продолжительной варки или жарки, слегка фонит. Частенько используется местными наркоманами, для изготовления транквилизаторов и сильнодействующего обезболивающего. Произрастает чаще всего в болотистой и тёмной местности. Рекомендуется воздержаться от употребления грибов собранных в Зоне, так как они накапливают тяжёлые металлы, радионуклиды и прочие вредные вещества.\n \n%c[default]СВОЙСТВА:\n%c[0,153,255,255] • %c[default] сырая пища\n%c[0,0,255,30] • %c[default] пища низкого качества\n%c[0,153,255,255] • %c[default] загрязнённый источник питания\n%c[0,153,255,255] • %c[default] можно использовать в медицине</text>
+	</string>
+	<string id="st_mushroom_muh">
+		<text>Мухомор</text>
+	</string>
+	<string id="st_mushroom_muh_descr">
+		<text>Большой мухомор, который можно найти в пределах Зоны. В отличии от своих собратьев значительно ядовитее ввиду того, что содержит много вредных и радиоактивных веществ. Можно использовать для приготовления медикаментов. Рекомендуется воздержаться от употребления грибов собранных в Зоне, так как они накапливают тяжёлые металлы, радионуклиды и прочие вредные вещества.\n \n%c[default]СВОЙСТВА:\n%c[0,153,255,255] • %c[default] сырая пища\n%c[0,0,255,30] • %c[default] пища низкого качества\n%c[0,0,255,30] • %c[default] возможно приготовить\n%c[0,153,255,255] • %c[default] можно использовать в медицине\n%c[ui_green] • %c[default] ядовитая пища</text>
+	</string>
+	<string id="st_mushroom_fried">
+		<text>Варёный чернобыльский гриб</text>
+	</string>
+	<string id="st_mushroom_fried_descr">
+		<text>Большой варёный гриб. Съедобен, имеет неплохой вкус после продолжительной варки. Частенько используется местными гурманами как альтернативный источник питания, несмотря но то что всё ещё слегка фонит. Произрастает чаще всего в болотистой и тёмной местности. Рекомендуется воздержаться от употребления грибов собранных в Зоне, так как они накапливают тяжёлые металлы, радионуклиды и прочие вредные вещества.\n \n%c[default]СВОЙСТВА:\n%c[0,153,255,255] • %c[default] варёная пища\n%c[0,153,255,255] • %c[default] загрязнённый источник питания\n%c[0,153,255,255] • %c[default] можно использовать в медицине</text>
+	</string>
+	<string id="st_crow_egg">
+		<text>Воронье яйцо</text>
+	</string>
+	<string id="st_crow_egg_descr">
+		<text>Обыкновенное воронье яйцо. Весьма калорийный продукт, утоляет голод и незначительно снижает дозу радиации. В связи с отсутствием в Зоне куриц и прочих яйце несущих существ, является местным деликатесом.\n \n%c[default]СВОЙСТВА:\n%c[0,153,255,255] • %c[default] сырая пища\n%c[0,153,255,255] • %c[default] загрязнённый источник питания</text>
+	</string>
+	<string id="st_crow_boiled_egg">
+		<text>Варёное воронье яйцо</text>
+	</string>
+	<string id="st_crow_boiled_egg_descr">
+		<text>>Варёное воронье яйцо, весьма калорийный продукт, утоляет голод и незначительно снижает дозу радиации. В связи с отсутствием в Зоне куриц и прочих яйце несущих существ, является местным деликатесом.\n \n%c[default]СВОЙСТВА:\n%c[0,153,255,255] • %c[default] варёная пища\n%c[0,153,255,255] • %c[default] чистый источник питания</text>
+	</string>
+	<string id="st_dosimeter">
+		<text>Дозиметр «Припять»</text>
+	</string>
+	<string id="st_dosimeter_descr">
+		<text>Дозиметр «Припять» РКС-20.03  — электронно-измерительный прибор, производства СССР. Предназначен для индивидуального и коллективного пользования при измерении мощности эквивалентной дозы фонового ионизирующего излучения, плотности потока бета-излучения, удельной активности в жидких и сыпучих веществах. Разработан в 1980—1990-х годах на киевском заводе им. Королёва. Лучший для своего времени и самый популярный бытовой дозиметр, начиная с 1990-х годов прошлого века и по сегодняшний день включительно. Был у каждого сотрудника ЧАЭС. Измеряет мощность излучения в мкР/ч. Максимальный порог - 10000 мкР/ч. Такой уровень излучения считается смертельным для человека, находящегося без защиты.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,153,255,255] • %c[default] технологическое приспособление\n%c[0,153,255,255] • %c[default] Питание: Батарейка 9В (CR-9V)\n%c[0,153,255,255] • %c[default] малое потребление энергии</text>
+	</string>
+	
+	<string id="st_kovalev_pda_name">
+		<text>Ноутбук Дуброва</text>
+	</string>
+	<string id="st_kovalev_pda_descr">
+		<text>В ноутбуке хранятся данные исследований аномалий на Агропроме. \nЗадача 3.7 выполнена не полностью, отмечены несколько мест, некоторые зачёркнуты, другие видимо ещё не исследованы. Так же указаны координаты, где ещё надо собрать образцы. \n \nНепрочитанные Сообщения: \n%c[0,225,225,225] • %c[default]Дубров, я тут нашёл кое что... Мне ещё некоторые образцы принесли, я всё записал, тебе это надо видеть. \n%c[0,225,225,225] • %c[default]Дубров, выйди на связь. \n%c[default] \nХАРАКТЕРИСТИКИ:\n%c[default] • %c[default] Техническое устройство\n%c[default] • %c[default] Личная вещь</text>
+	</string>
+	<string id="st_pirogov_pda_name">
+		<text>КПК Ассистента</text>
+	</string>
+	<string id="st_pirogov_pda_descr">
+		<text>КПК погибшего сталкера, который помогал кандидату Пирогову размещать опытные образцы в аномалиях на свалке. В КПК осталась карта с метками в ключевых местах.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,225,225,225] • %c[default] Техническое устройство\n%c[0,153,255,255] • %c[default] Личная вещь</text>
+	</string>
+	<string id="st_strelok_pda_name">
+		<text>КПК Стрелка</text>
+	</string>
+	<string id="st_strelok_pda_descr">
+		<text>КПК знаменитого Стрелка. По содержимому можно понять, что он им почти не успел попользоваться. Из сохранившейся информации только план перехода на ЧАЭС и подробная карта Рыжего леса с картой аномалий.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,225,225,225] • %c[default] Техническое устройство\n%c[0,153,255,255] • %c[default] Личная вещь</text>
+	</string>
+	<string id="st_chernov_docs_name">
+		<text>Документы мертвого леса</text>
+	</string>
+	<string id="st_chernov_docs_descr">
+		<text>Бумаги из лаборатории Х-19. Большинство страниц отсырели, прочитать их невозможно. Но на схемах можно разобрать карту местности близь радара. А также методы крепления экспериментальных образцов на деревьях.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,225,225,225] • %c[default] бумага\n%c[0,153,255,255] • %c[default] Личная вещь</text>
+	</string>		
+	<string id="st_vorobushkin_pda_name">
+		<text>Модуль памяти ВНЗ «Круг»</text>
+	</string>
+	<string id="st_vorobushkin_pda_descr">
+		<text>Модуль снятый с оборудования станции возвратно-наклонного зондирования «Круг». Содержит спектрограмму территории возле станции с подробной картой аномалий.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,225,225,225] • %c[default] Техническое устройство\n%c[0,153,255,255] • %c[default] Личная вещь</text>
+	</string>	
+	<string id="ah_gramota_info">
+		<text>Благодарственное письмо</text>
+	</string>
+	<string id="ah_gramota_desc">
+		<text>Именное благодарственное письмо, с признанием ваших заслуг перед наукой, подписанное лично Академиком Скабинским. А также рекомендация принять подателя этой бумаги кандидатом в Чернобыльский Зональный Институт.\n \n%c[default]ХАРАКТЕРИСТИКИ:\n%c[0,225,225,225] • %c[default] бумага\n%c[0,153,255,255] • %c[default] Личная вещь</text>
+	</string>
+</string_table>

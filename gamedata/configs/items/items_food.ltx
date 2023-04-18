@@ -1,0 +1,962 @@
+;=====================================================================
+;							IMPORTED FOOD 
+;=====================================================================
+[bread]:booster, can_divide
+$spawn 					= "food and drugs\bread"
+visual					= dynamics\devices\dev_bred\dev_bred.ogf
+description				= st_bread_descr
+inv_name				= st_bread
+inv_name_short			= st_bread
+inv_weight				= 0.380
+inv_volume				= 1
+inv_grid_x				= 14
+inv_grid_y				= 66
+cost					= 882
+eat_satiety				= 0.140
+eat_thirst				= -0.050
+eat_sleepiness			= 1
+eat_alcohol             = -0.03
+max_uses				= 3
+use_condition			= true
+item_degrade			= 72 ;3 days
+anim_section			= anm_bread
+attach_angle_offset		= -0.287979, 1.560923, 1.544060
+attach_position_offset	= 0.096910, -0.013594, 0.107925
+angle_offset			= 1.570790,1.570790,3.92699
+consume_type			= eat
+
+[bread_radiated]:bread
+inv_name				= st_bread_radiated
+inv_name_short			= st_bread_radiated
+eat_radiation			= 0.200
+can_clean				= false
+;=====================================================================
+[breadold]:bread
+description				= st_breadold_descr
+inv_name				= st_breadold
+inv_name_short			= st_breadold
+inv_weight				= 0.340
+inv_grid_x				= 14
+inv_grid_y				= 67
+cost					= 675
+eat_satiety				= 0.110
+eat_thirst				= -0.070
+eat_sleepiness			= 1
+eat_toxicity			= 0.025
+item_degrade			= 48
+
+[breadold_radiated]:breadold
+inv_name				= st_breadold_radiated
+inv_name_short			= st_breadold_radiated
+eat_radiation			= 0.200
+can_clean				= false
+;=====================================================================
+[sandwich]:booster
+$spawn 					= "food and drugs\bread"
+visual					= dynamics\equipments\item_sandwich.ogf
+description				= st_sandwich_descr
+inv_name				= st_sandwich
+inv_name_short			= st_sandwich
+inv_weight				= 0.095
+inv_volume				= 0.15
+inv_grid_x				= 14
+inv_grid_y				= 68
+cost					= 415
+eat_satiety				= 0.315
+eat_thirst				= -0.085
+eat_sleepiness			= 1
+item_degrade			= 72
+anim_section			= anm_bread
+consume_type			= eat
+
+[sandwich_radiated]:sandwich
+inv_name				= st_sandwich_radiated
+inv_name_short			= st_sandwich_radiated
+eat_radiation			= 0.200
+can_clean				= false
+;=====================================================================
+[kolbasa]:booster, can_divide
+$spawn 					= "food and drugs\kolbasa"
+visual					= dynamics\devices\dev_kolbasa\dev_kolbasa.ogf
+description				= st_kolbasa_descr
+inv_name				= st_kolbasa
+inv_name_short			= st_kolbasa
+inv_weight				= 0.328
+inv_volume				= 0.5
+inv_grid_x				= 13
+inv_grid_y				= 68
+cost					= 1324
+eat_satiety				= 0.175
+eat_thirst				= -0.070
+eat_sleepiness			= 1
+eat_alcohol             = -0.04
+item_degrade			= 72
+max_uses				= 3
+use_condition			= true
+anim_section			= anm_kolbasa
+attach_angle_offset		= 0.440521, 1.378287, -0.644026
+attach_position_offset	= 0.104196, -0.010821, 0.076969
+position_offset			= 0.0,0.0,0.0 0.117
+angle_offset			= 1.570790,1.570790,3.92699
+consume_type			= eat
+
+[kolbasa_radiated]:kolbasa
+inv_name				= st_kolbasa_radiated
+inv_name_short			= st_kolbasa_radiated
+eat_radiation			= 0.200
+can_clean				= false
+;=====================================================================
+[sausage]:booster, can_divide
+$spawn 					= "food and drugs\kolbasa"
+visual					= dynamics\devices\dev_sausage\dev_sausage.ogf
+description				= st_sausage_descr
+inv_name				= st_sausage
+inv_name_short			= st_sausage
+inv_weight				= 0.340
+inv_volume				= 0.5
+inv_grid_x				= 17
+inv_grid_y				= 67
+cost					= 1285
+eat_satiety				= 0.172
+eat_thirst				= -0.070
+eat_sleepiness			= 1
+item_degrade			= 72
+max_uses				= 3
+use_condition			= true
+anim_section			= anm_kolbasa
+consume_type			= eat
+
+[sausage_radiated]:sausage
+inv_name				= st_sausage_radiated
+inv_name_short			= st_sausage_radiated
+eat_radiation			= 0.200
+can_clean				= false
+;=====================================================================
+;							CANNED FOOD
+;=====================================================================
+[beans]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_beans\dev_beans.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_beans
+inv_name_short			= st_beans
+description				= st_beans_descr
+inv_weight				= 0.340
+inv_volume				= 0.5
+inv_grid_x				= 18
+inv_grid_y				= 67
+inv_category			= 5
+eat_satiety				= 0.447
+eat_thirst				= -0.250
+eat_sleepiness			= 1
+cost					= 1175
+
+[beans_opened]:booster, beans
+inv_name				= st_beans_opened
+inv_name_short			= st_beans_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 12
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_beans
+next_use_item			= conservnaya_banka2
+
+[beans_radiated]:beans
+inv_name				= st_beans_radiated
+inv_name_short			= st_beans_radiated
+eat_radiation			= 0.200
+
+[beans_radiated_opened]:beans_opened
+inv_name				= st_beans_radiated_opened
+inv_name_short			= st_beans_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[bullheads]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_foods\kilka.ogf
+class                   = II_FOOD
+show_on_use				= false
+description				= st_bullheads_descr
+inv_name				= st_bullheads
+inv_name_short			= st_bullheads
+inv_weight				= 0.240
+inv_volume				= 0.350
+inv_grid_x				= 18
+inv_grid_y				= 62
+inv_category			= 5
+eat_satiety				= 0.211
+eat_thirst				= -0.200
+eat_sleepiness			= 1
+cost					= 742
+
+[bullheads_opened]:booster, bullheads
+inv_name				= st_bullheads_opened
+inv_name_short			= st_bullheads_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 19
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_sardina
+next_use_item			= conservnaya_banka
+
+[bullheads_radiated]:bullheads
+inv_name				= st_bullheads_radiated
+inv_name_short			= st_bullheads_radiated
+eat_radiation			= 0.200
+
+[bullheads_radiated_opened]:bullheads_opened
+inv_name				= st_bullheads_radiated_opened
+inv_name_short			= st_bullheads_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[beef]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_tushonka\dev_tushonka.ogf
+class                   = II_FOOD
+show_on_use				= false
+description				= st_beef_descr
+inv_name				= st_beef
+inv_name_short			= st_beef
+inv_weight				= 0.451
+inv_volume				= 0.5
+inv_grid_x				= 3
+inv_grid_y				= 68
+inv_category			= 5
+eat_alcohol				= -0.04
+eat_satiety				= 0.456
+eat_thirst				= -0.200
+eat_sleepiness			= 1
+cost					= 1208
+
+[beef_opened]:booster, beef
+inv_name				= st_beef_opened
+inv_name_short			= st_beef_opened
+show_on_use				= true
+cost					= 60
+inv_grid_x				= 4
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_tushenka
+next_use_item			= conservnaya_banka2
+
+[beef_radiated]:beef
+inv_name				= st_beef_radiated
+inv_name_short			= st_beef_radiated
+eat_radiation			= 0.200
+
+[beef_radiated_opened]:beef_opened
+inv_name				= st_beef_radiated_opened
+inv_name_short			= st_beef_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[chili]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_chili\dev_chili.ogf
+class                   = II_FOOD
+show_on_use				= false
+description				= st_chili_descr
+inv_name				= st_chili
+inv_name_short			= st_chili
+inv_weight				= 0.475
+inv_volume				= 0.6
+inv_grid_x				= 19
+inv_grid_y				= 66
+inv_category			= 5
+eat_satiety				= 0.350
+eat_thirst				= -0.250
+eat_sleepiness			= 1
+cost					= 1134
+
+[chili_opened]:booster, chili
+inv_name				= st_chili_opened
+inv_name_short			= st_chili_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 11
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_chili
+next_use_item			= conservnaya_banka2
+
+[chili_radiated]:chili
+inv_name				= st_chili_radiated
+inv_name_short			= st_chili_radiated
+eat_radiation			= 0.200
+
+[chili_radiated_opened]:chili_opened
+inv_name				= st_chili_radiated_opened
+inv_name_short			= st_chili_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[conserva]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_conserv\dev_conserv.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_conserva
+inv_name_short			= st_conserva
+description				= st_conserva_descr
+inv_weight				= 0.325
+inv_volume				= 0.4
+inv_grid_x				= 15
+inv_grid_y				= 67
+inv_category			= 5
+eat_satiety				= 0.435
+eat_thirst				= -0.250
+eat_sleepiness			= 1
+eat_alcohol				= -0.05
+cost					= 1150
+
+[conserva_opened]:booster, conserva
+inv_name				= st_conserva_opened
+inv_name_short			= st_conserva_opened
+show_on_use				= true
+cost					= 60
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_conserva
+next_use_item			= conservnaya_banka
+
+[conserva_radiated]:conserva
+inv_name				= st_conserva_radiated
+inv_name_short			= st_conserva_radiated
+eat_radiation			= 0.200
+
+[conserva_radiated_opened]:conserva_opened
+inv_name				= st_conserva_radiated_opened
+inv_name_short			= st_conserva_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[corn]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_corn\dev_corn.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_corn
+inv_name_short			= st_corn
+description				= st_corn_descr
+inv_weight				= 0.340
+inv_volume				= 0.5
+inv_grid_x				= 18
+inv_grid_y				= 66
+inv_category			= 5
+eat_satiety				= 0.360
+eat_thirst				= 0.050
+eat_sleepiness			= 1
+cost					= 1029
+
+[corn_opened]:booster, corn
+inv_name				= st_corn_opened
+inv_name_short			= st_corn_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 10
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_corn
+next_use_item			= conservnaya_banka2
+
+[corn_radiated]:corn
+inv_name				= st_corn_radiated
+inv_name_short			= st_corn_radiated
+eat_radiation			= 0.200
+
+[corn_radiated_opened]:corn_opened
+inv_name				= st_corn_radiated_opened
+inv_name_short			= st_corn_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[nuts]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_nuts\dev_nuts.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_nuts
+inv_name_short			= st_nuts
+description				= st_nuts_descr
+inv_weight				= 0.150
+inv_volume				= 0.5
+inv_grid_x				= 16
+inv_grid_y				= 67
+inv_category			= 5
+eat_satiety				= 0.415
+eat_thirst				= -0.280
+eat_sleepiness			= 1
+cost					= 1154
+
+[nuts_opened]:booster, nuts
+inv_name				= st_nuts_opened
+inv_name_short			= st_nuts_opened
+show_on_use				= true
+cost					= 450
+inv_grid_x				= 16
+inv_grid_y				= 68
+consume_type			= eat
+anim_section			= anm_nuts
+next_use_item			= conservnaya_banka2
+
+[nuts_radiated]:nuts
+inv_name				= st_nuts_radiated
+inv_name_short			= st_nuts_radiated
+eat_radiation			= 0.200
+
+[nuts_radiated_opened]:nuts_opened
+inv_name				= st_nuts_radiated_opened
+inv_name_short			= st_nuts_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[tomato]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_tomato\dev_tomato.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_tomato
+inv_name_short			= st_tomato
+description				= st_tomato_descr
+inv_weight				= 0.310
+inv_volume				= 0.5
+inv_grid_x				= 17
+inv_grid_y				= 66
+inv_category			= 5
+eat_alcohol             = -0.06
+eat_satiety				= 0.50
+eat_thirst				= 0.100
+eat_sleepiness			= 1
+cost					= 650
+
+[tomato_opened]:booster, tomato
+inv_name				= st_tomato_opened
+inv_name_short			= st_tomato_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 9
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_tomato
+next_use_item			= conservnaya_banka2
+
+[tomato_radiated]:tomato
+inv_name				= st_tomato_radiated
+inv_name_short			= st_tomato_radiated
+eat_radiation			= 0.200
+
+[tomato_radiated_opened]:tomato_opened
+inv_name				= st_tomato_radiated_opened
+inv_name_short			= st_tomato_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[sardina]:base_section
+$spawn 					= "food and drugs\sardina"
+visual					= dynamics\devices\dev_foods\kilka.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_sardina
+inv_name_short			= st_sardina
+description				= st_sardina_descr
+inv_weight				= 0.240
+inv_volume				= 0.35
+inv_grid_x				= 5
+inv_grid_y				= 68
+inv_category			= 5
+eat_satiety				= 0.354
+eat_thirst				= -0.320
+eat_alcohol				= -0.03
+eat_sleepiness			= 1
+cost					= 720
+
+[sardina_opened]:booster, sardina
+inv_name				= st_sardina_opened
+inv_name_short			= st_sardina_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 6
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_sardina
+next_use_item			= conservnaya_banka
+
+[sardina_radiated]:sardina
+inv_name				= st_sardina_radiated
+inv_name_short			= st_sardina_radiated
+eat_radiation			= 0.200
+
+[sardina_radiated_opened]:sardina_opened
+inv_name				= st_sardina_radiated_opened
+inv_name_short			= st_sardina_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[tushonka]:base_section
+$spawn 					= "food and drugs\conserva"
+visual					= dynamics\devices\dev_tushonka\dev_tushonka.ogf
+class                   = II_FOOD
+show_on_use				= false
+inv_name				= st_tushonka
+inv_name_short			= st_tushonka
+description				= st_tushonka_descr
+inv_weight				= 0.338
+inv_volume				= 0.35
+inv_grid_x				= 16
+inv_grid_y				= 66
+inv_category			= 5
+eat_satiety				= 0.435
+eat_thirst				= -0.240
+eat_sleepiness			= 1
+eat_alcohol				= -0.05
+cost					= 1225
+
+[tushonka_opened]:booster, tushonka
+inv_name				= st_tushonka_opened
+inv_name_short			= st_tushonka_opened
+show_on_use				= true
+cost					= 50
+inv_grid_x				= 8
+inv_grid_y				= 68
+item_degrade			= 24
+consume_type			= eat
+anim_section			= anm_tushenka
+next_use_item			= conservnaya_banka2
+
+[tushonka_radiated]:tushonka
+inv_name				= st_tushonka_radiated
+inv_name_short			= st_tushonka_radiated
+eat_radiation			= 0.200
+
+[tushonka_radiated_opened]:tushonka_opened
+inv_name				= st_tushonka_radiated_opened
+inv_name_short			= st_tushonka_radiated_opened
+eat_radiation			= 0.200
+;=====================================================================
+[olivki]:booster
+$spawn 					= "food and drugs\olivki"
+visual					= dynamics\devices\dev_conserv\dev_conserva_olives.ogf
+description				= st_olivki_descr
+inv_name				= st_olivki
+inv_name_short			= st_olivki
+inv_weight				= 0.545
+inv_volume				= 0.6
+inv_grid_x				= 8
+inv_grid_y				= 42
+cost					= 1150
+eat_satiety				= 0.575
+eat_thirst				= -0.120
+eat_sleepiness			= 1
+anim_section			= anm_olives
+next_use_item			= conservnaya_banka2
+consume_type			= eat
+
+[olivki_radiated]:olivki
+inv_name				= st_olivki_radiated
+inv_name_short			= st_olivki_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[salmon]:booster
+$spawn 					= "food and drugs\salmon"
+visual					= dynamics\devices\dev_salmon\dev_salmon.ogf
+description				= st_salmon_descr
+inv_name				= st_salmon
+inv_name_short			= st_salmon
+inv_weight				= 0.104
+inv_volume				= 0.4
+inv_grid_x				= 19
+inv_grid_y				= 67
+cost					= 538
+item_degrade			= 72
+eat_satiety				= 0.169
+eat_thirst				= -0.320
+eat_sleepiness			= 1
+use_sound				= interface\inv_eat_paperwrap
+consume_type			= eat
+
+[salmon_radiated]:salmon
+inv_name				= st_salmon_radiated
+inv_name_short			= st_salmon_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[raisins]:booster
+$spawn 					= "food and drugs\kolbasa"
+visual					= dynamics\devices\dev_raisins\dev_raisins.ogf
+description				= st_raisins_descr
+inv_name				= st_raisins
+inv_name_short			= st_raisins
+inv_weight				= 0.115
+inv_volume				= 0.3
+inv_grid_x				= 19
+inv_grid_y				= 68
+cost					= 568
+eat_satiety				= 0.192
+eat_thirst				= -0.080
+eat_sleepiness			= 1
+use_sound				= interface\inv_eat_paperwrap_2
+consume_type			= eat
+
+[raisins_radiated]:raisins
+inv_name				= st_raisins_radiated
+inv_name_short			= st_raisins_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[shokolad]:booster, hor_qs, can_divide
+$spawn 					= "food and drugs\shokolad"
+visual					= dynamics\items\item_shokolad.ogf
+description				= st_shokolad_descr
+inv_name				= st_shokolad
+inv_name_short		    = st_shokolad
+inv_weight			    = 0.221
+inv_volume				= 0.25
+inv_grid_width		    = 2
+inv_grid_x				= 11
+inv_grid_y				= 42
+cost					= 3251
+eat_satiety				= 0.282
+eat_thirst				= -0.280
+eat_alcohol				= -0.02
+eat_sleepiness			= 1
+item_degrade			= 72
+boost_time				= 10
+boost_health_restore	= 0.0
+boost_radiation_restore	= 0.00005
+use_sound				= interface\inv_food_03
+use_condition           = true
+max_uses                = 3
+empty_weight            = 0.01
+consume_type			= eat
+
+[shokolad_radiated]:shokolad
+inv_name				= st_shokolad_radiated
+inv_name_short			= st_shokolad_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[chocolate]:booster
+$spawn 					= "food and drugs\kolbasa"
+visual					= dynamics\devices\dev_chocolate\dev_chocolate.ogf
+description				= st_chocolate_descr
+inv_name				= st_chocolate
+inv_name_short			= st_chocolate
+inv_weight				= 0.115
+inv_volume				= 0.25
+inv_grid_x				= 18
+inv_grid_y				= 68
+cost					= 962
+eat_satiety				= 0.210
+eat_thirst				= -0.280
+eat_sleepiness			= 1
+boost_time				= 15
+boost_radiation_restore	= 0.0001
+use_sound				= interface\inv_eat_paperwrap_2
+consume_type			= eat
+
+[chocolate_radiated]:chocolate
+inv_name				= st_chocolate_radiated
+inv_name_short			= st_chocolate_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[twix]:booster
+$spawn                  = "food and drugs\twix"
+visual					= dynamics\zpf\protein.ogf
+description             = st_twix_descr
+inv_name                = st_twix
+inv_name_short          = st_twix
+inv_weight              = 0.055
+inv_volume				= 0.15
+inv_grid_x        		= 11
+inv_grid_y        	 	= 44
+cost                    = 1484
+boost_time              = 15
+boost_radiation_restore = 0.0002
+eat_satiety				= 0.220
+eat_thirst				= -0.260
+eat_sleepiness			= 1
+use_sound				= interface\inv_food_03
+consume_type			= eat
+
+[twix_radiated]:twix
+inv_name				= st_twix_radiated
+inv_name_short			= st_twix_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[snickers]:twix
+$spawn                  = "food and drugs\snickers"
+visual					= dynamics\zpf\protein.ogf
+description             = st_snickers_descr
+inv_name                = st_snickers
+inv_name_short          = st_snickers
+inv_weight              = 0.050
+inv_grid_x        		= 12
+inv_grid_y         		= 44
+cost                    = 1324
+eat_satiety             = 0.245
+eat_thirst				= -0.250
+boost_radiation_restore = 0.0002
+consume_type			= eat
+
+[snickers_radiated]:snickers
+inv_name				= st_snickers_radiated
+inv_name_short			= st_snickers_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[mars]:twix
+$spawn                  = "food and drugs\mars"
+visual					= dynamics\zpf\protein.ogf
+description             = st_mars_descr
+inv_name                = st_mars
+inv_name_short          = st_mars
+inv_weight              = 0.051
+inv_grid_x         		= 13
+inv_grid_y        		= 44
+cost                    = 1280
+eat_satiety             = 0.280
+eat_thirst				= -0.325
+boost_radiation_restore = 0.0002
+consume_type			= eat
+
+[mars_radiated]:mars
+inv_name				= st_mars_radiated
+inv_name_short			= st_mars_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[batonchik]:twix
+$spawn 					= "food and drugs\batonchik"
+visual					= dynamics\items\item_batonchik.ogf
+description				= st_batonchik_descr
+inv_name				= st_batonchik
+inv_name_short		    = st_batonchik
+inv_weight				= 0.052
+inv_grid_x				= 13
+inv_grid_y				= 42
+cost					= 1075
+eat_satiety				= 0.195
+eat_thirst				= -0.260
+boost_radiation_restore = 0.0002
+consume_type			= eat
+
+[batonchik_radiated]:batonchik
+inv_name				= st_batonchik_radiated
+inv_name_short			= st_batonchik_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[mint]:booster, can_divide
+$spawn 					= "food and drugs\mint"
+visual					= dynamics\devices\dev_mint\dev_mint.ogf
+inv_name				= st_mint
+inv_name_short			= st_mint
+description				= st_mint_descr
+inv_weight				= 0.045
+inv_volume				= 0.15
+inv_grid_x         		= 6
+inv_grid_y         		= 45
+cost					= 1200
+boost_time				= 14
+boost_radiation_restore	= 0.00012
+eat_alcohol				= -0.01
+eat_satiety 			= 0.040
+eat_thirst				= -0.020
+eat_sleepiness			= -1
+max_uses				= 8
+use_condition			= true
+use_sound				= interface\inv_eat_gum
+consume_type			= eat
+
+[mint_radiated]:mint
+inv_name				= st_mint_radiated
+inv_name_short			= st_mint_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[mre]:booster, ver_qs, can_divide
+$spawn 					= "food and drugs\ration_mre"
+visual					= dynamics\devices\rations\ration_mre.ogf
+description				= st_mre_descr
+inv_name				= st_mre
+inv_name_short			= st_mre
+inv_weight				= 0.699
+inv_volume				= 1.0
+inv_grid_height			= 2
+inv_grid_x				= 17
+inv_grid_y				= 55
+cost					= 3850
+eat_alcohol             = -0.05
+eat_satiety				= 0.510
+eat_thirst				= -0.250
+eat_sleepiness			= 1
+use_condition			= true
+max_uses				= 3
+use_sound				= interface\inv_eat_ration3
+consume_type			= eat
+
+[mre_radiated]:mre
+inv_name				= st_mre_radiated
+inv_name_short			= st_mre_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[ration_ru]:booster, can_divide
+$spawn 					= "food and drugs\ration_ru"
+visual					= dynamics\devices\rations\ration_ru.ogf
+description				= st_ration_ru_descr
+inv_name				= st_ration_ru
+inv_name_short			= st_ration_ru
+inv_weight				= 1.393
+inv_volume				= 1.5
+inv_grid_width			= 2
+inv_grid_x				= 18
+inv_grid_y				= 55
+cost					= 10150
+eat_alcohol             = -0.05
+eat_satiety				= 0.543
+eat_thirst				= -0.250
+eat_sleepiness			= 1
+max_uses				= 7
+use_condition			= true
+volume_scale			= false
+ignore_size				= true
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -12
+belt_adj_pos_y			= 0
+use_sound				= interface\inv_eat_ration1
+consume_type			= eat
+
+[ration_ru_radiated]:ration_ru
+inv_name				= st_ration_ru_radiated
+inv_name_short			= st_ration_ru_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[ration_ukr]:ration_ru, can_divide
+$spawn 					= "food and drugs\ration_ukr"
+visual					= dynamics\devices\rations\ration_ukr.ogf
+description				= st_ration_ukr_descr
+inv_name				= st_ration_ukr
+inv_name_short			= st_ration_ukr
+inv_weight				= 1.722
+inv_volume				= 1.5
+inv_grid_width			= 2
+inv_grid_x				= 18
+inv_grid_y				= 56
+cost					= 8460
+eat_satiety				= 0.531
+eat_thirst				= -0.240
+eat_sleepiness			= 1
+max_uses				= 6
+volume_scale			= false
+use_sound				= interface\inv_eat_ration2
+	
+[ration_ukr_radiated]:ration_ukr
+inv_name				= st_ration_ukr_radiated
+inv_name_short			= st_ration_ukr_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[cheese]:booster
+$spawn 					= "food and drugs\cheese"
+visual					= dynamics\devices\dev_conserv\dev_conserva_yantar.ogf
+description				= st_cheese_descr
+inv_name				= st_cheese
+inv_name_short		    = st_cheese
+inv_weight				= 0.124
+inv_volume				= 0.2
+inv_grid_x				= 9
+inv_grid_y				= 42
+cost					= 760
+item_degrade			= 72
+boost_time				= 0.0
+boost_health_restore	= 0.0
+eat_satiety				= 0.322
+eat_thirst				= -0.140
+eat_alcohol             = -0.02
+eat_sleepiness		 	= 1
+consume_type			= eat
+anim_section			= anm_cheese
+
+[cheese_radiated]:cheese
+inv_name				= st_cheese_radiated
+inv_name_short			= st_cheese_radiated
+eat_radiation			= 0.200
+;=====================================================================
+[galet]:booster
+$spawn 					= "food and drugs\galet"
+visual					= dynamics\devices\dev_foods\galet.ogf
+description				= st_galet_descr
+inv_name				= st_galet
+inv_name_short		    = st_galet
+inv_weight				= 0.252
+inv_volume				= 0.45
+inv_grid_x				= 10
+inv_grid_y				= 42
+cost					= 572
+boost_time				= 0.0
+boost_health_restore	= 0.0
+eat_satiety				= 0.189
+eat_thirst				= -0.160
+eat_alcohol				= -0.02
+eat_sleepiness			= 1
+use_sound				= interface\inv_food_03
+consume_type			= eat
+anim_section			= anm_bread
+
+[galet_radiated]:galet
+inv_name				= st_galet_radiated
+inv_name_short			= st_galet_radiated
+eat_radiation			= 0.200
+can_clean				= false
+;=====================================================================
+[chips]:booster
+$spawn					= "devices\dev_foods\chips"
+visual					= dynamics\devices\dev_foods\chips.ogf
+description				= chips_descr
+inv_name				= chips
+inv_name_short			= chips
+inv_weight				= 0.150
+inv_volume				= 0.4
+inv_grid_x				= 15
+inv_grid_y				= 42
+cost					= 522
+eat_satiety				= 0.125
+eat_thirst				= -0.300
+eat_toxicity			= 0.025
+eat_sleepiness			= 1
+use_sound				= interface\inv_food_02
+consume_type			= eat
+
+[chips_radiated]:chips
+inv_name				= st_chips_radiated
+inv_name_short			= st_chips_radiated
+eat_radiation			= 0.200
+;=====================================================================
+;[rice]:booster
+;$spawn 					= "food and drugs\kolbasa"
+;visual					= dynamics\devices\rations\ration_mre.ogf
+;description				= st_rice_descr
+;inv_name					= st_rice
+;inv_name_short			= st_rice
+;inv_weight				= 0.800
+;inv_volume				= 0.8
+;inv_grid_x				= 15
+;inv_grid_y				= 63
+;cost					= 520
+;eat_satiety				= 0.050
+;eat_sleepiness			= 1
+;can_be_cooked			= boiled_rice
+;use_sound				= interface\inv_eat_ration3
+;consume_type			= eat
+;
+;[rice_radiated]:rice
+;inv_name				= st_rice_radiated
+;inv_name_short			= st_rice_radiated
+;eat_radiation			= 0.200
+;
+;[boiled_rice]:booster
+;visual					= dynamics\equipments\trade\ckit.ogf
+;eat_satiety				= 0.620
+;can_trade				= false
+;
+;
+;[boiled_rice_radiated]:boiled_rice
+;inv_name				= st_rice_radiated
+;inv_name_short			= st_rice_radiated
+;eat_radiation			= 0.200
+;=====================================================================

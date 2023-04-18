@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+	<string id="st_conservnaya_banka_name">
+		<text>Tin can</text>
+	</string>
+	<string id="st_conservnaya_banka">
+		<text>Simple tin can, which can be found very often in the Zone. It is better not to collect and not anger the old merchant from outskirt.\n \n%c[default]PROPERTIES:\n\n%c[255,238,153,26] • %c[default] Garbage</text>
+	</string>	
+	
+	<string id="st_hangover">
+		<text>Hangover pills</text>
+	</string>
+	<string id="st_hangover_descr">
+		<text>A blister of green tablets that sober the body well and even invigorate a little. \n \n%c[default]PROPERTIES:\n\n%c[0,153,255,255] • %c[default] Medicament \n\n%c[0,153,255,255] • %c[default] Good sobering effect \n\n%c[0,153,255,255] • %c[default] Slight decrease in sleepiness</text>
+	</string>
+	<string id="packet_bolts_name">
+		<text>Bolt pack</text>
+	</string>
+	<string id="packet_bolts_descr">
+		<text>A large enough package of bolts, contains about 25 pieces. The usual, unremarkable bolts that stalkers use to detect anomalies.\n \n%c[default]PROPERTIES:\n\n%c[255,238,153,26] • %c[default] Common object</text>
+	</string>	
+	
+	<string id="st_ammo_shell_pistol">
+		<text>Pistol ammo shell casing</text>
+	</string>
+	<string id="st_ammo_shell_smg">
+		<text>Machinegun ammo shell casing</text>
+	</string>
+	<string id="st_ammo_shell_rifle">
+		<text>Rifle ammo shell casing</text>.
+	</string>
+	<string id="st_ammo_shell_shotgun">
+		<text>Shotgun ammo shell casing</text>
+	</string>
+	<string id="st_ammo_shell_descr">
+		<text>Fired shell casing, many stalkers use them to detect anomalies.\n \n%c[default]PROPERTIES:\n\n%c[255,238,153,26] • %c[default] Common object</text>
+	</string>
+	
+	<string id="mutant_part_psy_dog_brain">
+ 		<text>Psy-dog brain</text>
+ 	</string>
+   <string id="mutant_part_psy_dog_brain_description">
+ 		<text>Psy-dogs are distinguished by powerful mental abilities, in particular, by the generation of illusions and the impact on the brain of other creatures, and it is safe to say that these forces originate in their brains. Interestingly, each mutant with such Psy-wave-related abilities has a similar brain structure. Scientists will pay generously for samples of such tissues. The brain has the smell of sour vegetables.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Mutated body part\n%c[0,153,255,255] • %c[default]Rare scientific specimen\n%c[0,153,255,255] • %c[default] High value</text>
+ 	</string>
+	
+	<string id="st_deactivate_mix">
+		<text>Deactivate mix</text>
+	</string>
+	<string id="st_deactivate_mix_descr">
+		<text>A mixture of potasium permanganate and an alcohol-containing substance. Suitable for external deactivation of objects by physically removing radioactive substances. It is impossible to deactivate unsealed or unpressurized items.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Allows you to deactivate items\n%c[0,153,255,255] • %c[default]Self-made item</text>
+	</string>
+	
+	<string id="st_wine">
+ 		<text>Wine "Merlot"</text>
+ 	</string>
+	<string id="st_wine_descr">
+ 		<text>A bottle of red wine Merlot. Among the top ten international varieties and is the second most popular after the famous Cabernet Sauvignon. Natural red wine increases the body's resistance to viral, electromagnetic and radiation effects, contains a natural antioxidant that protects against radiation, and due to the presence of resveratrol, it can prevent some damage caused by it, due to the presence of rubidium in it, accelerates the removal of radioactive cesium from the body. In the 70–80s of the last century, natural red wines introduced into the ration of nuclear submarine crews and personnel serving radioactive installations. The Chernobyl tragedy forced hypocrisy and propaganda to retreat in the struggle for a "sober lifestyle." Just the day after the accident, huge stocks of dry red wine were delivered to Kiev.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Drink\n%c[0,153,255,255] • %c[default]Stimulant\n%c[ui_red] • %c[default]Strong alcohol\n%c[ui_red] • %c[default]Moderate increase in sleepiness</text>
+ 	</string>
+	
+	<string id="st_spareparts">
+		<text>Old weapon parts</text>
+	</string>
+	<string id="st_spareparts_descr">
+		<text>Spare parts of old weapons. The wooden elements are not to say that they are in good condition, for sure only beginners may be interested in buying these. Metal elements are also in relatively good condition.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Shotgun repair(+5%)</text>
+	</string>	
+	<string id="st_sov_r_spareparts">
+		<text>Soviet automatic weapon parts</text>
+	</string>
+	<string id="st_sov_r_spareparts_descr">
+		<text>Spare parts of automatic weapons: springs, strikers, receiver boxes, stocks, clips and much more. The components are in relatively good condition with the exception of wooden parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Repair of Soviet weapons(+7%)</text>
+	</string>
+	<string id="st_nato_r_spareparts">
+		<text>NATO automatic weapon spare parts</text>
+	</string>
+	<string id="st_nato_r_spareparts_descr">
+		<text>Spare parts of automatic weapons from Europe: springs, strikers, receiver boxes, stocks, clips and much more. The components are in relatively good condition with the exception of some polymer parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Repairing NATO weapons(+7%)</text>
+	</string>	
+	<string id="st_sov_p_spareparts">
+		<text>Soviet pistol weapon spare parts</text>
+	</string>
+	<string id="st_sov_p_spareparts_descr">
+		<text>Spare parts of pistols with space in the CIS: springs, strikers, frames, clips and much more. The components are in relatively good condition with the exception of some plastic parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Repair Soviet pistols(+6%)</text>
+	</string>
+	<string id="st_nato_p_spareparts">
+		<text>NATO pistol weapon spare parts</text>
+	</string>
+	<string id="st_nato_p_spareparts_descr">
+		<text>Spare parts of pistols from Europe: springs, strikers, frames, clips and much more. The components are in relatively good condition with the exception of some polymer parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Pistols repair(+6%)</text>
+	</string>	
+	<string id="st_sov_s_spareparts">
+		<text>Soviet rifle weapon spare parts</text>
+	</string>
+	<string id="st_sov_s_spareparts_descr">
+		<text>Spare parts sniper weapons with space CIS: springs, strikers, receiver, stocks, clips and much more. Composers are in relatively good condition with the exception of wooden parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Repair of Soviet weapons(+8%)</text>
+	</string>
+	<string id="st_nato_s_spareparts">
+		<text>NATO rifle weapons spare parts</text>
+	</string>
+	<string id="st_nato_s_spareparts_descr">
+		<text>Spare parts sniper weapons from Europe: springs, strikers, receiver boxes, stocks, clips and much more. The components are in relatively good condition with the exception of some polymer parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Repairing NATO weapons(+8%)</text>
+	</string>
+	<string id="st_shot_spareparts">
+		<text>Shotguns weapon spare parts</text>
+	</string>
+	<string id="st_shot_spareparts_descr">
+		<text>Spare parts for shotguns: springs, strikers, receiver boxes, frames, clips and much more. The components are in relatively good condition with the exception of some polymer parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Shotgun repair(+7%)</text>
+	</string>
+	<string id="st_pp_spareparts">
+		<text>SMG weapon spares parts</text>
+	</string>
+	<string id="st_pp_spareparts_descr">
+		<text>Spare parts for submachine guns: springs, strikers, receiver boxes, frames, clips and much more. The components are in relatively good condition with the exception of some polymer parts.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Pistols and rifles repair(+6%)</text>
+	</string>
+	
+	<string id="st_itm_cutting_tools">
+		<text>Thin cutting tools</text>
+	</string>
+	<string id="st_itm_cutting_tools_descr">
+		<text>A set of improvised tools and industrial high-tech tools of the highest quality for cutting and trimming. Allow to cut and disassemble any suit or helmet.\n \n%c[default]SPECIFICATIONS:\n%c[0,155,155,155] • %c[default]Technological devices\n%c[0,255,1,1] • %c[0,230,230,230]Allows you to work withHigh-tech items</text>
+	</string>
+	<string id="st_itm_cutting_tools_2">
+		<text>Cutting tools</text>
+	</string>
+	<string id="st_itm_cutting_tools_2_descr">
+		<text>A set of factory tools and improvised tools for cutting and trimming. Allow to disassemble any medium-tech suit, as well as gas masks.\n \n%c[default]SPECIFICATIONS:\n%c[0,155,155,155] • %c[default]Technological devices\n%c[0,255,1,1] • %c[0,230,230,230]Allows you to work with medium-tech suits</text>
+	</string>
+	<string id="st_itm_cutting_tools_3">
+		<text>Rough cutting tools</text>
+	</string>
+	<string id="st_itm_cutting_tools_3_descr">
+		<text>A set of tools for cutting and trimming, which was assembled from improvised means. Allow to sort only low-tech fabric items, as well as gas masks.\n \n%c[default]SPECIFICATIONS:\n%c[0,155,155,155] • %c[default]Technological devices\n%c[0,255,1,1] • %c[0,230,230,230]Allows you to work with low-tech suits</text>
+	</string>	
+	<string id="st_itm_uncraft_tools_1">
+		<text>Rough disassembly tools</text>
+	</string>
+	<string id="st_itm_uncraft_tools_1_descr">
+		<text>A set of improvised tools and rough tools for disassembly. Allows you to disassemble the guns in any form, the tools are not enough for greater manufacturability. \n \n%c[default]SPECIFICATIONS:\n%c[0,155,155,155] • %c[default]Technological devices\n%c[0,255,1,1] • %c[0,230,230,230]allow to disassemble and maintain: pistols</text>
+	</string>
+	<string id="st_itm_uncraft_tools_2">
+		<text>Disassembly tools</text>
+	</string>
+	<string id="st_itm_uncraft_tools_2_descr">
+		<text>Factory set of tools and tools for disassembling. Allows you to disassemble almost everything except 7.92 caliber rifles and some sniper rifles.\n \n%c[default]SPECIFICATIONS:\n%c[0,155,155,155] • %c[default]Technological devices\n%c[0,255,1,1] • %c[0,230,230,230]allow to disassemble and maintain: pistols, submachine-guns, shotguns</text>
+	</string>
+	<string id="st_itm_uncraft_tools_3">
+		<text>Thin disassembly tools</text>
+	</string>
+	<string id="st_itm_uncraft_tools_3_descr">
+		<text>A set of high-quality industrial tools and tools for disassembly. Allows you to disassemble absolutely any weapon.\n \n%c[default]SPECIFICATIONS:\n%c[0,155,155,155] • %c[default]Technological devices\n%c[0,255,1,1] • %c[0,230,230,230]allow to disassemble and maintain: pistols, submachine-guns, shotguns, rifles, machine guns</text>
+	</string>	
+	<string id="plate_seva_name">
+		<text>"SEVA" armor element</text>
+	</string>
+	<string id="plate_seva_descr">
+		<text>The armored plate of the “SEVA” model, cut out of the suit. Made by technology of one of the Kiev defense research institutes. Able to stop a pistol bullet and absorb damage from edged weapons. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+8%)</text>
+	</string>
+	<string id="plate_heavy_name">
+		<text>"ESAPI" armor element</text>
+	</string>
+	<string id="plate_heavy_descr">
+		<text>Ceramic-composite panel model «ESAPI». Provides protection class 4. Made of high quality composite materials and ceramics, protective substances were applied on top of the element. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+13%)</text>
+	</string>
+	<string id="plate_medium_name">
+		<text>"SAPI" armor element</text>
+	</string>
+	<string id="plate_medium_descr">
+		<text>The armor "SAPI" of lightweight combined armor. Provides protection class 3. Made of high quality materials. On the front side of the armored panels, on top of the ceramic layer, there is a protective layer designed to increase the operational survivability of the armored panel. Outside the panel is covered with nylon. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+10%)</text>
+	</string>
+	<string id="plate_light_name">
+		<text>Handicraft armor element</text>
+	</string>
+	<string id="plate_light_descr">
+		<text>Handicraft armor of Kevlar and aramid. Provides class 2 protection. Made in the Zone from materials brought from the perimeter. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+7%)</text>
+	</string>
+	<string id="plate_cloth_name">
+		<text>Textile armor element</text>
+	</string>
+	<string id="plate_cloth_descr">
+		<text>Homemade armored element from Kevlar and thick fabric. Provides class 1 protection. Made in the Zone from materials brought from the perimeter.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+5%)</text>
+	</string>
+	<string id="plate_military_name">
+		<text>Panel "Granite-4M"</text>
+	</string>
+	<string id="plate_military_descr">
+		<text>Native heavy armor "Granite-4M" of composite materials and ceramics. Provides class 5 protection. Custom-made perimeter-guarded military units for suits. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+15%)</text>
+	</string>
+	<string id="plate_monolith_name">
+		<text>Unknown armor element</text>
+	</string>
+	<string id="plate_monolith_descr">
+		<text>Unknown armor element, made of alloys and reinforced fabrics. Extremely heavy. Provides class 5 protection. Obviously not handicraft. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+15%)</text>
+	</string>
+	<string id="plate_unload_name">
+		<text>Discharge pocket</text>
+	</string>
+	<string id="plate_unload_descr">
+		<text>Carved unloading pocket out of the suit. Made from thick and high-quality fabric. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+3%)</text>
+	</string>
+	<string id="plate_small_name">
+		<text>Small armor plate</text>
+	</string>
+	<string id="plate_small_descr">
+		<text>A small homemade armor plate from improvised means. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+4%)</text>
+	</string>	
+	<string id="cloth_green_name">
+		<text>Green clothes</text>
+	</string>
+	<string id="cloth_green_descr">
+		<text>Green fabric, cut out of the suit of the appropriate color. Very high quality and dense fabric. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+3%)</text>
+	</string>	
+	<string id="cloth_black_name">
+		<text>Black clothes</text>
+	</string>
+	<string id="cloth_black_descr">
+		<text>Black fabric, cut out of the suit of the appropriate color. Very high quality and dense fabric. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+3%)</text>
+	</string>
+	<string id="cloth_brown_name">
+		<text>Brown fabrics</text>
+	</string>
+	<string id="cloth_brown_descr">
+		<text>Brown fabric, cut out of a suit of the appropriate color. Very high quality and dense fabric. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+3%)</text>
+	</string>
+	<string id="cloth_white_name">
+		<text>Light fabric</text>
+	</string>
+	<string id="cloth_white_descr">
+		<text>Light fabric, cut out of a suit of the appropriate color. Very high quality and dense fabric. Can be used as a repair material.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Armor repair(+3%)</text>
+	</string>
+	<string id="servomotor_name">
+		<text>Servo engine</text>
+	</string>
+	<string id="servomotor_descr">
+		<text>One of the servo engines that was removed from a exoskeleton. If you have a repair kit, you can replace the existing engine at the exoskeleton.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]High-tech item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Exoskeleton repair(+20%)</text>
+	</string>
+	<string id="plastic_pieces_name">
+		<text>Polymer materials</text>
+	</string>
+	<string id="plastic_pieces_descr">
+		<text>Parts of polymer parts cut from somewhere. Can be used as patches for suits or gas masks.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Suits and helmets repair(+4%)</text>
+	</string>	
+	<string id="glass_pieces_name">
+		<text>Glass</text>
+	</string>
+	<string id="glass_pieces_descr">
+		<text>Pieces of glass cut out of gas masks or helmets. Can replace broken glass in almost any helmet with a good repair kit.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Helmets repair(+3%)</text>
+	</string>
+	<string id="circuit_board_name">
+		<text>Printed circuit board</text>
+	</string>
+	<string id="circuit_board_descr">
+		<text>A PCB is a dielectric plate, on the surface and/or in the volume of which electrically conductive electronic circuits are formed. The printed circuit board is designed for the electrical and mechanical connection of various electronic components. The electronic components on the printed circuit board are connected by their leads to the elements of the conductive pattern, usually by soldering.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Helmets repair(+3%)</text>
+	</string>	
+	<string id="servokit_name">
+		<text>Servo engine replacement kit</text>
+	</string>
+	<string id="servokit_descr">
+		<text>Specialized kit for replacing the servo of the exoskeleton in the field. Includes required materials as well as calibration tools. Can only be used to replace the servo.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Military product\n%c[255,238,153,26] • %c[default]Used for:%c[0,170,170,170]Exoskeleton repair</text>
+	</string>	
+
+	<string id="ammo-12x70-buck_self">
+		<text>Homemade buckshot</text>
+	</string>
+	<string id="ammo-12x70-buck_self_descr">
+		<text>The self-made cartridge of the 12th caliber, equipped with pellets with a diameter of 6 mm. At close distances, it has a huge slaughter and stopping action. Designed for firing of smooth-bore weapons and shotguns.\n \n%c[0,93,0,116] • %c[default] Pierce armor class: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default]Tissue damage: %c[0,170,170,170]average\n \n%c[0,170,170,170]FEATURE:\n \n%c[0,93,0,116] • %c[default] increased scatter of balls at a short distance</text>
+	</string>	
+	<string id="ammo12x70_base_name">
+		<text>Set for making 12x70mm cartridges</text>
+	</string>
+	<string id="ammo12x70_base_descr">
+		<text>Wads, sleeves, shot, in front of you all the necessary components of cartridges of caliber 12x70. It seems that they are enough for 10 rounds.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Technological item\n%c[0,253,155,155] • %c[0,240,140,140]Needed to make shotgun cartridges</text>
+	</string>
+	<string id="st_ammo12x76zhekan_base">
+		<text>Set for making 12x76mm slugs cartridges</text>
+	</string>
+	<string id="st_ammo12x76zhekan_base_descr">
+		<text>Wads, sleeves, shot, in front of you all the necessary components of cartridges caliber 12x76. That seem to be enough for 30 cartridges.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item\n%c[0,253,155,155] • %c[0,240,140,140]Needed to make shotgun zhekan cartridges</text>
+	</string>
+	<string id="ammo12x70_tools_name">
+		<text>Tool for making shotgun cartridges</text>
+	</string>
+	<string id="ammo12x70_tools_descr">
+		<text>All the necessary tools for making handicraft shotgun cartridges.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]technological device\n%c[0,253,155,155] • %c[0,240,140,140]Needed to make shotgun cartridges</text>
+	</string>
+	<string id="sew_tools_name">
+		<text>Sewing kit</text>
+	</string>
+	<string id="sew_tools_descr">
+		<text>Threads, needles, zippers and doggies. Set with everything you need for sewing and embroidery.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Technological devices\n%c[0,153,255,255] • %c[default]Common object</text>
+	</string>
+	<string id="sleepbag_base_name">
+		<text>Set of fabric, thread and zipper</text>
+	</string>
+	<string id="sleepbag_base_descr">
+		<text>All major components for the manufacture of a sleeping bag. Fabric, thread, zipper and more.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Technological devices\n%c[0,253,155,155] • %c[0,240,140,140]Sewing kit needed</text>
+	</string>
+	<string id="backpack_base_name">
+		<text>A set of fabric, zippers and rivets</text>
+	</string>
+	<string id="backpack_base_descr">
+		<text>All major components for the manufacture of clothing or fabric item. Rubberized fabric, zippers, rivets and more.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Technological devices\n%c[0,253,155,155] • %c[0,240,140,140]Sewing kit needed</text>
+	</string>
+	<string id="st_selfroll_name">
+		<text>Self-made roll of cigarette</text>
+	</string>
+	<string id="st_selfroll_descr">
+		<text>Self-roll cigarette made from tobacco and handmade paper.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Stimulant\n%c[0,153,255,255] • %c[default]Low quality product\n%c[0,153,255,255] • %c[default]Medium protection against Psy-effects\n%c[0,153,255,255] • %c[default]Moderate increase in sleepiness\n%c[ui_red] • %c[default]Harmful to the body</text>
+	</string>
+
+	<!-- Radiated Items -->
+	<string id="st_antirad_radiated">
+		<text>Anti-radiation drug B-190 "Indralin" (irradiated)</text>
+	</string>
+	<string id="st_antirad_iodid_radiated">
+		<text>Anti-radiation drug potassium iodide RS-2 (irradiated)</text>
+	</string>
+	<string id="st_psy_complex_radiated">
+		<text>Psychedelin (irradiated)</text>
+	</string>
+	<string id="st_bread_radiated">
+		<text>Bread (irradiated)</text>
+	</string>
+	<string id="st_breadold_radiated">
+		<text>Old bread (irradiated)</text>
+	</string>
+	<string id="st_sandwich_radiated">
+		<text>Sausage sandwich (irradiated)</text>
+	</string>
+	<string id="st_joint_radiated">
+		<text>Cannabis joint (irradiated)</text>
+	</string>
+	<string id="st_rebirth_radiated">
+		<text>Narcotic analgesic "Revival" (irradiated)</text>
+	</string>
+	<string id="st_beans_radiated">
+		<text>Stewed Beans (Irradiated)</text>
+	</string>
+	<string id="st_beans_radiated_opened">
+		<text>Stewed beans (irradiated, opened)</text>
+	</string>
+	<string id="st_beef_radiated">
+		<text>Stew (irradiated)</text>
+	</string>
+	<string id="st_beef_radiated_opened">
+		<text>Stew (irradiated, opened)</text>
+	</string>
+	<string id="st_bullheads_radiated">
+		<text>Gobies in tomato sauce (irradiated)</text>
+	</string>
+	<string id="st_bullheads_radiated_opened">
+		<text>Gobies in tomato sauce (irradiated, opened)</text>
+	</string>
+	<string id="st_chili_radiated">
+		<text>Chili Beans (Irradiated)</text>
+	</string>
+	<string id="st_chili_radiated_opened">
+		<text>Chili Beans (Irradiated, opened)</text>
+	</string>
+	<string id="st_conserva_radiated">
+		<text>Canned fish (irradiated)</text>
+	</string>
+	<string id="st_conserva_radiated_opened">
+		<text>Canned fish (irradiated, opened)</text>
+	</string>
+	<string id="st_corn_radiated">
+		<text>Canned corn (irradiated)</text>
+	</string>
+	<string id="st_corn_radiated_opened">
+		<text>Canned corn (irradiated, opened)</text>
+	</string>
+	<string id="st_olivki_radiated">
+		<text>Can of olives (irradiated)</text>
+	</string>
+	<string id="st_olivki_radiated_opened">
+		<text>Can of olives (irradiated, opened)</text>
+	</string>
+	<string id="st_sardina_radiated">
+		<text>Sardines "Pirate" (irradiated)</text>
+	</string>
+	<string id="st_sardina_radiated_opened">
+		<text>Sardines "Pirate" (irradiated, opened)</text>
+	</string>
+	<string id="st_tomato_radiated">
+		<text>Canned tomatoes (irradiated)</text>
+	</string>
+	<string id="st_tomato_radiated_opened">
+		<text>Canned tomatoes (irradiated, opened)</text>
+	</string>
+	<string id="st_tushonka_radiated">
+		<text>Beef stew "Abakan" (irradiated)</text>
+	</string>
+	<string id="st_tushonka_radiated_opened">
+		<text>Beef stew "Abakan" (irradiated, opened)</text>
+	</string>
+	<string id="st_drug_anabiotic_radiated">
+		<text>Anabiotic (irradiated)</text>
+	</string>
+	<string id="st_drug_antidot_radiated">
+		<text>Antidote (irradiated)</text>
+	</string>
+	<string id="st_drug_booster_radiated">
+		<text>"Hercules" (irradiated)</text>
+	</string>
+	<string id="st_drug_coagulant_radiated">
+		<text>Coagulant "Vinca" (irradiated)</text>
+	</string>
+	<string id="st_drug_psy_blockade_radiated">
+		<text>Psi-blockade (irradiated)</text>
+	</string>
+	<string id="st_drug_radioprotector_radiated">
+		<text>Radioprotector (irradiated)</text>
+	</string>
+	<string id="st_drink_crow_radiated">
+		<text>Drink "Beak" (irradiated)</text>
+	</string>
+	<string id="st_energy_drink_radiated">
+		<text>Strong energy drink (irradiated)</text>
+	</string>
+	<string id="st_kolbasa_radiated">
+		<text>Doctor's sausage (irradiated)</text>
+	</string>
+	<string id="st_medkit_radiated">
+		<text>First aid kit AI-4 (irradiated)</text>
+	</string>
+	<string id="st_medkit_army_radiated">
+		<text>Army first aid kit AI-4 (irradiated)</text>
+	</string>
+	<string id="st_medkit_scientic_radiated">
+		<text>Scientific first-aid kit AI-4 (irradiated)</text>
+	</string>
+	<string id="st_medkit_elite_radiated">
+		<text>Elite first-aid kit AI-5 (irradiated)</text>
+	</string>
+	<string id="st_glucose_s_radiated">
+		<text>Small injection of glucose (irradiated)</text>
+	</string>
+	<string id="st_glucose_radiated">
+		<text>Large glucose injection (irradiated)</text>
+	</string>
+	<string id="st_injector_radiated">
+		<text>Medical injector "Gurza" with novocaine (irradiated)</text>
+	</string>
+	<string id="st_injector_empty_radiated">
+		<text>Medical injector "Gurza" (irradiated)</text>
+	</string>
+	<string id="st_sleepingpills_radiated">
+		<text>Sleeping pills (irradiated)</text>
+	</string>
+	<string id="st_vodka_radiated">
+		<text>Vodka "Nemiroff" (irradiated)</text>
+	</string>
+	<string id="st_vodka2_radiated">
+		<text>Vodka "Putinka" (irradiated)</text>
+	</string>
+	<string id="st_tea_radiated">
+		<text>Thermos with tea (irradiated)</text>
+	</string>
+	<string id="st_cocaine_radiated">
+		<text>Cocaine (irradiated)</text>
+	</string>
+	<string id="st_tetanus_radiated">
+		<text>Tetanus vaccine (irradiated)</text>
+	</string>
+	<string id="st_adrenalin_radiated">
+		<text>Epinephrine (irradiated)</text>
+	</string>
+	<string id="st_morphine_radiated">
+		<text>Morphine serynge (irradiated)</text>
+	</string>
+	<string id="st_novocaine_radiated">
+		<text>Ampoule of novocaine (irradiated)</text>
+	</string>
+	<string id="st_salicidic_acid_radiated">
+		<text>Ampoule of salicylic acid (irradiated)</text>
+	</string>
+	<string id="st_sausage_radiated">
+		<text>Smoked sausage (irradiated)</text>
+	</string>
+	<string id="st_mineral_water_radiated">
+		<text>Mineral water (irradiated)</text>
+	</string>
+	<string id="st_termos_water_radiated">
+		<text>Thermos with water (irradiated)</text>
+	</string>
+	<string id="st_beer_radiated">
+		<text>Ukrainian beer (irradiated)</text>
+	</string>
+	<string id="st_raisins_radiated">
+		<text>Raisins (irradiated)</text>
+	</string>
+	<string id="st_chocolate_radiated">
+		<text>Russian chocolate (irradiated)</text>
+	</string>
+	<string id="st_mint_radiated">
+		<text>Mint candies "Altoids" (irradiated)</text>
+	</string>
+	<string id="st_caffeine_radiated">
+		<text>Caffeine tablets (irradiated)</text>
+	</string>
+	<string id="st_cuban_cigar_radiated">
+		<text>Cuban cigar (irradiated)</text>
+	</string>
+	<string id="st_cigarettes_marlboro_radiated">
+		<text>Cigarettes "Marlboro" (irradiated)</text>
+	</string>
+	<string id="st_cigarettes_lucky_radiated">
+		<text>Cigarettes "Lucky Strike" (irradiated)</text>
+	</string>
+	<string id="st_cigarettes_russian_radiated">
+		<text>Cigarettes "Spark" (irradiated)</text>
+	</string>
+	<string id="st_cigarettes_slava_radiated">
+		<text>Cigarettes "Glory" (irradiated)</text>
+	</string>
+	<string id="st_nuts_radiated">
+		<text>Nuts tin (irradiated)</text>
+	</string>
+	<string id="st_nuts_radiated_opened">
+		<text>Nuts tin (irradiated, opened)</text>
+	</string>
+	<string id="st_salmon_radiated">
+		<text>Smoked Salmon (irradiated)</text>
+	</string>
+	<string id="st_salmon_radiated_opened">
+		<text>Smoked salmon (irradiated, open)</text>
+	</string>
+	<string id="st_mre_radiated">
+		<text>Dry ration (irradiated)</text>
+	</string>
+	<string id="st_ration_ru_radiated">
+		<text>Russian ration IRP-B (irradiated)</text>
+	</string>
+	<string id="st_ration_ukr_radiated">
+		<text>Ukrainian ration (irradiated)</text>
+	</string>
+	<string id="st_survival_kit_radiated">
+		<text>Medical kit "IS-3" (irradiated)</text>
+	</string>
+	<string id="st_improvised_splint_radiated">
+		<text>Improvised splint (irradiated)</text>
+	</string>
+	<string id="st_pot_permanganate_radiated">
+		<text>Potassium permanganate (irradiated)</text>
+	</string>
+	<string id="st_activated_charcoal_radiated">
+		<text>Activated charcoal (irradiated)</text>
+	</string>
+	<string id="st_flask_radiated">
+		<text>Flask with purified water (irradiated)</text>
+	</string>
+	<string id="st_bottle_metal_radiated">
+		<text>Metal flask with moonshine (irradiated)</text>
+	</string>
+	<string id="st_bottle_water_radiated">
+		<text>Plastic bottle with purified water (irradiated)</text>
+	</string>
+	<string id="st_bottle_glass_radiated">
+		<text>Bottle with purified water (irradiated)</text>
+	</string>
+	<string id="st_tobacco_radiated">
+		<text>Russian tobacco (irradiated)</text>
+	</string>
+	<string id="st_marijuana_radiated">
+		<text>Marijuana (irradiated)</text>
+	</string>
+	<string id="st_vodka_quality_radiated">
+		<text>Vodka "Stolichnaya" (irradiated)</text>
+	</string>
+	<string id="st_wine_radiated">
+ 		<text>Wine "Merlot" (irradiated)</text>
+ 	</string>
+	<string id="st_sprite_radiated">
+		<text>"Sprite" (irradiated)</text>
+	</string>	
+	<string id="st_cocacola_radiated">
+		<text>"Coca-Cola" (irradiated)</text>
+	</string>	
+	<string id="st_redbull_radiated">
+		<text>Energyzer "Red Bull" (irradiated)</text>
+	</string>	
+	<string id="st_jaguar_radiated">
+		<text>Energyzer "Jaguar" (irradiated)</text>
+	</string>
+	<string id="st_twix_radiated">
+		<text>Chocolate-protein mixture (irradiated)</text>
+	</string>
+	<string id="st_snickers_radiated">
+		<text>"Snickers" (irradiated)</text>
+	</string>
+	<string id="st_mars_radiated">
+		<text>"Mars" (irradiated)</text>
+	</string>
+	<string id="st_cheese_radiated">
+		<text>Cream cheese "Yantar" (irradiated)</text>
+	</string>
+	<string id="st_galet_radiated">
+		<text>Biscuits (irradiated)</text>
+	</string>	
+	<string id="st_shokolad_radiated">
+		<text>Chocolate "Alyonushka" (irradiated)</text>
+	</string>
+	<string id="st_batonchik_radiated">
+		<text>Chocolate bar (irradiated)</text>
+	</string>
+	<string id="st_chips_radiated">
+		<text>Chips (irradiated)</text>
+	</string>
+	<string id="st_juice_radiated">
+		<text>Orange juice (irradiated)</text>
+	</string>
+	<string id="st_amphetamines_radiated">
+		<text>Amphetamine (irradiated)</text>
+	</string>	
+	<string id="st_diazepam_radiated">
+		<text>Diazepam (irradiated)</text>
+	</string>
+	<string id="st_bandage_radiated">
+		<text>Bandage (irradiated)</text>
+	</string>
+	<string id="st_bandage_enhanced_radiated">
+		<text>Enhanced bandage (irradiated)</text>
+	</string>
+	<string id="st_bandage_special_radiated">
+		<text>Special bandage (irradiated)</text>
+	</string>
+	<string id="st_bandage_selfmade_radiated">
+		<text>Selfmade bandage (irradiated)</text>
+	</string>
+	<string id="st_drug_engine_radiated">
+		<text>LSD Protector (irradiated)</text>
+	</string>
+	<string id="st_drug_cat_eye_radiated">
+		<text>Tablets "Cat's eye" (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_1_radiated">
+		<text>SMW bag (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_2_radiated">
+		<text>Army SMW bag (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_3_radiated">
+		<text>Scientific SMW bag (irradiated)</text>
+	</string>
+	<string id="st_bag_medkit_4_radiated">
+		<text>Special SMW bag (irradiated)</text>
+	</string>
+	<string id="st_hangover_radiated">
+		<text>Hangover pills (irradiated)</text>
+	</string>
+	<string id="st_tranquilizer_radiated">
+		<text>Tranquilizer (irradiated)</text>
+	</string>
+	<string id="st_detonator">
+		<text>Detonator</text>
+	</string>
+	<string id="st_detonator_descr">
+		<text>It is a part of an explosive device containing an explosive charge that is more sensitive to external influences than a high explosive of a main charge. The detonator is designed to reliably excite the explosion of the main charge of an artillery shell, mines, bombs, missile warheads, torpedoes, as well as a subversive charge. \n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item</text>
+	</string>
+	<string id="st_blades">
+		<text>Razor blades</text>
+	</string>
+	<string id="st_blades_descr">
+		<text>Old razor blades, very sharp. Can be used for cutting fabrics and other materials. \n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item</text>
+	</string>
+	<string id="st_scissors">
+		<text>Scissors</text>
+	</string>
+	<string id="st_scissors_descr">
+		<text>Stainless scissors, sharpened. They cut well, sharpened.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item</text>
+	</string>
+	<string id="st_scissors_and_blades">
+		<text>Scissors and razor blades</text>
+	</string>
+	<string id="st_scissors_and_blades_descr">
+		<text>Set of old shaving blades and sharpened, stainless scissors.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological items</text>
+	</string>
+	<string id="st_scissors_and_blades_and_knife">
+		<text>Scissors, blades and a swiss knife</text>
+	</string>
+	<string id="st_scissors_and_blades_and_knife_descr">
+		<text>Set of old shaving blades and sharpened, stainless scissors, as well as multifunctional Swiss knife. An excellent set to disassemble any outfit.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological items</text>
+	</string>
+	<string id="st_knife_and_cutlery">
+		<text>Swiss Knife and Cutlery</text>
+	</string>
+	<string id="st_knife_and_cutlery_descr">
+		<text>Set of swiss knife and cutlery. Good for disassembling something small.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological items</text>
+	</string>
+	
+	<string id="st_sd_hacking_soft_title">
+		<text>Flash card with xHack</text>
+	</string>
+	<string id="st_sd_hacking_soft_descr">
+		<text>Flash card with a written malware software - xHack version 1.0. It is known in narrow circles that it's able to hack any user accounts and accounts on the victim device, redirecting all found resources to the specified addresses. It can hack any kind of digital device, regardless of the installed operating system.\n \n%c[default]PROPERTIES:\n%c[0,153,255,255] • %c[default]Hacking accounts and personal files\n%c[255,238,153,26] • %c[default]Attention:%c[0,170,170,170]USING THIS SOFTWARE IS ILLEGAL</text>
+	</string>
+
+	<string id="st_delivery_container_name">
+		<text>Delivery container</text>
+	</string>
+	<string id="st_delivery_container_descr">
+		<text>Heavy metal container in which equipment or provisions can be transported. Heavy enough to carry alone.\n \n%c[default]PROPERTIES:\n \n%c[0,153,255,255] • %c[default]Technological item \n%c[0,153,255,255] • %c[default]Used to supply local traders</text>
+	</string>
+	
+	<string id="st_mushroom">
+		<text>Chernobyl mushroom</text>
+	</string>
+	<string id="st_mushroom_descr">
+		<text>One of the edible species of mushrooms growing on the territory of the Zone and beyond. It doesn't have any mutations. Edible after long boiling or frying, slightly fonit. Often used by local drug addicts, for the manufacture of tranquilizers and potent painkillers. It grows most often in swampy and dark areas. It is recommended to refrain from the use of mushrooms collected in the Zone, as they accumulate heavy metals, radionuclides and other harmful substances.\n \n%c[default]PROPERTIES:\n%c[0,153,255,255] • %c[default]Raw food\n%c[0,0,255,30] • %c[default]Low quality food\n%c[0,153,255,255] • %c[default]Contaminated power supply\n%c[0,153,255,255] • %c[default]Can be used in medicine</text>
+	</string>
+	<string id="st_mushroom_muh">
+		<text>Amanita</text>
+	</string>
+	<string id="st_mushroom_muh_descr">
+		<text>Big amanita, which can be found within the Zone. Unlike its counterparts, it is much more poisonous due to the fact that it contains many harmful and radioactive substances. Can be used for the preparation of medicaments. It is recommended to refrain from the use of mushrooms collected in the Zone, as they accumulate heavy metals, radionuclides and other harmful substances.\n \n%c[default]PROPERTIES:\n%c[0,153,255,255] • %c[default]Raw food\n%c[0,0,255,30] • %c[default]Low quality food\n%c[0,0,255,30] • %c[default] can be cooked\n%c[0,153,255,255] • %c[default]Can be used in medicine\n%c[ui_red] • %c[default] poisonous food</text>
+	</string>
+	<string id="st_mushroom_fried">
+		<text>Boiled Chernobyl mushroom</text>
+	</string>
+	<string id="st_mushroom_fried_descr">
+		<text>Large boiled mushroom. Edible, tastes good after a long cooking period. Often used by local gourmets as an alternative source of food, despite the fact that it is still slightly fonit. It grows most often in swampy and dark areas. It is recommended to refrain from the use of mushrooms collected in the Zone, as they accumulate heavy metals, radionuclides and other harmful substances.\n \n%c[default]PROPERTIES:\n%c[0,153,255,255] • %c[default]Boiled food\n%c[0,153,255,255] • %c[default]Contaminated food\n%c[0,153,255,255] • %c[default]Can be used in medicine</text>
+	</string>
+	<string id="st_crow_egg">
+		<text>Crow egg</text>
+	</string>
+	<string id="st_crow_egg_descr">
+		<text>Common crow Egg. It is a very high-calorie product, it satisfies hunger, slightly improves health and slightly reduces the dose of radiation. In connection with the absence of chickens and other egg bearing creatures in the Zone, is a local delicacy.\n \n%c[default]PROPERTIES:\n%c[0,153,255,255] • %c[default]Food\n%c[0,153,255,255] • %c[default]Raw food</text>
+	</string>
+	<string id="st_crow_boiled_egg">
+		<text>Boiled crow egg</text>
+	</string>
+	<string id="st_crow_boiled_egg_descr">
+		<text>>A boiled crow egg, a very high-calorie product, satisfies hunger, slightly improves health and slightly reduces the dose of radiation. In connection with the absence of chickens and other egg bearing creatures in the Zone, is a local delicacy.\n \n%c[default]PROPERTIES:\n%c[0,153,255,255] • %c[default]Food\n%c[0,153,255,255] • %c[default]Clean food</text>
+	</string>
+	<string id="st_dosimeter">
+		<text>Dosimeter "Pripyat"</text>
+	</string>
+	<string id="st_dosimeter_descr">
+		<text>The dosimeter "Pripyat" RKS-20.03 is an electronic measuring instrument manufactured by the USSR. Designed for individual and collective use when measuring the equivalent dose rate of background ionizing radiation, beta-radiation flux density, specific activity in liquids and solids. Developed in 1980-1990-ies at the Kiev plant. The best for its time and most popular household dosimeter, starting from the 1990s of the last century to the present day inclusive. It was every employee of Chernobyl's friend. Measures radiation power in Roentgen per hour. The maximum threshold is 10000?R/h. This level of radiation is considered fatal to a person who is unprotected.\n \n%c[default]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default]Technological device\n%c[0,153,255,255] • %c[default]Power: Battery 9V (CR-9V)\n\n%c[0,153,255,255] • %c[default]Low energy consumption</text>
+	</string>
+	
+	<string id="st_kovalev_pda_name">
+		<text>Dubrov's Laptop</text>
+	</string>
+	<string id="st_kovalev_pda_descr">
+		<text>The laptop stores the data of the anomaly research on the Agroprom. \nProblem 3.7 has not been completed, several places have been marked, some have been crossed off, others are apparently not yet investigated. The coordinates where the samples still need to be collected are also indicated. \n \nUnreaded Messages: \n%c[0,225,225,225] • %c[default]Dubrov, I found something here... I got some more samples, I wrote it all down, you need to see it. \n%c[0,225,225,225] • %c[default]Dubrov, get in touch. \n%c[default] \nCHARACTERISTICS:\n%c[default] • %c[default]Technical device\n%c[default] • %c[default]Personal item</text>
+	</string>
+	<string id="st_pirogov_pda_name">
+		<text>Assistant's PDA</text>
+	</string>
+	<string id="st_pirogov_pda_descr">
+		<text>PDA of the dead stalker, who helped candidate Pirogov to place the prototypes in the anomalies in the dump. The PDA left a map with tags in key locations.\n \n%c[default]CHARACTERISTICS:\n%c[0,225,225,225] • %c[default]Unexplored artefact\n%c[0,153,255,255] • %c[default]Personal item</text>
+	</string>
+	<string id="st_strelok_pda_name">
+		<text>Gunslinger's PDA</text>
+	</string>
+	<string id="st_strelok_pda_descr">
+		<text>PDA of the famous Gunslinger. According to the content, you can understand that he almost did not have time to use it. From the preserved information, only the transition plan to the Chernobyl nuclear power plant and a detailed map of the Red Forest with a map of anomalies.\n \n%c[default]CHARACTERISTICS:\n%c[0,225,225,225] • %c[default]Technical device\n%c[0,153,255,255] • %c[default]Personal item</text>
+	</string>
+	<string id="st_chernov_docs_name">
+		<text>Dead man's Documents</text>
+	</string>
+	<string id="st_chernov_docs_descr">
+		<text>Papers from lab X-19. Most of the pages are damp, you can't read them. But on the diagrams you can disassemble a map of the area near the radar. And also methods for attaching experimental specimens to trees.\n \n%c[default]CHARACTERISTICS:\n%c[0,225,225,225] • %c[default]Paper\n%c[0,153,255,255] • %c[default]Personal item</text>
+	</string>		
+	<string id="st_vorobushkin_pda_name">
+		<text>The memory module of the VNZ "Circle"</text>
+	</string>
+	<string id="st_vorobushkin_pda_descr">
+		<text>Module removed from the equipment of the station of tilt and return probing "Circle". Contains territory spectrogram near the station with detailed map of anomalies.\n \n%c[default]CHARACTERISTICS:\n%c[0,225,225,225] • %c[default]Technical device\n%c[0,153,255,255] • %c[default]Personal item</text>
+	</string>	
+	<string id="ah_gramota_info">
+		<text>Letter of thanks</text>
+	</string>
+	<string id="ah_gramota_desc">
+		<text>A personal letter of appreciation acknowledging your merits to science, personally signed by Academician Skabinsky. As well as a recommendation to accept the submitter of this paper as a candidate for the Chernobyl Zonal Institute.\n \n%c[default]CHARACTERISTICS:\n%c[0,225,225,225] • %c[default]Paper\n%c[0,153,255,255] • %c[default]Personal item</text>
+	</string>
+</string_table>

@@ -1,0 +1,1136 @@
+;=====================================================================
+;							MEDICAL ITEMS
+;=====================================================================
+[part_selection]
+target_parts = head, body, left_arm, right_arm, left_leg, right_leg
+show_when_damaged			= false
+show_part_menu				= true
+show_quickslot_menu			= true
+show_heal_all				= false
+;heal_type = health, fracture or bleeding, can be a list
+;=====================================================================
+[antirad]:booster, can_divide
+$spawn 						= "food and drugs\antirad"
+visual						= dynamics\devices\dev_antirad\dev_antirad_iodid.ogf
+inv_name					= st_antirad
+inv_name_short				= st_antirad
+description					= st_antirad_descr
+inv_weight					= 0.05
+inv_volume					= 0.025
+inv_grid_x					= 6
+inv_grid_y					= 60
+cost						= 1560
+use_condition				= true
+max_uses					= 2
+empty_weight				= 0.02
+eat_satiety 				= -0.050
+eat_thirst					= -0.150
+eat_sleepiness				= 1
+boost_time					= 120
+boost_radiation_restore		= 0.000222 	;80mSv	;A.R.E.A. Formula: 1mSv/sec = (0.000333 * amount / boost_time) = value
+boost_radiation_protection	= 0.0050
+boost_toxicity				= -0.0005
+eat_health					= -0.035
+anim_section 				= anm_drug_antidot
+
+[antirad_radiated]:antirad
+inv_name					= st_antirad_radiated
+inv_name_short				= st_antirad_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[antirad_iodid]:booster, can_divide
+$spawn 						= "food and drugs\antirad"
+visual						= dynamics\devices\dev_antirad\dev_antirad.ogf
+inv_name					= st_antirad_iodid
+inv_name_short				= st_antirad_iodid
+description					= st_antirad_iodid_descr
+inv_weight					= 0.05
+inv_volume					= 0.025
+inv_grid_x					= 7
+inv_grid_y					= 60
+cost						= 2560
+use_condition				= true
+max_uses					= 2
+empty_weight				= 0.02
+eat_satiety 				= -0.050
+eat_thirst					= -0.150
+eat_sleepiness				= 2
+boost_time					= 120
+boost_radiation_restore		= 0.0008325 ;300Msv
+boost_radiation_protection	= 0.0100
+boost_toxicity				= -0.0003
+eat_health					= -0.050
+;use_sound					= interface\inv_eat_pills
+anim_section 				= anm_drug_antidot
+
+[antirad_iodid_radiated]:antirad_iodid
+inv_name					= st_antirad_iodid_radiated
+inv_name_short				= st_antirad_iodid_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[bandage_selfmade]:booster,part_selection, can_divide
+$spawn						= "food and drugs\bandage"
+visual						= dynamics\devices\dev_bandage\dev_bandage.ogf
+description					= st_bandage_selfmade_descr
+inv_name					= st_bandage_selfmade
+inv_name_short				= st_bandage_selfmade
+inv_weight					= 0.02
+inv_volume					= 0.25  
+cost						= 680
+inv_grid_x					= 3
+inv_grid_y					= 66
+boost_time					= 8
+boost_bleeding_restore		= 0.005
+max_uses					= 1
+use_condition				= true
+heal_type					= bleeding
+anim_section				= anm_bandage_selfmade
+
+[bandage_selfmade_radiated]:bandage_selfmade
+inv_name					= st_bandage_selfmade_radiated
+inv_name_short				= st_bandage_selfmade_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[bandage]:booster,part_selection, can_divide
+$spawn						= "food and drugs\bandage"
+visual						= dynamics\devices\dev_bandage\dev_bandage.ogf
+description					= st_bandage_descr
+inv_name					= st_bandage
+inv_name_short				= st_bandage
+inv_weight					= 0.02
+inv_volume					= 0.3
+cost						= 680
+inv_grid_x					= 2
+inv_grid_y					= 67
+boost_time					= 10
+boost_bleeding_restore		= 0.010
+max_uses					= 3
+use_condition				= true
+heal_type					= bleeding
+;use_sound					= interface\inv_bandage
+anim_section				= anm_bandage
+
+[bandage_radiated]:bandage
+inv_name					= st_bandage_radiated
+inv_name_short				= st_bandage_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[bandage_special]:booster,part_selection, can_divide
+$spawn						= "food and drugs\bandage_special"
+visual						= dynamics\devices\dev_bandage\dev_bandage_spec.ogf
+description					= st_bandage_special_descr
+inv_name					= st_bandage_special
+inv_name_short				= st_bandage_special
+inv_weight					= 0.03
+inv_volume					= 0.35
+cost						= 1820
+inv_grid_x					= 3
+inv_grid_y					= 67
+boost_time					= 10.2
+boost_bleeding_restore		= 0.020
+max_uses					= 3
+use_condition				= true
+heal_type					= bleeding
+;use_sound					= interface\inv_bandage
+anim_section				= anm_bandage_special
+
+[bandage_special_radiated]:bandage_special
+inv_name					= st_bandage_special_radiated
+inv_name_short				= st_bandage_special_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[bandage_enhanced]:booster,part_selection, can_divide
+$spawn						= "food and drugs\bandage_enhanced"
+visual						= dynamics\devices\dev_bandage\dev_bandage_spec.ogf
+description					= st_bandage_enhanced_descr
+inv_name					= st_bandage_enhanced
+inv_name_short				= st_bandage_enhanced
+inv_weight					= 0.04
+inv_volume					= 0.4
+cost						= 2250
+inv_grid_x					= 4
+inv_grid_y					= 67
+boost_time					= 10.4
+boost_bleeding_restore		= 0.030
+max_uses					= 3
+use_condition				= true
+heal_type					= bleeding
+;use_sound					= interface\inv_bandage
+anim_section				= anm_bandage_enhanced
+
+[bandage_enhanced_radiated]:bandage_enhanced
+inv_name					= st_bandage_enhanced_radiated
+inv_name_short				= st_bandage_enhanced_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[medkit_script]:booster 	;Do not use! Used in xr_wounded
+;$spawn						= "food and drugs\medkit_script"
+visual						= dynamics\devices\dev_aptechka\dev_aptechka_low.ogf
+inv_name					= st_medkit
+inv_name_short				= st_medkit
+description					= st_medkit_descr
+inv_weight					= 0.1
+inv_volume					= 0.1
+inv_grid_x					= 6
+inv_grid_y					= 67
+cost						= 0
+eat_health					= 0.5
+eat_max_power				= 0.1
+eat_radiation				= -0.05
+wounds_heal_perc			= 0.1
+use_sound					= interface\inv_medkit
+;AI Tweaks xr_help_wounded
+attach_angle_offset			= -2.6,2.3,0
+attach_position_offset		= 0.156, -0.035081, 0.05
+attach_bone_name			= bip01_l_hand
+auto_attach					= false
+can_trade					= false
+;=====================================================================
+[medkit]:booster,part_selection
+$spawn						= "food and drugs\medkit"
+visual						= dynamics\devices\dev_eat\medkit\medkit_basic.ogf
+inv_name					= st_medkit
+inv_name_short				= st_medkit
+description					= st_medkit_descr
+inv_weight					= 0.135
+inv_volume					= 0.4
+inv_grid_x					= 5
+inv_grid_y					= 67
+cost						= 2450
+boost_time					= 190.0
+boost_health_restore		= 0.0009
+boost_pain					= 0.0001
+boost_toxicity				= 0.0001
+eat_sleepiness				= 1
+eat_alcohol					= 0.10
+eat_thirst					= -0.025
+max_uses					= 2
+use_condition				= true
+scale_volume				= false
+heal_type					= health
+anim_section				= anm_medkit
+
+[medkit_radiated]:medkit
+inv_name					= st_medkit_radiated
+inv_name_short				= st_medkit_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[medkit_army]:booster,part_selection
+$spawn						= "food and drugs\medkit_army"
+visual						= dynamics\devices\dev_eat\medkit\medkit_army.ogf
+inv_name					= st_medkit_army
+inv_name_short				= st_medkit_army
+description					= st_medkit_army_descr
+inv_weight					= 0.160
+inv_volume					= 0.4
+inv_grid_x					= 6
+inv_grid_y					= 67
+cost						= 3330
+boost_time					= 205.0
+boost_health_restore		= 0.0010
+boost_radiation_restore		= 0.0001625 ;100Msv
+boost_pain					= 0.0002
+boost_toxicity				= 0.0002
+eat_sleepiness				= 1
+eat_alcohol					= 0.09
+eat_thirst					= -0.025
+max_uses					= 2
+use_condition				= true
+scale_volume				= false
+heal_type					= health
+;use_sound					= interface\inv_medkit
+anim_section				= anm_medkit_army
+
+[medkit_army_radiated]:medkit_army
+inv_name					= st_medkit_army_radiated
+inv_name_short				= st_medkit_army_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[medkit_scientic]:booster,part_selection
+$spawn						= "food and drugs\medkit_scientic"
+visual						= dynamics\devices\dev_eat\medkit\medkit_scientific.ogf
+inv_name					= st_medkit_science
+inv_name_short				= st_medkit_science
+description					= st_medkit_science_descr
+inv_weight					= 0.180
+inv_volume					= 0.4
+inv_grid_x					= 7
+inv_grid_y					= 67
+cost						= 4260
+boost_time					= 220.0
+boost_health_restore		= 0.0012
+boost_radiation_restore		= 0.0003028 ;200Msv
+boost_pain					= 0.0003
+boost_toxicity				= 0.0003
+eat_sleepiness				= 1
+eat_alcohol					= 0.08
+eat_thirst					= -0.025
+max_uses					= 3
+use_condition				= true
+volume_scale				= false
+heal_type					= health
+;use_sound					= interface\inv_medkit
+anim_section				= anm_medkit_scientic
+
+[medkit_scientic_radiated]:medkit_scientic
+inv_name					= st_medkit_scientic_radiated
+inv_name_short				= st_medkit_scientic_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[medkit_elite]:booster,part_selection
+$spawn						= "food and drugs\medkit_elite"
+visual						= dynamics\devices\dev_eat\medkit\medkit_elite.ogf
+inv_name					= st_medkit_elite
+inv_name_short				= st_medkit_elite
+description					= st_medkit_elite_descr
+inv_weight					= 0.200
+inv_volume					= 0.4
+inv_grid_x					= 8
+inv_grid_y					= 67
+cost						= 8200
+boost_time					= 240.0
+boost_health_restore		= 0.0014
+boost_radiation_restore		= 0.0004
+boost_bleeding_restore		= 0.0008
+boost_pain					= 0.0004
+boost_toxicity				= 0.0004
+eat_sleepiness				= 1
+eat_alcohol					= 0.07
+eat_thirst					= -0.025
+max_uses					= 3
+use_condition				= true
+volume_scale				= false
+heal_type					= health
+;use_sound					= interface\inv_medkit
+anim_section				= anm_medkit_elite
+
+[medkit_elite_radiated]:medkit_elite
+inv_name					= st_medkit_elite_radiated
+inv_name_short				= st_medkit_elite_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[stimpack]:booster,part_selection
+$spawn						= "food and drugs\medkit"
+visual						= dynamics\devices\dev_eat\injectors\wpn_injector.ogf
+inv_name					= st_injector
+inv_name_short				= st_injector
+description					= st_injector_descr
+inv_weight					= 0.235
+inv_volume					= 0.45
+inv_grid_x					= 5
+inv_grid_y					= 66
+cost						= 3820
+boost_time					= 55.00
+boost_pain					= 0.015
+boost_health_restore		= 0.0003
+boost_toxicity				= -0.0002
+eat_alcohol					= 0.040
+eat_thirst					= -0.025
+eat_satiety					= -0.100
+eat_sleepiness				= 1
+heal_type					= health
+anim_section				= anm_stimpack
+next_use_item				= stimpack_empty
+ampoule_section				= novocaine
+use1_action_functor			= area_utils.action_stimpack_novocaine
+use1_functor				= area_utils.stimpack_novocaine
+
+[stimpack_radiated]:stimpack
+inv_name					= st_injector_radiated
+inv_name_short				= st_injector_radiated
+eat_radiation				= 0.200
+ampoule_section				= novocaine_radiated
+
+[stimpack_empty]:base_section
+visual						= dynamics\devices\dev_eat\injectors\wpn_injector.ogf
+inv_name					= st_injector_empty
+inv_name_short				= st_injector_empty
+description					= st_injector_empty_descr
+inv_weight					= 0.225
+inv_volume					= 0.45
+inv_grid_x					= 5
+inv_grid_y					= 66
+cost						= 3000
+;=====================================================================
+[survival_kit]:booster,part_selection, can_divide
+visual						= dynamics\items\survival_kit.ogf
+description					= st_survival_kit_descr
+inv_name					= st_survival_kit
+inv_name_short				= st_survival_kit
+inv_weight					= 0.18
+inv_volume					= 1
+cost						= 6260
+inv_grid_x					= 9
+inv_grid_y					= 67
+boost_time					= 600
+boost_fracture_restore		= 0.00015
+max_uses					= 3
+use_condition				= true
+heal_type					= fracture
+repair_part_bonus			= 0.06
+anim_section				= anm_bandage
+
+[survival_kit_radiated]:survival_kit
+inv_name					= st_survival_kit_radiated
+inv_name_short				= st_survival_kit_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[improvised_splint]:booster, part_selection
+visual						= dynamics\equipments\medical\servo_splint.ogf
+description					= st_improvised_splint_descr
+inv_name					= st_improvised_splint
+inv_name_short				= st_improvised_splint
+inv_weight					= 6.5
+inv_volume					= 1
+cost						= 3000
+inv_grid_x					= 2
+inv_grid_y					= 48
+inv_grid_width				= 2
+boost_time					= 500
+boost_fracture_restore		= 0.0001
+heal_type					= fracture
+repair_part_bonus			= 0.2
+1icon_layer					= bandage
+1icon_layer_x       		= 0
+1icon_layer_y      			= 10
+1icon_layer_scale			= 0.80
+anim_section				= anm_bandage
+
+[improvised_splint_radiated]:improvised_splint
+inv_name					= st_improvised_splint_radiated
+inv_name_short				= st_improvised_splint_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[rebirth]:booster,part_selection
+visual						= dynamics\equipments\medical\rebirth.ogf
+inv_name					= st_rebirth
+inv_name_short				= st_rebirth
+description					= st_rebirth_descr
+inv_weight					= 0.021
+inv_volume					= 0.1
+inv_grid_x					= 6
+inv_grid_y					= 66
+cost						= 6500
+boost_time					= 15.5
+boost_pain					= 0.0010
+boost_health_restore		= 0.0025
+boost_radiation_restore		= 0.0082
+boost_toxicity				= -0.0002
+eat_alcohol					= 0.150
+eat_satiety					= 0.450
+eat_thirst					= -0.050
+eat_sleepiness				= -1
+heal_type					= health
+use_sound					= interface\inv_syringe
+
+[rebirth_radiated]:rebirth
+inv_name					= st_rebirth_radiated
+inv_name_short				= st_rebirth_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[tetanus]:booster
+visual						= dynamics\equipments\medical\rebirth.ogf
+inv_name					= st_tetanus
+inv_name_short				= st_tetanus
+description					= st_tetanus_descr
+inv_weight					= 0.036
+inv_volume					= 0.15
+inv_grid_x					= 11
+inv_grid_y					= 67
+cost						= 1940
+boost_time					= 136
+boost_toxicity 				= 0.010
+boost_health_restore		= 0.000062
+boost_chemburn_protection	= 0.00033 ; 0.00133 = +100%  
+eat_satiety					= -0.184
+eat_sleepiness				= 1
+use_sound					= interface\inv_syringe
+
+[tetanus_radiated]:tetanus
+inv_name					= st_tetanus_radiated
+inv_name_short				= st_tetanus_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[glucose]:booster
+visual						= dynamics\devices\glucose_shots\glucose.ogf
+inv_name					= st_glucose
+inv_name_short				= st_glucose
+description					= st_glucose_descr
+inv_weight					= 0.021
+inv_volume					= 0.2
+inv_grid_x					= 12
+inv_grid_y					= 67
+cost						= 2760
+boost_toxicity				= 0.00001
+eat_satiety					= 0.364
+eat_thirst					= -0.050
+eat_sleepiness				= 2
+use_sound					= interface\inv_syringe
+
+[glucose_radiated]:glucose
+inv_name					= st_glucose_radiated
+inv_name_short				= st_glucose_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[glucose_s]:booster
+visual						= dynamics\devices\glucose_shots\glucose_s.ogf
+inv_name					= st_glucose_s
+inv_name_short				= st_glucose_s
+description					= st_glucose_s_descr
+inv_weight					= 0.0134
+inv_volume					= 0.1
+inv_grid_x					= 13
+inv_grid_y					= 67
+cost						= 1440
+eat_satiety					= 0.152
+eat_thirst					= -0.025
+eat_sleepiness				= 2
+boost_toxicity				= 0.0001
+use_sound					= interface\inv_syringe
+
+[glucose_s_radiated]:glucose_s
+inv_name					= st_glucose_s_radiated
+inv_name_short				= st_glucose_s_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[cocaine]:booster
+visual						= dynamics\items\drugs\cocaine.ogf
+description					= st_cocaine_descr
+inv_name					= st_cocaine
+inv_name_short				= st_cocaine
+inv_weight					= 0.011
+inv_volume					= 0.1
+inv_grid_x					= 12
+inv_grid_y					= 66
+cost						= 2842
+boost_time					= 360
+boost_pain					= 0.0015
+boost_power_restore			= 0.0032
+boost_psy_health			= -0.0001
+boost_max_weight			= 15
+boost_toxicity				= -0.0001
+eat_alcohol					= -0.150
+eat_satiety					= -0.300
+eat_thirst					= -0.500
+eat_sleepiness				= -5
+use_sound					= interface\inv_sniff_long
+
+[cocaine_radiated]:cocaine
+inv_name					= st_cocaine_radiated
+inv_name_short				= st_cocaine_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[salicidic_acid]:booster
+$spawn						= "devices\pda"
+visual						= dynamics\equipments\medical\rebirth.ogf
+description					= st_salicidic_acid_descr
+inv_name					= st_salicidic_acid
+inv_name_short				= st_salicidic_acid
+inv_weight					= 0.076
+inv_volume					= 0.3
+inv_grid_x					= 11
+inv_grid_y					= 66
+cost						= 1520
+boost_time					= 142
+boost_bleeding_restore		= 0.00250
+boost_wound_immunity		= 0.200
+eat_alcohol					= 0.015
+eat_satiety					= -0.237
+eat_thirst					= -0.100
+eat_sleepiness				= 1
+eat_health					= 0.063
+use_sound					= interface\inv_syringe
+
+[salicidic_acid_radiated]:salicidic_acid
+inv_name					= st_salicidic_acid_radiated
+inv_name_short				= st_salicidic_acid_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[morphine]:booster
+$spawn						= "devices\pda"
+visual						= dynamics\items\drugs\morphine.ogf
+description					= st_morphine_descr
+inv_name					= st_morphine
+inv_name_short				= st_morphine
+inv_weight					= 0.074
+inv_volume					= 0.3
+inv_grid_x					= 10
+inv_grid_y					= 66
+cost						= 2560
+boost_time					= 320
+boost_pain					= 0.015
+boost_psy_health			= -0.00004
+boost_bleeding_restore		= 0.00400
+boost_wound_immunity		= 0.332
+boost_toxicity				= -0.0001
+eat_alcohol					= 0.200
+eat_satiety					= -0.356
+eat_thirst					= -0.050
+eat_sleepiness				= 2
+eat_health					= 0.082
+use_sound					= interface\inv_syringe
+
+[morphine_radiated]:morphine
+inv_name					= st_morphine_radiated
+inv_name_short				= st_morphine_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[novocaine]:booster
+$spawn						= "devices\pda"
+visual						= dynamics\items\drugs\novocaine.ogf
+description					= st_novocaine_descr
+inv_name					= st_novocaine
+inv_name_short				= st_novocaine
+inv_weight					= 0.025
+inv_volume					= 0.030
+inv_grid_x					= 4
+inv_grid_y					= 66
+cost						= 2560
+boost_time					= 284
+boost_pain					= 0.015
+boost_psy_health			= 0.0005
+boost_bleeding_restore		= 0.00400
+boost_wound_immunity		= 0.332
+eat_alcohol					= 0.080
+eat_satiety					= -0.356
+eat_thirst					= -0.050
+eat_sleepiness				= 2
+eat_health					= 0.082
+show_on_use					= false
+
+[novocaine_radiated]:novocaine
+inv_name					= st_novocaine_radiated
+inv_name_short				= st_novocaine_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[adrenalin]:booster
+$spawn						= "food and drugs\energy_drink"
+visual						= dynamics\equipments\medical\rebirth.ogf
+inv_name					= st_adrenalin
+inv_name_short				= st_adrenalin
+description					= st_adrenalin_descr
+cost						= 10840
+inv_weight					= 0.052
+inv_volume					= 0.35
+inv_grid_x					= 5
+inv_grid_y					= 43
+boost_time					= 600
+boost_pain					= 0.0010
+boost_power_restore			= 0.0065
+boost_max_weight			= 5
+boost_toxicity				= -0.00001
+eat_alcohol					= -0.100
+eat_satiety					= -0.250
+eat_thirst					= -0.250
+eat_sleepiness				= -5
+eat_health					= 0.025
+use_sound					= interface\inv_syringe
+
+[adrenalin_radiated]:adrenalin
+inv_name					= st_adrenalin_radiated
+inv_name_short				= st_adrenalin_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[amphetamines]:booster, can_divide
+$spawn						= "food and drugs\amphetamines"
+visual						= dynamics\items\drinks\bottle.ogf
+inv_name					= st_amphetamines
+inv_name_short				= st_amphetamines
+description					= st_amphetamines_descr
+cost						= 4250
+inv_weight					= 0.05
+inv_volume					= 0.3
+inv_grid_x					= 9
+inv_grid_y					= 43
+boost_time					= 240
+boost_pain					= 0.005
+boost_power_restore			= 0.003
+boost_max_weight			= 10
+boost_toxicity				= -0.00002
+eat_alcohol					= -0.100
+eat_satiety					= -0.100
+eat_thirst					= -0.150
+eat_sleepiness				= -4
+use_condition				= true
+max_uses					= 4
+use_sound					= interface\inv_eat_pills_2
+
+[amphetamines_radiated]:amphetamines
+inv_name					= st_amphetamines_radiated
+inv_name_short				= st_amphetamines_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[diazepam]:booster
+$spawn						= "food and drugs\diazepam"
+visual						= dynamics\equipments\medical\drug_psy_blockade.ogf
+inv_name					= st_diazepam
+inv_name_short				= st_diazepam
+description					= st_diazepam_descr
+inv_weight					= 0.01
+inv_volume					= 0.1
+inv_grid_x					= 6
+inv_grid_y					= 43
+cost						= 1050
+eat_sleepiness				= 3
+eat_thirst					= -0.050
+boost_time					= 220
+boost_slowed_pulse			= 0.5
+boost_psy_health			= 0.002
+boost_telepat_immunity		= 0.01
+boost_telepat_protection	= 0.01
+anim_section				= anm_drug_radioprotector
+
+[diazepam_radiated]:diazepam
+inv_name					= st_diazepam_radiated
+inv_name_short				= st_diazepam_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[psy_complex]:booster, can_divide
+$spawn						= "food and drugs\psy_complex"
+visual						= dynamics\equipments\medical\drug_psyhodelin.ogf
+inv_name					= st_psy_complex
+inv_name_short				= st_psy_complex
+description					= st_psy_complex_descr
+inv_weight					= 0.005
+inv_volume					= 0.3
+inv_grid_x					= 13
+inv_grid_y					= 65
+cost						= 6420
+boost_time					= 240
+boost_psy_health			= 0.005
+boost_telepat_protection	= 0.0300
+boost_toxicity				= -0.00001
+eat_toxicity				= 0.045
+eat_alcohol					= 0.100
+eat_satiety					= -0.12
+eat_thirst					= -0.060
+eat_health					= -0.024
+eat_sleepiness				= 2
+use_condition				= true
+max_uses					= 4
+use_sound					= interface\inv_eat_pills_2
+
+[psy_complex_radiated]:psy_complex
+inv_name					= st_psy_complex_radiated
+inv_name_short				= st_psy_complex_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_engine]:booster, can_divide
+$spawn						= "food and drugs\drug_engine"
+visual						= dynamics\equipments\medical\drug_lsd_engine.ogf
+inv_name					= st_drug_engine
+inv_name_short				= st_drug_engine
+description					= st_drug_engine_descr
+inv_weight					= 0.25
+inv_volume					= 0.2
+inv_grid_x					= 8
+inv_grid_y					= 44
+cost						= 8322
+boost_time					= 240
+boost_pain					= 0.002
+boost_telepat_protection	= 0.0125
+boost_max_weight			= 6
+boost_toxicity				= -0.00001
+eat_health					= -0.12
+eat_thirst					= -0.050
+eat_alcohol					= 0.250
+eat_sleepiness				= -4
+use_condition				= true
+max_uses					= 3
+empty_weight				= 0.01
+anim_section 				= anm_drug_antidot
+;use_sound					= interface\inv_drug_engine
+
+[drug_engine_radiated]:drug_engine
+inv_name					= st_drug_engine_radiated
+inv_name_short				= st_drug_engine_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_cat_eye]:booster, can_divide
+$spawn						= "food and drugs\cat_eye"
+visual						= dynamics\equipments\medical\drug_cat_eye.ogf
+inv_name					= st_cat_eye
+inv_name_short				= st_cat_eye
+description					= st_cat_eye_descr
+inv_weight					= 0.22
+inv_volume					= 0.1
+inv_grid_x					= 9
+inv_grid_y					= 44
+cost						= 6441
+boost_time					= 180
+eat_health					= -0.005
+eat_satiety					= -0.025
+eat_thirst					= -0.055
+eat_toxicity				= 0.05
+eat_sleepiness				= 1
+use_condition				= true
+max_uses					= 3
+empty_weight				= 0.01
+;use_sound					= interface\inv_eat_pills_2
+anim_section				= anm_drug_cat_eye
+
+[drug_cat_eye_radiated]:drug_cat_eye
+inv_name					= st_drug_cat_eye_radiated
+inv_name_short				= st_drug_cat_eye_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[bag_medkit_1]:booster
+$spawn						= "food and drugs\bag_medkits"
+class						= S_FOOD
+visual						= dynamics\devices\dev_med_bag\dev_med_bag_red.ogf
+description					= st_bag_medkit_1_descr
+inv_name					= st_bag_medkit_1_title
+inv_name_short				= st_bag_medkit_1_title
+inv_weight					= 1.64
+inv_volume					= 2.0
+inv_grid_width				= 2
+inv_grid_height				= 2
+inv_grid_x					= 0
+inv_grid_y					= 13
+cost						= 8500
+use_sound					= interface\inv_survival_kit
+next_use_item				= medkit,bandage,bandage,drug_sleepingpills,drug_coagulant
+
+[bag_medkit_1_radiated]:bag_medkit_1
+inv_name					= st_bag_medkit_1_radiated
+inv_name_short				= st_bag_medkit_1_radiated
+next_use_item				= medkit_radiated,bandage_radiated,bandage_radiated,drug_sleepingpills_radiated,drug_coagulant_radiated
+;=====================================================================
+[bag_medkit_2]:bag_medkit_1
+visual						= dynamics\devices\dev_med_bag\dev_med_bag_green.ogf
+description					= st_bag_medkit_2_descr
+inv_name					= st_bag_medkit_2_title
+inv_name_short				= st_bag_medkit_2_title
+inv_weight					= 1.42
+inv_grid_x					= 2
+cost						= 8900
+next_use_item				= medkit_army,bandage_special,bandage_special,activated_charcoal
+
+[bag_medkit_2_radiated]:bag_medkit_2
+inv_name					= st_bag_medkit_2_radiated
+inv_name_short				= st_bag_medkit_2_radiated
+next_use_item				= medkit_army_radiated,bandage_enhanced_radiated,bandage_enhanced_radiated,activated_charcoal_radiated
+;=====================================================================
+[bag_medkit_3]:bag_medkit_1
+visual						= dynamics\devices\dev_med_bag\dev_med_bag_yellow.ogf
+description					= st_bag_medkit_3_descr
+inv_name					= st_bag_medkit_3_title
+inv_name_short				= st_bag_medkit_3_title
+inv_weight					= 2.10
+inv_grid_x					= 4
+cost						= 9500
+next_use_item				= medkit_scientic,bandage_enhanced,bandage_enhanced,drug_coagulant
+
+[bag_medkit_3_radiated]:bag_medkit_3
+inv_name					= st_bag_medkit_3_radiated
+inv_name_short				= st_bag_medkit_3_radiated
+next_use_item				= medkit_scientic_radiated,bandage_special_radiated,bandage_special_radiated,drug_coagulant_radiated
+;=====================================================================
+[bag_medkit_4]:bag_medkit_1
+visual						= dynamics\devices\dev_med_bag\dev_med_bag_blue.ogf
+description					= st_bag_medkit_4_descr
+inv_name					= st_bag_medkit_4_title
+inv_name_short				= st_bag_medkit_4_title
+inv_weight					= 2.21
+inv_grid_x					= 6
+cost						= 18000
+next_use_item				= medkit_elite,bandage_special,bandage_special,pot_permanganate,glucose_s,rebirth
+
+[bag_medkit_4_radiated]:bag_medkit_4
+inv_name					= st_bag_medkit_4_radiated
+inv_name_short				= st_bag_medkit_4_radiated
+next_use_item				= medkit_elite_radiated,bandage_special_radiated,bandage_special_radiated,glucose_s_radiated,rebirth_radiated
+;=====================================================================
+;								DRUGS
+;=====================================================================
+[caffeine]:booster, can_divide ;x5
+$spawn						= "food and drugs\drug_psy_blockade"
+visual						= dynamics\devices\dev_caffeine\dev_caffeine.ogf
+inv_name					= st_caffeine
+inv_name_short				= st_caffeine
+description					= st_caffeine_descr
+inv_weight					= 0.011
+inv_volume					= 0.1
+inv_grid_x					= 10
+inv_grid_y					= 67
+cost						= 2550
+boost_time					= 280
+boost_max_weight			= 0.724
+boost_power_restore			= 0.0008
+eat_alcohol 				= -0.150
+eat_satiety 				= 0.020
+eat_thirst					= -0.050
+eat_sleepiness				= -6
+max_uses					= 5
+use_condition				= true
+use_sound					= interface\inv_eat_pills_effect
+
+[caffeine_radiated]:caffeine
+inv_name					= st_caffeine_radiated
+inv_name_short				= st_caffeine_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_sleepingpills]:booster, can_divide
+$spawn 						= "food and drugs\drug_psy_blockade"
+visual						= dynamics\equipments\medical\drug_sleeping_pills.ogf
+inv_name					= st_sleepingpills
+inv_name_short				= st_sleepingpills
+description					= st_sleepingpills_descr
+inv_weight					= 0.011
+inv_volume					= 0.1
+inv_grid_x					= 6
+inv_grid_y					= 65
+cost						= 2100
+boost_time					= 25
+boost_slowed_pulse			= 0.1
+eat_sleepiness				= 16
+eat_toxicity				= 0.025
+eat_thirst					= -0.040
+max_uses					= 5
+use_condition				= true
+;use_sound					= interface\inv_eat_pills_2
+anim_section				= anm_drug_sleepingpills
+
+[drug_sleepingpills_radiated]:drug_sleepingpills
+inv_name					= st_sleepingpills_radiated
+inv_name_short				= st_sleepingpills_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_hangover]:booster, can_divide
+$spawn 						= "food and drugs\drug_psy_blockade"
+visual						= dynamics\equipments\medical\drug_sleeping_pills.ogf
+inv_name					= st_hangover
+inv_name_short				= st_hangover
+description					= st_hangover_descr
+inv_weight					= 0.015
+inv_volume					= 0.1
+inv_grid_x					= 5
+inv_grid_y					= 65
+cost						= 1800
+eat_sleepiness				= -2
+eat_alcohol					= -0.500
+eat_thirst					= -0.050
+eat_toxicity				= -0.005
+max_uses					= 6
+use_condition				= true
+;use_sound					= interface\inv_eat_pills_2
+anim_section				= anm_drug_cat_eye
+
+[drug_hangover_radiated]:drug_hangover
+inv_name					= st_hangover_radiated
+inv_name_short				= st_hangover_radiated
+eat_radiation				= 0.200
+anim_section				= anm_drug_cat_eye
+;=====================================================================
+[drug_booster]:booster
+$spawn 						= "food and drugs\drug_booster"
+visual						= dynamics\equipments\medical\drug_booster.ogf
+inv_name					= st_drug_booster
+inv_name_short				= st_drug_booster
+description					= st_drug_booster_descr
+inv_weight					= 0.18
+inv_volume					= 0.45
+inv_grid_x					= 7
+inv_grid_y					= 64
+cost						= 1582
+boost_time					= 540
+boost_max_weight			= 6
+boost_slowed_pulse			= 0.25
+boost_power_restore			= 0.0028
+boost_toxicity				= -0.0001
+eat_alcohol 				= -0.120
+eat_satiety 				= 0.239
+eat_thirst					= 0.150
+eat_sleepiness				= -1
+;use_sound					= interface\inv_drink_flask_effect
+anim_section				= anm_drug_booster
+
+[drug_booster_radiated]:drug_booster
+inv_name					= st_drug_booster_radiated
+inv_name_short				= st_drug_booster_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_coagulant]:booster, can_divide ;x5
+$spawn 						= "food and drugs\drug_coagulant"
+visual						= dynamics\equipments\medical\drug_coagulant.ogf
+inv_name					= st_drug_coagulant
+inv_name_short				= st_drug_coagulant
+description					= st_drug_coagulant_descr
+inv_weight					= 0.011
+inv_volume					= 0.1
+inv_grid_x					= 7
+inv_grid_y					= 65
+cost						= 3350
+boost_time					= 180
+boost_bleeding_restore		= 0.002
+boost_wound_immunity		= 0.165
+eat_sleepiness				= 2
+eat_satiety					= -0.166
+eat_thirst					= -0.050
+eat_toxicity				= 0.1
+max_uses					= 5
+use_condition				= true
+;use_sound					= interface\inv_eat_pills
+anim_section				= anm_drug_coagulant
+
+[drug_coagulant_radiated]:drug_coagulant
+inv_name					= st_drug_coagulant_radiated
+inv_name_short				= st_drug_coagulant_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_psy_blockade]:booster, can_divide ;x5
+$spawn 						= "food and drugs\drug_psy_blockade"
+visual						= dynamics\equipments\medical\drug_psy_blockade.ogf
+inv_name					= st_drug_psy_blockade
+inv_name_short				= st_drug_psy_blockade
+description					= st_drug_psy_blockade_descr
+inv_weight					= 0.011
+inv_volume					= 0.1
+inv_grid_x					= 8
+inv_grid_y					= 65
+cost						= 4450
+boost_time					= 600
+boost_psy_health			= 0.0001
+boost_telepat_protection	= 0.0109
+eat_satiety 				= -0.124
+eat_thirst					= -0.050
+eat_alcohol					= 0.025
+eat_toxicity				= 0.05
+eat_sleepiness				= -1
+max_uses					= 5
+use_condition				= true
+;use_sound					= interface\inv_eat_pills_effect
+anim_section				= anm_drug_psy_blockade
+
+[drug_psy_blockade_radiated]:drug_psy_blockade
+inv_name					= st_drug_psy_blockade_radiated
+inv_name_short				= st_drug_psy_blockade_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_antidot]:booster, can_divide ;x3
+$spawn 						= "food and drugs\drug_antidot"
+visual						= dynamics\equipments\medical\drug_antidot.ogf
+inv_name					= st_drug_antidot
+inv_name_short				= st_drug_antidot
+description					= st_drug_antidot_descr
+inv_weight					= 0.01
+inv_volume					= 0.15
+inv_grid_x					= 9
+inv_grid_y					= 65
+cost						= 3360
+boost_time					= 296
+boost_toxicity				= 0.001
+boost_slowed_pulse			= 0.2
+boost_chemburn_protection	= 0.00236
+eat_satiety 				= -0.055
+eat_thirst					= -0.050
+eat_sleepiness				= 2
+max_uses					= 3
+use_condition				= true
+;use_sound					= interface\inv_eat_pills_2
+anim_section				= anm_drug_antidot
+
+[drug_antidot_radiated]:drug_antidot
+inv_name					= st_drug_antidot_radiated
+inv_name_short				= st_drug_antidot_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_radioprotector]:booster, can_divide ;x2
+$spawn 						= "food and drugs\drug_radioprotector"
+visual						= dynamics\equipments\medical\drug_radioprotector.ogf
+inv_name					= st_drug_radioprotector
+inv_name_short				= st_drug_radioprotector
+description					= st_drug_radioprotector_descr
+inv_weight					= 0.010
+inv_volume					= 0.15
+inv_grid_x					= 10
+inv_grid_y					= 65
+cost						= 1720
+boost_time					= 360
+boost_radiation_protection	= 0.0154
+eat_satiety 				= -0.150
+eat_thirst					= -0.150
+eat_toxicity				= 0.05
+eat_sleepiness				= 1
+max_uses					= 2
+use_condition				= true
+anim_section				= anm_drug_radioprotector
+
+[drug_radioprotector_radiated]:drug_radioprotector
+inv_name					= st_drug_radioprotector_radiated
+inv_name_short				= st_drug_radioprotector_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[drug_anabiotic]:booster
+$spawn 						= "food and drugs\drug_anabiotic"
+visual						= dynamics\equipments\medical\drug_anabiotic.ogf
+inv_name					= st_drug_anabiotic
+inv_name_short				= st_drug_anabiotic
+description					= st_drug_anabiotic_descr
+inv_weight					= 0.012
+inv_volume					= 0.15
+inv_grid_x					= 11
+inv_grid_y					= 65
+cost						= 5650
+eat_thirst					= -0.050
+eat_sleepiness				= 3
+eat_toxicity				= 0.2
+use_sound					= interface\inv_eat_pills_2
+
+[drug_anabiotic_radiated]:drug_anabiotic
+inv_name					= st_drug_anabiotic_radiated
+inv_name_short				= st_drug_anabiotic_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[pot_permanganate]:booster
+$spawn 						= "food and drugs\pot_permanganate"
+visual						= dynamics\equipments\medical\drug_cat_eye.ogf
+inv_name					= st_pot_permanganate
+inv_name_short				= st_pot_permanganate
+description					= st_pot_permanganate_descr
+inv_weight					= 0.006
+inv_volume					= 0.15
+inv_grid_x					= 12
+inv_grid_y					= 65
+cost						= 3500
+boost_time					= 60
+boost_radiation_restore		= 0.00087 
+eat_alcohol					= -0.20
+eat_thirst					= -0.050
+eat_satiety 				= -0.050
+eat_sleepiness				= 1
+eat_toxicity				= 0.015
+anim_section				= anm_drug_coagulant
+
+[pot_permanganate_radiated]:pot_permanganate
+inv_name					= st_pot_permanganate_radiated
+inv_name_short				= st_pot_permanganate_radiated
+eat_radiation				= 0.200
+;=====================================================================
+[activated_charcoal]:booster, can_divide
+$spawn 						= "food and drugs\activated_charcoal"
+visual						= dynamics\equipments\medical\drug_cat_eye.ogf
+inv_name					= st_activated_charcoal
+inv_name_short				= st_activated_charcoal
+description					= st_activated_charcoal_descr
+inv_weight					= 0.006
+inv_volume					= 0.1
+inv_grid_x					= 4
+inv_grid_y					= 65
+cost						= 3000
+boost_time					= 60
+boost_toxicity				= 0.00001
+eat_alcohol					= -0.400
+eat_thirst					= -0.050
+eat_satiety 				= -0.050
+eat_sleepiness				= -1
+eat_toxicity				= -0.1
+use_condition				= true
+max_uses					= 5
+anim_section				= anm_drug_charcoal
+
+[activated_charcoal_radiated]:activated_charcoal
+inv_name					= st_activated_charcoal_radiated
+inv_name_short				= st_activated_charcoal_radiated
+eat_radiation				= 0.200
+;=====================================================================

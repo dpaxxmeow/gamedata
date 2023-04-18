@@ -1,0 +1,195 @@
+;----------------------------------------------------------------------------------------
+; АЕК-919К from TAZ 2.0, remade by Surs for A.R.E.A. (16.08.2022)
+;----------------------------------------------------------------------------------------
+[wpn_aek919k]:default_weapon_params
+$npc								= on
+$spawn								= "weapons\aek919k"
+visual								= dynamics\weapons\wpn_aek919k\wpn_aek919k.ogf
+class								= WP_LR300
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+inv_name							= st_wpn_aek919k
+inv_name_short						= st_wpn_aek919k
+description							= st_wpn_aek919k_descr
+hud									= wpn_aek919k_hud
+inv_weight							= 1.78
+inv_volume							= 1.8
+ph_mass								= 2
+cost								= 20000
+weapon_class						= assault_rifle
+repair_type							= smg
+heating_rates						= smg2
+;-----------------------------------------------------------------------------
+upgrades							= up_gr_firstab_pp2000, up_gr_seconab_pp2000, up_gr_thirdab_pp2000, up_gr_fourtab_pp2000, up_gr_fifthab_pp2000, up_gr_fifthcd_pp2000
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_mp5
+;-----------------------------------------------------------------------------
+hit_power							= 0.21
+hit_impulse							= 10
+hit_type							= fire_wound
+bullet_speed						= 315
+fire_distance						= 1000
+rpm									= 900
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0.004
+misfire_end_prob					= 0.057
+condition_shot_dec					= 0.0012
+condition_queue_shot_dec			= 0.0012
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+magazine_sect						= mag_9x18_cnt_30_aek919k
+fire_modes							= 1, -1
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+grenade_class						= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad, ammo_vog-25p, ammo_vog-25p_bad, ammo_vog-25p_verybad
+single_handed						= 0
+slot								= 2
+animation_slot						= 8
+;--DOF------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 3
+;--дисперсия------------------------------------------------------------------
+fire_dispersion_base				= 0.32
+fire_dispersion_condition_factor	= 2.5
+control_inertion_factor				= 1.05f
+crosshair_inertion					= 4.0
+
+cam_return							= 0
+cam_relax_speed						= 5
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 0.5
+cam_dispersion_inc					= 0.25
+cam_dispersion_frac					= 1
+cam_max_angle						= 50
+cam_max_angle_horz					= 50
+cam_step_angle_horz					= 1.5
+
+PDM_disp_base						= 0.5
+PDM_disp_vel_factor					= 1.5
+PDM_disp_accel_factor				= 1.5
+PDM_disp_crouch						= 1
+PDM_disp_crouch_no_acc				= 1
+
+zoom_cam_relax_speed				= 10
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 0.5
+zoom_cam_dispersion_inc				= 0.25
+zoom_cam_dispersion_frac			= 1
+zoom_cam_max_angle					= 50
+zoom_cam_max_angle_horz				= 50
+zoom_cam_step_angle_horz			= 1.5
+;-----------------------------------------------------------------------------
+inv_grid_width						= 3
+inv_grid_height						= 2
+inv_grid_x							= 44
+inv_grid_y							= 59
+
+upgr_icon_x							= 1900
+upgr_icon_y							= 1250
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+kill_msg_x							= 72
+kill_msg_y							= 82
+kill_msg_width						= 56
+kill_msg_height						= 23
+;-----------------------------------------------------------------------------
+position							= -0.021,-0.153,-0.015
+orientation							= 0,0,0
+shell_3d_sect						= shell_9
+shell_dir							= 0.0, 1.0, 0.0
+shell_particles						= weapons\9x19
+shell_point							= 0.0, 0.188, 0.082
+fire_point							= 0.0, 0.188, 0.392
+fire_point2							= 0.0, 0.188, 0.392
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\generic_shoot_00
+grenade_flame_particles				= weapons\new_effects\smoke_silencer_pistol
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+scope_status						= 0
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+scope_zoom_hud_fov					= 0.36
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 126
+grenade_launcher_y					= 24
+
+silencer_name						= wpn_addon_silencer
+silencer_x							= 122
+silencer_y							= -13
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= amik\weapons\smoke_particles\silencer_smoke_particles_02
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\aek919k\aek919k_holster
+snd_draw							= weapons\aek919k\aek919k_draw
+snd_empty							= weapons\aek919k\aek919k_empty	
+snd_reload							= weapons\aek919k\aek919k_reload
+snd_reload_empty					= weapons\aek919k\aek919k_reload
+snd_check_magazine                  = weapons\aek919k\aek919k_reload
+snd_bore							= $no_sound
+snd_shoot							= weapons\aek919k\aek919k_shoot
+snd_silencer_shot					= weapons\aek919k\aek919k_shot_sil
+;--Магазины-------------------------------------------------------------------
+[mag_9x18_cnt_30_aek919k]
+magazine_name						= magazine_9x18_cnt_30
+magazine_x							= 88
+magazine_y							= 50
+custom_icon 						= 3,2,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_aek919k_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_aek919k\wpn_aek919k_hud.ogf
+zoom_hide_crosshair					= false
+shell_point							= -0.015,0.048,0.071
+shell_bone							= wpn_body
+fire_point							= 0,0.070,0.160541
+fire_bone							= wpn_body
+
+hands_position						= -0.013200,0.003150,0.043251
+hands_position_16x9					= -0.013200,0.003150,0.043251
+hands_orientation					= 3.227840,3.349998,0.0
+hands_orientation_16x9				= 3.227840,3.349998,0.0
+
+aim_hud_offset_pos					= -0.062285,0.034435,-0.217200
+aim_hud_offset_pos_16x9				= -0.062285,0.034435,-0.217200
+aim_hud_offset_rot					= 0.063554,0.056636,-0.009500
+aim_hud_offset_rot_16x9				= 0.063554,0.056636,-0.009500
+
+anm_show							= aek919k_draw
+anm_hide							= aek919k_holster
+anm_idle							= aek919k_idle
+anm_idle_sprint						= aek919k_idle_sprint
+anm_idle_moving						= aek919k_idle_move
+anm_shots							= aek919k_shoot, shoot
+anm_reload							= aek919k_reload, reload
+anm_reload_empty					= aek919k_reload, reload
+anm_reload_detached					= aek919k_reload, reload
+anm_reload_detached_empty			= aek919k_reload, reload
+anm_idle_aim						= aek919k_idle_aim, idle
+anm_bore							= aek919k_idle, idle
+anm_check_magazine                  = aek919k_reload, reload, 1.5
+anm_use_start						= aek919k_holster, ,0.4
+anm_use_end							= aek919k_draw, ,0.6
+anm_jump                            = aek919k_draw, ,1.6
+anm_fire_mode						= aek919k_draw, ,1.3

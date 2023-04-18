@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+	<string id="ls_header">
+		<text>"STALKER DIARY"</text>
+	</string>
+	<string id="ls_tip_number">
+		<text>Page №</text>
+	</string>
+	<string id="ls_tip_1">
+		<text>«An overloaded stalker is a dead stalker. A hungry stalker is a dead stalker. A sleepy stalker is a dead stalker. Always keep an eye on your condition.»</text>
+	</string>
+	<string id="ls_tip_2">
+		<text>«Hunting for mutants is not only entertainment, but also a way to earn money on the skin and parts of the bodies. Just remember, the one who shoots monsters, should make sure that in the process he does not become a monster.»</text>
+	</string>
+	<string id="ls_tip_3">
+		<text>«While shooting, it is important to watch your breathing rate and pulse rate, keep this in mind if you are going to make a good shot. You can hold your breath on the sprint button in aiming mode.»</text>
+	</string>
+	<string id="ls_tip_4">
+		<text>«It's not easy to gain the trust of a faction, but loyalty in the Zone is valued. Donate unnecessary items, help your wounded comrades, complete their tasks on time, and you will be treated differently.»</text>
+	</string>
+	<string id="ls_tip_5">
+		<text>«Do not carry a thousand rounds with you. Take 150, if you go on a simple trip, and 300 only if you are certain of a firefight. Take care of your ammunition.»</text>
+	</string>
+	<string id="ls_tip_6">
+		<text>«Don't be greedy, you can't take it all away. Carry only necessary things. Each extra gram will affect the speed of your movement, running and height of the jump.»</text>
+	</string>
+	<string id="ls_tip_7">
+		<text>«Grenades can do wonders. Always keep one or two handy in case the things go wrong. Just don't forget the safety rules.»</text>
+	</string>
+	<string id="ls_tip_8">
+		<text>«The upkeep  of one weapon costs a lot, the upkeep of the many can ruin you. Stick to your choice and don't be so indecisive.»</text>
+	</string>
+	<string id="ls_tip_9">
+		<text>«A partner will be much more useful if you work with him together. Always stay close to each other and keep each other safe, at the right moment your partner can pull you out of trouble.»</text>
+	</string>
+	<string id="ls_tip_10">
+		<text>«Rank has eight different levels, starting with "Beginner"and ending with "Legend". The rank can be increased by almost any activity, some achievements can be obtained only if there is a sufficiently high rank.»</text>
+	</string>
+	<string id="ls_tip_11">
+		<text>«Respect the established rules. Stalkers in camps won't speak to you when you brandish your weapon in their faces.»</text>
+	</string>
+	<string id="ls_tip_12">
+		<text>«Tools are required for most mechanics to perform repairs and improve weapons and armor. Such tools can often be found in stashes received as a reward for completing assignments.»</text>
+	</string>
+	<string id="ls_tip_13">
+		<text>«As one sage said: there are paths best not taken and places best not visited. Assess your chances before the start of the shootout.»</text>
+	</string>
+	<string id="ls_tip_14">
+		<text>«The boar has a very strong bony and muscular front. Shoot in the scruff or in the pelvis - there they are most vulnerable.»</text>
+	</string>
+	<string id="ls_tip_15">
+		<text>«Save your enemy live, don't give in to your instincts, and maybe you can hear some useful information.»</text>
+	</string>
+	<string id="ls_tip_16">
+		<text>«If you are not able to find a decent bed to rest in the Zone, sleeping bags or tents are an excellent alternative. They can be purchased from most major traders or found in the stashes of other stalkers.»</text>
+	</string>
+	<string id="ls_tip_17">
+		<text>«Military helicopters patrol many places in the Zone. If the military participates in hostilities, they can request support from the air to destroy attacking or defending opponents.»</text>
+	</string>
+	<string id="ls_tip_18">
+		<text>«Groups in the Zone don't spend their time sitting on their ass. Just because you have already cleared one place - it does not mean that it's safe and no one else will appear.»</text>
+	</string>
+	<string id="ls_tip_19">
+		<text>«Take the heights and use natural covers in battle. Even a stone can protect you from a pack of dogs. No, do not throw it at them, get on it, you moron!»</text>
+	</string>
+	<string id="ls_tip_20">
+		<text>«The backpack is your treasure chest. With it you can carry more items and use it to create stashes. In an emergency you can quickly release it, this can't save your life.»</text>
+	</string>
+	<string id="ls_tip_21">
+		<text>«Relax by the fire and taste chops from the wild boar cooked on the grill. The food of the Zone is difficult to eat, but even harder to find. Take care of it and use it wisely.»</text>
+	</string>
+	<string id="ls_tip_22">
+		<text>«Yes, as it turns out, you really can see the Emission with your own eyes. But only once ...»</text>
+	</string>
+	<string id="ls_tip_23">
+		<text>«Keep your ears tuned on the environment. Shooting in the distance indicates a shootout and, consequently, potential prizes.»</text>
+	</string>
+	<string id="ls_tip_24">
+		<text>Relationships with others directly affect the price of the goods and services they offer. With bad relationships, you should not expect discounts; good relations, on the other hand, encourage the trader to offer a unique product for sale.</text>
+	</string>
+	<string id="ls_tip_25">
+		<text>«Imported food is hard to deliver in the Zone, so don't be surprised with traders prices.»</text>
+	</string>
+	<string id="ls_tip_26">
+		<text>«Where the hell is my backpack!? Well at least a beacon was attached. Now I know at least in which bushes to look for it.»</text>
+	</string>
+	<string id="ls_tip_27">
+		<text>«Performing tasks for groups will improve your relationships. Their merchants will gradually offer you big discounts on their goods and services.»</text>
+	</string>
+	<string id="ls_tip_28">
+		<text>«Don't forget to ask ordinary stalkers if they have any jobs. The fact that they aren't some important characters doesn't mean that they aren't willing to pay for work. Perhaps someone needs an experienced guide or a rare trophy.»</text>
+	</string>
+	<string id="ls_tip_29">
+		<text>«Fasten a quarrel upon "Duty" and "Freedom" will like you, fasten a quarrel upon "Freedom" and "Duty" will like you. If you like conflicts, fight both of them.»</text>
+	</string>
+	<string id="ls_tip_30">
+		<text>«There are two types of competitions in the arena on Rostok: traditional duels, where stalkers fight each other for cash rewards, or fights where they try to kill increasingly stronger mutants.»</text>
+	</string>
+	<string id="ls_tip_31">
+		<text>«A line from the notes of the guide: The night is fraught with beasts. If you need to leave shelter after dark - make sure that the stars or moon are there to guide you.»</text>
+	</string>
+	<string id="ls_tip_32">
+		<text>«Collect each cartridge in your path regardless of the caliber and hide it somewhere secured from moisture and dirt. Tomorrow you may need them ... or maybe not. But it's worth it anyway - cartridges are also a good source of income.»</text>
+	</string>
+	<string id="ls_tip_33">
+		<text>«Weapons are useless without ammunition. Sometimes you just have to use the weapon that has ammo even if it isn't your best choice.»</text>
+	</string>
+	<string id="ls_tip_34">
+		<text>«Do not collect every piece of garbage that you find. Local traders do not like very much when they are overwhelmed by broken equipment or cans.»</text>
+	</string>
+	<string id="ls_tip_35">
+		<text>«Trust your ears. Sounds carries over hills, and through bushes. A weak, distant sound is enough to prepare for a sudden attack.»</text>
+	</string>
+	<string id="ls_tip_36">
+		<text>«Keep an extra loaded weapon with you as a spare. You never know when you need it.»</text>
+	</string>
+	<string id="ls_tip_37">
+		<text>«Are you an man or a mutant! Choices have consequences, If you survive the Zone but lose your soul - you are no better than a mutant that feeds on carrion.»</text>
+	</string>
+	<string id="ls_tip_38">
+		<text>«Do not take your eyes off the sky. Birds and clouds are one of the representatives of hell, you see them constantly. But if you see a flash - do not think, just run.»</text>
+	</string>
+	<string id="ls_tip_39">
+		<text>«When you fight - cheat, this is the only rule to win. Being fair is not as important as being alive.»</text>
+	</string>
+	<string id="ls_tip_40">
+		<text>«When you engage in a gunfight, keep calm, do not swear, wait for your turn and attack when the enemy reloads.»</text>
+	</string>
+	<string id="ls_tip_41">
+		<text>«Better safe than sorry. So if you drank a bottle of vodka - do not forget to have a snack.»</text>
+	</string>
+	<string id="ls_tip_42">
+		<text>«In the Zone there are no woodpeckers. Can you hear me? There are no woodpeckers! And there are no women, so do not look for them.»</text>
+	</string>
+	<string id="ls_tip_43">
+		<text>«A tent can serve as a good shelter from bad weather and mosquitoes. Experienced people told it can even protect against the Zones or dangers, but who knows!? Will you believe these tales, you hear the rumble and trembling of the earth - just look for a reliable shelter "»</text>
+	</string>
+	<string id="ls_tip_44">
+		<text>«Did I ever tell you what the definition of insanity is? Insanity is doing the exact... same fucking thing... over and over again expecting... shit to change...»</text>
+	</string>
+	<string id="ls_tip_45">
+		<text>«Forewarned is forearmed. Collect all information before proceeding.»</text>
+	</string>
+	<string id="ls_tip_46">
+		<text>«If you are attacked by a controller - try to hide from his direct gaze, hide behind something (wood, stone, wall), perhaps this will save your mind. When he does not see you, he can not control you.»</text>
+	</string>
+	<string id="ls_tip_47">
+		<text>«The best means of protection against mutants - the local Duty patrol»</text>
+	</string>
+	<string id="ls_tip_48">
+		<text>«Stimpacks are good for fighting pain. If you're unlucky and you have a fracture, you can use a survival kit, otherwise you have to look for a good doctor, and in the realities here they are rare.»</text>
+	</string>
+	<string id="ls_tip_49">
+		<text>«The helmet on your head greatly affects your mobility during a quick run »</text>
+	</string>
+	<string id="ls_tip_50">
+		<text>«I mean, you've got to love your ammunition. Nothing like large caliber, all-metal shell, depleted uranium, hollow point, chocolate bars ... What the fuck is chocolate bars doing here ?!»</text>
+	</string>
+	<string id="ls_tip_51">
+		<text>«Distribute weight correctly, otherwise you will quickly bend from a pair of trophy slingshots, or scrap that you wanted to sell to a trader for a couple of cents.»</text>
+	</string>
+	<string id="ls_tip_52">
+		<text>«Never trust bandits. Even if they seem very friendly, know - they only want artifacts and they will not think twice to stab you in the back.»</text>
+	</string>
+	<string id="ls_tip_53">
+		<text>«The military is not here to protect us from the Zone, so if you see a soldier, run for your life.»</text>
+	</string>
+	<string id="ls_tip_54">
+		<text>«Keep your equipment in good condition and it will keep you in good shape..»</text>
+	</string>
+	<string id="ls_tip_55">
+		<text>«Every madman who dares to raise his hand to the Zone can be certain that the Zone will gnaw it off.»</text>
+	</string>
+	<string id="ls_tip_56">
+		<text>«In the Zone no good deed goes unpunished. Gratitude often takes the form of a bullet to your. So do not get mixed up in others buisness.»</text>
+	</string>
+	<string id="ls_tip_57">
+		<text>«Moving at night or in heavy rain, it is easier to avoid detection by enemies, but the higher the risk of encountering fierce night mutants.»</text>
+	</string>
+	<string id="ls_tip_58">
+		<text>«Be a good leader! Don't abandon your partners, you will lose respect. Squadmates in a firefight or on patrol will not be able to travel with you don't leave them behind.»</text>
+	</string>
+	<string id="ls_tip_59">
+		<text>«When repairing heavily damaged weapons, technicians will ask for huge sums of money. Spare parts do not appear from nowhere - they have to be paid for. So in fact it is often not worth it.»</text>
+	</string>
+	<string id="ls_tip_60">
+		<text>«Listen to the sounds of anomalies: your hearing can better determine its location, rather than your view.»</text>
+	</string>
+	<string id="ls_tip_61">
+		<text>«Make sure that your weapons are always loaded. Only anarchists leave their magazines half empty.»</text>
+	</string>
+	<string id="ls_tip_62">
+		<text>«Prepare for the unexpected emission, always have medicine with you in case there are no shelters nearby. They will not be able to protect you completely, but, perhaps, they will allow you to reach a hiding place, before you are become roasted.»</text>
+	</string>
+	<string id="ls_tip_63">
+		<text>«Consider stocking up on cartridges for your favorite gun before you have it. Who knows, you may stumble across it at any time.»</text>
+	</string>
+	<string id="ls_tip_64">
+		<text>«Take as little equipment as possible so that you can bring back as much loot as possible and sell it to merchants when you return. I apologize "if" you return.»</text>
+	</string>
+	<string id="ls_tip_65">
+		<text>«Use your artifact detector as rarely as possible. Batteries in the zone are worth their weight in gold, so turn it on only when necessary. Also, keep in mind that artifacts appear after the psi storm.»</text>
+	</string>
+	<string id="ls_tip_66">
+		<text>«Carefully inspect the areas you plan to pass through. You will save your life by noticing the bloodsucker before he sees you. If you were lucky enough to hear him - stop, turn to the sound and meet him with a smile. Ha, I'm just kidding..»</text>
+	</string>
+	<string id="ls_tip_67">
+		<text>«Never cross an enemy territory when the sun blinds you or unmasks you with light in the back. And it's even better not to cross enemy territory at all "».</text>
+	</string>
+	<string id="ls_tip_68">
+		<text>«To Hell with morality. The Zone offers its own set of rules that have nothing to do with what you observed on the Great Earth.»</text>
+	</string>
+	<string id="ls_tip_69">
+		<text>«Don't be a hero. Know how to assess your chances before the fight. If things look wrong, forget about loot, take your feet in your arms, and run wherever your eyes look. Items can always be obtained but you have just one life.»</text>
+	</string>
+	<string id="ls_tip_70">
+		<text>«Remember that you do not have any friends in the Zone. If you hear that someone is in trouble - keep walking, as if nothing happened. If, of course, you're not looking for a quick death.»</text>
+	</string>
+	<string id="ls_tip_71">
+		<text>«Remember the sounds produced by mutants. Knowing the one who rushes at you, will allow you to get out of the situation by the most effective ways.»</text>
+	</string>
+	<string id="ls_tip_72">
+		<text>«Always carry full magazines for your guns. You never know what's ahead of you, and there's no time for mag-filling in battle.»</text>
+	</string>
+	<string id="ls_tip_73">
+		<text>«Always take with you antirad or at least one bottle of vodka. If you get in the middle of a radiation zone - you'll thank me for this advice.»</text>
+	</string>
+	<string id="ls_tip_74">
+		<text>«The Ministry of Health warns: smoking is harmful to health, however, in the conditions of the Zone, a pack of cigarettes a day will drive away the hunger for a short while.»</text>
+	</string>
+	<string id="ls_tip_75">
+		<text>«When you sneak up on someone or something - do not forget to turn off the flashlight, radio, and cross yourself!»</text>
+	</string>
+	<string id="ls_tip_76">
+		<text>«Be healthy. Do not use drugs, whenever possible eat healthy, not contaminated food, drink purified water and get enough sleep.»</text>
+	</string>
+	<string id="ls_tip_77">
+		<text>«Watch your mental state, relax with your favorite thing, to relieve stress. Most stalkers prefer pornographic journals, but you can be more original.»</text>
+	</string>
+	<string id="ls_tip_78">
+		<text>«Reputation gives an idea of how stalker relates to his faction. It improves or worsens depending on whether it helped or harmed friendly stalkers.»</text>
+	</string>
+	<string id="ls_tip_79">
+		<text>«The Zone is alive, believe me. It eats, breathes .. craps. When it craps, you'd better take shelter somewhere, if you don't want to be sent to the sewer.»</text>
+	</string>
+	<string id="ls_tip_80">
+		<text>«The beauty around me strikes me the most. We simply do not have enough time to admire the terrain, because the Zone can destroy us at a time when we least expect it.»</text>
+	</string>
+	<string id="ls_tip_81">
+		<text>«A fool is one who does not fear anything, but claims to know everything.»</text>
+	</string>
+	<string id="ls_tip_82">
+		<text>«Never underestimate a hungry dog. Where is one dog, there are ten.»</text>
+	</string>
+	<string id="ls_tip_83">
+		<text>«Be careful when approaching another stalker. Sometimes their hearts are much darker than the Zone itself.»</text>
+	</string>
+	<string id="ls_tip_84">
+		<text>«Do not trust anyone, there are enough traitors. Friendship in the zone is magic.»</text>
+	</string>
+	<string id="ls_tip_85">
+		<text>«Day 1: my hair started falling out. Day 2: My skin began to peel off. Day 3: I can't move. Greed ... I wanted to save on medicine. Now it's too late..»</text>
+	</string>
+	<string id="ls_tip_86">
+		<text>«Sultan is a real bastard. He will step on the tail of any stalker, who says a word against him. So be nice, and he will be gentle.»</text>
+	</string>
+	<string id="ls_tip_87">
+		<text>«Whenever you feel depressed - sit down, rest by the fire and listen to music.»</text>
+	</string>
+	<string id="ls_tip_88">
+		<text>«Make it a habit to look at every corner and into every hole. You never know where or what may be hidden.»</text>
+	</string>
+	<string id="ls_tip_89">
+		<text>«The whole world fell into Hell. The economic collapse on the Big Land, and the Zone is a swelling on the body of the Earth, and its fiery tongues of flame will devour you.»</text>
+	</string>
+	<string id="ls_tip_90">
+		<text>«The devil spoke, and with his words the Zone revived. And he gave birth to his powerful henchmen who bear his word and who will lead the world to destruction.»</text>
+	</string>
+	<string id="ls_tip_91">
+		<text>«When you decide to lie down at night - always have a weapon within reach.»</text>
+	</string>
+	<string id="ls_tip_92">
+		<text>«The two heads of the chimera reflect her nature. She will run away from you only in order to kill mercilessly a few seconds later. She will attack you from behind jumping out of the darkness.»</text>
+	</string>
+	<string id="ls_tip_93">
+		<text>«Bloodsuckers are masters of stealth. It's better to see them before they see's you.»</text>
+	</string>
+	<string id="ls_tip_94">
+		<text>«In the territory of monoliths and mercenaries it is better to move at night - their patrols are less common, and the main forces are occupied at bases.»</text>
+	</string>
+	<string id="ls_tip_95">
+		<text>«Controllers can stop you by taking possession of your mind. But they can not stop the RPG shot fired at their mouth.»</text>
+	</string>
+	<string id="ls_tip_96">
+		<text>«Contrary to popular belief, wearing a gas mask will not prevent eating or drinking.»</text>
+	</string>
+	<string id="ls_tip_97">
+		<text>«There's nothing shameful to push F9 when things go really badly.»</text>
+	</string>
+	<string id="ls_tip_98">
+		<text>«It's easier to kill you when you stop. So ... Never ...  stop ... Moving.»</text>
+	</string>
+	<string id="ls_tip_99">
+		<text>«Be careful, stalker. Death is always somewhere near. If you see it - aim in the head.»</text>
+	</string>
+	<string id="ls_tip_100">
+		<text>«You will die in a week, if you stop eating. But you can also die in a split second if you catch a bullet. Always keep your equipment in good condition - maybe you'll live a little longer.»</text>
+	</string>
+</string_table>

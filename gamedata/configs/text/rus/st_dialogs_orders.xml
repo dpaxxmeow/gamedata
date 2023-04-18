@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+<!-- ORDERS -->
+	<string id="st_dm_orders_pickup_start">
+		<text>Твой заказ пришёл. Забирай %s.</text>
+	</string>
+	<string id="st_dm_orders_query">
+		<text>Что интересного ты можешь предложить?</text>
+	</string>
+	<string id="st_dm_orders_query_pickup">
+		<text>Я здесь, чтобы забрать свой заказ.</text>
+	</string>
+	<string id="st_dm_orders_reply_1">
+		<text>Ты обратился по адресу. Наверное ты в курсе что я не предлагаю серьёзные заказы новичкам и персонам с плохой репутацией. У меня есть контакты с теми, кто может достать специальную экипировку под заказ. Так что конкретно тебя интересует?</text>
+	</string>
+	<string id="st_dm_orders_reply_2">
+		<text>У меня есть уникальные вещи. Редкие модели, прототипы, уникальные стрелковое оружие - и подобные снаряжение. Плюс элитная экипировка, последние модификации защитных и боевых костюмов. Я проверяю каждый экземпляр лично, поэтому качество гарантировано.</text>
+	</string>
+	<string id="st_dm_orders_none">
+		<text>На данный момент я не заинтересован.</text>
+	</string>
+	<string id="st_dm_orders_goodbye">
+		<text>Пока.</text>
+	</string>
+	<string id="st_dm_orders_place_price_accept">
+		<text>Я хочу заказать %s.</text>
+	</string>
+	<string id="st_dm_orders_place_no_money">
+		<text>У меня нет денег.</text>
+	</string>
+	<string id="st_dm_orders_place_no_money_reply">
+		<text>Хорошо, тогда возвращайся когда будешь при деньгах.</text>
+	</string>
+	<string id="st_dm_orders_place_change">
+		<text>Знаешь, я передумал.</text>
+	</string>
+	<string id="st_dm_orders_cancel">
+		<text>Знаешь, я решил отменить свой заказ.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply">
+		<text>Это нормально, но ты понимаешь, что твой депозит потерян? Я также расскажу всем, что ты паршивый клиент, это, вероятно, повредит твоей репутации.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_yes">
+		<text>Да, отмени заказ.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_yes_done">
+		<text>Хорошо, как знаешь.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_no">
+		<text>Пожалуй я сохраню заказ.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_no_done">
+		<text>Хорошо.</text>
+	</string>
+	<string id="st_dm_orders_place_change_reply">
+		<text>Хорошо. Если наконец-то решишься сделать заказ, я всегда здесь.</text>
+	</string>
+	<string id="st_dm_orders_place_pay">
+		<text>Хорошо, держи.</text>
+	</string>
+	<string id="st_dm_orders_place_pay_reply">
+		<text>Я свяжусь с тобой, как только заказ на %s будет готов.</text>
+	</string>
+	<string id="st_dm_orders_order_processing">
+		<text>Заказ уже сделан. %s скоро будет.</text>
+	</string>
+	<string id="st_dm_orders_place_finish">
+		<text>Отлично. Я вернусь позже.</text>
+	</string>
+
+	<string id="st_dm_orders_time_query">
+		<text>Как долго ждать, пока мой заказ прибудет?</text>
+	</string>
+	<string id="st_dm_orders_time_query_reply">
+		<text>Это зависит от того, насколько он сложный. Обычно это занимает от полутора дня до трёх суток.</text>
+	</string>
+	<string id="st_dm_orders_time_query_goodbye">
+		<text>Хорошо.</text>
+	</string>
+	
+	<string id="st_dm_orders_pickup_existing">
+		<text>Итак, ты наконец-то пришёл забрать свой %s.</text>
+	</string>
+	<string id="st_dm_orders_pickup_existing_yes">
+		<text>Да, вот твои деньги.</text>
+	</string>
+	<string id="st_dm_orders_pickup_existing_no">
+		<text>Нет, отмени заказ.</text>
+	</string>
+	
+	<string id="st_dm_orders_pickup_ponder">
+		<text>Извини, мне нужно подумать об этом.</text>
+	</string>
+	<string id="st_dm_orders_pickup_ponder_reply">
+		<text>Не торопись, возвращайся, когда будешь готов.</text>
+	</string>
+	
+	<string id="st_dm_orders_pickup_price_accept">
+		<text>Хорошо, вот держи.</text>
+	</string>
+	<string id="st_dm_orders_pickup_finish">
+		<text>Вот так. Приятно иметь с тобой дело. Не забудь остановиться в другой раз, я могу предложить больше.</text>
+	</string>
+	<string id="st_dm_orders_no_money">
+		<text>Ну, у меня не так много с собой.</text>
+	</string>
+	<string id="st_dm_orders_pickup_hold">
+		<text>Хорошо, я буду держать заказ для тебя. Надеюсь, ты скоро найдёшь деньги</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_warning">
+		<text>Ты потеряешь свой депозит, ты уверен?</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_penalty">
+		<text>Тем не менее, я не буду собирать этот заказ.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_penalty_reply">
+		<text>Хорошо, подходи.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_wait">
+		<text>Я подумаю об этом.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_wait_rely">
+		<text>Конечно, это зависит от тебя. Я возьмусь за заказ.</text>
+	</string>
+	<string id="st_dm_orders_pickup">
+		<text>Заказ %s готов. Это будет %s UAH.</text>
+	</string>
+	<string id="st_dm_orders_pickup_ready">
+		<text>Твой заказ готов. Приходи и забирай.</text>
+	</string>
+	<string id="st_dm_orders_item_selected">
+		<text>Конечно. Это будет %s UAH, из которых мне потребуется предоплата %s UAH.</text>
+	</string>
+
+	<string id="st_dm_item_offer">
+		<text>Вот что я могу предложить из категории %s.</text>
+	</string>
+	<!-- Categories -->
+	<string id="category_1_title">
+		<text>Пистолеты</text>
+	</string>
+	<string id="category_2_title">
+		<text>Оружие ближнего боя</text>
+	</string>
+	<string id="category_3_title">
+		<text>Штурмовое оружие</text>
+	</string>
+	<string id="category_4_title">
+		<text>Снайперское оружие</text>
+	</string>
+	<string id="category_5_title">
+		<text>Бронекостюмы</text>
+	</string>
+	<string id="category_6_title">
+		<text>Научная экипировка</text>
+	</string>
+	<string id="category_7_title">
+		<text>Экзоскелеты</text>
+	</string>
+	<string id="category_8_title">
+		<text>Специальное снаряжение</text>
+	</string>
+	<string id="category_9_title">
+		<text>Ремонтное снаряжение</text>
+	</string>
+	<string id="category_10_title">
+		<text>Прочее</text>
+	</string>
+	<string id="category_11_title">
+		<text>Дробовики</text>
+	</string>
+	<string id="category_12_title">
+		<text>Пистолеты-пулемёты</text>
+	</string>
+	<string id="category_13_title">
+		<text>Пулемёты</text>
+	</string>
+	<string id="category_14_title">
+		<text>Гранатомёты</text>
+	</string>
+	<string id="category_15_title">
+		<text>Шлемы</text>
+	</string>
+	<string id="category_16_title">
+		<text>Автоматы Калашникова</text>
+	</string>
+	<string id="category_17_title">
+		<text>Лёгкое снаряжение</text>
+	</string>
+	<string id="category_18_title">
+		<text>Прочее снаряжение</text>
+	</string>
+	<string id="category_19_title">
+		<text>Штурмовое оружие (2)</text>
+	</string>
+	<string id="category_20_title">
+		<text>Флешки</text>
+	</string>
+	<string id="category_21_title">
+		<text>Устройства</text>
+	</string>
+</string_table>

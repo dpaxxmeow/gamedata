@@ -1,0 +1,331 @@
+;----------------------------------------------------------------------------------------
+; ASVK remade by Surs for A.R.E.A. (21.07.2018)
+;----------------------------------------------------------------------------------------
+[wpn_ksvk]:default_weapon_params
+$spawn								= "weapons\svd"		; option for Level Editor
+$npc			 					= on				; option for Level Editor
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk.ogf
+class								= WP_SVD
+inv_name							= st_wpn_ksvk
+inv_name_short						= st_wpn_ksvk
+description							= st_wpn_ksvk_descr
+scopes								= 1p29, 1p59, 1p78, 1pn34, 1pn93, ekp, kobra, okp, pso
+heating_rates						= sniper2
+ef_main_weapon_type					= 3
+ef_weapon_type						= 11
+default_to_ruck						= false
+sprint_allowed						= true
+cost								= 174520
+
+inv_weight							= 12.9
+inv_volume							= 8
+ph_mass								= 12
+weapon_class						= sniper_rifle
+;---------------------------------------------------------------------------------
+;upgrades							= up_gr_firstab_ksvk, up_gr_seconab_ksvk, up_gr_thirdab_ksvk, up_gr_fourtab_ksvk, up_gr_fourtcd_ksvk, up_gr_fourtef_ksvk
+;installed_upgrades					=
+;upgrade_scheme						= upgrade_scheme_svd
+;--TTX----------------------------------------------------------------------------
+hit_power							= 1.2, 1.2, 1.2, 1.2
+hit_impulse							= 75
+hit_type							= fire_wound
+fire_distance						= 1720
+bullet_speed						= 835
+rpm									= 30
+rpm_empty_click						= 200
+hud									= wpn_ksvk_hud
+time_to_aim							= 1.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.93
+misfire_end_condition				= 0.14
+misfire_start_prob					= 0.003
+misfire_end_prob					= 0.02
+condition_shot_dec					= 0.0032
+condition_queue_shot_dec			= 0.0032
+
+ammo_elapsed						= 5
+ammo_mag_size						= 5
+fire_modes							= 1
+magazine_sect						= mag_12x55_cnt_5_asvk
+ammo_class							= ammo_12.7x55_fmj, ammo_12.7x55_fmj_bad, ammo_12.7x55_fmj_verybad, ammo_12.7x55_ap, ammo_12.7x55_ap_bad, ammo_12.7x55_ap_verybad
+slot								= 2
+animation_slot						= 2
+;--Дисперсия--------------------------------------------------------------------
+fire_dispersion_base				= 0.10				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 2.94f
+crosshair_inertion					= 11.8
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 2.4				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360				;скорость возврата в исходное положение
+cam_dispersion						= 3.08				;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 3.66				;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.1				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 2.75				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 1.45
+PDM_disp_vel_factor					= 3.05
+PDM_disp_accel_factor				= 3.05
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 0.75				; scope & ironsight
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 2.06
+zoom_cam_dispersion_inc				= 3.26
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 2.55
+fire_dispersion_condition_factor	= 8					;увеличение дисперсии в процентах при максимальном износе
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 350
+reload_dof							= 0.0, 0.5, 5, 2.2
+;-------------------------------------------------------------------------------
+holder_range_modifier				= 2.15				; во сколько раз увеличивается eye_range
+;-------------------------------------------------------------------------------
+inv_grid_width						= 6
+inv_grid_height						= 2
+inv_grid_x							= 50
+inv_grid_y							= 14
+
+upgr_icon_x							= 2650
+upgr_icon_y							= 1500
+upgr_icon_width						= 300
+upgr_icon_height					= 100 
+
+kill_msg_x							= 0
+kill_msg_y							= 0
+kill_msg_width						= 98
+kill_msg_height						= 23
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position						= -0.20, 0.20, 0.15
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.20, -0.20, 0.15
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+;-------------------------------------------------------------------------------
+position							= -0.021, 0.01, -0.0225
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.150, 0.902
+fire_point2							= 0.0, 0.169, 0.902
+;flame_particles					= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+shell_3d_sect						= shell_762
+shell_drop_time						= 1500
+shell_point							= 0.0, 0.065, -0.200
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= ;weapons\generic_shells
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 4.0
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+;scope_name							= wpn_addon_scope
+scope_x 							= 55
+scope_y 							= 2
+
+silencer_name						= wpn_addon_silencer_1143x23
+silencer_x							= 270
+silencer_y							= -12
+
+silencer_smoke_particles 			= weapons\generic_shoot_00
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time 				= 0.2
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw							= weapons\ksvk\ksvk_draw
+snd_holster							= weapons\ksvk\ksvk_holster
+snd_empty							= weapons\ksvk\ksvk_empty
+snd_reload							= weapons\ksvk\ksvk_reload
+snd_check_magazine					= weapons\ksvk\ksvk_reload
+snd_close							= weapons\generic_close
+snd_shoot							= weapons\ksvk\ksvk_shoot
+snd_silencer_shot					= weapons\trg\trg42_shoot_sil
+;--Магазины---------------------------------------------------------------------
+[mag_12x55_cnt_5_asvk]
+magazine_name						= magazine_12x55_cnt_5_2
+magazine_x							= 29
+magazine_y							= 44
+custom_icon 						= 5,1,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_ksvk_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_hud
+zoom_hide_crosshair					= true
+shell_point							= 0.025,0.05,0.124
+shell_point							= 0.03611,0.038385,-0.08406
+shell_bone							= wpn_body
+fire_point							= 0.0,0.043,0.495
+fire_bone							= wpn_body
+
+hands_position						= -0.012470,-0.008440,0.293461
+hands_position_16x9					= -0.012470,-0.008440,0.293461
+hands_orientation					= 0.264880,0.284012,0
+hands_orientation_16x9				= 0.264880,0.284012,0
+
+aim_hud_offset_pos					= -0.053921,0.032175,-0.301118
+aim_hud_offset_pos_16x9				= -0.053921,0.032175,-0.301118
+aim_hud_offset_rot					= 0.042608,0.004022,0.016166
+aim_hud_offset_rot_16x9				= 0.042608,0.004022,0.016166
+
+anm_show							= ksvk_draw
+anm_hide							= ksvk_holster
+anm_idle							= ksvk_idle
+anm_shots							= ksvk_shoot, shoot
+anm_shots_empty						= ksvk_idle
+anm_reload							= ksvk_reload, reload
+anm_bore							= ksvk_idle_bore
+anm_idle_aim						= ksvk_idle_aim
+anm_idle_moving 					= ksvk_idle_move
+anm_idle_sprint						= ksvk_idle_sprint
+anm_check_magazine					= ksvk_reload, reload
+anm_use_start						= ksvk_holster, ,0.4
+anm_use_end							= ksvk_draw, ,0.6
+anm_jump							= ksvk_draw, ,1.6
+anm_fire_mode						= ksvk_draw, ,1.3
+;-----------------------------------------------------------------------------
+;	Scopes
+;-----------------------------------------------------------------------------
+[wpn_ksvk_1p29]:wpn_ksvk
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_1p29.ogf
+scope_name							= 1p29
+scope_x								= 64
+scope_y								= 3
+hud									= wpn_ksvk_1p29_hud
+
+[wpn_ksvk_1p29_hud]:wpn_ksvk_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_1p29_hud.ogf
+aim_hud_offset_pos					= -0.049795,-0.023085,-0.234072
+aim_hud_offset_pos_16x9				= -0.049795,-0.023085,-0.234072
+aim_hud_offset_rot					= 0.003640,0.004954,0.016166
+aim_hud_offset_rot_16x9				= 0.003640,0.004954,0.016166
+;-----------------------------------------------------------------------------
+[wpn_ksvk_1p78]:wpn_ksvk
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_1p78.ogf
+scope_name							= 1p78
+scope_x								= 64
+scope_y								= 3
+hud									= wpn_ksvk_1p78_hud
+
+[wpn_ksvk_1p78_hud]:wpn_ksvk_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_1p78_hud.ogf
+aim_hud_offset_pos					= -0.041985,-0.014350,-0.215803
+aim_hud_offset_pos_16x9				= -0.041985,-0.014350,-0.215803
+aim_hud_offset_rot					= 0.012024,0.004954,0.003436
+aim_hud_offset_rot_16x9				= 0.012024,0.004954,0.003436
+;-----------------------------------------------------------------------------
+[wpn_ksvk_1pn34]:wpn_ksvk
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_1pn34.ogf
+scope_name							= 1pn34
+scope_x								= 62
+scope_y								= 0
+hud									= wpn_ksvk_1pn34_hud
+
+[wpn_ksvk_1pn34_hud]:wpn_ksvk_1p29_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_1pn34_hud.ogf
+aim_hud_offset_pos					= -0.040985,-0.038645,-0.234072
+aim_hud_offset_pos_16x9				= -0.040985,-0.038645,-0.234072
+aim_hud_offset_rot					= 0.003640,0.004954,0.016166
+aim_hud_offset_rot_16x9				= 0.003640,0.004954,0.016166
+;-----------------------------------------------------------------------------
+[wpn_ksvk_1pn93]:wpn_ksvk
+;visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_1pn93.ogf
+scope_name							= 1pn93
+scope_x								= 60
+scope_y								= 7
+hud									= wpn_ksvk_1pn93_hud
+
+[wpn_ksvk_1pn93_hud]:wpn_ksvk_1p29_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_1pn93_hud.ogf
+aim_hud_offset_pos					= -0.03376,-0.021215,-0.240477
+aim_hud_offset_pos_16x9				= -0.03376,-0.021215,-0.240477
+aim_hud_offset_rot					= 0.003640,0.004954,0.016166
+aim_hud_offset_rot_16x9				= 0.003640,0.004954,0.016166
+;-----------------------------------------------------------------------------
+[wpn_ksvk_ekp]:wpn_ksvk
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_ekp.ogf
+scope_name							= ekp
+scope_x								= 74
+scope_y								= 3
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\ekp.ogf, dynamics\weapons\marks\ekp2.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= -0.005, 0.132, 1
+scope_dot_scale						= 8.0
+hud									= wpn_ksvk_ekp_hud
+
+[wpn_ksvk_ekp_hud]:wpn_ksvk_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_ekp_hud.ogf
+aim_hud_offset_pos					= -0.045449,-0.024260,-0.214568
+aim_hud_offset_pos_16x9				= -0.045449,-0.024260,-0.214568
+aim_hud_offset_rot					= 0.011477,0.003450,0
+aim_hud_offset_rot_16x9				= 0.011477,0.003450,0
+;-----------------------------------------------------------------------------
+[wpn_ksvk_kobra]:wpn_ksvk
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_kobra.ogf
+scope_name							= kobra
+scope_x								= 77
+scope_y								= 11
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\kobra.ogf, dynamics\weapons\marks\ekp2.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= -0.0074, 0.12, 0.1
+scope_dot_scale						= 3.0
+hud									= wpn_ksvk_kobra_hud
+
+[wpn_ksvk_kobra_hud]:wpn_ksvk_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_kobra_hud.ogf
+aim_hud_offset_pos					= -0.044819,-0.024155,-0.214568
+aim_hud_offset_pos_16x9				= -0.044819,-0.024155,-0.214568
+aim_hud_offset_rot					= -0.003363,0.002924,0.000000
+aim_hud_offset_rot_16x9				= -0.003363,0.002924,0.000000
+;-----------------------------------------------------------------------------
+[wpn_ksvk_okp]:wpn_ksvk
+visual								= dynamics\weapons\wpn_ksvk\wpn_ksvk_okp.ogf
+scope_name							= okp
+scope_x								= 77
+scope_y								= 11
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\okp.ogf, dynamics\weapons\marks\okp2.ogf
+scope_dot_pos						= -0.005, 0.128, 1
+scope_dot_scale						= 10.0
+hud									= wpn_ksvk_okp_hud
+
+[wpn_ksvk_okp_hud]:wpn_ksvk_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_okp_hud.ogf
+aim_hud_offset_pos					= -0.040304,-0.002050,-0.19
+aim_hud_offset_pos_16x9				= -0.040304,-0.002050,-0.19
+aim_hud_offset_rot					= 0.024518,-0.000121,0
+aim_hud_offset_rot_16x9				= 0.024518,-0.000121,0
+;-----------------------------------------------------------------------------
+[wpn_ksvk_pso]:wpn_ksvk
+$spawn								= "weapons\wpn_ksvk_pso"
+scope_name							= pso
+scope_x								= 34
+scope_y								= 8
+hud									= wpn_ksvk_pso_hud
+
+[wpn_ksvk_pso_hud]:wpn_ksvk_1p29_hud
+item_visual							= dynamics\weapons\wpn_ksvk\wpn_ksvk_hud.ogf
+aim_hud_offset_pos					= -0.038825,-0.015830,-0.171994
+aim_hud_offset_pos_16x9				= -0.038825,-0.015830,-0.171994
+aim_hud_offset_rot					= -0.008004,0.005109,0.016166
+aim_hud_offset_rot_16x9				= -0.008004,0.005109,0.016166
+;-----------------------------------------------------------------------------

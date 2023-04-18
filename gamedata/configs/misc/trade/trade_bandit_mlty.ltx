@@ -1,0 +1,511 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition 			= trade_generic_buy
+sell_condition 			= trade_generic_sell
+buy_supplies 			= {=actor_goodwill_ge(bandit:3000)} supplies_tier_6, {=actor_goodwill_ge(bandit:2400)} supplies_tier_5, {=actor_goodwill_ge(bandit:1800)} supplies_tier_4, {=actor_goodwill_ge(bandit:1200)} supplies_tier_3, {=actor_goodwill_ge(bandit:600)} supplies_tier_2, {=actor_goodwill_ge(bandit:250)} supplies_tier_1, supplies_generic
+
+buy_item_condition_factor = 0.92
+buy_item_radiation_factor = 0.1
+
+discounts				= {=actor_goodwill_ge(bandit:3000)} discount_10, {=actor_goodwill_ge(bandit:2700)} discount_9, {=actor_goodwill_ge(bandit:2400)} discount_8, {=actor_goodwill_ge(bandit:2100)} discount_7, {=actor_goodwill_ge(bandit:1800)} discount_6, {=actor_goodwill_ge(bandit:1500)} discount_5, {=actor_goodwill_ge(bandit:1200)} discount_4, {=actor_goodwill_ge(bandit:900)} discount_3, {=actor_goodwill_ge(bandit:600)} discount_2, {=actor_goodwill_ge(bandit:300)} discount_1, discount_0
+
+[trade_generic_buy]:buy_mlty_trade_set
+
+[trade_generic_sell]:sell_bandit_set
+
+[supplies_generic]
+medkit								= 1, 0.07
+bandage								= 1, 0.07
+tushonka							= 1, 0.07
+bread								= 1, 0.07
+vodka								= 1, 0.07
+bottle_metal_water					= 1, 0.07
+flask_2_water						= 1, 0.07
+
+wpn_pm_worn							= 1, 0.10
+wpn_pm_rusty						= 1, 0.15
+wpn_fort_worn						= 1, 0.10
+wpn_fort_rusty						= 1, 0.15
+wpn_oc33_worn						= 1, 0.10
+wpn_oc33_rusty						= 1, 0.15
+wpn_bm16_worn						= 1, 0.10
+wpn_bm16_rusty						= 1, 0.15
+wpn_bm16_full_worn					= 1, 0.10
+wpn_bm16_full_rusty					= 1, 0.15
+wpn_wincheaster1300_rusty			= 1, 0.05
+
+wpn_knife							= 1, 0.15
+wpn_knife2							= 1, 0.07
+wpn_knife3							= 1, 0.05
+wpn_knife4							= 1, 0.03
+wpn_knife5							= 1, 0.01
+
+grenade_rgdm						= 3, 0.25
+grenade_rgd5						= 3, 0.25
+
+magazine_9x18_cnt_8					= 2, 0.45
+magazine_9x18_cnt_12				= 2, 0.45
+magazine_9x19_cnt_15				= 2, 0.45
+magazine_9x18_cnt_27				= 2, 0.45
+magazine_762x25_cnt_8				= 2, 0.45
+magazine_762x25_cnt_71				= 2, 0.45
+magazine_545_cnt_30					= 2, 0.45
+magazine_9x18_cnt_20_vz65			= 2, 0.45
+magazine_9x18_cnt_30				= 2, 0.45
+magazine_792x33_cnt_30				= 2, 0.45
+magazine_762x54_cnt_5				= 2, 0.45
+
+cloak_outfit						= 1, 0.85
+helm_respirator_half				= 1, 0.75
+helm_rp_bala						= 1, 0.85
+
+lighter_refiller					= 1, 0.05
+packet_bolts						= 1, 0.05
+itm_sleepbag						= 1, 0.05
+itm_tent							= 1, 0.05
+itm_firewood						= 1, 0.05
+servokit							= 1, 0.05
+itm_cutting_tools					= 1, 0.05
+itm_cutting_tools_2					= 1, 0.05
+itm_cutting_tools_3					= 1, 0.05
+af_surge							= 1, 0.05
+af_grid								= 1, 0.05
+af_freon							= 1, 0.05
+af_cooler							= 1, 0.05
+af_kevlar							= 1, 0.05
+af_plates							= 1, 0.05
+af_camelbak							= 1, 0.05
+matches								= 2, 0.55
+lighter								= 1, 0.05
+wood_stove							= 1, 0.05
+fieldcooker							= 1, 0.05
+charcoal							= 1, 0.05
+saucepan							= 1, 0.05
+detector_simple						= 1, 0.05
+detector_advanced					= 1, 0.05
+dosimeter							= 1, 0.5
+device_torch						= 1, 0.05
+device_torch_2						= 1, 0.05
+device_torch_3						= 1, 0.05
+device_flashlight					= 1, 0.05
+battery_1_5v_aa						= 1, 0.05
+battery_1_5v_d						= 1, 0.05
+battery_9v							= 1, 0.05
+kit_hunt							= 1, 0.05
+barrelkit_762						= 1, 0.05
+barrelkit_545						= 1, 0.05
+barrelkit_556						= 1, 0.05
+barrelkit_792						= 1, 0.05
+barrelkit_9x39						= 1, 0.05
+barrelkit_pistol					= 1, 0.05
+barrelkit_smg						= 1, 0.05
+barrelkit_shotgun					= 1, 0.05
+sharpening_stones					= 1, 0.05
+gun_oil								= 1, 0.05
+gun_oil_ru_d						= 1, 0.05
+gun_oil_ru							= 1, 0.05
+solvent								= 1, 0.05
+cleaning_kit_p						= 1, 0.05
+cleaning_kit_s						= 1, 0.05
+cleaning_kit_r5						= 1, 0.05
+cleaning_kit_r7						= 1, 0.05
+cleaning_kit_u						= 1, 0.05
+toolkit_p							= 1, 0.05
+toolkit_s							= 1, 0.05
+toolkit_r5							= 1, 0.05
+toolkit_r7							= 1, 0.05
+sewing_kit_b						= 1, 0.05
+sewing_kit_a						= 1, 0.05
+sewing_kit_h						= 1, 0.05
+glue_b								= 1, 0.05
+glue_a								= 1, 0.05
+glue_e								= 1, 0.05
+armor_repair_fa						= 1, 0.05
+armor_repair_pro					= 1, 0.05
+helmet_repair_kit					= 1, 0.05
+toolkit_u							= 1, 0.05
+backpack_sport						= 1, 0.35
+backpack_small						= 1, 0.25
+backpack_compact					= 1, 0.20
+backpack_medium						= 1, 0.15
+item_lantern						= 1, 0.25
+wpn_binoc							= 1, 0.35
+
+ammo_9x18_fmj						= 3, 0.50
+ammo_9x19_fmj						= 3, 0.45
+ammo_11.43x23_fmj					= 2, 0.25
+ammo_12x70_buck						= 2, 0.35
+ammo_12x76_zhekan					= 2, 0.25
+ammo_12x76_dart						= 2, 0.25
+ammo_357_hp_mag						= 1, 0.10
+ammo_5.45x39_fmj					= 2, 0.25
+ammo_5.56x45_ss190					= 2, 0.25
+ammo_5.7x28_ss190					= 1, 0.10
+ammo_9x39_pab9						= 2, 0.25
+ammo_7.62x39_fmj					= 2, 0.25
+ammo_7.62x51_fmj					= 2, 0.25
+ammo_7.62x25_p						= 2, 0.25
+ammo_7.62x25_ps						= 2, 0.25
+ammo_7.62x25_p41					= 2, 0.25
+ammo_7.92x33_fmj					= 2, 0.25
+ammo_7.62x54_7h1					= 2, 0.25
+ammo_magnum_300						= 1, 0.10
+ammo_12.7x55_fmj					= 1, 0.10
+ammo_pkm_100						= 2, 0.10
+
+[supplies_tier_1]:supplies_generic
+medkit								= 1, 0.10
+bandage								= 1, 0.10
+tushonka							= 1, 0.10
+bread								= 1, 0.10
+vodka								= 1, 0.10
+bottle_metal_water					= 1, 0.10
+flask_2_water						= 1, 0.10
+
+bandit_novice_outfit				= 1, 0.60
+bandit_novice_outfit_1				= 1, 0.60
+bandit_novice_outfit_2				= 1, 0.60
+bandit_novice_outfit_3				= 1, 0.60
+bandit_novice_outfit_1m				= 1, 0.60
+bandit_novice_outfit_2m				= 1, 0.60
+bandit_novice_outfit_3m				= 1, 0.60
+
+wpn_wincheaster1300_rusty			= 1, 0.10
+grenade_rgdm						= 3, 0.35
+grenade_rgd5						= 3, 0.35
+
+[supplies_tier_2]:supplies_tier_1
+wpn_ppsh41_woodworn					= 1, 0.10
+wpn_vz65_worn						= 1, 0.10
+wpn_protecta_worn					= 1, 0.10
+wpn_mossberg590_worn				= 1, 0.10
+wpn_wincheaster1300_worn			= 1, 0.10
+wpn_pm_worn							= 1, 0.10
+wpn_fort_worn						= 1, 0.10
+wpn_oc33_worn						= 1, 0.10
+wpn_bm16_worn						= 1, 0.10
+wpn_bm16_full_worn					= 1, 0.10
+
+backpack_military					= 1, 0.10
+backpack_soviet						= 1, 0.10
+backpack_specops					= 1, 0.07
+backpack_tourist					= 1, 0.05
+backpack_heavy						= 1, 0.03
+
+trenchcoat_brown_outfit_1			= 1, 0.60
+trenchcoat_brown_outfit_2			= 1, 0.60
+trenchcoat_brown_outfit_3			= 1, 0.60
+trenchcoat_brown_outfit_4			= 1, 0.60
+bandit_sun_outfit					= 1, 0.01
+bandit_nbc_outfit					= 1, 0.01
+banditmerc_outfit					= 1, 0.01
+
+backpack_military					= 1, 0.075
+backpack_specops					= 1, 0.05
+backpack_tourist					= 1, 0.007
+backpack_heavy						= 1, 0.001
+
+wpn_mine							= 3, 0.30
+wpn_mine_2							= 3, 0.30
+grenade_f1							= 3, 0.30
+grenade_rgn							= 3, 0.30
+grenade_gd-05						= 3, 0.30
+grenade_light						= 3, 0.30
+ied_rpg								= 1, 0.30
+ied									= 1, 0.30
+
+wpn_addon_silencer					= 1, 0.05
+wpn_sil_9mm							= 1, 0.05
+wpn_sil_45							= 1, 0.05
+wpn_sil_pbs1						= 1, 0.05
+wpn_sil_pbs4						= 1, 0.05
+wpn_sil_tgp-a						= 1, 0.05
+wpn_sil_nato						= 1, 0.05
+wpn_sil_kzrzp						= 1, 0.05
+wpn_sil_atg							= 1, 0.05
+wpn_sil_aps							= 1, 0.05
+wpn_sil_9a91						= 1, 0.05
+wpn_sil_6p9							= 1, 0.05
+wpn_sil_vihr						= 1, 0.05
+wpn_sil_gemtech						= 1, 0.05
+wpn_sil_sr25						= 1, 0.05
+wpn_sil_57							= 1, 0.05
+wpn_sil_762x39						= 1, 0.05
+1p29								= 1, 0.05
+1p78								= 1, 0.05
+1pn34								= 1, 0.05
+1pn93								= 1, 0.05
+acog								= 1, 0.05
+ac10632								= 1, 0.05
+ac11090								= 1, 0.05
+aimpoint							= 1, 0.05
+c-more								= 1, 0.05
+coyote								= 1, 0.05
+delta								= 1, 0.05
+ekp									= 1, 0.05
+eot									= 1, 0.05
+kobra								= 1, 0.05
+okp									= 1, 0.05
+pgo7v								= 1, 0.05
+pka									= 1, 0.05
+pks									= 1, 0.05
+po4x34								= 1, 0.05
+pn23								= 1, 0.05
+pso									= 1, 0.05
+pso1m21								= 1, 0.05
+pu									= 1, 0.05
+rakurs								= 1, 0.05
+specter								= 1, 0.05
+tars101								= 1, 0.05
+zf4									= 1, 0.05
+wpn_addon_grenade_launcher			= 1, 0.05
+wpn_addon_grenade_launcher_m203		= 1, 0.05
+wpn_addon_grenade_launcher_ag36		= 1, 0.05
+
+[supplies_tier_3]:supplies_tier_2
+wpn_ak74_worn						= 1, 0.10
+wpn_ak74_rusty						= 1, 0.10
+wpn_ak74m_worn						= 1, 0.10
+wpn_akm_worn						= 1, 0.10
+wpn_akms_worn						= 1, 0.10
+wpn_aks74_worn						= 1, 0.10
+wpn_ak74u_worn						= 1, 0.10
+wpn_ak74u_rusty						= 1, 0.10
+wpn_svt40_worn						= 1, 0.10
+wpn_svt40_rusty						= 1, 0.10
+
+magazine_545_cnt_30					= 2, 0.45
+magazine_545_cnt_30_2				= 2, 0.45
+magazine_762x39_cnt_30				= 2, 0.45
+magazine_762x39_cnt_30_2			= 2, 0.45
+magazine_762x39_cnt_30_3			= 2, 0.45
+magazine_762x39_cnt_10				= 2, 0.45
+magazine_792x57_cnt_10				= 2, 0.45
+magazine_762x54_cnt_10_2			= 2, 0.45
+magazine_762x51_cnt_20				= 2, 0.45
+magazine_762x39_cnt_8				= 2, 0.45
+magazine_1143x23_cnt_7				= 2, 0.45
+magazine_9x19_cnt_13				= 2, 0.45
+magazine_9x19_cnt_16				= 2, 0.45
+
+backpack_tourist					= 1, 0.10
+backpack_heavy						= 1, 0.10
+
+wpn_binoc_1							= 1, 0.25
+hand_generator						= 1, 0.25
+
+bandit_sun_outfit					= 1, 0.50
+bandit_nbc_outfit					= 1, 0.50
+banditmerc_outfit					= 1, 0.50
+
+bandit_specops_outfit				= 1, 0.01
+bandit_scientific_outfit			= 1, 0.01
+stalker_outfit_travel_bandit_1		= 1, 0.01
+stalker_outfit_travel_bandit_2		= 1, 0.01
+helm_battle_bandit					= 1, 0.01
+stalker_outfit_travel_bandit		= 1, 0.01
+wpn_addon_silencer					= 1, 0.10
+wpn_sil_9mm							= 1, 0.10
+wpn_sil_45							= 1, 0.10
+wpn_sil_pbs1						= 1, 0.10
+wpn_sil_pbs4						= 1, 0.10
+wpn_sil_tgp-a						= 1, 0.10
+wpn_sil_nato						= 1, 0.10
+wpn_sil_kzrzp						= 1, 0.10
+wpn_sil_atg							= 1, 0.10
+wpn_sil_aps							= 1, 0.10
+wpn_sil_9a91						= 1, 0.10
+wpn_sil_6p9							= 1, 0.10
+wpn_sil_vihr						= 1, 0.10
+wpn_sil_gemtech						= 1, 0.10
+wpn_sil_sr25						= 1, 0.10
+wpn_sil_57							= 1, 0.10
+wpn_sil_762x39						= 1, 0.10
+wpn_addon_scope						= 1, 0.10
+wpn_addon_scope_pu					= 1, 0.10
+1p29								= 1, 0.10
+1p78								= 1, 0.10
+1pn34								= 1, 0.10
+1pn93								= 1, 0.10
+acog								= 1, 0.10
+ac10632								= 1, 0.10
+ac11090								= 1, 0.10
+aimpoint							= 1, 0.10
+c-more								= 1, 0.10
+coyote								= 1, 0.10
+delta								= 1, 0.10
+ekp									= 1, 0.10
+eot									= 1, 0.10
+kobra								= 1, 0.10
+okp									= 1, 0.10
+pgo7v								= 1, 0.10
+pka									= 1, 0.10
+pks									= 1, 0.10
+po4x34								= 1, 0.10
+pso									= 1, 0.10
+pso1m21								= 1, 0.10
+rakurs								= 1, 0.10
+tars101								= 1, 0.10
+zf4									= 1, 0.10
+wpn_addon_grenade_launcher			= 1, 0.10
+wpn_addon_grenade_launcher_m203		= 1, 0.10
+wpn_addon_grenade_launcher_ag36		= 1, 0.10
+sd_hacking_soft						= 1, 0.10
+wpn_binoc							= 1, 0.10
+
+[supplies_tier_4]:supplies_tier_3
+wpn_rpk74_worn						= 1, 0.10
+wpn_rpk_worn						= 1, 0.10
+wpn_abakan_worn						= 1, 0.10
+wpn_ak74							= 1, 0.10
+wpn_ak74m							= 1, 0.10
+wpn_akm								= 1, 0.10
+wpn_akms							= 1, 0.10
+wpn_aks74							= 1, 0.10
+wpn_ak74u							= 1, 0.10
+
+magazine_545_cnt_30					= 2, 0.45
+magazine_545_cnt_45					= 2, 0.45
+magazine_545_cnt_45_2				= 2, 0.45
+magazine_545_cnt_60					= 2, 0.45
+magazine_545_cnt_75					= 1, 0.45
+magazine_762x39_cnt_30				= 2, 0.45
+magazine_762x39_cnt_30_2			= 2, 0.45
+magazine_762x39_cnt_40				= 2, 0.45
+magazine_762x39_cnt_40_2			= 2, 0.45
+magazine_762x39_cnt_75				= 2, 0.45
+magazine_762x54_cnt_100				= 2, 0.45
+magazine_556_cnt_35_ace				= 2, 0.45
+magazine_762x39_cnt_20				= 2, 0.45
+magazine_762x54_cnt_10				= 2, 0.45
+magazine_9x18_cnt_12				= 2, 0.45
+magazine_9x19_cnt_18				= 2, 0.45
+magazine_1143x23_cnt_8_2			= 2, 0.45
+magazine_357_cnt_9					= 2, 0.45
+
+wpn_binoc_2							= 1, 0.15
+
+bandit_specops_outfit				= 1, 0.50
+bandit_scientific_outfit			= 1, 0.50
+stalker_outfit_travel_bandit_1		= 1, 0.50
+stalker_outfit_travel_bandit_2		= 1, 0.50
+helm_battle_bandit					= 1, 0.50
+stalker_outfit_travel_bandit		= 1, 0.50
+heavy_outfit_bandit_1				= 1, 0.01
+heavy_outfit_bandit_2				= 1, 0.01
+heavy_outfit_bandit					= 1, 0.01
+bandit_radiation_outfit				= 1, 0.01
+bandit_radiation_outfit_1			= 1, 0.01
+bandit_radiation_outfit_2			= 1, 0.01
+
+wpn_addon_silencer					= 1, 0.15
+wpn_sil_9mm							= 1, 0.15
+wpn_sil_45							= 1, 0.15
+wpn_sil_pbs1						= 1, 0.15
+wpn_sil_pbs4						= 1, 0.15
+wpn_sil_tgp-a						= 1, 0.15
+wpn_sil_nato						= 1, 0.15
+wpn_sil_kzrzp						= 1, 0.15
+wpn_sil_atg							= 1, 0.15
+wpn_sil_aps							= 1, 0.15
+wpn_sil_9a91						= 1, 0.15
+wpn_sil_6p9							= 1, 0.15
+wpn_sil_vihr						= 1, 0.15
+wpn_sil_gemtech						= 1, 0.15
+wpn_sil_sr25						= 1, 0.15
+wpn_sil_57							= 1, 0.15
+wpn_sil_762x39						= 1, 0.15
+1p29								= 1, 0.15
+1p78								= 1, 0.15
+1pn34								= 1, 0.15
+1pn93								= 1, 0.15
+acog								= 1, 0.15
+ac10632								= 1, 0.15
+ac11090								= 1, 0.15
+aimpoint							= 1, 0.15
+c-more								= 1, 0.15
+coyote								= 1, 0.15
+delta								= 1, 0.15
+ekp									= 1, 0.15
+eot									= 1, 0.15
+kobra								= 1, 0.15
+okp									= 1, 0.15
+pgo7v								= 1, 0.15
+pka									= 1, 0.15
+pks									= 1, 0.15
+po4x34								= 1, 0.15
+pso									= 1, 0.15
+pso1m21								= 1, 0.15
+rakurs								= 1, 0.15
+tars101								= 1, 0.15
+zf4									= 1, 0.15
+
+[supplies_tier_5]:supplies_tier_4
+heavy_outfit_bandit_1				= 1, 0.50
+heavy_outfit_bandit_2				= 1, 0.50
+heavy_outfit_bandit					= 1, 0.50
+bandit_radiation_outfit				= 1, 0.50
+bandit_radiation_outfit_1			= 1, 0.50
+bandit_radiation_outfit_2			= 1, 0.50
+exo_proto_outfit_bandit				= 1, 0.03
+mod_exo_proto_outfit_bandit			= 1, 0.03
+mod_exo_proto_outfit_bandit_1		= 1, 0.03
+exo_proto_outfit_bandit_1			= 1, 0.03
+exo_proto_outfit_bandit_2			= 1, 0.03
+bandit_exo_outfit					= 1, 0.03
+
+ammo_9x18_fmj						= 3, 0.65
+ammo_9x19_fmj						= 3, 0.55
+ammo_11.43x23_fmj					= 3, 0.55
+ammo_12x70_buck						= 3, 0.55
+ammo_12x76_zhekan					= 3, 0.55
+ammo_12x76_dart						= 3, 0.55
+ammo_357_hp_mag						= 3, 0.55
+ammo_5.45x39_fmj					= 3, 0.55
+ammo_5.56x45_ss190					= 3, 0.55
+ammo_5.7x28_ss190					= 3, 0.55
+ammo_9x39_pab9						= 3, 0.55
+ammo_7.62x39_fmj					= 3, 0.55
+ammo_7.62x51_fmj					= 3, 0.55
+ammo_7.62x25_p						= 3, 0.55
+ammo_7.62x25_ps						= 3, 0.55
+ammo_7.62x25_p41					= 3, 0.55
+ammo_7.92x33_fmj					= 3, 0.55
+ammo_7.62x54_7h1					= 3, 0.55
+ammo_magnum_300						= 3, 0.55
+ammo_12.7x55_fmj					= 3, 0.55
+ammo_pkm_100						= 3, 0.55
+ammo_9x18_pmm						= 2, 0.35
+ammo_9x18_ap						= 3, 0.35
+ammo_9x19_pbp						= 3, 0.35
+ammo_9x19_ap						= 3, 0.35
+ammo_11.43x23_hydro					= 3, 0.35
+ammo_11.43x23_ap					= 3, 0.35
+ammo_357_hp_mag_ap					= 3, 0.35
+ammo_5.45x39_ap						= 3, 0.35
+ammo_5.56x45_ap						= 3, 0.35
+ammo_5.7x28_ss195					= 3, 0.35
+ammo_9x39_ap						= 3, 0.35
+ammo_7.62x39_ap						= 3, 0.35
+ammo_7.62x51_ap						= 3, 0.35
+ammo_7.92x57_fmj					= 3, 0.35
+ammo_7.62x54_7h14					= 3, 0.35
+ammo_magnum_300_ap					= 3, 0.35
+ammo_12.7x55_ap						= 3, 0.35
+ammo_7.62x54_ap						= 3, 0.35
+ammo_vog-25							= 3, 0.35
+ammo_vog-25p						= 3, 0.35
+ammo_m209							= 3, 0.35
+
+wpn_aa12							= 1, 0.05
+magazine_9x19_cnt_30				= 2, 0.45
+magazine_545_cnt_60					= 2, 0.45
+
+[supplies_tier_6]:supplies_tier_5
+exo_proto_outfit_bandit				= 1, 0.50
+mod_exo_proto_outfit_bandit			= 1, 0.50
+mod_exo_proto_outfit_bandit_1		= 1, 0.50
+exo_proto_outfit_bandit_1			= 1, 0.50
+exo_proto_outfit_bandit_2			= 1, 0.50
+bandit_exo_outfit					= 1, 0.50

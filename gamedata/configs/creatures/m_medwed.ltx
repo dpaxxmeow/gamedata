@@ -1,0 +1,380 @@
+;===========================================================================
+; МЕДВЕДЬ modified by Surs
+;===========================================================================
+[medwed_base]:monster_base
+GroupControlSection				= spawn_group
+SpaceRestrictionSection			= space_restrictor,zone_mosquito_bald
+cform							= skeleton			; collision class
+$npc							= on								 
+$prefetch						= 16
+visual							= monsters\medwed\mutant_medwed
+icon							= ui_npc_monster_medwed
+species							= medwed
+community						= medwed
+class							= SM_MEDW			; AI class
+name							= st_bear
+skin_armor						= 0.20
+script_binding					= bind_monster.bind
+;------------------------------------------------------------------------
+; Offline Alife
+;------------------------------------------------------------------------
+Scheduled						= on								 
+Human		     				= off						
+Health							= 650						
+MinSpeed						= 0.1							
+MaxSpeed						= 1.2							
+going_speed						= 0.3
+current_level_going_speed 		= 3
+search_speed					= 5.6				
+MaxHealthValue		    		= 200	; range [0..200]
+DynamicObjectsCount				= 32
+smart_terrain_choose_interval	= 00:15:00
+
+;------------------------------------------------------------------------
+; Physics
+;------------------------------------------------------------------------
+ph_box0_center 					= 0.0,  0.5,  0.0
+ph_box0_size 					= 0.55, 0.6,  0.55
+ph_box1_center 					= 0.0,  0.6,  0.0
+ph_box1_size 					= 0.55, 0.5,  0.55
+ph_crash_speed_min				= 10
+ph_crash_speed_max				= 30
+ph_collision_damage_factor		= 0.1
+ph_mass 						= 800
+destroyed_vis_name	 		 	= dynamics\Dead_Body\skelet_crash_monster
+;------------------------------------------------------------------------
+ph_skeleton_airr_lin_factor		= 2.0 
+ph_skeleton_airr_ang_factor		= 0.0 
+ph_skeleton_hinger_factor1		= 1.0 
+ph_skeleton_ddelay				= 15.0
+ph_skel_fatal_impulse_factor	= 12.0
+ph_after_death_velocity_factor	= 0.75
+ph_skel_shot_up_factor			= 0.25
+;------------------------------------------------------------------------
+; Movement
+;------------------------------------------------------------------------
+; speed factors					linear | angular_real | angular_path | min	 |  max
+Velocity_Stand					= 0,		1.4,			1.4,		1,		1	
+Velocity_RunFwdNormal			= 6.5,		5.5,			4.5,		0.4,	1	
+Velocity_RunFwdDamaged			= 4.5,		5.0,			4.0,		0.2,	1
+Velocity_WalkFwdDamaged			= 1.2,		1.5,			2.5,		0.2,	2.0	
+Velocity_WalkFwdNormal			= 1.75,		1.5,			1.5,		0.02,	3.0	
+Velocity_Drag					= -1.0,		1.0,			1.0,		1,		1
+Velocity_Steal					= 1.5,		3.0,			3.0,		1,		1
+
+; acceleration
+Accel_Generic					= 1.2
+Accel_Calm						= 2.0
+Accel_Aggressive				= 5.0
+
+;------------------------------------------------------------------------
+; Attack
+;------------------------------------------------------------------------
+attack_effector					= medwed_attack_effector
+attack_params		        	= medwed_attack_params
+;attack parameters
+MinAttackDist		        	= 2.8
+MaxAttackDist		        	= 3.8
+as_min_dist						= 0.9
+as_step							= 0.3
+Run_Attack_Dist					= 3.5, 4.0
+Run_Attack_Delay				= 1000, 3000
+Melee_Rotation_Factor			= 4.2
+hit_type						= wound			; type of attack
+
+;------------------------------------------------------------------------
+; Conditions
+;------------------------------------------------------------------------
+satiety_v						= 0.0005		;скорость уменьшения сытости со временем
+radiation_v						= 0.00001		;скорость уменьшения радиации
+satiety_power_v					= 0.00001		;увеличение силы при уменьшении сытости 
+satiety_health_v				= 0.001			;увеличение здоровья при уменьшении сытости 
+satiety_critical				= -1.0			;критическое значения сытости (в процентах от 0..1) когда здоровье начианает уменьшаться
+radiation_health_v				= 0.00			;уменьшение здоровья при воздействии радиации
+morale_v						= 0.01			;скорость восстановления морали
+health_hit_part					= 1.0			;процент хита, уходящий на отнимание здоровья
+power_hit_part					= 1.0			;процент хита, уходящий на отнимание силы
+psy_health_v					= 0.1			;скорость восстановления psy-здоровья
+health_restore_v				= 0.0005
+
+;Immunities 
+immunities_sect					= medwed_immunities
+
+;открытые раны
+bleeding_v						= 0.05			;потеря крови при номинальной ране в секунду
+wound_incarnation_v				= 0.04			;крутизна кривой заживления (какой процент раны останется после заживления в игровую секунду)
+min_wound_size					= 0.01
+
+;Sleep Settings
+sleep_health					= 1.0		;1.5				
+sleep_power						= 1.0		;1.5
+sleep_satiety					= 1.0		;0.8
+sleep_radiation					= 1.0		;1.1
+sleep_psy_health				= 1.0
+
+;Eat settings
+eat_freq					= 5.0					
+eat_slice					= 0.01					
+eat_slice_weight			= 10.0				
+satiety_threshold			= 0.5		; below this value monster fill hunger
+
+;------------------------------------------------------------------------
+; Sound
+;------------------------------------------------------------------------
+sound_idle						= monsters\medwed\idle_		
+sound_eat						= monsters\medwed\eat_			
+sound_aggressive		    	= monsters\medwed\aggressive_	
+sound_attack_hit		    	= monsters\medwed\attack_
+sound_take_damage		    	= monsters\medwed\pain_			
+sound_die						= monsters\medwed\death_			
+sound_bkgnd						= monsters\biting\def_
+sound_threaten			    	= monsters\medwed\threaten_
+sound_landing			    	= monsters\medwed\landing_
+sound_steal						= monsters\biting\def_
+sound_panic						= monsters\medwed\panic_	
+sound_growling			    	= monsters\biting\def_
+sound_die_in_anomaly	    	= monsters\medwed\anomaly_
+
+killer_clsids					= Z_MINCER,Z_GALANT,ZS_BFUZZ,ZS_MBALD,ZS_GALAN,ZS_MINCE
+sound_distant_idle				= monsters\medwed\idle_
+distant_idle_sound_delay		= 80000
+distant_idle_sound_range		= 100.0	
+
+;Frequency of sounds to be played
+idle_sound_delay				= 18000
+eat_sound_delay					= 5000
+attack_sound_delay				= 4000
+
+SoundThreshold					= 0.06		; range [0..1]
+max_hear_dist					= 60
+
+;------------------------------------------------------------------------
+; Vision
+;------------------------------------------------------------------------
+eye_fov							= 130
+eye_range						= 60	
+
+vision_free_section				= medwed_vision_free
+vision_danger_section			= medwed_vision_danger
+
+min_view_distance   			= 0.5				; коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance	 			= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold	 		= 100.0				; значение, при достижении суммой которого объект считается видимым
+always_visible_distance 		= 0.3
+time_quant						= 0.001
+decrease_value					= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor		     		= 0.5
+luminocity_factor				= 0.5 				; фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
+
+;-------------------------------------------------------------------------
+; Morale
+;-------------------------------------------------------------------------
+Morale_Hit_Quant				= 0.02
+Morale_Attack_Success_Quant		= 0.1
+Morale_Take_Heart_Speed			= 0.1
+Morale_Despondent_Speed			= 0.1
+Morale_Stable_Speed				= 0.05
+Morale_Despondent_Threashold	= 0.05
+
+;-------------------------------------------------------------------------
+; Damages
+;-------------------------------------------------------------------------
+;Health from which to play injured animation
+DamagedThreshold				= 0.2
+damage							= medwed_damage
+
+critical_wound_threshold		= 0.4; 1.1
+critical_wound_decrease_quant	= 0.
+
+critical_wound_anim_head		= critical_hit_head_0
+critical_wound_bones_head		= medwed_critical_wound_bones_head
+
+critical_wound_anim_torso		= critical_hit_torso_0
+critical_wound_bones_torso		= medwed_critical_wound_bones_torso
+
+critical_wound_anim_legs		= critical_hit_torso_0
+critical_wound_bones_legs		= medwed_critical_wound_bones_legs
+
+;------------------------------------------------------------------------
+; Other
+;------------------------------------------------------------------------
+ef_creature_type				= 20	; option for evaluation functions
+ef_weapon_type					= 2
+ef_detector_type				= 1
+panic_threshold	        		= 0.1
+
+bone_torso						= bip01_spine1 			; bone name
+bone_head						= bip01_head_muzzle		; bone name
+bone_fire						= bip01_head			; bone name
+weapon_usage					= 0						; boolean
+
+actor_restrictor				= medium_monster 		;medium_monster,stalker,none
+step_params						= medwed_step_params
+LegsCount						= 4
+DayTime_Begin					= 0			
+DayTime_End						= 21		
+distance_to_corpse				= 2.1		
+terrain							= medwed_terrain
+
+material						= creatures\medium
+DynamicObjectsCount				= 32
+;===========================================================================
+; ATTACK PARAMS
+;===========================================================================
+[medwed_attack_params]
+;--------------------------------------------------------------------------------------------------------------------------------------------
+; anim                			| time[0..1] | hit_power | impulse | impulse_dir (x,y,z)  | Field of hit_test  (left,right, bottom, top ) | Test Dist
+;--------------------------------------------------------------------------------------------------------------------------------------------
+;Left hand Attack
+stand_attack_0					=	0.45,		0.90,       230,        0.0, -0.3, 5.8,      -1.0, 1.0, -1.0, 1.0,							5.5
+;Left hand Attack power
+stand_attack_1					=	0.45,		0.95,       130,        0.0, -0.3, 5.8,      -0.8, 0.8, -1.0, 1.0,							5.5
+;Bite
+stand_attack_2					=	0.45,		0.55,        90,        0.0, -0.5, 5.4,      -1.0, 1.0, -1.0, 1.0,							5.5
+;Right hand Attack
+stand_attack_3					=	0.45,		0.90,       230,        0.0, -0.3, 5.8,      -1.0, 1.0, -1.0, 1.0,							5.5
+;Bite run
+stand_attack_run_0				=	0.75,		0.80,       100,        0.0, -0.5, 5.8,      -1.0, 1.0, -1.0, 1.0,							5.5
+;Jump Attack
+stand_attack_run_1				=	0.50,		0.35,		200,        0.0, -0.5, 5.4,	 	 -1.0, 1.0, -1.0, 1.0, 							5.2
+
+;===========================================================================
+; SPECIAL EFFECTORS
+;===========================================================================
+[medwed_attack_effector]
+duality_h						= 0.05;0.01
+duality_v						= 0.02;0.01
+blur							= 0.01
+gray							= 0.5
+noise_intensity					= 0.0
+noise_grain						= 1
+noise_fps						= 30
+color_base						= 0.65,0.15,0.1
+color_gray						= 0.333,0.333,0.333
+color_add						= 0,0,0
+time							= 0.30
+time_attack						= 0.05				; fade in
+time_release	    			= 0.15				; fade out
+
+; camera effects
+ce_time							= 0.35				; time 
+ce_amplitude					= 10				; head shake after hit
+ce_period_number				= 2.0				; camera shake times
+ce_power						= 2.5; 2.0			; power 
+
+;=================================================================================
+; medwed Damage
+;=================================================================================
+[medwed_damage]
+;bone_name     					= <hit_scale>,-1,<wound_scale>
+;<hit_scale>  					- коэфф. изменения хита (уменьшения здоровья) 
+;<wound_scale>  				- коэфф. изменения величины открытой раны
+default							= 1, -1, 0.3
+bip01_pelvis 					= 1, -1, 0.3
+bip01_spine1 					= 1, -1, 0.3
+bip01_spine3 					= 1, -1, 0.3
+bip01_neck 						= 1, -1, 1.5
+bip01_neck2						= 1, -1, 1.5
+bip01_head 						= 2, -1, 0.3, 10
+
+[medwed_critical_wound_bones_head]
+bip01_head
+bip01_neck2
+bip01_head_muzzle
+
+[medwed_critical_wound_bones_torso]
+bip01_pelvis
+bip01_spine1
+bip01_spine3
+
+[medwed_critical_wound_bones_legs]
+
+[medwed_vision_free]
+min_view_distance   			= 0.8				; коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance	 			= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0				; значение, при достижении суммой которого объект считается видимым
+always_visible_distance 		= 0.3
+time_quant						= 0.001
+decrease_value					= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor		    		= 0.5
+luminocity_factor				= 0.1 				; фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
+
+[medwed_vision_danger]
+min_view_distance   			= 0.8				; коэффициент, который множится на eye_range, в зависимости от угла
+max_view_distance	 			= 1.0				; коэффициент, который множится на eye_range, в зависимости от угла
+visibility_threshold			= 100.0				; значение, при достижении суммой которого объект считается видимым
+always_visible_distance 		= 0.3
+time_quant						= 0.001
+decrease_value					= 0.01				; значение, на которое уменьшается вес, если объект попал в фрустум, но отсёкся по каким-то причинам
+velocity_factor		    		= 0.5
+luminocity_factor				= 0.1 				; фактор освещения (только для Актёра)
+transparency_threshold			= 0.25
+
+[medwed_terrain]
+255,000,255,255
+
+;===========================================================================
+; Step Events
+;===========================================================================
+[medwed_step_params]
+;-------------------------------------------------------------------------------------------------------------
+; anim							| Cycles | time1 | power1 | time2 | power2 | time3 | power3 | time4 | power4 |
+;-------------------------------------------------------------------------------------------------------------
+stand_walk_fwd_0 				= 5,		0.01,   1,		 0.5,     0.7,    0.15,   1.0,     0.5,   1.0
+stand_walk_dmg_0				= 4,		0.2,    1,	     0.25,    0.7,    0.5,    1.0,     0.7,   1.0
+stand_run_fwd_0	 				= 1,		0.01,   1,	     0.05,    0.7,    0.2,    1.0,     0.2,   0.2
+stand_run_dmg_0					= 4,		0.2,    1,	     0.25,    0.7,    0.7,    1.0,     0.7,   1.0
+stand_steal_0					= 1,		0.2,    1,	     0.25,    0.7,    0.7,    1.0,     0.7,   1.0
+stand_drag_0					= 1,		0.2,    1,	     0.25,    0.7,    0.7,    1.0,     0.7,   1.0
+
+;===========================================================================
+; IMMUNITIES
+;===========================================================================
+[medwed_immunities]
+burn_immunity					= 0.35     ;коэффициенты иммунитета 
+strike_immunity					= 0.02
+shock_immunity					= 0.30
+wound_immunity					= 0.01    
+radiation_immunity				= 0.01
+telepatic_immunity				= 1.0
+chemical_burn_immunity			= 0.2
+explosion_immunity				= 0.3
+fire_wound_immunity				= 0.021
+
+[medwed_strong_immunities]
+burn_immunity					= 0.32     ;коэффициенты иммунитета 
+strike_immunity					= 0.015
+shock_immunity					= 0.25
+wound_immunity					= 0.01    
+radiation_immunity				= 0.01
+telepatic_immunity				= 1.0
+chemical_burn_immunity			= 0.17
+explosion_immunity				= 0.27
+fire_wound_immunity				= 0.015
+
+;===========================================================================
+; BASE PROFILES
+;===========================================================================
+[medwed]:medwed_base
+visual							= monsters\medwed\mutant_medwed_normal
+rank							= 600
+attack_effector					= medwed_attack_effector
+attack_params					= medwed_attack_params
+spec_rank						= normal
+community						= medwed
+;===========================================================================
+; STRONG PROFILE
+;===========================================================================
+[medwed_strong]:medwed_base
+visual							= monsters\medwed\mutant_medwed
+icon							= ui_npc_monster_medwed_strong
+rank							= 800
+attack_effector					= medwed_attack_effector
+attack_params					= medwed_attack_params
+spec_rank						= strong
+community						= medwed
+monster_type					= indoor
+skin_armor						= 0.25
+immunities_sect					= medwed_strong_immunities

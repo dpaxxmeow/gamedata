@@ -1,0 +1,113 @@
+;camping
+[logic@ds2_domik_st_camp_work_1]
+active = animpoint@ds2_domik_st_camp_work_1
+suitable = {!surge_started} true
+prior = 45
+
+[logic@ds2_domik_st_camp_work_2]
+active = animpoint@ds2_domik_st_camp_work_2
+suitable = {!surge_started} true
+prior = 45
+
+[logic@ds2_domik_st_camp_work_3]
+active = animpoint@ds2_domik_st_camp_work_3
+suitable = {!surge_started} true
+prior = 45
+
+[logic@ds2_domik_st_camp_work_4]
+active = animpoint@ds2_domik_st_camp_work_4
+suitable = {!surge_started} true
+prior = 45
+
+[logic@ds2_domik_st_camp_work_5]
+active = animpoint@ds2_domik_st_camp_work_5
+suitable = {!surge_started} true
+prior = 45
+
+[animpoint@ds2_domik_st_camp_work_1]
+cover_name = ds2_domik_st_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@ds2_domik_st_camp_work_2]
+cover_name = ds2_domik_st_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@ds2_domik_st_camp_work_3]
+cover_name = ds2_domik_st_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@ds2_domik_st_camp_work_4]
+cover_name = ds2_domik_st_animpoint_kamp4
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@ds2_domik_st_camp_work_5]
+cover_name = ds2_domik_st_animpoint_kamp5
+use_camp = true
+turn_on_campfire = true
+
+;mlr profiles
+
+[logic@dasc_tech_mlr]
+suitable = {=check_npc_name(dasc_tech_mlr)} true
+prior = 200
+active = animpoint@sit_normal
+level_spot = mechanic
+can_select_weapon = true
+dont_keep_items = true
+trade = misc\trade\trade_tech_mlty.ltx
+
+[animpoint@sit_normal]
+cover_name = dasc_tech_mlr_cover
+avail_animations = animpoint_sit_normal
+reach_movement = walk_noweap
+use_camp = false
+meet = meet
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet]
+close_snd_hello = meet_hello
+close_snd_bye = meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = true
+allow_break = false
+meet_on_talking = false
+
+[logic@dasc_trade_mlr]
+suitable = {=check_npc_name(dasc_trade_mlr)} true
+prior = 200
+trade = misc\trade\trade_stalker_mlty.ltx
+active = animpoint@sit
+level_spot = trader
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@sit]
+cover_name = dasc_trade_mlr_cover
+avail_animations = animpoint_sit_normal
+reach_movement = walk_noweap
+use_camp = false
+meet = meet
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false

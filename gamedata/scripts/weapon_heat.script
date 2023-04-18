@@ -17,24 +17,24 @@ function get_heat()	--start feature intialize values
 	feature_is_active = true
 	
     wpn_attr_table = {  --//add these to weapon section in ltx for custom heating (ex. heating_rates = nato2)
-		default = {cool_rate = 0.0004, heat_rate = 0.0010, heat_dec_fac = 0.0007},
-		ak1		= {cool_rate = 0.0006, heat_rate = 0.0012, heat_dec_fac = 0.0006},
-		ak2		= {cool_rate = 0.0006, heat_rate = 0.0010, heat_dec_fac = 0.0006},
-		ak3		= {cool_rate = 0.0007, heat_rate = 0.0009, heat_dec_fac = 0.0006},
-		nato1	= {cool_rate = 0.0007, heat_rate = 0.0013, heat_dec_fac = 0.0006},
-		nato2	= {cool_rate = 0.0007, heat_rate = 0.0010, heat_dec_fac = 0.0006},
-		nato3	= {cool_rate = 0.0008, heat_rate = 0.0008, heat_dec_fac = 0.0006},
-		pistol1	= {cool_rate = 0.0012, heat_rate = 0.0020, heat_dec_fac = 0.0003},
-		pistol2	= {cool_rate = 0.0012, heat_rate = 0.0018, heat_dec_fac = 0.0003},
-		pistol3	= {cool_rate = 0.0013, heat_rate = 0.0015, heat_dec_fac = 0.0003},
-		smg1	= {cool_rate = 0.0007, heat_rate = 0.0013, heat_dec_fac = 0.0002},
-		smg2	= {cool_rate = 0.0008, heat_rate = 0.0012, heat_dec_fac = 0.0002},
-		smg3	= {cool_rate = 0.0009, heat_rate = 0.0012, heat_dec_fac = 0.0002},
-		sniper1 = {cool_rate = 0.0007, heat_rate = 0.0020, heat_dec_fac = 0.0007},
-		sniper2 = {cool_rate = 0.0010, heat_rate = 0.0020, heat_dec_fac = 0.0007},
-		sniper3 = {cool_rate = 0.0012, heat_rate = 0.0020, heat_dec_fac = 0.0007},
-		mgun	= {cool_rate = 0.0005, heat_rate = 0.0006, heat_dec_fac = 0.0006},
-		gauss	= {cool_rate = 0.0050, heat_rate = 0.0200, heat_dec_fac = 0.0006}}
+		default = {cool_rate = 0.0017, heat_rate = 0.0030, heat_dec_fac = 0.0007},
+		ak1		= {cool_rate = 0.0025, heat_rate = 0.0040, heat_dec_fac = 0.0006},
+		ak2		= {cool_rate = 0.0027, heat_rate = 0.0035, heat_dec_fac = 0.0006},
+		ak3		= {cool_rate = 0.0028, heat_rate = 0.0032, heat_dec_fac = 0.0006},
+		nato1	= {cool_rate = 0.0030, heat_rate = 0.0060, heat_dec_fac = 0.0006},
+		nato2	= {cool_rate = 0.0030, heat_rate = 0.0050, heat_dec_fac = 0.0006},
+		nato3	= {cool_rate = 0.0030, heat_rate = 0.0040, heat_dec_fac = 0.0006},
+		pistol1	= {cool_rate = 0.0100, heat_rate = 0.0160, heat_dec_fac = 0.0003},
+		pistol2	= {cool_rate = 0.0100, heat_rate = 0.0140, heat_dec_fac = 0.0003},
+		pistol3	= {cool_rate = 0.0100, heat_rate = 0.0120, heat_dec_fac = 0.0003},
+		smg1	= {cool_rate = 0.0040, heat_rate = 0.0050, heat_dec_fac = 0.0006},
+		smg2	= {cool_rate = 0.0045, heat_rate = 0.0050, heat_dec_fac = 0.0006},
+		smg3	= {cool_rate = 0.0050, heat_rate = 0.0060, heat_dec_fac = 0.0006},
+		sniper1 = {cool_rate = 0.0040, heat_rate = 0.0100, heat_dec_fac = 0.0007},
+		sniper2 = {cool_rate = 0.0050, heat_rate = 0.0100, heat_dec_fac = 0.0007},
+		sniper3 = {cool_rate = 0.0060, heat_rate = 0.0100, heat_dec_fac = 0.0007},
+		mgun	= {cool_rate = 0.0070, heat_rate = 0.0060, heat_dec_fac = 0.0006},
+		gauss	= {cool_rate = 0.0050, heat_rate = 0.0300, heat_dec_fac = 0.0006}}
 
 	default_ammo_heat = 1.0	-- default heating factor ammo type - add to ammo section (ex. heating_factor = 1.1)
 	default_ammo_wear = 1.0	-- default wear factor ammo type 	- add to ammo section (ex. wear_factor = 1.1)

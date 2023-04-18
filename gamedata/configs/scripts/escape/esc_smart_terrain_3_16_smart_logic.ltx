@@ -1,0 +1,219 @@
+;minigunner
+[logic@esc_smart_terrain_3_16_minigunner_excl]
+active = beh@esc_smart_terrain_3_16_minigunner_excl
+suitable = {!surge_started} true
+prior = 60
+
+[meet@general]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = {=actor_enemy} false, {=dist_to_actor_le(3)} true, false
+snd_on_use = {!dist_to_actor_le(3)} nil
+meet_on_talking = false
+
+[beh@general]
+behavior_state = beh_move
+target = waypoint
+walk_dist = 100
+jog_dist = 220
+wait_anim = rush
+walk_anim = rush
+jog_anim = rush
+run_anim = rush
+delay_anim = guard
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+meet = meet@general
+
+[beh@idle]:beh@general
+on_info = {!has_enemy} beh@esc_smart_terrain_3_16_minigunner_excl
+
+[beh@esc_smart_terrain_3_16_minigunner_excl]:beh@general
+pt1 = 1000,guard | pos:-130.23077392578,-25.849973678589,-354.50341796875 look:-130,-25,-340
+path_end = beh@esc_smart_terrain_3_16_minigunner_excl_ready
+
+[beh@esc_smart_terrain_3_16_minigunner_excl_ready]:beh@general
+no_combat_job = true
+pt1 = 20000,ward | pos:-130.23077392578,-25.849973678589,-354.50341796875 look:-130,-25,-340
+path_end = loop
+on_info = {=pure_enemy_dist_le(17)} beh@idle
+
+;camping
+[logic@esc_smart_terrain_3_16_camp_work_1]
+active = animpoint@esc_smart_terrain_3_16_camp_work_1
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_3_16_camp_work_2]
+active = animpoint@esc_smart_terrain_3_16_camp_work_2
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_3_16_camp_work_3]
+active = animpoint@esc_smart_terrain_3_16_camp_work_3
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_3_16_camp_work_4]
+active = animpoint@esc_smart_terrain_3_16_camp_work_4
+suitable = {!surge_started} true
+prior = 45
+
+[logic@esc_smart_terrain_3_16_camp_work_5]
+active = animpoint@esc_smart_terrain_3_16_camp_work_5
+suitable = {!surge_started} true
+prior = 45
+
+[animpoint@esc_smart_terrain_3_16_camp_work_1]
+cover_name = esc_smart_terrain_3_16_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_3_16_camp_work_2]
+cover_name = esc_smart_terrain_3_16_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_3_16_camp_work_3]
+cover_name = esc_smart_terrain_3_16_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_3_16_camp_work_4]
+cover_name = esc_smart_terrain_3_16_animpoint_kamp4
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@esc_smart_terrain_3_16_camp_work_5]
+cover_name = esc_smart_terrain_3_16_animpoint_kamp5
+use_camp = true
+turn_on_campfire = true
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Блокпост на кордоне. Патрули внутренние.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[logic@esc_smart_terrain_3_16_camp_work_6]
+active = beh@guard_3_16_job_1
+suitable = {!surge_started} true
+prior = 100
+relationship = neutral   
+
+[beh@general_01]
+behavior_state = beh_move
+target = waypoint
+walk_dist = 100
+jog_dist = 100
+wait_anim = guard_chasovoy
+walk_anim = patrol
+jog_anim = patrol
+run_anim = patrol    
+delay_anim = guard
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+invulnerable = {!actor_enemy} true, false 
+relationship = neutral
+
+turn_on_campfire = false
+;on_info = {=surge_started} beh@surge_cover
+
+[beh@guard_3_16_job_1]:beh@general_01 ; Patrol inside
+pt1 = 100, guard | pos:-142.53575134277,-30.127267837524,-377.60229492188 look:-136.40785217285,-30.139057159424,-377.36050415039 ;Внутренний патруль 1
+pt2 = 0, guard | pos:-142.42219543457,-30.135553359985,-396.82141113281 look:-139.96919250488,-30.142112731934,-394.39743041992 ;Внутренний патруль 1
+pt3 = 0, guard | pos:-110.04493713379,-30.088266372681,-398.46691894531 look:-115.06144714355,-30.139621734619,-392.79263305664 ;Внутренний патруль 1
+pt4 = 0, guard | pos:-112.10211181641,-30.222736358643,-357.20184326172 look:-112.36292266846,-30.37184715271,-360.87646484375 ;Внутренний патруль 1
+path_end = loop
+
+[logic@esc_smart_terrain_3_16_camp_work_7]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_2
+
+[beh@guard_3_16_job_2]:beh@general_01 ; Patrol inside 2
+pt1 = 100, guard | pos:-128.98678588867,-30.144439697266,-370.19107055664 look:-129.00921630859,-30.141918182373,-369.14987182617 ;Внутренний патруль 2
+pt2 = 0, guard | pos:-110.73667907715,-30.254856109619,-370.87353515625 look:-110.80447387695,-30.188272476196,-374.38330078125 ;Внутренний патруль 2
+pt3 = 0, guard | pos:-113.19555664063,-30.10032081604,-394.23327636719 look:-116.60546112061,-30.09175491333,-394.04772949219 ;Внутренний патруль 2
+pt4 = 0, guard | pos:-129.07415771484,-30.133760452271,-393.82360839844 look:-132.71226501465,-30.142738342285,-387.23715209961 ;Внутренний патруль 2
+path_end = loop
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Внешняя территория.
+[logic@esc_smart_terrain_3_16_camp_work_8]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_3
+
+[beh@guard_3_16_job_3]:beh@general_01 ; Patrol outside 2
+pt1 = 100, guard | pos:-153.67788696289,-30.313623428345,-353.49285888672 look:-155.79985046387,-30.466453552246,-342.09918212891 ;Центр - правая колючка 1
+pt2 = 0, guard | pos:-155.77137756348,-29.770008087158,-404.50466918945 look:-153.21789550781,-29.743522644043,-408.52166748047 ;Центр - правая колючка 1
+pt3 = 0, guard | pos:-141.11846923828,-28.629367828369,-422.16091918945 look:-140.09870910645,-28.420816421509,-424.18225097656 ;Центр - правая колючка 1
+pt4 = 0, guard | pos:-123.71774291992,-26.346092224121,-474.01654052734 look:-119.09359741211,-26.189191818237,-474.29779052734 ;Центр - правая колючка 1
+pt5 = 0, guard | pos:-59.50252532959,-30.031118392944,-474.00823974609 look:-59.548599243164,-29.794803619385,-468.51086425781 ;Центр - правая колючка 1
+pt6 = 10000, binocular | pos:-72.124008178711,-33.551536560059,-357.05178833008 look:-74.41480255127,-34.032073974609,-354.56652832031 ;Центр - правая колючка 1
+pt7 = 0, guard | pos:-103.04105377197,-31.144729614258,-358.24057006836 look:-103.11683654785,-31.26406288147,-355.61325073242 ;Центр - правая колючка 1
+pt8 = 0, guard | pos:-92.899124145508,-31.80936050415,-397.80603027344 look:-97.180862426758,-29.600231170654,-410.28765869141 ;Центр - правая колючка 1
+pt9 = 45000, sit_ass_drink_vodka | pos:-104.02932739258,-26.435775756836,-419.60986328125 look:-104.07632446289,-25.979160308838,-421.9035949707 ;Центр - правая колючка 1
+pt10 = 0, guard | pos:-145.70933532715,-28.970308303833,-419.01373291016 look:-146.44689941406,-29.212539672852,-416.70855712891 ;Центр - правая колючка 1
+path_end = loop
+
+[logic@esc_smart_terrain_3_16_camp_work_9]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_4
+
+[beh@guard_3_16_job_4]:beh@general_01 ; Patrol outside 7
+pt1 = 100, guard | pos:-157.47831726074,-30.281429290771,-353.70504760742 look:-157.53329467773,-30.186546325684,-356.44378662109 ;Центр - левая колючка 1
+pt2 = 0, guard | pos:-152.49862670898,-29.898752212524,-404.73104858398 look:-151.23561096191,-29.882759094238,-407.08700561523 ;Центр - левая колючка 1
+pt3 = 0, guard | pos:-142.57247924805,-29.127649307251,-417.38150024414 look:-141.34104919434,-28.816528320313,-420.32891845703 ;Центр - левая колючка 1
+pt4 = 0, guard | pos:-126.87155151367,-26.380249023438,-471.22198486328 look:-129.13195800781,-26.413673400879,-471.49230957031 ;Центр - левая колючка 1
+pt5 = 0, guard | pos:-142.86051940918,-24.525909423828,-474.45614624023 look:-146.27388000488,-24.116024017334,-474.27713012695 ;Центр - левая колючка 1
+pt6 = 0, guard | pos:-222.65679931641,-21.863536834717,-476.07348632813 look:-223.4797668457,-21.954196929932,-473.03967285156 ;Центр - левая колючка 1
+pt7 = 0, guard | pos:-229.10601806641,-29.207538604736,-371.48168945313 look:-226.57067871094,-29.09521484375,-371.61694335938 ;Центр - левая колючка 1
+path_end = loop
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Колючка.
+	
+[logic@esc_smart_terrain_3_16_camp_work_10]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_5
+
+[beh@guard_3_16_job_5]:beh@general_01 ; Patrol outside 6
+pt1 = 100, guard | pos:-175.87692260742,-30.672388076782,-350.17337036133 look:-178.07191467285,-30.733629226685,-349.97338867188 ;Левый внешний патруль.
+pt2 = 0, guard | pos:-227.61819458008,-31.396129608154,-352.01513671875 look:-227.3438873291,-31.686508178711,-349.07946777344 ;Левый внешний патруль.
+path_end = loop
+
+[logic@esc_smart_terrain_3_16_camp_work_11]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_6
+
+[beh@guard_3_16_job_6]:beh@general_01 ; Patrol outside 1
+pt1 = 100, guard | pos:-182.3472442627,-30.34308052063,-354.56008911133 look:-181.95413208008,-30.543209075928,-352.60083007813 ;Левый внутренний патруль.
+pt2 = 20000, binocular | pos:-214.42233276367,-30.718759536743,-356.51446533203 look:-214.42448425293,-30.965145111084,-354.55194091797 ;Левый внутренний патруль.
+pt3 = 0, guard | pos:-238.85417175293,-30.545963287354,-356.58148193359 look:-238.49055480957,-30.761507034302,-354.93841552734 ;Левый внутренний патруль.
+path_end = loop
+
+[logic@esc_smart_terrain_3_16_camp_work_12]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_7
+
+[beh@guard_3_16_job_7]:beh@general_01 ; Patrol outside 3
+pt1 = 100, guard | pos:-147.8030090332,-30.211570739746,-350.98852539063 look:-148.51602172852,-30.458568572998,-347.45401000977 ;Правый внешний патруль.
+pt2 = 0, guard | pos:-135.87034606934,-30.1921043396,-352.33615112305 look:-133.59423828125,-30.191228866577,-352.17523193359 ;Правый внешний патруль.
+pt3 = 0, guard | pos:-113.95929718018,-30.286550521851,-352.06149291992 look:-112.89199066162,-30.280069351196,-350.92178344727 ;Правый внешний патруль.
+pt4 = 35000, binocular | pos:-112.03624725342,-30.232713699341,-353.11618041992 look:-114.18077850342,-30.416925430298,-348.19482421875 ;Правый внешний патруль.
+pt5 = 0, guard | pos:-113.95929718018,-30.286550521851,-352.06149291992 look:-112.89199066162,-30.280069351196,-350.92178344727 ;Правый внешний патруль.
+pt6 = 0, guard | pos:-135.87034606934,-30.1921043396,-352.33615112305 look:-133.59423828125,-30.191228866577,-352.17523193359 ;Правый внешний патруль.
+pt7 = 0, guard | pos:-147.8030090332,-30.211570739746,-350.98852539063 look:-148.51602172852,-30.458568572998,-347.45401000977 ;Правый внешний патруль.
+path_end = loop
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Насыпь.
+
+[logic@esc_smart_terrain_3_16_camp_work_13]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_8
+
+[beh@guard_3_16_job_8]:beh@general_01 ; Patrol outside 4
+pt1 = 50000, guard | pos:-158.51083374023,-30.469144821167,-348.28427124023 look:-158.46505737305,-30.528022766113,-344.50897216797 ;Центральный проход, насыпь 1
+path_end = loop
+
+[logic@esc_smart_terrain_3_16_camp_work_14]:logic@esc_smart_terrain_3_16_camp_work_6
+active = beh@guard_3_16_job_9
+
+[beh@guard_3_16_job_9]:beh@general_01 ; Patrol outside 5
+pt1 = 50000, guard | pos:-151.91374206543,-30.532703399658,-347.98767089844 look:-152.18981933594,-30.556739807129,-344.17962646484 ;Центральный проход, насыпь 2
+path_end = loop

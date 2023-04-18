@@ -1,0 +1,333 @@
+[___level_music_tracks]
+music\marsh_night		= 0, 8, 0.25, 10, 20
+music\marsh_2			= 8, 24, 0.25, 5, 25
+
+[def_map]
+bound_rect				= -10000.0f, -10000.0f, 10000.0f, 10000.0f
+texture					= map\map_nomap
+
+[global_map]
+bound_rect				= 0.0, 0.0, 1024, 2634.0
+max_zoom				= 6.0
+texture					= ui\ui_global_map
+
+[level_maps_single]
+jupiter =
+k00_marsh =
+k01_darkscape =
+k02_trucks_cemetery =
+l01_escape =
+l02_garbage =
+l03_agroprom =
+l04_darkvalley =
+l05_bar =
+l06_rostok =
+l07_military =
+l08_yantar =
+l09_deadcity =
+l10_limansk =
+l10_radar =
+l10_red_forest =
+l11_hospital =
+l11_pripyat =
+l12_stancia =
+l12_stancia_2 =
+l13_generators =
+pripyat	=
+zaton =
+jupiter_underground	=
+labx8 =
+l03u_agr_underground =
+l04u_labx18 =
+l08u_brainlab =
+l10u_bunker =
+l12u_control_monolith =
+l12u_sarcofag =
+l13u_warlab =
+y04_pole =
+fake_start =
+
+[fake_start]
+global_rect				= 10,20,10,20
+music_tracks			= jupiter_musics
+weathers				= atmosfear
+lightning_borders		= {{-660,640},{-660,-680},{660,-680},{660,640}} ;boundaries parameters
+auto_lighting			= true ;Disable automatic adjustment of lumscale_hemi and lumscale_amb at night.
+lumscale_hemi			= -0.2
+lumscale_amb			= -0.3
+
+[jupiter]
+global_rect				= 277.0, 783.0, 459.0, 965.0
+music_tracks			= jupiter_musics
+weathers				= atmosfear
+lightning_borders		= {{-660,640},{-660,-680},{660,-680},{660,640}}
+auto_lighting			= true
+lumscale_hemi			= -0.05
+lumscale_amb			= -0.34
+
+[k00_marsh]
+global_rect				= 22.0, 2113.0, 352.0, 2443.000000
+weathers				= atmosfear
+music_tracks			= k00_marsh_musics
+lightning_borders		= {{-550,760},{-550,-736},{940,-737},{940,760}}
+auto_lighting			= true
+lumscale_hemi			= -0.05
+lumscale_amb			= -0.2
+
+[k01_darkscape]
+global_rect				= 701.0, 2071.0, 1020.0, 2392.344727
+weathers				= atmosfear
+music_tracks			= k01_darkscape_musics
+lightning_borders		= {{-494,697},{-673,-485},{447,-591},{308,678}}
+auto_lighting			= true
+lumscale_hemi			= -0.03
+lumscale_amb			= -0.22
+
+[k02_trucks_cemetery]
+global_rect				= 706.0,1382.0,1025.0,1703.3447270000001
+weathers				= atmosfear	
+music_tracks			= k02_trucks_cemetery_musics
+lightning_borders		= {{-386,468},{-386,-468},{386,-468},{386,468}}
+auto_lighting			= true
+lumscale_hemi			= 0
+lumscale_amb			= -0.28
+
+[l01_escape]
+global_rect				= 358.0, 2022.0, 564.0, 2434.000000
+weathers				= atmosfear
+music_tracks			= l01_escape_musics
+lightning_borders		= {{-464,963},{-315,-630},{403,-633},{404,965}}
+auto_lighting			= true
+lumscale_hemi			= -0.07
+lumscale_amb			= -0.34
+
+[l02_garbage]
+global_rect				= 410, 1711, 564, 2041
+weathers				= atmosfear
+music_tracks			= l02_garbage_musics
+lightning_borders		= {{-367,315},{-367,-420},{368,-420},{368,315}}
+auto_lighting			= true
+lumscale_hemi			= -0.25
+lumscale_amb			= -0.37
+
+[l03_agroprom]
+global_rect				= 164.0, 1848.0, 332.0, 2016.000000
+weathers				= atmosfear
+music_tracks			= l03_agroprom_musics
+lightning_borders		= {{-268,245},{-263,-373},{351,-377},{352,242}}
+auto_lighting			= true
+lumscale_hemi			= -0.11
+lumscale_amb			= -0.3
+
+[l03u_agr_underground]
+global_rect				= 245.0, 1960.0, 245.0, 1960.0
+music_tracks			= l03u_agr_underground_musics
+weathers				= indoor
+auto_lighting			= false
+lumscale_hemi			= false
+lumscale_amb			= false
+
+[l04_darkvalley]
+;global_rect			= 639.0, 1633.0, 1039.0, 2033.000000
+global_rect				= 728.0, 1705.0, 852.0, 1953.000000
+weathers				= atmosfear
+music_tracks			= l04_darkvalley_musics
+lightning_borders		= {{-524,499},{-517,-930},{518,-934},{516,502}}
+auto_lighting			= true
+lumscale_hemi			= -0.4
+lumscale_amb			= -0.23
+
+[l04u_labx18]
+global_rect				= 824.0, 1840.0, 824.0, 1840.0
+music_tracks			= l04_labx18_musics
+weathers				= indoor
+auto_lighting			= false
+lumscale_hemi			= false
+lumscale_amb			= false
+
+[l05_bar]
+global_rect				= 407.0, 1414.0, 556.0, 1712
+weathers				= atmosfear
+music_tracks			= l05_bar_musics
+lightning_borders		= {{-511,511},{-511,-511},{510,-511},{511,511}}
+auto_lighting			= true
+lumscale_hemi			= -0.19
+lumscale_amb			= -0.41
+
+[l06_rostok]
+global_rect				= 258.0, 1414.0, 407.0, 1712
+weathers				= atmosfear
+music_tracks			= l06_rostok_musics
+lightning_borders		= {{-511,511},{-511,-511},{511,-511},{511,511}}
+auto_lighting			= true
+lumscale_hemi			= -0.17
+lumscale_amb			= -0.39
+
+[l07_military]
+global_rect				= 425.0, 1231.0, 590, 1396.000000
+weathers				= atmosfear
+music_tracks			= l07_military_musics
+lightning_borders		= {{-443,508},{-443,-131},{196,-131},{195,507}}
+auto_lighting			= true
+lumscale_hemi			= -0.16
+lumscale_amb			= -0.36
+
+[l08_yantar]
+global_rect				= 101.0, 1572.0, 249.0, 1720.000000
+weathers				= atmosfear
+music_tracks			= l08_yantar_musics
+lightning_borders		= {{-282,137},{-282,-431},{282,-431},{286,136}}
+auto_lighting			= true
+lumscale_hemi			= -0.16
+lumscale_amb			= -0.39
+
+[l08u_brainlab]
+global_rect				= 172.0, 1612.0, 172.0, 1614.0
+music_tracks			= l08u_brainlab_musics
+weathers				= indoor
+auto_lighting			= false
+lumscale_hemi			= false
+lumscale_amb			= false
+
+[l09_deadcity]
+global_rect				= -1, 1218.0, 258.0, 1481.0
+weathers				= atmosfear
+music_tracks			= l09_deadcity_musics
+lightning_borders		= {{-324,313},{-362,-328},{279,-328},{279,313}}
+auto_lighting			= true
+lumscale_hemi			= -0.18
+lumscale_amb			= -0.39
+
+[l10_limansk]
+global_rect				= 66.0, 874.0, 182.0, 1105.000000
+weathers				= atmosfear
+music_tracks			= l10_limansk_musics
+lightning_borders		= {{-500,582},{-500,-416},{500,-417},{500,582}}
+auto_lighting			= true
+lumscale_hemi			= -0.2
+lumscale_amb			= -0.38
+
+[l10_radar]
+global_rect				= 527.0,975.0,769.0,1218.704712
+weathers				= atmosfear
+music_tracks			= l10_radar_musics
+lightning_borders		= {{-318,557},{-318,-658},{890,-658},{890,557}}
+auto_lighting			= true
+lumscale_hemi			= -0.1
+lumscale_amb			= -0.33
+
+[l10u_bunker]
+global_rect				= 588.0, 1082.0, 588.0, 1082.0
+music_tracks			= l10u_bunker_musics
+weathers				= indoor
+auto_lighting			= false
+lumscale_hemi			= false
+lumscale_amb			= false
+
+[l10_red_forest]
+global_rect				= 198.0, 1028.0, 380.0, 1210.000000
+weathers				= atmosfear
+music_tracks			= l10_red_forest_musics
+lightning_borders		= {{-317,196},{-317,-503},{381,-503},{382,196}}
+auto_lighting			= true
+lumscale_hemi			= 0.08
+lumscale_amb			= -0.4
+
+[l11_hospital]
+global_rect				= 194.0, 694.0, 246.0, 798.000000
+weathers				= atmosfear
+music_tracks			= l11_hospital_musics
+lightning_borders		= {{-121,919},{-121,535},{-50,536},{-50,919}}
+auto_lighting			= true
+lumscale_hemi			= -0.04
+lumscale_amb			= -0.409
+
+[l11_pripyat]
+global_rect				= 607.0, 762.0, 740.0, 909.0
+weathers				= atmosfear
+music_tracks			= l11_pripyat_musics
+lightning_borders		= {{-628,778},{-627,-520},{670,-520},{671,779}}
+auto_lighting			= true
+lumscale_hemi			= 0.1
+lumscale_amb			= -0.39
+
+[l12_stancia]
+global_rect				= 322, 298, 728, 495
+weathers				= atmosfear
+music_tracks			= l12_stancia_musics
+auto_lighting			= true
+lumscale_hemi			= -0.08
+lumscale_amb			= -0.34
+lightning_borders		= {{-600,850},{-600,-747},{1525,-747},{1728,849}}
+
+[l12_stancia_2]:l12_stancia
+global_rect				= 322, 101, 728, 298
+weathers				= atmosfear
+music_tracks			= l12_stancia_2_musics
+
+[l13_generators]
+global_rect				= 195, -40, 414, 179
+weathers				= atmosfear
+music_tracks			= l12_generators_musics
+auto_lighting			= true
+lumscale_hemi			= -0.05
+lumscale_amb			= -0.36
+lightning_borders		= {{-499,209},{-499,-853},{540,-853},{540,209}}
+
+[l12u_sarcofag]
+global_rect				= 434.0, 296.0,	435.0, 297.0
+music_tracks			= l12u_sarcofag_musics
+weathers				= indoor_ambient
+auto_lighting			= false
+
+[l12u_control_monolith]
+global_rect				= 393.0, 302.0,	394.0, 303.0
+music_tracks			= l12u_control_musics
+weathers				= indoor
+auto_lighting			= true
+lumscale_hemi			= 0.0
+lumscale_amb			= -0.33
+
+[l13u_warlab]
+global_rect				= 327.0, 100.0, 328.0, 101.0
+music_tracks			= underground_musics
+weathers				= indoor
+auto_lighting			= false
+
+[zaton]
+global_rect				= 291.0, 574.0, 473.0, 756.0
+music_tracks			= zaton_musics
+weathers				= atmosfear
+auto_lighting			= true
+lumscale_hemi			= -0.1
+lumscale_amb			= -0.33
+lightning_borders		= {{0,-600},{400,-590},{580,-460},{800,-390},{800,830},{-445,820},{-490,715},{-567,607},{-620,423},{-622,-231},{-615,-470},{-568,-568},{-400,-590}}
+
+[jupiter_underground]
+global_rect				= 425.0, 886.0, 426.0, 887.0
+music_tracks			= underground_musics
+weathers				= indoor_ambient
+auto_lighting			= false
+
+[pripyat]
+global_rect				= 679.0, 718.0, 888.0, 927.0
+music_tracks			= pripyat_musics
+weathers				= atmosfear
+auto_lighting			= true
+lumscale_hemi			= 0.1
+lumscale_amb			= -0.33
+lightning_borders		= {{700,700},{-700,700},{-700,-700},{700,-700}}
+
+[labx8]
+global_rect				= 761.0, 841.0, 761.0, 841.0
+music_tracks			= underground_musics
+weathers				= indoor
+auto_lighting			= false
+
+[y04_pole]
+global_rect				= 498, 1962, 741, 2203
+music_tracks			= l01_escape_musics
+weathers				= atmosfear
+auto_lighting			= true
+lumscale_hemi			= -0.1
+lumscale_amb			= -0.33

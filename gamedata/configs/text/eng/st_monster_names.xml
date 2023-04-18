@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	<string id="yan_tonnel_snork_1">
+		<text>Experiment №1</text>
+	</string>
+	<string id="yan_tonnel_snork_2">
+		<text>Experiment №2</text>
+	</string>
+	<string id="yan_tonnel_snork_3">
+		<text>Experiment №3</text>
+	</string>
+	<string id="yan_tonnel_snork_4">
+		<text>Experiment №4</text>
+	</string>
+	<string id="yan_tonnel_snork_5">
+		<text>Experiment №5</text>
+	</string>
+	<string id="yan_tonnel_snork_6">
+		<text>Experiment №6</text>
+	</string>
+	<string id="yan_tonnel_gigant">
+		<text>Experiment №7</text>
+	</string>
+	<string id="bar_arena_savage">
+		<text>Zombied</text>
+	</string>
+	<string id="bar_arena_bloodsucker">
+		<text>Bloodsucker</text>
+	</string>
+	<string id="bar_arena_burer">
+		<text>Burer</text>
+	</string>
+	<string id="bar_arena_pseudodog">
+		<text>Pseudodog</text>
+	</string>
+	<string id="bar_arena_snork">
+		<text>Snork</text>
+	</string>
+	<string id="snork_weak">
+		<text>Snork</text>
+	</string>
+	<string id="st_bloodsucker">
+		<text>Bloodsucker</text>
+	</string>
+	<string id="st_bear">
+		<text>Bear</text>
+	</string>
+	<string id="st_boar">
+		<text>Boar</text>
+	</string>
+	<string id="st_burer">
+		<text>Burer</text>
+	</string>
+	<string id="st_cat">
+		<text>Cat</text>
+	</string>
+	<string id="dog_normal_red">
+		<text>Blind Dog</text>
+	</string>
+	<string id="psy_dog_normal">
+		<text>Pseudodog</text>
+	</string>
+	<string id="st_controller">
+		<text>Controller</text>
+	</string>
+	<string id="st_chimera">
+		<text>Chimera</text>
+	</string>
+	<string id="chimera_weak">
+		<text>Chimera</text>
+	</string>
+	<string id="schimera_normal">
+		<text>Chimera</text>
+	</string>
+	<string id="schimera_strong">
+		<text>Chimera</text>
+	</string>
+	<string id="m_poltergeist_normal_tele">
+		<text>Poltergeist</text>
+	</string>
+	<string id="bloodsucker_red_weak">
+		<text>Bloodsucker</text>
+	</string>
+	<string id="m_controller_normal">
+		<text>Controller</text>
+	</string>
+	<string id="m_controller_psy">
+		<text>Controller</text>
+	</string>
+	<string id="tushkano_normal">
+		<text>Tushkano</text>
+	</string>
+	<string id="flesh_01a_weak">
+		<text>Flesh</text>
+	</string>
+	<string id="burer_normal">
+		<text>Burer</text>
+	</string>
+	<string id="boar_normal">
+		<text>Boar</text>
+	</string>
+	<string id="gigant_normal">
+		<text>Pseudogiant</text>
+	</string>
+	<string id="cat_weak_a">
+		<text>Cat</text>
+	</string>
+	<string id="st_crow">
+		<text>Crow</text>
+	</string>
+	<string id="st_dog">
+		<text>Blind dog</text>
+	</string>
+	<string id="st_flesh">
+		<text>Flesh</text>
+	</string>
+	<string id="st_fracture">
+		<text>Fracture</text>
+	</string>
+	<string id="st_giant">
+		<text>Pseudogiant</text>
+	</string>
+	<string id="st_medwed">
+		<text>Bear</text>
+	</string>
+	<string id="st_karlik">
+		<text>Karlik</text>
+	</string>
+	<string id="st_leshyi">
+		<text>Silvan</text>
+	</string>
+	<string id="st_poltergeist">
+		<text>Poltergeist</text>
+	</string>
+	<string id="st_pseudodog">
+		<text>Pseudodog</text>
+	</string>
+	<string id="st_psy_dog">
+		<text>Psy-dog</text>
+	</string>
+	<string id="rat_weak">
+		<text>Rat</text>
+	</string>
+	<string id="karlik_blue">
+		<text>Midget</text>
+	</string>
+	<string id="st_snork">
+		<text>Snork</text>
+	</string>
+	<string id="bloodsucker_stronglav">
+		<text>Stronglav</text>
+	</string>
+	<string id="st_tushkano">
+		<text>Tushkano</text>
+	</string>
+	<string id="st_vodianoy">
+		<text>Vodyanoy</text>
+	</string>
+	<string id="st_zombie">
+		<text>Zombie</text>
+	</string>
+	<string id="zombie_stalker_novice_bandit">
+		<text>Zombied</text>
+	</string>
+	<string id="st_mutant">
+		<text>Mutant:</text>
+	</string>
+</string_table>

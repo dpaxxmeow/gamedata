@@ -1,0 +1,245 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Smoking Items
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_marlboro]:booster, can_divide
+$spawn									= "devices\cigarettes_marlboro"
+visual									= dynamics\items\smoking\cigarettes_marlboro.ogf
+description								= st_cigarettes_marlboro_descr
+inv_name								= st_cigarettes_marlboro
+inv_name_short							= st_cigarettes_marlboro
+inv_weight								= 0.024
+inv_volume								= 0.2
+cost									= 850
+inv_grid_x								= 17
+inv_grid_y								= 64
+boost_time								= 45
+boost_psy_health						= 0.001
+boost_slowed_pulse						= 0.13
+boost_telepat_protection				= 0.0045
+eat_alcohol								= -0.05
+eat_satiety								= 0.040
+eat_thirst								= -0.050
+eat_sleepiness							= -1
+eat_health								= -0.005
+max_uses								= 8
+use_condition							= true
+show_on_use								= false
+volume_scale							= false
+consume_type							= smoke
+anim_section							= anm_cigarettes_marlboro
+
+[cigarettes_marlboro_radiated]:cigarettes_marlboro
+inv_name								= st_cigarettes_marlboro_radiated
+inv_name_short							= st_cigarettes_marlboro_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_lucky]:cigarettes_marlboro
+$spawn									= "devices\cigarettes_lucky"
+visual									= dynamics\items\smoking\cigarettes_lucky.ogf
+description								= st_cigarettes_lucky_descr
+inv_name								= st_cigarettes_lucky
+inv_name_short							= st_cigarettes_lucky
+cost									= 780
+inv_grid_x								= 18
+inv_grid_y								= 64
+boost_time								= 44
+boost_slowed_pulse						= 0.125
+boost_telepat_protection				= 0.0032
+eat_satiety								= 0.040
+eat_thirst								= -0.040
+eat_health								= -0.002
+anim_section							= anm_cigarettes_lucky
+
+[cigarettes_lucky_radiated]:cigarettes_lucky
+inv_name								= st_cigarettes_lucky_radiated
+inv_name_short							= st_cigarettes_lucky_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_russian]:cigarettes_marlboro
+$spawn									= "devices\cigarettes_russian"
+visual									= dynamics\items\smoking\cigarettes_iskra.ogf
+description								= st_cigarettes_russian_descr
+inv_name								= st_cigarettes_russian
+inv_name_short							= st_cigarettes_russian
+cost									= 680
+inv_grid_x								= 17
+inv_grid_y								= 65
+cost									= 147
+boost_time								= 42
+boost_slowed_pulse						= 0.14
+boost_telepat_protection				= 0.0030
+eat_alcohol								= -0.04
+eat_satiety								= 0.038
+eat_thirst								= -0.045
+eat_health								= -0.018
+anim_section							= anm_cigarettes_russian
+
+[cigarettes_russian_radiated]:cigarettes_russian
+inv_name								= st_cigarettes_russian_radiated
+inv_name_short							= st_cigarettes_russian_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_slava]:cigarettes_marlboro
+$spawn									= "devices\cigarettes_slava"
+visual									= dynamics\items\smoking\cigarettes_slava.ogf
+description								= st_cigarettes_slava_descr
+inv_name								= st_cigarettes_slava
+inv_name_short							= st_cigarettes_slava
+inv_weight								= 0.040
+inv_volume								= 0.35
+cost									= 620
+inv_grid_x								= 18
+inv_grid_y								= 65
+boost_time								= 38
+boost_slowed_pulse						= 0.12
+boost_telepat_protection				= 0.0046
+eat_alcohol								= -0.06
+eat_satiety								= 0.038
+eat_thirst								= -0.040
+eat_health								= -0.010
+anim_section							= anm_cigarettes_slava
+
+[cigarettes_slava_radiated]:cigarettes_slava
+inv_name								= st_cigarettes_slava_radiated
+inv_name_short							= st_cigarettes_slava_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_cigar]:cigarettes_marlboro
+$spawn									= "devices\cigar"
+visual									= dynamics\items\smoking\cigar.ogf
+description								= st_cuban_cigar_descr
+inv_name								= st_cuban_cigar
+inv_name_short							= st_cuban_cigar
+inv_weight								= 0.075
+inv_volume								= 0.3
+inv_grid_x								= 19
+inv_grid_y								= 63
+cost									= 470
+boost_time								= 40
+boost_psy_health						= 0.0015
+boost_slowed_pulse						= 0.15
+boost_telepat_protection				= 0.0045
+eat_alcohol								= -0.06
+eat_thirst								= -0.060
+eat_satiety								= 0.032
+eat_sleepiness							= -2
+eat_health								= -0.010
+max_uses								= 2
+anim_section							= anm_cigar1
+
+[cigarettes_cigar_radiated]:cigarettes_cigar
+inv_name								= st_cuban_cigar_radiated
+inv_name_short							= st_cuban_cigar_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_selfroll]:cigarettes_marlboro
+$spawn									= "devices\cigarettes_selfroll"
+visual									= equipments\craft\selfrolls.ogf
+description								= st_selfroll_descr
+inv_name								= st_selfroll_name
+inv_name_short							= st_selfroll_name
+inv_weight								= 0.12
+inv_volume								= 0.15
+inv_grid_x								= 6
+inv_grid_y								= 42
+cost									= 3670
+boost_time								= 618
+boost_power_restore						= 0.0009
+boost_telepat_protection				= 0.01
+boost_max_weight						= 1.542
+eat_alcohol								= 0.198
+eat_satiety								= 0.098
+eat_sleepiness							= -0.267
+eat_health								= -0.01
+anim_section							= anm_cigar2
+
+[cigarettes_joint]:booster
+$spawn									= "devices\pda"
+visual									= dynamics\items\smoking\joint.ogf
+description								= st_joint_descr
+inv_name								= st_joint
+inv_name_short							= st_joint
+inv_weight								= 0.001
+inv_volume								= 0.05
+inv_grid_x								= 16
+inv_grid_y								= 64
+cost									= 1240
+boost_time								= 142
+boost_pain								= 0.0001
+boost_slowed_pulse						= 0.2
+boost_telepat_protection				= 0.0120
+boost_power_restore						= -0.0022
+boost_max_weight						= -3.461
+eat_alcohol								= 0.100
+eat_satiety								= -0.074
+eat_thirst								= -0.120
+eat_sleepiness							= -4
+show_on_use								= false
+consume_type							= smoke
+anim_section							= anm_cigar2
+
+[cigarettes_joint_radiated]:cigarettes_joint
+inv_name								= st_joint_radiated
+inv_name_short							= st_joint_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[tobacco]:booster
+$spawn									= "devices\pda"
+visual									= dynamics\items\smoking\tobacco.ogf
+description								= st_tobacco_descr
+inv_name								= st_tobacco
+inv_name_short							= st_tobacco
+inv_weight								= 0.100
+inv_volume								= 0.4
+inv_grid_x								= 19
+inv_grid_y								= 64
+cost									= 1223
+boost_time								= 58
+boost_psy_health						= 0.001
+boost_slowed_pulse						= 0.1
+boost_telepat_protection				= 0.0054
+eat_alcohol								= -0.075
+eat_satiety								= 0.050
+eat_thirst								= -0.100
+eat_sleepiness							= -3
+eat_health								= -0.014
+show_on_use								= false
+use_condition							= true
+max_uses								= 3
+use_sound								= interface\inv_smoke_tobacco
+
+[tobacco_radiated]:tobacco
+inv_name								= st_tobacco_radiated
+inv_name_short							= st_tobacco_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[marijuana]:cigarettes_cigar
+$spawn									= "devices\pda"
+visual									= dynamics\items\smoking\marijuana_sack.ogf
+description								= st_marijuana_descr
+inv_name								= st_marijuana
+inv_name_short							= st_marijuana
+inv_weight								= 0.032
+inv_volume								= 0.1
+inv_grid_x								= 16
+inv_grid_y								= 65
+cost									= 1002
+boost_time								= 100
+boost_pain								= 0.0003
+boost_psy_health						= 0.001
+boost_slowed_pulse						= 0.25
+boost_telepat_protection				= 0.0093
+boost_power_restore						= -0.0002
+boost_max_weight						= -2.0854
+eat_alcohol								= -0.092
+eat_satiety								= -0.294
+eat_thirst								= -0.300
+eat_sleepiness							= -4
+eat_toxicity							= 0.005
+use_sound								= interface\inv_smoke_bongo
+
+[marijuana_radiated]:marijuana
+inv_name								= st_marijuana_radiated
+inv_name_short							= st_marijuana_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

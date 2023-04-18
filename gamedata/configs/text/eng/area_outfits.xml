@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+	<string id="radiation_outfit_3_name">
+		<text>Forest camouflaged "Sunrise"</text>
+	</string>
+	
+	<string id="dolg_radiation_outfit_1_name">
+		<text>Orange "Sunrise" (Duty)</text>
+	</string>
+	
+	<string id="dolg_radiation_outfit_2_name">
+		<text>Forest camouflaged "Ascent" (Duty)</text>
+	</string>
+	
+	<string id="dolg_radiation_outfit_3_name">
+		<text>Urban camouflaged "Sunrise" (Duty)</text>
+	</string>
+	
+	<string id="heavy_outfit_2_name">
+		<text>Heavy armor suit with unloading</text>
+	</string>
+	<string id="heavy_outfit_2_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity</text>
+	</string>
+	
+	<string id="heavy_outfit_3_name">
+		<text>Marsh Heavy armor suit</text>
+	</string>
+	
+	<string id="heavy_outfit_dolg_1_name">
+		<text>Forest camouflaged Heavy armor suit (Duty)</text>
+	</string>
+	
+	<string id="heavy_outfit_dolg_2_name">
+		<text>Urban camouflaged Heavy armor suit (Duty)</text>
+	</string>
+	
+	<string id="heavy_outfit_dolg_3_name">
+		<text>Dark Heavy armor suit (Duty)</text>
+	</string>
+	
+	<string id="heavy_outfit_dolg_4_name">
+		<text>Orange Heavy armor suit (Duty)</text>
+	</string>
+	
+	<string id="heavy_outfit_dolg_5_name">
+		<text>Alternative Heavy Armour suit (Duty)</text>
+	</string>
+	
+	<string id="bandit_radiation_outfit_1_name">
+		<text>Raider's "Sunrise"</text>
+	</string>
+	
+	<string id="bandit_radiation_outfit_2_name">
+		<text>Bandit's "Sunrise" with unloading</text>
+	</string>
+	<string id="bandit_radiation_outfit_2_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of servo drives on the arms and legs, as well as a battery behind the back. Made by the masters of the Sultan gang at his request, instead of expensive exoskeletons, due to this difference, Heavy armor suit is lighter than an exoskeleton, and also allows its owner to run. In all other parameters, the suit is identical to an exoskeleton, except that it has a little less protection from bullets and shrapnel explosions and provides the carrier with less protection from shocks. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] extremely Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity compared to regular version</text>
+	</string>
+	
+	<string id="bandit_heavy_outfit_1_name">
+		<text>Raider's Heavy armor suit</text>
+	</string>
+	
+	<string id="bandit_heavy_outfit_2_name">
+		<text>Bandit Heavy armor suit with unloading</text>
+	</string>
+	<string id="bandit_heavy_outfit_2_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity compared to regular version</text>
+	</string>
+	
+	<string id="freedom_heavy_outfit_1_name">
+		<text>Swamp camouflaged Heavy armor suit (Freedom)</text>
+	</string>
+	
+	<string id="freedom_heavy_outfit_2_name">
+		<text>Forest camouflaged Heavy armor suit (Freedom)</text>
+	</string>
+	
+	<string id="freedom_heavy_outfit_3_name">
+		<text>Heavy armor suit with unloading (Freedom)</text>
+	</string>
+	<string id="freedom_heavy_outfit_3_desc">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity</text>
+	</string>
+	
+	<string id="freedom_radiation_outfit_1_name">
+		<text>"Sunrise" (Freedom)</text>
+	</string>
+	
+	<string id="freedom_radiation_outfit_2_name">
+		<text>Camouflaged "Sunrise" (Freedom)</text>
+	</string>
+	
+	<string id="freedom_radiation_outfit_3_name">
+		<text>"Sunrise" with unloading (Freedom)</text>
+	</string>
+	<string id="freedom_radiation_outfit_3_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of servo drives on the arms and legs, as well as a battery behind the back. Made by craftsmen on the black market by order of "Freedom", instead of expensive exoskeletons, due to this difference, Heavy armor suit is lighter than an exoskeleton, and also allows its owner to run. In all other parameters, the suit is identical to an exoskeleton, except that it has a little less protection from bullets and shrapnel explosions and provides the carrier with less protection from shocks. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] extremely Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] •  %c[default] Head: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity</text>
+	</string>
+	
+	<string id="radiation_outfit_4_name">
+		<text>"Sunrise" with unloading</text>
+	</string>
+	<string id="radiation_outfit_4_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. In all other parameters, the suit is identical to an exoskeleton, except that it has a little less protection from bullets and shrapnel explosions and provides the carrier with less protection from shocks. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] extremely Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] increased durability and carrying capacity</text>
+	</string>
+	
+	<string id="merc_heavy_outfit_1_name">
+		<text>Urban camouflaged Heavy armor suit (Mercenaries)</text>
+	</string>
+	
+	<string id="merc_heavy_outfit_2_name">
+		<text>Sea camouflaged Heavy armor suit (Mercenaries)</text>
+	</string>
+	
+	<string id="merc_heavy_outfit_3_name">
+		<text>Camouflaged Heavy armor suit (Mercenaries)</text>
+	</string>
+	
+	<string id="merc_radiation_outfit_1_name">
+		<text>Sea camouflaged "Sunrise" (Mercenaries)</text>
+	</string>
+	
+	<string id="merc_radiation_outfit_2_name">
+		<text>Urban camouflaged "Sunrise" (Mercenaries)</text>
+	</string>
+	
+	<string id="merc_radiation_outfit_3_name">
+		<text>Camouflaged Sunrise (Mercenaries)</text>
+	</string>
+	
+	<string id="monolith_heavy_outfit_1_name">
+		<text>Dark Heavy armor suit (Monolith)</text>
+	</string>
+	
+	<string id="monolith_heavy_outfit_2_name">
+		<text>Brown Heavy armor suit (Monolith)</text>
+	</string>
+	
+	<string id="monolith_radiation_outfit_1_name">
+		<text>Brown "Sunrise" (Monolith)</text>
+	</string>
+	
+	<string id="monolith_radiation_outfit_2_name">
+		<text>Dark "Sunrise" (Monolith)</text>
+	</string>
+	
+	<string id="csky_heavy_outfit_1_name">
+		<text>Armored Heavy armor suit (Clear Sky)</text>
+	</string>
+	<string id="csky_heavy_outfit_1_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] increased protection from bullets, tearing and explosions</text>
+	</string>
+	
+	<string id="csky_radiation_outfit_1_name">
+		<text>Armed "Sunrise" (clear skies)</text>
+	</string>
+	<string id="csky_radiation_outfit_1_descr">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of servo drives on the arms and legs, as well as a battery behind the back. The manufacturer of Novikov's techniques is made instead of expensive exoskeletons, because of this difference, the Heavy armor suit is lighter than an exoskeleton, and also allows its owner to run. In all other parameters, the suit is identical to an exoskeleton, except that it has a little less protection from bullets and shrapnel explosions and provides the carrier with less protection from shocks. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] extremely Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] additional mounting points for modules; increased protection from bullets, tearing and explosions</text>
+	</string>
+	
+	<string id="csky_novice_outfit_2_name">
+		<text>Clear Skies jacket</text>
+	</string>
+	
+	<string id="heavy_outfit_name">
+		<text>Heavy armor suit</text>
+	</string>
+	<string id="heavy_outfit_description">
+		<text>Externally, the heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V</text>
+	</string>
+	
+	<string id="heavy_outfit_1_name">
+		<text>Heavy armor suit with unloading</text>
+	</string>
+	<string id="heavy_outfit_1_description">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity</text>
+	</string>
+	
+	<string id="dolg_heavy_outfit_name">
+		<text>Heavy armor suit PSZ-9d</text>
+	</string>
+	<string id="dolg_heavy_outfit_descr">
+		<text>The early Duty model, suit is a flak jacket of special forces of PS3-9 series, adapted for use in the conditions of the Zone. Externally, the Heavy armor suit resembles an exoskeleton, but the first and main difference that is striking is the absence of a helmet and servo drives on the hands and feet, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Tearing protection" parameter is increased</text>
+	</string>
+	
+	<string id="monolith_heavy_outfit_name">
+		<text>Heavy armor suit (Monolith)</text>
+	</string>
+	<string id="monolith_heavy_outfit_description">
+		<text>Externally, the Heavy armor suit resembles an exoskeleton, but the first and main difference that is striking is the absence of a helmet and servo drives on the hands and feet, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton, and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Radiation protection" parameter is increased</text>
+	</string>
+	
+	<string id="freedom_heavy_outfit_name">
+		<text>Heavy armor suit (Freedom)</text>
+	</string>
+	<string id="freedom_heavy_outfit_description">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V</text>
+	</string>
+	
+	<string id="merc_heavy_outfit_name">
+		<text>Heavy armor suit (Mercenaries)</text>
+	</string>
+	<string id="merc_heavy_outfit_description">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Explosion protection" parameter is increased</text>
+	</string>
+	
+	<string id="bandit_heavy_outfit_name">
+		<text>Heavy armor suit (Bandits)</text>
+	</string>
+	<string id="bandit_heavy_outfit_description">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity</text>
+	</string>
+	
+	<string id="military_heavy_outfit_name">
+		<text>Heavy armor suit (Army)</text>
+	</string>
+	<string id="military_heavy_outfit_description">
+		<text>Externally, the Heavy armour resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy suit is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the costume has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Impact dampening" parameter is increased</text>
+	</string>
+	
+	<string id="csky_heavy_outfit_csky_name">
+		<text>Heavy armor suit (Clear Sky)</text>
+	</string>
+	<string id="csky_heavy_outfit_csky_description">
+		<text>Externally, the Heavy body armor resembles an exoskeleton, but the first and main difference that is striking is the lack of a helmet and servo drives on the arms and legs, as well as a battery behind the back. Due to this difference, the Heavy vest is lighter than an exoskeleton and also allows its owner to run. Despite its popularity, the suit has not found its name.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] additional mounting points for modules</text>
+	</string>
+	
+	<string id="specops_duty_outfit_name">
+		<text>Beryl-5M armour suit (Duty)</text>
+	</string>
+	<string id="specops_duty_outfit_description">
+		<text>A modified PS5 Berilllium-plated body armor for the Zone, which has been improved by the Dolga craftsmen. The vest is designed for assault operations in areas with high radiation background, but is ineffective in conditions of high anomalous activity. Stalkers are reached through the military, who change the army's property to a hut. It is equipped with fasteners for additional modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Reinforced armor \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]III\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity and protection from bullets, tearing and explosions</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_name">
+		<text>Protoexoskeleton "Sunset M2"</text>
+	</string>
+	<string id="mod_exo_proto_outfit_description">
+		<text>Standard Dawn suit with M2 servo drives. In general, the protection is the same as that of a normal Zarya, but the weight to be carried is significantly increased. Compared to a conventional proto-exoskeleton, it has a higher weight, but also a higher payload and increased radiation protection. It is also much easier to run in.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor\n%c[0,153,255,255] • %c[default] exoskeleton \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V</text>
+	</string>
+	
+	<string id="bandit_mod_exo_proto_outfit_name">
+		<text>Bandit prototypical exoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="bandit_mod_exo_proto_outfit_1_name">
+		<text>Raider's Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="dolg_mod_exo_proto_outfit_name">
+		<text>Orange Protoexoskeleton "Sunset M2" (Duty)</text>
+	</string>
+	
+	<string id="dolg_mod_exo_proto_outfit_1_name">
+		<text>Protoexoskeleton "Sunset M2" (Duty)</text>
+	</string>
+	
+	<string id="dolg_mod_exo_proto_outfit_2_name">
+		<text>Camouflaged Protoexoskeleton "Sunset M2" (Duty)</text>
+	</string>
+	
+	<string id="dolg_mod_exo_proto_outfit_3_name">
+		<text>Dark Protoexoskeleton "Sunset M2" (Duty)</text>
+	</string>
+	
+	<string id="ecolog_mod_exo_proto_outfit_name">
+		<text>Prottoexoskeleton "Sunset M2" (Ecologist)</text>
+	</string>
+	
+	<string id="ecolog_mod_exo_proto_outfit_1_name">
+		<text>Protoexoskeleton "Emerald M2" (Ecologist) </text>
+	</string>
+	<string id="ecolog_mod_exo_proto_outfit_1_descr">
+		<text>Reinforced modification of the M2 modification servo-driven protective scientific suit. Manufactured specifically for the Zone's field operations, but the carrying weight and capacity have been significantly increased. Compared to the standard proto-exoskeleton, it has lower weight, higher payload, and increased protection against radiation. It also makes running much easier.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Heavy armor\n%c[0,153,255,255] • %c[default] exoskeleton n%c[0,153,255,255] • %c[default] moderate energy consumption \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]V</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_1_name">
+		<text>Camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_2_name">
+		<text>Black Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_3_name">
+		<text>Swamp camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_4_name">
+		<text>Forest camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_5_name">
+		<text>Autumn camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_6_name">
+		<text>Dark forest camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_7_name">
+		<text>Brown Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_8_name">
+		<text>Urban camouflaged Protoekskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_9_name">
+		<text>Camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="mod_exo_proto_outfit_10_name">
+		<text>Autumn Forest camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="freedom_mod_exo_proto_outfit_name">
+		<text>Camouflaged Protoexoskeleton "Sunset M2" (Freedom)</text>
+	</string>
+	
+	<string id="freedom_mod_exo_proto_outfit_1_name">
+		<text>Forest camouflaged  Protoekskeleton "Sunset M2" (Freedom)</text>
+	</string>
+
+	<string id="freedom_mod_exo_proto_outfit_2_name">
+		<text>Traditional Freedom Camouflaged Protoekskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="freedom_mod_exo_proto_outfit_3_name">
+		<text>camouflaged Protoekskeleton "Sunset M2" (Freedom)</text>
+	</string>
+	
+	<string id="freedom_mod_exo_proto_outfit_4_name">
+		<text>Protoexoskeleton "Sunset M2" (Freedom)</text>
+	</string>
+	
+	<string id="freedom_mod_exo_proto_outfit_5_name">
+		<text>Swamp camouflaged Protoexoskeleton "Sunset M2" (Freedom)</text>
+	</string>
+	
+	<string id="merc_mod_exo_proto_outfit_name">
+		<text>Protoexoskeleton "Sunset M2" (Mercenaries)</text>
+	</string>
+	
+	<string id="merc_mod_exo_proto_outfit_1_name">
+		<text>Black Protoexoskeleton "Sunset M2" (Mercenaries)</text>
+	</string>
+	
+	<string id="monolith_mod_exo_proto_outfit_name">
+		<text>Protoexoskeleton "Sunset M2" (Monolith)</text>
+	</string>
+	
+	<string id="monolith_mod_exo_proto_outfit_1_name">
+		<text>Urban camouflaged Protoexoskeleton "Sunset M2" (Monolith)</text>
+	</string>
+	
+	<string id="monolith_mod_exo_proto_outfit_2_name">
+		<text>Autumn camouflaged Protoexoskeleton "Sunset M2" (Monolith)</text>
+	</string>
+	
+	<string id="monolith_mod_exo_proto_outfit_3_name">
+		<text>Brown Protoexoskeleton "Sunset M2" (Monolith)</text>
+	</string>
+	
+	<string id="monolith_mod_exo_proto_outfit_4_name">
+		<text>Green Protoexoskeleton "Sunset M2" (Monolith)</text>
+	</string>
+	
+	<string id="monolith_mod_exo_proto_outfit_5_name">
+		<text>Unknown Protoexoskeleton "Sunset M2" (Monolith)</text>
+	</string>
+	
+	<string id="csky_mod_exo_proto_outfit_name">
+		<text>Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="csky_mod_exo_proto_outfit_1_name">
+		<text>traditional camouflage Protoexoskeleton "Sunset M2" (Clear Sky)</text>
+	</string>
+	
+	<string id="military_mod_exo_proto_outfit_name">
+		<text>Army's Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="military_mod_exo_proto_outfit_1_name">
+		<text>Army camouflaged Protoexoskeleton "Sunset M2"</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_name">
+		<text>"Tourist" suit</text>
+	</string>
+	<string id="stalker_outfit_travel_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by bandit masters.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] increased durability</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_1_name">
+		<text>Tundra camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_2_name">
+		<text>Brown "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_3_name">
+		<text>Army "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_4_name">
+		<text>Black army "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_5_name">
+		<text>"Tourist" suit with black body armor</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_6_name">
+		<text>Forest camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_7_name">
+		<text>Autumn camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_8_name">
+		<text>Brown camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_9_name">
+		<text>Urban camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_10_name">
+		<text>Dark camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_11_name">
+		<text>Dark brown camouflaged "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_12_name">
+		<text>Tourist in an army camouflaged</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_bandit_name">
+		<text>Bandit "Tourist" suit</text>
+	</string>
+	<string id="stalker_outfit_travel_bandit_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by bandit masters.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] Increased carrying capacity</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_bandit_1_name">
+		<text>Raider's "Tourist" suit </text>
+	</string>
+	
+	<string id="stalker_outfit_travel_bandit_2_name">
+		<text>Dark "Tourist" suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_dolg_name">
+		<text>Orange "Tourist" suit (Duty)</text>
+	</string>
+	<string id="stalker_outfit_travel_dolg_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by bandit masters.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] increased protection from tearing and explosions</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_dolg_1_name">
+		<text>"Tourist" suit (Duty)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_dolg_2_name">
+		<text>Camouflaged "Tourist" suit (Duty)</text>.
+	</string>
+	
+	<string id="stalker_outfit_travel_dolg_3_name">
+		<text>Dark "Tourist" suit (Duty)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_ecologist_name">
+		<text>Dark "Tourist" suit (Ecologist)</text>
+	</string>
+	<string id="stalker_outfit_travel_ecologist_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by bandit masters.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] increased protection from electric and chemical effects</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_ecologist_1_name">
+		<text>"Tourist" suit (Ecologist)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_ecologist_2_name">
+		<text>Bright "Tourist" suit (Ecologist)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_ecologist_3_name">
+		<text>Guard "Tourist" suit (Ecologist)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_name">
+		<text>Autumn camouflaged "Tourist" suit (Freedom)</text>
+	</string>
+	<string id="stalker_outfit_travel_freedom_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by Freedom craftsmen.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] reduced weight of the suit</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_1_name">
+		<text>Swamp camouflaged "Tourist" suit (Freedom)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_2_name">
+		<text>"Flektarn" camouflaged "Tourist" suit (Freedom)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_3_name">
+		<text>"Tourist" suit (Freedom)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_4_name">
+		<text>Tourist" combine in traditional camouflage (Freedom)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_5_name">
+		<text>"Tourist" suit in Forest camouflaged (Freedom)</text>
+	</string>
+	
+	<string id="stalker_outfit_travel_freedom_6_name">
+		<text>"Tourist" suit in Army camouflaged (Freedom)</text>
+	</string>
+	
+	<string id="merc_outfit_travel_name">
+		<text>"Tourist" suit (Mercenaries)</text>
+	</string>
+	<string id="merc_outfit_travel_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by mercenary craftsmen.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] increased explosion protection</text>
+	</string>
+	
+	<string id="merc_outfit_travel_1_name">
+		<text>Dark "Tourist" suit (Mercenaries)</text>
+	</string>
+	
+	<string id="monolith_outfit_travel_name">
+		<text>Brown "Tourist" suit (Monolith)</text>
+	</string>
+	<string id="monolith_outfit_travel_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by craftsmen Monolith.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] increased radiation protection</text>
+	</string>
+	
+	<string id="monolith_outfit_travel_1_name">
+		<text>"Tourist" suit (Monolith)</text>
+	</string>
+	
+	<string id="monolith_outfit_travel_2_name">
+		<text>"Tourist" suit in Urban camouflaged (Monolith)</text>
+	</string>
+	
+	<string id="monolith_outfit_travel_3_name">
+		<text>camouflaged "Tourist" suit (Monolith)</text>
+	</string>
+	
+	<string id="csky_outfit_travel_name">
+		<text>Green "Tourist" suit (Clear Sky)</text>
+	</string>
+	<string id="csky_outfit_travel_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by craftsmen of the clear sky.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]KEY FEATURES:\n%c[ui_lime] • %c[default] increased number of additional mounting points</text>
+	</string>
+	
+	<string id="csky_outfit_travel_1_name">
+		<text>"Tourist" suit (Clear Sky)</text>
+	</string>
+	
+	<string id="csky_outfit_travel_2_name">
+		<text>Traditional camouflaged "Tourist" suit (Clear Sky)</text>
+	</string>
+	
+	<string id="csky_outfit_travel_3_name">
+		<text>Dark green "Tourist" suit</text>
+	</string>
+	
+	<string id="csky_outfit_travel_4_name">
+		<text>Alternative "Tourist" suit (Clear Sky)</text>
+	</string>
+	
+	<string id="army_outfit_travel_name">
+		<text>Army stalker suit</text>
+	</string>
+	<string id="army_outfit_travel_description">
+		<text>The outfit combines a two-layer rubberized fabric with a plexiglass lining and an integrated flak jacket, as well as an additional unloading. Despite the fact that the body armor penetrates even with a pistol bullet, the suit is very popular because of its low cost and wide range of possibilities for improvement. Equipped with built-in fasteners for additional modules. Modified by military craftsmen.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Impact dampening" parameter is increased</text>
+	</string>
+	
+	<string id="freedom_merc_outfit_name">
+		<text>Special Freedom Units Combination</text>
+	</string>
+	<string id="freedom_merc_outfit_description">
+		<text>Stalker's outfit, from the Freedom faction. The equipment samples of the Western armies' special forces were used as a basis. Due to the special treatment of the fabric, the armor stability was strengthened at the physical displacement of the plates. Has two built-in fasteners for the installation of modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Explosion protection" parameter is increased</text>
+	</string>
+	
+	<string id="freedom_merc_outfit_1_name">
+		<text>Brown suit of special units of Freedom</text>
+	</string>
+	
+	<string id="freedom_merc_outfit_2_name">
+		<text>Special Forces Units Forest suit</text>
+	</string>
+	
+	<string id="stalker_merc_outfit_name">
+		<text>Special Forces suit</text>
+	</string>
+	<string id="stalker_merc_outfit_description">
+		<text>Stalker's suit. The equipment samples of the Western armies special forces were used as a basis. Due to the special treatment of the fabric, the armor stability at the physical displacement of the plates was strengthened. It has two built-in fasteners for installation of modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Explosion protection" parameter is increased</text>
+	</string>
+	
+	<string id="monolith_merc_outfit_name">
+		<text>Monolith' s special forces suit</text>
+	</string>
+	<string id="monolith_merc_outfit_description">
+		<text>A Stalker's combination of Monolith combinations. The equipment samples of the Western armies' special forces were used as a basis. Due to the special treatment of the fabric, the armor stability at the physical displacement of the plates was strengthened. It has two built-in fasteners for the installation of modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Explosion protection" parameter is increased</text>
+	</string>
+	
+	<string id="csky_light_novice_outfit_b_name">
+		<text>CS-1b</text>
+	</string>
+	<string id="csky_light_novice_outfit_b_description">
+		<text>Modification of the standard bulletproof vest CN-1 especially for marshy terrain. This flak jacket was developed for Search operations in areas with low anomalous activity. The use of relatively high quality materials has increased resistance to wear and tear. It has three built-in fasteners for additional modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor \n  \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] increased number of mounting points for additional modules</text>
+	</string>
+	
+	<string id="exo_proto_outfit_dolg_name">
+		<text>Protoexoskeleton PS5-M</text>
+	</string>
+	
+	<string id="exo_proto_outfit_freedom_name">
+		<text>Protoexoskeleton "Freedom Guardian"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_merc_name">
+		<text>Mercenary Protoexoskeleton</text>
+	</string>
+	
+	<string id="exo_proto_outfit_monolith_name">
+		<text>Protoexoskeleton "Granite M1"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_isg_name">
+		<text>Protoexoskeleton ISG</text>
+	</string>
+	
+	<string id="exo_proto_outfit_bandit_name">
+		<text>Protoexoskeleton "Raider"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_bandit_1_name">
+		<text>Protoexoskeleton "Dark Angel"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_bandit_2_name">
+		<text>Protoexoskeleton "Onyx'</text>
+	</string>
+	
+	<string id="exo_proto_outfit_dolg_1_name">
+		<text>Protoexoskeleton PS5-M2</text>
+	</string>
+	
+	<string id="exo_proto_outfit_dolg_2_name">
+		<text>Protoexoskeleton PS5-M2 "Duty"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_dolg_3_name">
+		<text>Orange protoexoskeleton PS5-M2</text>
+	</string>
+	
+	<string id="exo_proto_outfit_dolg_4_name">
+		<text>Camouflaged protoexoskeleton PS5-M2</text>
+	</string>
+	
+	<string id="exo_proto_outfit_dolg_5_name">
+		<text>Urban camouflaged Protoexoskeleton PS5-M2</text>
+	</string>
+	
+	<string id="exo_proto_outfit_ecologist_name">
+		<text>Protoexoskeleton "Ecologist"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_ecologist_1_name">
+		<text>Protoexoskeleton "Sunrise"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_freedom_1_name">
+		<text>Protoexoskeleton "Wind of Freedom"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_freedom_2_name">
+		<text>Protoexoskeleton "Marshwind"</text>
+	</string>
+
+	<string id="exo_proto_outfit_freedom_3_name">
+		<text>camouflaged protoexoskeleton "Guardian of Freedom"</text>
+	</string>
+
+	<string id="exo_proto_outfit_freedom_4_name">
+		<text>Forest camouflaged Protoexoskeleton "Guardian of Freedom"</text>
+	</string>	
+	
+	<string id="exo_proto_outfit_freedom_5_name">
+		<text>Hunting protoexoskeleton "Guardian of Freedom"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_merc_1_name">
+		<text>Protoexoskeleton "Twilight"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_merc_2_name">
+		<text>Protoexoskeleton "Dark Sunset"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_merc_3_name">
+		<text>Protoexoskeleton PS5-M2 "Mercenary"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_monolith_1_name">
+		<text>Protoexoskeleton "Preacher"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_monolith_2_name">
+		<text>Protoexoskeleton "Sinster"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_monolith_3_name">
+		<text>Protoexoskeleton "Monolith's Guardian"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_monolith_4_name">
+		<text>Protoexoskeleton "Granite M3"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_monolith_5_name">
+		<text>Protoexoskeleton "Disciple"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_csky_name">
+		<text>Protoexoskeleton "Dawn"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_csky_1_name">
+		<text>Protoexoskeleton "Clear Sky"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_1_name">
+		<text>Protoexoskeleton "Stalker"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_2_name">
+		<text>Protoexoskeleton "Marauder"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_3_name">
+		<text>Protoexoskeleton Hunter</text>
+	</string>
+	
+	<string id="exo_proto_outfit_4_name">
+		<text>Camouflaged protoexoskeleton</text>
+	</string>
+	
+	<string id="exo_proto_outfit_5_name">
+		<text>Marsh protoexoskeleton</text>
+	</string>
+	
+	<string id="exo_proto_outfit_6_name">
+		<text>Protoexoskeleton "ReSearcher"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_7_name">
+		<text>Protoexoskeleton "Wayfarer"</text>
+	</string>
+	
+	<string id="exo_proto_outfit_military_name">
+		<text>Army camouflaged protoexoskeleton</text>
+	</string>
+	
+	<string id="exo_proto_outfit_military_1_name">
+		<text>Dark Army Protoexoskeleton</text>
+	</string>
+	
+	<string id="exo_proto_outfit_military_2_name">
+		<text>Army's protoexoskeleton</text>
+	</string>
+	
+	<string id="novice_outfit_1_name">
+		<text>Hunting jacket</text>
+	</string>
+	
+	<string id="novice_outfit_2_name">
+		<text>Camouflaged jacket</text>
+	</string>
+	
+	<string id="novice_outfit_3_name">
+		<text>Checkered jacket</text>
+	</string>
+	
+	<string id="novice_outfit_4_name">
+		<text>Army jacket</text>
+	</string>
+	
+	<string id="novice_outfit_5_name">
+		<text>Green leather jacket</text>
+	</string>
+	
+	<string id="novice_outfit_6_name">
+		<text>Red leather jacket</text>
+	</string>
+	
+	<string id="novice_outfit_1m_name">
+		<text>Hunting jacket with a hoodie</text>
+	</string>
+	
+	<string id="novice_outfit_2m_name">
+		<text>Camouflaged Hooded jacket</text>
+	</string>
+	
+	<string id="novice_outfit_3m_name">
+		<text>Checkered hooded jacket</text>
+	</string>
+	
+	<string id="novice_outfit_4m_name">
+		<text>Army hooded jacket</text>
+	</string>
+	
+	<string id="novice_outfit_5m_name">
+		<text>Green leather hooded jacket</text>
+	</string>
+	
+	<string id="novice_outfit_6m_name">
+		<text>Red leather hooded jacket</text>
+	</string>
+	
+	<string id="stalker_outfit_name_1">
+		<text>Brown "Dawn"</text>
+	</string>
+	
+	<string id="stalker_outfit_name_2">
+		<text>"Heavenly Dawn"</text>
+	</string>
+	
+	<string id="stalker_outfit_name_3">
+		<text>Camouflaged "Dawn"</text>
+	</string>
+	
+	<string id="stalker_outfit_name_4">
+		<text>Hunting "Dawn"</text>
+	</string>
+	
+	<string id="stalker_outfit_name_5">
+		<text>Marsh "Dawn"</text>
+	</string>
+	
+	<string id="stalker_outfit_name_6">
+		<text>Army "Dawn"</text>
+	</string>
+	
+	<string id="stalker_outfit_name_7">
+		<text>Bandit's "Dawn"</text>
+	</string>
+	
+	<string id="radiation_outfit_1_name">
+		<text>Autumn Digital camouflaged "Sunrise"</text>
+	</string>
+	
+	<string id="radiation_outfit_2_name">
+		<text>Camouflaged "Sunrise"</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_1_name">
+		<text>Checkered bandits jacket</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_2_name">
+		<text>The leather bandits jacket</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_3_name">
+		<text>Raider's jacket</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_1m_name">
+		<text>Red checkered hooded bandit jacket</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_2m_name">
+		<text>Bandit's leather jacket with hood</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_3m_name">
+		<text>Raider's jacket with hood</text>
+	</string>
+	
+	<string id="trenchcoat_outfit_1_name">
+		<text>Dark cloak</text>
+	</string>
+	
+	<string id="trenchcoat_outfit_2_name">
+		<text>Hunting cloak</text>
+	</string>
+	
+	<string id="trenchcoat_outfit_3_name">
+		<text>Brown cloak with cape</text>
+	</string>
+	
+	<string id="trenchcoat_outfit_1m_name">
+		<text>Dark red cloak</text>
+	</string>
+	
+	<string id="trenchcoat_outfit_2m_name">
+		<text>Marsh cloak</text>
+	</string>
+	
+	<string id="trenchcoat_outfit_3m_name">
+		<text>Pahan's cloak</text>
+	</string>
+	
+	<string id="trenchcoat_brown_outfit_1_name">
+		<text>Marauder's dense cloak</text>
+	</string>
+	
+	<string id="trenchcoat_brown_outfit_2_name">
+		<text>Dark dense cloak</text>
+	</string>
+	
+	<string id="trenchcoat_brown_outfit_3_name">
+		<text>Hunting dense cloak</text>
+	</string>
+	
+	<string id="trenchcoat_brown_outfit_4_name">
+		<text>Pakhanan dense cloak</text>
+	</string>
+	
+	<string id="csky_novice_outfit_1_name">
+		<text>Clear Sky jacket with hood</text>
+	</string>
+	
+	<string id="csky_light_novice_outfit_1_name">
+		<text>Digital camouflaged CS-1</text>
+	</string>
+	
+	<string id="dolg_scientific_outfit_1_name">
+		<text>camouflaged PSZ-9MD</text>
+	</string>
+	
+	<string id="dolg_outfit_1_name">
+		<text>Orange PS5-M</text>
+	</string>
+	
+	<string id="dolg_exo_outfit_1_name">
+		<text>Camouflaged Duty exoskeleton</text>
+	</string>
+	
+	<string id="dolg_exo_outfit_2_name">
+		<text>Digital camouflaged Duty Exoskeleton</text>
+	</string>
+
+	<string id="soldier_izol_1_outfit_name">
+		<text>Army's armored isolation suit "Gagarin"</text>
+	</string>
+	<string id="soldier_izol_1_outfit_description">
+ 		<text>Military armour isolating suit "Gagarin" designed for assault operations in extreme conditions of the Zone. It is equipped with an external insulating coating and a closed-loop breathing system, the main element of which is a modification of gas mask GP-17. Thanks to this solution it perfectly protects against abnormal influences. The basis of armor protection is a modification of vests series Fort Redut T7, which provides excellent protection against shell bullets and fragments, while not reducing the mobility of the owner. Despite the excellent protective properties in terms of stalkers has the following drawbacks: low carrying weight. It has 3 slots for additional modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] reinforced armor\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IV</text>
+	</string>
+	
+	<string id="st_helm_cloth_mask">
+		<text>Cloth mask</text>
+	</string>
+	<string id="st_helm_cloth_mask_descr">
+		<text>A simple piece of fabric wrapped mask. It is often used by Stalkers to prevent dangerous particles from entering the body, as a precautionary measure. It is recommended to wear it even if the Geiger counter is not signaled, as air can be contaminated to some extent. However, it can also accumulate toxins over a longer period of time, so it is always advisable to have a spare one for quick replacement.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] cloth mask\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair, weapon maintenance (+4%)\n \n%c[0,170,170,170]COMPONENTS:\n%c[0,93,0,116] • %c[default] single layer of solid fabric %c[0,170,170,170]224g\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_helm_cloth_camo_mask">
+		<text>Camouflaged cloth mask</text>
+	</string>
+	<string id="st_helm_cloth_camo_mask_descr">
+		<text>A simple piece of camouflaged fabric wrapped mask. It is often used by Stalkers to prevent dangerous particles from entering the body, as a precautionary measure. It is recommended to wear it even if the Geiger counter is not signaled, as air can be contaminated to some extent. However, it can accumulate toxins over a long period of time, so it is always advisable to have a spare one for quick replacement.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] cloth mask\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair, weapon maintenance (+4%)\n \n%c[0,170,170,170]COMPONENTS:\n%c[0,93,0,116] • %c[default] single layer of solid fabric %c[0,170,170,170]224g\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_rp_bala_camo">
+		<text>Balaclava</text>
+	</string>
+	<string id="st_rp_bala_camo_descr">
+		<text>Camouflaged fabric balaclava. Nothing worse than stalkers gauze patches.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] cloth mask\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair, weapon maintenance (+4%)\n \n%c[0,170,170,170]COMPONENTS:\n%c[0,93,0,116] • %c[default] single layer of solid fabric %c[0,170,170,170]224g\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_helm_respirator_freedom_camo">
+		<text>Camouflaged Gas mask EO-20 PBF</text>
+	</string>
+	<string id="st_helm_respirator_freedom_camo_descr">
+		<text>Standard gas mask designed for filtration of radioactive dust and toxic substances from the air. It is widely used by both beginners and veterans of the Freedom group because of its functional irreplaceability. It is not equipped with protection against bullets, fragments and mechanical influences. Painted in camouflage.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light gas mask \n \n%c[0,170,170,170]COMPONENTS:\n%c[0,93,0,116] • %c[default] PBF gas mask %c[0,170,170,170]760g\n%c[0,93,0,116] • %c[default] 2&#x445; filters EO-19 %c[0,170,170,170]210g\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="st_helm_respirator_2_camo">
+		<text>Gas mask EO-19 PBF</text>
+	</string>
+	<string id="st_helm_respirator_2_camo_descr">
+		<text>Rubber mask, used to filter air from radioactive particles and toxic substances. This old model is still widely used by new recruits and veterans of all groups due to its versatility, functionality and cheapness. It is not equipped with protection against bullets, fragments and mechanical influences. Painted in camouflage.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light gas mask \n \n%c[0,170,170,170]COMPONENTS:\n%c[0,93,0,116] • %c[default] PBF gas mask %c[0,170,170,170]760g\n%c[0,93,0,116] • %c[default] 2&#x445; filters EO-19 %c[0,170,170,170]210g\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Head: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Eyes: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Chin: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Neck: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="cloak_outfit_name">
+		<text>Padded jacket</text>
+	</string>
+	<string id="cloak_outfit_description">
+		<text>Old Soviet men's cotton paddy. Cheap and extremely easy to manufacture cotton jacket, the most popular winter outerwear in the USSR, has always been a symbol of functional clothing, where the aesthetics has given way to purely pragmatic considerations. Initially, two fasteners for additional modules were installed.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Lightweight outfit\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair (+24%)\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Legs: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="labcoat_outfit_name">
+		<text>Lab сoat Labourer</text>
+	</string>
+	<string id="labcoat_outfit_description">
+		<text>Uniforms for scientific staff of the laboratory. The material of the product is calico.  Central fastener with 5 loops and buttons. Has two bottom side pockets sewn into the relief and side seam.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] uniforms\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair (+24%)\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Legs: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]none</text>
+	</string>
+	
+	<string id="trenchcoat_novice_name">
+		<text>Traveller's cloak</text>
+	</string>
+	<string id="trenchcoat_novice_description">
+		<text>Long brown camping cape. Looks old and worn, many patches and Seams testify to numerous repairs. It is best used with a gas mask or closed breathing system. Initially, a single fixture was installed for additional modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Lightweight outfit\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair (+24%)\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Legs: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]I</text>
+	</string>
+	
+	<string id="st_heavy_stalker_outfit_name">
+		<text>"Master" outfit</text>
+	</string>
+	<string id="st_heavy_stalker_outfit_description">
+		<text>The Stalker outfit produced by the folk craftsmen are a combination of two-layer rubberized fabric with a plexiglass lining and a built-in body armor vest. Despite the fact that the bulletproof vest breaks even with a pistol bullet, the suit is very common because of its cheapness and wide possibilities for improvement. Equipped with three built-in containers for artifacts.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Light armor\n%c[255,238,153,26] • %c[default] usage: %c[0,170,170,170] Equipment repair (+34%)\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]IIIA</text>
+	</string>
+	
+	<string id="specops_outfit_2_name">
+		<text>Berill-6M</text>
+	</string>
+	<string id="specops_outfit_2_description">
+		<text>The sixth generation of a modified Berill army protective suit Urban camouflaged. Designed for assault operations in areas with high background radiation, but is ineffective in conditions of high anomalous activity. Stalkers get to them through the military, who change the army property to a hut. It is equipped with fasteners for additional modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Reinforced armor \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]III\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] increased protection from anomalies</text>
+	</string>
+	
+	<string id="exo_specops_name">
+		<text>Berill-5M with servo drives</text>
+	</string>
+	<string id="exo_specops_description">
+ 		<text>An ordinary army Berill-5M, which was factory fitted with servo drives behind the perimeter. Unlike exoskeleton, it allows running and does not contain a built-in helmet. Contains a built-in container for fixing the modules.\n \n%c[0,170,170,170]SPECIFICATIONS:\n%c[0,153,255,255] • %c[default] Exoskeleton\n \n%c[0,170,170,170]ARMOR CLASS:\n%c[0,93,0,116] • %c[default] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Shoulders: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Hands: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Arms: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[default] Thighs: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[default] Knees and shins: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[default] Feet: %c[0,170,170,170]III\n \n%c[0,170,170,170]FEATURES:\n%c[ui_lime] • %c[default] "Impact dampening" parameter is increased</text>
+	</string>
+</string_table>

@@ -1,0 +1,71 @@
+[logic@mil_smart_terrain_4_8_camp_work_1]
+active = animpoint@mil_smart_terrain_4_8_camp_work_1
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_4_8_camp_work_2]
+active = animpoint@mil_smart_terrain_4_8_camp_work_2
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_4_8_camp_work_3]
+active = animpoint@mil_smart_terrain_4_8_camp_work_3
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[animpoint@mil_smart_terrain_4_8_camp_work_1]
+cover_name = mil_smart_terrain_4_8_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_4_8_camp_work_2]
+cover_name = mil_smart_terrain_4_8_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_4_8_camp_work_3]
+cover_name = mil_smart_terrain_4_8_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+
+;Freedom Max
+[logic@mil_smart_terrain_4_8_freedom_max]
+active = beh@mil_max_job
+suitable = {=check_npc_name(border_freedom_keeper_max)} true
+prior = 200
+level_spot = quest_npc
+relationship = neutral   
+
+[beh@general]
+behavior_state = beh_move
+target = waypoint
+walk_dist = 100
+jog_dist = 220
+wait_anim = guard_chasovoy
+walk_anim = patrol
+jog_anim = rush
+run_anim = rush    
+delay_anim = guard
+gather_items_enabled = false
+help_wounded_enabled = true
+corpse_detection_enabled = true
+invulnerable = {!actor_enemy} true, false 
+relationship = neutral
+on_info = {=is_night} animpoint@evening
+
+[beh@mil_max_job]:beh@general
+pt1 = 30000, binocular | pos: 48.062545776367,-16.979072570801,354.73782348633 look: 54.921653747559,-16.68229675293,371.54119873047
+pt2 = 30000, hide | pos: 44.46312713623,-13.83230304718,387.16275024414 look: 77.64900970459,-13.644930839539,401.46127319336
+pt3 = 30000, guard_chasovoy | pos: 56.501510620117,-18.221347808838,356.88299560547 look: 57.571071624756,-17.91780090332,362.3444519043
+pt4 = 30000, hide | pos: 37.650260925293,-15.741396903992,368.0817565918 look: 45.048908233643,-15.904063224792,374.94967651367
+path_end = loop
+
+[animpoint@evening]
+cover_name = mil_smart_terrain_4_8_animpoint_kamp4
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+use_camp = true	
+turn_on_campfire = true
+on_game_timer = 1250 | beh@mil_max_job
