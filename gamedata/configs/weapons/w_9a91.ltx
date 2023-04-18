@@ -9,8 +9,8 @@ description							= st_wpn_9a91_descr
 scopes								= 1p29, 1p78, kobra, ekp, okp, pso, pso1m21
 heating_rates						= ak3
 cost								= 30000
-inv_weight							= 2.1
-inv_volume							= 3.0
+inv_weight							= 2.8
+inv_volume							= 10.71 
 ph_mass								= 4
 ef_main_weapon_type					= 2
 ef_weapon_type						= 6
@@ -18,27 +18,27 @@ default_to_ruck						= false
 sprint_allowed						= true
 repair_type							= rifle_9x39
 weapon_class						= assault_rifle
-upgrades							= up_gr_firstab_9a91, up_gr_seconab_9a91, up_gr_thirdab_9a91, up_gr_fourtab_9a91, up_gr_fifthab_9a91
+upgrades							= up_gr _firstab_9a91, up_gr_seconab_9a91, up_gr_thirdab_9a91, up_gr_fourtab_9a91, up_gr_fifthab_9a91
 installed_upgrades					=
 upgrade_scheme						= upgrade_scheme_val
 ;-TTX-----------------------------------------------------------------------------
-hit_power							= 0.46, 0.46, 0.46, 0.46
-hit_impulse							= 33
+hit_power = 0.60, 0.52, 0.48, 0.38 ;These values are just estimates based on typical ballistics of intermediate cartridges
+hit_impulse = 40 ;This value is just an estimate based on the expected recoil and knockback of the rifle
 hit_type							= fire_wound
-fire_distance						= 400
-bullet_speed						= 270
-rpm									= 700
+fire_distance = 400 ;The effective range of the 9A91 rifle is around 400 meters
+bullet_speed = 290 ;The average bullet speed of the 9A91 rifle is around 280-290 meters per second
+rpm = 800 ;The cyclic rate of fire of the 9A91 rifle is typically around 800 rounds per minute
 rpm_empty_click						= 200
-time_to_aim							= 3.0
+time_to_aim = 0.3 ;The sighting time of the 9A91 rifle is around 0.3 seconds
 hud									= wpn_9a91_hud
 
-misfire_probability					= 0.005
-misfire_start_condition				= 0.82
-misfire_end_condition				= 0.14
-misfire_start_prob					= 0.007
-misfire_end_prob					= 0.11
-condition_shot_dec					= 0.0009
-condition_queue_shot_dec			= 0.0009
+misfire_probability = 0.001 ;The probability of a misfire occurring is typically very low for modern firearms
+misfire_start_condition = 0.85 ;The start condition for misfires can vary depending on the specific firearm and ammunition used, but a value around 0.85 should be reasonable for the 9A91 rifle
+misfire_end_condition = 0.10 ;The end condition for misfires can vary depending on the specific firearm and ammunition used, but a value around 0.10 should be reasonable for the 9A91 rifle
+misfire_start_prob = 0.003 ;The probability of a misfire starting can vary depending on the specific firearm and ammunition used, but a value around 0.003 should be reasonable for the 9A91 rifle
+misfire_end_prob = 0.03 ;The probability of a misfire ending can vary depending on the specific firearm and ammunition used, but a value around 0.03 should be reasonable for the 9A91 rifle
+condition_shot_dec = 0.001 ;The degradation of the rifle's condition per shot can vary depending on the specific firearm and ammunition used, but a value around 0.001 should be reasonable for the 9A91 rifle
+condition_queue_shot_dec = 0.001 ;The degradation of the rifle's condition per queued shot can vary depending on the specific firearm and ammunition used, but a value around 0.001 should be reasonable for the 9A91 rifle
 
 ammo_elapsed						= 20
 ammo_mag_size						= 20
@@ -49,41 +49,40 @@ ammo_class							= ammo_9x39_pab9, ammo_9x39_pab9_bad, ammo_9x39_pab9_verybad, a
 slot								= 2
 animation_slot						= 2
 ;--Дисперсия----------------------------------------------------------------------------
-fire_dispersion_base				= 0.265						;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
-control_inertion_factor				= 1.18f
-crosshair_inertion					= 4.8
+fire_dispersion_base = 0.05 ;This value represents the basic dispersion angle of the rifle when not being fired. A value around 0.05 is reasonable for a modern rifle.
+control_inertion_factor = 1.0 ;This value determines the amount of control the player has over the rifle when firing. A value of 1.0 assumes that the player has good control over the rifle.
+crosshair_inertion = 3.5 ;This value determines the amount of crosshair movement when firing. A value around 3.5 is reasonable for a rifle of this type.
 
-;отдача
-cam_return							= 0
-cam_relax_speed						= 10						;скорость возврата в исходное положение
-cam_relax_speed_ai					= 360
-cam_dispersion						= 0.84
-cam_dispersion_inc					= 0.73
-cam_dispersion_frac					= 0.9						;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
-cam_max_angle						= 44.0						;максимальный угол отдачи
-cam_max_angle_horz					= 44.0						;(degree) maximum shot horizontal degree
-cam_step_angle_horz					= 0.61						;(degree) size of step camera moved in horizontal position while shooting
+cam_return = 0 ;This value determines how much the camera returns to its original position after firing. A value of 0 assumes that the camera returns quickly to its original position.
+cam_relax_speed = 10 ;This value determines how fast the camera returns to its original position after firing. A value of 10 is reasonable for a modern rifle.
+cam_relax_speed_ai = 120 ;This value determines how fast the camera returns to its original position after firing when controlled by AI. A value of 120 is reasonable for a modern rifle.
+cam_dispersion = 0.08 ;This value determines the base dispersion of the rifle when firing. A value around 0.08 is reasonable for a modern rifle.
+cam_dispersion_inc = 0.04 ;This value determines how much the dispersion increases per shot. A value around 0.04 is reasonable for a rifle of this type.
+cam_dispersion_frac = 0.7 ;This value determines the fraction of the dispersion angle that affects the vertical recoil of the rifle. A value of 0.7 is reasonable for a rifle of this type.
+cam_max_angle = 4.0 ;This value determines the maximum recoil angle of the rifle. A value around 4.0 is reasonable for a rifle of this type.
+cam_max_angle_horz = 4.0 ;This value determines the maximum horizontal recoil angle of the rifle. A value around 4.0 is reasonable for a rifle of this type.
+cam_step_angle_horz = 0.05 ;This value determines the size of the horizontal recoil angle step when firing. A value around 0.05 is reasonable for a rifle of this type.
 
-PDM_disp_base						= 0.73
-PDM_disp_vel_factor					= 1.745
-PDM_disp_accel_factor				= 1.745
-PDM_disp_crouch						= 1.0
+PDM_disp_base = 0.04 ;This value determines the base dispersion of the rifle when firing in iron sights or scope mode. A value around 0.04 is reasonable for a rifle of this type.
+PDM_disp_vel_factor = 1.5 ;This value determines how much the dispersion is affected by the velocity of the rifle. A value around 1.5 is reasonable for a rifle of this type.
+PDM_disp_accel_factor = 2.0 ;This value determines how much the dispersion is affected by the acceleration of the rifle. A value around 2.0 is reasonable for a rifle of this type.
+PDM_disp_crouch = 0.5 ;This value determines how much the dispersion is reduced when the player is crouching. A value of 0.5 assumes that crouching provides moderate benefits to accuracy.
 PDM_disp_crouch_no_acc				= 1.0
-
-zoom_cam_relax_speed				= 10						;scope & ironsight
-zoom_cam_relax_speed_ai				= 120.75
-zoom_cam_dispersion					= 0.79
-zoom_cam_dispersion_inc				= 0.67
-zoom_cam_dispersion_frac			= 0.9
-zoom_cam_max_angle					= 44.0
-zoom_cam_max_angle_horz				= 44.0
-zoom_cam_step_angle_horz			= 0.43
-
-fire_dispersion_condition_factor	= 0.001						;увеличение дисперсии в процентах при максимальном износе
+PDM_disp_crouch = 0.5 ;This value determines how much the dispersion is reduced when the player is crouching. A value of 0.5 assumes that crouching provides moderate benefits to accuracy.
+PDM_disp_crouch_no_acc = 1.0 ;This value determines how much the dispersion is reduced when the player is crouching but not aiming down sights. A value of 1.0 assumes that crouching provides no benefits to accuracy without aiming.
+zoom_cam_relax_speed = 10 ;This value determines how fast the camera returns to its original position when aiming down sights or using a scope. A value of 10 is reasonable for a modern rifle.
+zoom_cam_relax_speed_ai = 120 ;This value determines how fast the camera returns to its original position when aiming down sights or using a scope and controlled by AI. A value of 120 is reasonable for a modern rifle.
+zoom_cam_dispersion = 0.06 ;This value determines the base dispersion of the rifle when aiming down sights or using a scope. A value around 0.06 is reasonable for a modern rifle.
+zoom_cam_dispersion_inc = 0.02 ;This value determines how much the dispersion increases per shot when aiming down sights or using a scope. A value around 0.02 is reasonable for a rifle of this type.
+zoom_cam_dispersion_frac = 0.5 ;This value determines the fraction of the dispersion angle that affects the vertical recoil of the rifle when aiming down sights or using a scope. A value of 0.5 is reasonable for a rifle of this type.
+zoom_cam_max_angle = 2.0 ;This value determines the maximum recoil angle of the rifle when aiming down sights or using a scope. A value around 2.0 is reasonable for a rifle of this type.
+zoom_cam_max_angle_horz = 2.0 ;This value determines the maximum horizontal recoil angle of the rifle when aiming down sights or using a scope. A value around 2.0 is reasonable for a rifle of this type.
+zoom_cam_step_angle_horz = 0.03 ;This value determines the size of the horizontal recoil angle step when firing when aiming down sights or using a scope. A value around 0.03 is reasonable for a rifle of this type.
+fire_dispersion_condition_factor = 0.005 ;This value determines how much the dispersion is affected by the condition of the rifle. A value of around 0.005 is reasonable for a modern rifle.
 ;--DOF--------------------------------------------------------------------------
-zoom_dof							= 0.5, 1.0, 180
-reload_dof							= 0.0, 0.5, 5, 2
-reload_empty_dof					= 0.0, 0.5, 5, 2.5
+zoom_dof = 0.2, 1.0, 180 ;This value determines the depth of field effect when aiming down sights or using a scope. A value of 0.2 for the near blur distance and 1.0 for the far blur distance is reasonable for a rifle of this type. The angle of view is set to 180 degrees.
+reload_dof = 0.0, 0.5, 5, 1.5 ;This value determines the depth of field effect when reloading the rifle with rounds still in the magazine. A value of 0.5 for the near blur distance and 1.5 for the far blur distance is reasonable for a rifle of this type. The duration of the effect is set to 5 seconds.
+reload_empty_dof = 0.0, 0.5, 5, 3.0 ;This value determines the depth of field effect when reloading the rifle with an empty magazine. A value of 0.5 for the near blur distance and 3.0 for the far blur distance is reasonable for a rifle of this type. The duration of the effect is set to 5 seconds.
 ;-------------------------------------------------------------------------------
 inv_grid_width						= 4
 inv_grid_height						= 2
@@ -142,15 +141,38 @@ grenade_launcher_name				= wpn_addon_grenade_launcher_m203
 grenade_launcher_x					= 135
 grenade_launcher_y					= 25
 
-silencer_hit_power					= 0.462
-silencer_hit_impulse				= 35
-silencer_fire_distance				= 375
-silencer_bullet_speed				= 280
-silencer_light_color				= 0.6,0.5,0.3
-silencer_light_range				= 0.01
+; Suppressor-related parameters
+; Hit power is slightly reduced due to added weight of suppressor and bullet traveling through baffles inside suppressor
+silencer_hit_power					= 0.43
+; Hit impulse is slightly increased due to increased back pressure generated by suppressor
+silencer_hit_impulse				= 40
+; Effective range is slightly reduced due to increased bullet drop caused by suppressor
+silencer_fire_distance				= 350
+; Velocity is slightly lower due to added weight of suppressor and bullet traveling through baffles inside suppressor
+silencer_bullet_speed				= 270
+; Muzzle flash color is slightly yellowish for a suppressed weapon
+silencer_light_color				= 0.6, 0.5, 0.3
+; Light range is reduced for a suppressed weapon
+silencer_light_range				= 0.02
+; Variability of muzzle flash color is reasonable for a suppressed weapon
 silencer_light_var_color			= 0.05
-silencer_light_var_range			= 0.5
-silencer_light_time					= 0.2
+; Variability of light range is reasonable for a suppressed weapon
+silencer_light_var_range			= 0.7
+; Duration of muzzle flash is reduced for a suppressed weapon
+silencer_light_time					= 0.15
+
+
+;silencer_hit_power: A suppressed 9A91 is likely to have slightly lower hit power compared to the unsuppressed version due to the added weight of the suppressor and the fact that the bullet is traveling through baffles inside the suppressor. A value of 0.43 is reasonable.
+;silencer_hit_impulse: The hit impulse of a suppressed 9A91 is likely to be slightly higher compared to the unsuppressed version due to the increased back pressure generated by the suppressor. A value of 40 is reasonable.
+;silencer_fire_distance: The effective range of a suppressed 9A91 is likely to be slightly reduced compared to the unsuppressed version due to the increased bullet drop caused by the suppressor. A value of 350 meters seems reasonable.
+;silencer_bullet_speed: The velocity of the round fired from a suppressed 9A91 is likely to be slightly lower compared to the unsuppressed version due to the added weight of the suppressor and the fact that the bullet is traveling through baffles inside the suppressor. A value of 270 meters per second seems reasonable.
+;silencer_light_color: This parameter determines the color of the muzzle flash generated by the suppressed 9A91. A slightly yellowish color is reasonable for a suppressed weapon, so a value of 0.6, 0.5, 0.3 is reasonable.
+;silencer_light_range: This parameter determines the range of the light generated by the muzzle flash. A value of 0.02 meters seems reasonable for a suppressed weapon.
+;silencer_light_var_color: This parameter determines the variability of the color of the muzzle flash. A value of 0.05 seems reasonable for a suppressed weapon.
+;silencer_light_var_range: This parameter determines the variability of the range of the light generated by the muzzle flash. A value of 0.7 meters seems reasonable for a suppressed weapon.
+;silencer_light_time: This parameter determines the duration of the muzzle flash. A value of 0.15 seconds seems reasonable for a suppressed weapon.
+
+
 silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
 ;--A.R.E.A. Sound Remake------------------------------------------------------
 snd_holster							= weapons\9a91\9a91_holster
