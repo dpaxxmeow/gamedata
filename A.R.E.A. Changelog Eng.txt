@@ -1,0 +1,2327 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+A.R.E.A. - Atmospheric Realistic Expanding Addon, a global addon based on Call of Chernobyl. In the project was implemented 
+a huge number of your own ideas, which greatly change the gameplay and reflect the author's vision of the Zone. The main idea of the 
+project is an attempt to bring elements of realism to the game, without sacrificing the gaming component. In this zone, the player has 
+to survive and fight, carefully thinking through every step and action. Those who like easy profits and fast travel, better to bypass 
+the game. Despite a huge number of options, A.R.E.A. is not a customization simulator. For a complete immersion and experience, it is 
+advisable to play with author's settings, without any edits or alterations.
+
+Developers:
+Surs - creator and project manager.
+Nuor - C++, Lua programmer.
+Magila - C++, Lua programmer, site development.
+v2v3v4 - C++ programmer.
+
+Involved in the creation and/or helping:
+Holodilnik - C++, Lua programmer, NPS textures.
+Fox Fire - work on quests, settlement and spawn, balance adjustment, quality assurance.
+Las Plagas - remodeling the mechanics of the technicians tasks, quality assurance.
+Chikadoz - video editing, work with sounds and textures, quality assurance.
+KeinEngel - English translation, work with ambient sounds, quality assurance.
+Rockliff - English translation, quality assurance.
+SadBlackFox, Detrizor  - help in solving some problems in version 1.0.
+
+VK - https://vk.com/surs_area
+MODDB - https://www.moddb.com/mods/area
+Telegram - https://t.me/stalker_area
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.1 (06.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed the texture of the camouflage suit, changed the detection range.
+-Added disassembly of the weapon with a crowbar, Swiss knife or hammer.
+-Fixed crash caused by PPSh and TT33 ammo.
+-Fixed black squares on the sides of the screen when aiming..
+-Changed loot when searching bodies.
+-Artefact pliers can be dropped and sold.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.11 (10.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added AP ammo for M98B.
+-Added axe from TAZ.
+-Added new crafting recipes. Ask the technician on the farm.
+-Fixed dynamo-machine, changed its parameters, added icon.
+-Fixed crash caused by VZ-61 and also when wearing some costumes.
+-Fixed the icons for weapons and addons.
+-Fixed aiming with  binoculars.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.12 (11.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed crash at transition to X10
+-Fixed crash at transition to Jupiter.
+-Crosshair has been changed to a point like in Misery.
+-Change the lantern beam to wide angle.
+-Added Famas G2. Can find it at mercenary trader and freedom.
+-Removed SoC chat as well as unfinished dynamic anomalies.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.13 (15.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added 37 new suits analogs for existing visuals. Added only for stalkers and bandits.
+-Fixed NPC campfire jokes and stories telling.
+-Сhanged the strength of the weapon distributed at the level.
+-Fixed settings for Atmosfear options.
+-Removed display of ammo count on HUD.
+-The time in the game has been reduced from 10 to 5, which is now 5 times faster than real.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.14 (18.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added possibility to work as a guide (in test mode).
+-Fixed crash when the Atmosfear options are changed.
+-Changed actor sizes so that he can go into hard-to-reach places and lean lower.
+-Dynamic relations are a little restricted.
+-Fixed crash related to new visuals.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.16 (21.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Updated Absolute Nature Redux and Structures Redux.
+-Added model of flamethrower tank, reconfigured flamethrower.
+-Less chance of ammo drop from crates.
+-Cosmetic icons fixes, corrected alpha channel.
+-Replaced wound texture.
+-Updated MLR components.
+-The old renderers are back.
+-Fixed the mercenary's patch quest.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.17 (22.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Replaced by a mod work conductor from COM 1.0c.
+-Configured uncommented sound files, added new environment sounds.
+-Fixed errors in texts and description of items.
+-Fixed departure when changing Atmosfear options (now for sure).
+-Dynamic anomalies are reversed. They appear at NI and remain static. It is possible to disable before starting NI by removing: drx_dynamic_anomaly from gamedata/scripts.
+-Added a zone of radioactivity in the anomalies list.
+-Other  small fixes.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.18 (23.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Removed guide work because of incompatibility with companion scheme. If it can’t be fixed, it will be left out.
+-Fixed wrong location names and anomalous fields.
+-Added 12x76mm "Dart" cartridge for pomp weapons. Added model of cartridge pack and added to trade and crates at levels.
+-Added batch files to run on processors with 2 or 4 cores.
+-Reworked all shotguns and added missing cartridges as well as AP rounds for M24.
+-Changed sun settings.
+-Returned firing mode indicator and grenade icon on HUD.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.19 (30.04.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Updated MLR to 5.2, corrected MLR conflicts with build.
+-Updated Structure Redux to 2.1 and Absolute Nature Redux to 1.4.1 (included in main addon).
+-Adapted questlines to MLR.
+-Added a shotgun barrel replacement kit for shotguns.
+-Spawner expanded.
+-Slightly reduced suits condition which drops from NPC.
+-Fixed crash caused by the absence of the simulation_marsh_creature section.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.20 (01.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added suit analogues for CS and Duty.
+-Included MLR fixes.
+-Fixed crashes with new Sunrise analogues.
+-Some icons edits.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.21 (04.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-MLR have been restored to 4.2 till better times. The latest versions of the MLR are very bugged.
+-Modified energy drink texture and icon and improved, enhanced other items icons..
+-Added missing ambient sounds from Pripyat.
+-Fixed cartridges for G3SG1 and added 7.62x39mm cartridge icons.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.22 (05.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed stashes names that can be found in PDA and corpses.
+-Fixed the missing dialogues for important NPCs and crashes with them.
+-Fixed some icons.
+-Fixed Marlboro cigarettes for 3 uses.
+-Added companion phrases for the Fanat.
+-Fixed the flashlight partially and reworked like in LA, still wip.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.23 (06.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed gasoline canisters, gas cans and a can of gunpowder. Now the canister of kerosene explodes, but the explosion is less powerful. Also, in addition to their fullness, a strip of strength has been added.
+-Another changes for the flashlight.
+-Added function to deactivate some items. In order to get the substance for deactivation you need to mix any alcohol with Aquatabs tablets. You need to drag and drop this substance to the contaminated item. Deactivation can be only external, so not all objects can be cleaned.
+-Fixed the spawn of costume analogues in the hiding places.
+-Fixed the missing costume analogues art.
+-Fixed the description of the barrel replacement kit for shotguns.
+-Removed the quest from the Hunter, which disappeared due to the MLR fallback.
+-Fixed the description of the courier's work of Clear Sky trader.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.24 (07.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed quests.
+-Fixed ammo craft.
+-Added comments on the bandits' sounds.
+-Added missing level geometry file.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.25 (09.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed the flashlight halo and reworked its texture.
+-New video in the main menu as well as in the options.
+-Fixed Beryl icon in the repair menu.
+-Redrawn some icons of objects, changed description.
+-Added display from 3rd person, by default on F6,F7,F8, auto aim from 3rd camera and magnification. The buttons can be assigned in options.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.3 (10.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fully redesigned suits disassembly system. Added new parts that can be obtained: servo drive, polymer materials and glass. The servo drive can only be used as a replacement in an exoskeleton with a special kit that is sold from traders. Glass is used only when repairing helmets. Polymer materials are used for both helmet and suit repairs.
+-Fixed all the icons in the repair menu.
+-Fixed incorrect ghillie outfit effects.
+-Fixed incorrect prices for some items.
+-The flashlight's been worked out.
+-Changed video in menu and options. New one has less glitches, and is more smooth.
+-Icons of many objects have been changed and corrected.
+-Fixed a rare crash due to lack of vodka_4 section.
+-Sultan's trade has been disabled so far, for the time being, Olivius has all his assortment.
+-Removed auto-aim from 3rd camera.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.31 (12.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Partial upgrade of the MLR to 5.3, which means all settlement has changed with all-spawn.
+-Emission frequency corrected. Once every two days, it will be stable.
+-Fixed award for some tasks, where the maximum award was 3-4k.
+-Fixed the Informant in the Bar.
+-All factions now know the transition from Dark Valley to the truck cemetery.
+-Fixed crash with flamethrower missing sound files.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.4 (17.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed crash when disassembling L85 and SIG550 Sniper, when disassembling their scopes remain. Added all weapons in disassembly.
+-Added makeshift battery types for Gauss.
+-Added new music in the Swamp and Sidorovich.
+-Changed xrEngine.exe for 4GB of RAM.
+-Fixed grenades. Completely redone light grenade. Redrawn icons in accordance with the models. The smoke and RGD-5 textures have been changed to the corresponding ones.
+-Fixed flashlight on P1. Color changed to more yellow.
+-Added a new icon and model Amphetamine.
+-Added the corresponding icon to the psi complex. Now set for 4 uses. Reassigned and removed unnecessary icons.
+-Revised thirst script and item description. Drinks do not add satiety. Added missing items.
+-Chocolates slightly remove radiation.
+-Updated Outfit Addon. The description should now be true.
+-Fixed anomalous bread from MLR. Now it’s really possible to pick it up and bring to Sidorovich, also it doesn’t radiate like fourth reactor.
+-Fixed missing text lines in some quests from MLR.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.41 (18.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added the ability to use medical bags. Various medical items fall out of them.
+-Added ability to clean canned food.
+-Fixed usage of psychodelin and amphetamine.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 0.42 (19.05.2017):
+------------------------------------------------------------------------------------------------------------------------------------------
+-The quests from MLR have been corrected, now they should be more adequate.
+-Added missing mixes for radio, which forgot to put in the last patch.
+-Fixed encoding of some text files, which made descriptions and names of some items appear broken.
+-Fixed MLR crash with bugged section ammo_9x39_pab9.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.0b97 (02.01.2018):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Full transition to Call of Chernobyl 1.5, using some feature from Call of Misery 1.0d Fix2 and MLR 7.2.
+-Added new Polyana location. Locations Cordon, Garbage and Military Warehouses are replaced with respectives from MLR 7.2. Added crows on Garbage level..
+-Updated Structure Redux to 2.5d and Absolute Nature to 1.7d.
+-Updated DoctorX Dynamic Anomalies to 1.3. The number of anomalies on the levels has been changed, new anomaly fields have been added.
+-A new unique video in the menu from Chikadoz and KeinEngel. The interface was fully redone it the style of mod. Redone the HUD, changed the images of loading and icons of launcher.
+-Redesigned interface in one tone, in the style of Misery. New HUD: the position of the overheat scale was changed, the thermometer icon was changed. as well as a repair icon.
+-Added CoC Ambient Overhaul. New random sounds on locations. For some locations, musical ambient was replaced.
+-Added new slots in inventory for: backpack, binoculars, knife, grenade and bolt. Each one has a status bar and overheating bar. Fixed menu, game options and HUD for all screen sizes.
+-Added sections to the PDA from CoC 1.5. Changed sections of the encyclopedia and added a lot of new articles. Information can be found on the flash cards or personal diaries of stalkers, to download need to selecting context option “Write in PDA”. Some articles will be opened with certain actions, like: talking with the NPC, visiting a new location, using a new subject.
+-Added the ability to command your buddies and give them items through the PDAs menu.
+-Added quests for technicians to search for flash drives with modifications. Modifications will be opened as the tasks are completed. Tools still needed for them.
+-Added new animations for stalkers, including search of corpses, animation of bandit walking, fixed animation of playing on guitar, as well as NPCs became more sociable.
+-Added animation with delay and removal of hands when opening inventory, trade menu, during search and opening of containers. Changed the sounds of opening and closing inventory. 
+-Added animation of wearing backpack.
+-Added animation and the effect of getting weapons when loading save, 5 seconds of invulnerability after the start.
+-Added the scheme of friendly fire. If the actor on the line of friendly fire, the allies do not shoot.
+-Added new music on Duty base, also new song for Sidorovich radio, as well as on the other bases.
+-Added sleep deprivation and the dependence of sleep on used objects, some cause drowsiness, others are invigorating. Fixed possibility when you could sleep after sleep infinitely.
+-Added different icons for stashes. Now there are 4 types: simple, found, actors stash and unique. Added a mod  that changes  the description of stashes like it was in ShoC and CS.
+-Added labels on the map for installed mines and explosive devices. If the mine falls below the level, it despawns.
+-Added new hangover tablets for 5 uses.
+-Added descriptions to overalls of ecologists, Sunrise, jackets of beginners and other suits.
+-Added new visuals for zombied, new proto-exoskeletons for all factions (remade models from the LR). Added visual in a sweater, used by default. All new models can be dragged.
+-Added a huge number of variations of outfits. Fixed hand textures in some of them.
+-Added missing object textures.
+-Added weather options in the main menu. Added support for DirectX 10.1.
+-Added a mod what improve rain effect. Replaced the weather and its cycles in most locations.
+-Added a reworked script "On clothes meet". Masking works only if the player has a patch of respective faction and their equipment.
+-Added new mutants - dwarf (4 species with corrected models and a dwarf ear is added), a controller with his new abilities, a poltergeist from the builds, Stronglav, a re-made bear, two species of Leshyi, a variation of strong flesh, boars, fractures, cats, dogs and chimeras. All mutants have new parts with models, icons, and images.
+-Added parts for rats, replaced with own model. Added a crow's beak and fixed the objects from the crow.
+-Added models for old parts of mutants. Replaced models of the set with threads, pouch, flash drives and linen.
+-Added 2 flamethrowers, fixed crashes with their animations, both reconfigured completely. Added proper sounds and adjusted their position in the hands. Now this is a terrible short-range weapon. Added 2 types of cylinders with a mixture, they can be crafted with necessary components.
+-Added new stories around the fire and music in some locations.
+-Added 8 backpacks, each with its own volume, icons, parameters of fatigue and extra weight. According to the functional they replace the backpacks for hiding stashes and
+  quick drop system. Now quick drop can be assigned to a hotkey.
+-Added 3 new types of binoculars, each with its own characteristics. Added new types of modernization for them.
+-Fixed irradiated medical bags. Now in them will be irradiated medicines and at opening radiation does not accumulate.
+-Fixed amphetamine prices of different quantities and all first aid kits, as well as increased their action time. Bandage, more, doesn’t cause hunger. Added the ability to treat wounded with elite medkit. The time for the action of medicine has been changed.
+-Fixed the duration of use of energy drink. Leninad now is 0.5 liter, as in reality. Replaced sounds when using certain items.
+-Fixed helmet icons during the upgrade, replaced the icons of helmets CS-2 and PMK. Added helmets of exoskeleton, camouflage fabric mask and balaclava.
+-Fixed crashes when creating some items.
+-Fixed crash when using a universal set for cleaning weapons.
+-Fixed the lack of main dialogue with Sidorovich about the Wish Granter when the option of opening all transitions is enabled. Also now, when you turn on Secret of the Zone mode, the DRX questlines won't disable.
+-Fixed invisibility ot actor when you could come up close enough when dressing ghillie suit. Now you will be spotted at 40 meters.
+-Fixed the icon of AK-12 when attaching EOTech and Barska sights.
+-Fixed the possibility of repairing some NATO guns with a set for 5.45 mm caliber.
+-Fixed the inability to deactivate certain items. Now for correct deactivation, you need to transfer the mixture for deactivation to the irradiated object.
+-Fixed cooking on fire. Now to cook something, you need to have a saucepan or an army bowler, in addition to the stove or a burner with fuel.
+-Fixed radiation level of water. Now water radioactivity is very small. The transparency of bushes, reeds and tree crowns is changed to 90%.
+-Fixed the monolith respiratory mask HUD. Disabled breath effect in those masks in which it should not be.
+-Changed the particles of the environment, anomalous fields, artifacts and campfires.
+-Changed the tips on load screen with the Stalker Diary from Misery, but taking into account the changes and improvements of the current mod.
+-Replaced radio ambient sounds that spoiled the atmosphere and also many others with more suitable. Significantly reduced the sound of anomalies.
+-Replaced models: AK-74, AK-74U, AKS-74, M4, M249, Mosin rifle, PPSh-41 (silencer can’t be installed), fixed model of M98B and it reload sound, new textures.
+-Added new weapon models: Gunslinger SIG550, СКС (you can put optics), SVD Lynx (changed mesh), SVD-M, SVD-L, STG-44 (5 types) with sight and silencer, MP40 (2 types), H&K G36C, SR25 modernized, WA2000, Famas F1, Frenchi SPAS12 with butt, AS VAL tactical (with tactic handle and telescopic sight), Fort-12, OC-14-04 tactical (with the ability to mount silencer and sight), camouflage Mossberg 590, KS-23, FN Scar SSR Mk.20, Remington 870 (it is possible to put 4 sights), A545 (with integrated sight, silencer can be mount). Fixed aiming offset of all weapons for all angles of vision, modified for: SVD, PP-2000, TT-33, APS, Colt 1911, SIG550, SIG552, VZ61, UMP-45, MP153, LR300, M79. The position in the hands from 3rd person has been corrected to next models: TOZ-34, TOZ-34 trim, CKC-45, AEK, PPSh-41, Famas G2, Mosin rifle.
+-Added 2 new hinged sight and one silencer.
+-Added weapon icons when upgrading at technicians. Almost every model now has its own icon.
+-Added the ability to create a unique weapon.
+-Replaced crosshairs on the mesh from Morka v.0.4 and 0.5, added a couple remaded.
+-Restored the ability to work as a guider, scripts are revised. If you do not have good reputation, you will be denied in the dialogue.
+-Restored the effect of muzzle fire when shooting from weapons, which should have it. Particles have been added to some models.
+-Added the option of simplified pick up of objects. When it’s disabled, items can be taken only if you are next to them and pointing at them. Also now, picking up items from the 3rd person is possible.
+-Added the option to disable the drop of suits from the NPC. Now the condition of  suits from NPCs depends also on their rank.
+-Added the option of ranked weapons dropouts from NPCs. The condition of the weapon depends on the NPCs rank, but don’t wait for it to drop with full condition.
+-Added option to disable objects irradiation.
+-Added option to change the size of grass.
+-Added the option of zoom inversion when aiming.
+-Added the option of degradation of artifacts, the same option affects the wearing  devices for the belt (so conceived, if you want, you can disable it).
+-Added options in the menu: enhanced NPC aiming accuracy, removal of dropped items, the option of displaying the character's icon depending on the wearing suit, changing actor’s icon during the game, the option of safe radius, the loot money from corpses, enabling of tracers, the option of dropping outfits from NPCs, items irradiation from the backpack, condition of droped weapons according to NPCs rank, show reputation in the messages, random fake news, death of the NPC in the anomalies.
+-Added the option of theft of actor money during sleep. Enabled by default.
+-Added new options for cleaning items, as well as schemes for creating new items. From the set of linen and a coverlet it is possible to make rags, combining simple bandage and special one you can make something better, all according to balance.
+-Added new items on the levels, as well as during the corpse search.
+-Added the ability to kick dynamic with your foot. You can kick any objects or creatures with a mass of up to 20kg. You can assign a button in the menu.
+-Added wallmarks to dynamic objects.
+-Added the ability to create a label on the map of the PDA. To do this, double-click on the map and add a description. To change or delete the label, just click on it to bring up the context menu.
+-Added comparison of weapons in percentage in hint window.
+-Added a new feature for the casket. Now you can get old rubles of unknown quantity from it. If the box is not opened it can be sold at an average price from what can be inside.
+-Added a new feature for: broken radio, headlamp, broken flashlight and camera. You can remove the batteries from them.
+-Added new sets for disassembling of weapons and armor, instead of a hammer, crowbar and swiss knife. These tools still give a good bonus when repairing.
+-Added Survival Mode and Life after Life (Azazel) mode. Added and adapted Azazel Faction Menu 1.3. Binoculars and bolts will remain after body changing.
+-Added damage when actor pick up artifacts. If the character has special tool for artefacts, then he does not get any damage.
+-Added Companions Quick Menu 1.1.5 for managing partners. By default, is binded on NumEnter key. To change the button, see line 7 in ui_addon_companion_quick_menu.script.
+-Added a list for inventory from Misery 2.2. Adapted, the texture, icon, description and position on the screen was changed.
+-Added a new fire axe and hunting axe (model from Misery 2.2). Approximately two times increased damage of axes, the textures and icons have been reworked, the position in hands has been reconfigured. You can put the axes in the knife slot. Also now, axes become dull and need to be sharpened too.. Some mutants can be looted only with axes.
+-Added conditions to tools for disassembly. Skills affect the direct how much the tools will wear out. There is a chance to remain without them at all.
+-Added a new skills system. The more often the character performs an action, the better he will made that. At the beginning of the game, the player is given
+  choice of distribution of skill points. At the moment, there are several skills realized: shooting, crafting, mutant looting, survival, marauder and disassembling skill.
+-Fixed a crash when blowing dynamo machine. Added descriptions of its upgrades and slightly lowered the jamming threshold.
+-Fixed a description of the light grenade.
+-Fixed inaccuracies of case endings in sentences that are displayed on the screen when disassembling weapons or suits.
+-Fixed a large number of grammatical errors in  texts. Some inappropriate dialogs have been removed.
+-Fixed LOD textures Yantar of Army Warehouses locations, because of what distant objects looked blurred.
+-Changed the default saving method: only at campfires. During the battle or danger, saving is disabled. You can still go to the menu and load any save.
+-Changed the damage from RPG-7, RG-6, M79, PG-25 and M203. Now it's grenade launchers, not firecrackers. Changed their prices, taking into account their damage. You have to be careful with them.
+-Changed the sleep. Now you can not sleep if the character is not tired. Strongly pulls to sleep after eating and drinking alcohol. Also, if you do not sleep for a long time, it begins to double in the eyes and the character can fall in a swoon from fatigue.
+-Changed the damage system to a more real one.
+-Changed the speed of time from 6 to 3, one game minute ~ 20 real seconds, one of the most important game mechanics.
+-Changed the system of weapons overheating. Now, overheating affects temporarily the state of weapon. Added overheating profiles according to the weapon class.
+-Changed some dialogues and rewards of tasks.
+-Changed the maximum walk weight to 80kg, the threshold is 40kg. Changed the weight system to linear, this means that with each kg the character will be more tired. Reduced the speed of movement, reduced the distance between the NPS, resized actor and other parameters.
+-The vitality of the chimera is slightly reduced, the flesh and boar are slightly strengthened.
+-Many icons was redrawn, new icons of ammunition, some have changed the size. Models of boxes of ammo for pump have changed the textures.
+-Bolts are now not infinite. In sale there are packet with bolts, when using them you can get about 25 bolts. Now you can use bad ammo from Misery, receiving from them bad ammo shells what is an alternative to bolts.. Replaced the bolt model from STCOP 2.9, the model of the shell was added. Increased throwing range.
+-Hand lanterns, exoskeletons and proto-exoskeletons now consume energy. If there is no charge  then wearing skeletons it will be very difficult to move.
+-Changed animation of use for: dosimeter, matches, medical  bags, artifact containers, caskets, and some medical items.
+-Removed duplicate items from the Item Soup and old unused items. Added a rare liquor and wine, on sale at barmen in limited quantities.
+-The set for ignition is replaced with hunting matches for 3 uses. The price was increased. Campfire are ignited only by matches and briquettes, can be extinguished with action button.
+-Forced return of the sight point in the free state instead of circle from old builds, which was added in CoC 1.5.
+-Changed reputation gain. If you give someone a good item, the reputation will go up. If you kill a hostage after a conversation with him, the reputation will go down. If you refuse to take the goods from the Pahan, then the reputation falls by 100, the relationship with the bandits worsens by 200, all the tasks from Sultan will fail, and he will not issue them any more.
+-Binoculars have now the property to wear out during use, you need to monitor its condition. If it breaks, it can not be used.
+-The tasks have now time like in ShoC, so it's worth keeping an eye on the remaining time. Now the tasks are given only to neighboring locations, you will not be sent to the other end of zone but maximum through 2 locations. Also taken into account if the player turned off the Radar or psi installation in the laboratory.
+-Changed the Young Fighter Course task from Fanat, also added two new ones for him. Questlines DRX are more diverse now.
+-The tent can only be installed if you have a hammer or a crowbar.
+-Money from the accounts of PDA can be can be taken only if actor has a hacker software installed in his PDA. Skills affect the amount of money withdrawn.
+-Full revision of food. Crackers do not give any more psi protection. Energetic guru are now for one use. Fixed weight of cigarettes.
+-Now, after using canned food in the backpack will be a tin can.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.0b98 (21.01.2018):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Restored quick save, by default is enabled saving at campfires.
+-Modified damage to the body parts, hitting the head is now critical.
+-Added transitions for each faction.
+-Fixes some errors with orders, some tasks, items.
+-Fixes the bolts spawn after loading.
+-Fixes crashes with models and particles.
+-Other minor fixes.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.0b99 (22.02.2018):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixes the mistakes that prevented you from enjoying the game.
+-Added the possibility to save game in the underground levels, as there are no campfires.
+-Added the possibility to use a pouch. This item allows you to save 10 small items, so watch what you put in.
+-Other minor fixes.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.01 (27.02.2018):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Correcting issues from the last version.
+-Reworked saving at campfires and fixed FPS drop after saving.
+-Added the option to throw the backpack away on the fly by pressing the assigned key.
+-Reassembled spawn, corrected many of his mistakes.
+-Correcting the missing orders from the traders.
+-Fixes traders assortment updates, now has to be updated in 2 days.
+-A lot of other small changes.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.02 (14.10.2018):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixes crash caused by flies around mutants.
+-Fixes a crash at the location Bar after 20:00.
+-Fixes a crash associated with Vodianoy.
+-Fixes spawn of bolt in inventory after reload.
+-Fixes spawn of mutant parts in searched bodies.
+-Adds dynamic anomalies on locations, anomalies will change the location after the blowout.
+-Sleeping bag no longer needs a compression bag.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.031 (09.05.2019):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed a bug what not change faction relation to character.
+-Fixed missing sleeping bag after use.
+-Fixed saving parts of searched mutants and stalkers items.
+-Fixed increased time factor after blowout and psi storm.
+-Fixed disabled hands after Arena fight, as well as the ability to get a weapon when camera fly over Arena.
+-Fixed crash during a dialogue with an army medic on "Agroprom" base.
+-Fixed description of some tasks to search for NPC.
+-Fixed missing hands when opening a pouch.
+-Fixed transition between Garbage and Agroprom.
+-Fixed bandit barman trade profile.
+-Improved the work of the tent and sleeping bag.
+-Added the ability to create zhekan ammunition.
+-Changed the animation of opening / closing inventory.
+-Changed condition for finishing Fanat quest, fixed the crash when talk with him to complete quest.
+-Changed starting transitions for all factions.
+-Changed the principle of ammo spawn.
+-Fixed the lack of forceps for artifacts on sale.
+-Fixed a bug that leads to playing the animation of putting on a suit or backpack when moving to locations.
+-English translation updates.
+-Other minor edits.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.032 (23.09.2019):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed the work of orders from all traders.
+-Fixed orders from Drozd.
+-Fixed the bug in the relationship between loners and mercenaries.
+-Fixed hostile relation to own faction when playing for Freedom.
+-Changed the function of opening/closing inventory, now without delay.
+-Minor changes in starting loadout.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.033 (21.03.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed crash when taking task on assasination form mercenary leader.
+-Fixed crash when psi-storm starting.
+-Fixed crash when press sleep button.
+-Fixed PDA right side static texture.
+-Fixed fast stamina drain when wearing some suits.
+-Fixed companions scheme. Now NPC will follow you on other levels.
+-Fixed companions stealth mode by default when creating team.
+-Fixed mercenary mechanic save hostage task.
+-Fixed cover animation state.
+-Fixed timers for some tasks.
+-Disabled tracer for all ammo, except AP and grenades.
+-Added missing text strings.
+-Scripts optimisation and updates.
+-Slightly increased actor movings parameters.
+-Balance and trade adjustments.
+-Changed game loading tips.
+-Updated english translation.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.05 (25.03.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Updated engine to latest CoC 1.5 r7 changes, with code optimisation and minor changes.
+-Updated all scripts and optimised to work with new engine, removed unused one.
+-Updated shaders, added new one required for new features.
+-Updated english translation, now it's fully translated.
+-Added FXAA.
+-Added volumetric and scree space sun shafts for R2-R4.
+-Added volumetric lighting for R2-R4.
+-Added weapon hud inertion.
+-Added the ability to talk with any member of the squad.
+-Added closed cans mechanics. Cans can be opened only by drag and drop knife on it.
+-Added possibility for NPC to throw grenades at mutants.
+-Added goodwill updates in messages.
+-Fixed sound stopping when game paused.
+-Fixed lighting on R1.
+-Fixed crash axr_companions.script:150: attempt to call method 'has_info' (a nil value).
+-Fixed actor acceleration when moving backward and aiming or hold kWALK.
+-Fixed NPC heal wounded scheme.
+-Fixed actor bleeding. Previously the more wounds actor received could lower bleeding speed.
+-Fixed inventory opening when trying to pickup body by holding Shift and then using kUSE.
+-Fixed corrupted .thm and removed unnecessary.
+-Fixed crash when completing some task in dialogs.
+-Fixed crash at the end of the Fanat task.
+-Fixed the lack of an option to remove the sight.
+-Fixed a bug when loading the game or switching to the location started helmet, suit or backpack animation.
+-Removed auto reloading after last bullet or when pressing fire button in empty state.
+-Removed duplicate strings.
+-Reworked skills system, looting action now increase marauder skill, skinning action increase Hunting skill.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.051 (27.03.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Updated xRay.
+-Fixed duplication of camera animation.
+-Fixed ammunition packer.
+-Fixed English translation in Russian localization.
+-Fixed crash during dialogue with Dushman.
+-Fixed crash on Fanat task.
+-Fixed task for searching mutant parts.
+-Fixed bugged walking animation when wearing monolith novice outfit.
+-Fixed crash when travel to Agroprom and Dark Valley locations. 
+-Added missing text strings.
+-Added missing cans for opening. Added sound for opening.
+-Added zoom adjustment for all binoculars. Corrected aim position and changed their prices.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.052 (29.03.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Cleared All spawn from unnecessary garbage.
+-Removed music on the old factory on the cordon.
+-Slightly reduced radiation damage, but also increased recovery time.
+-Increased thirst quenching for all drinks.
+-Changed prices and weight of some items.
+-Fixed all tasks of faction leaders.
+-Fixed crash in task to eliminate a target.
+-Fixed duplicates of paths in All spawn.
+-Fixed wrong scope_fov in settings.
+-Reworked upgrade system with USB flash drives for technicians. Now you can sell them to any technician, without any chain limit.
+-Added the possibility to play Russian roulette with the bartender of bandits in the Dark Valley. You can only play once a day.
+-Added missing text strings.
+-Added missing item icons.
+-Updated English localization.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.053 (04.04.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed crash on Preacher task.
+-Fixed crash on Mikluha task.
+-Fixed crash on duty task to eliminate target.
+-Fixed crashes with silencers for different weapons.
+-Added missing logic for traders.
+-Added missing text strings.
+-Removed the message about payment for  transition when approaching the Duty outpost on garbage level.
+-Updated English and Russian localization.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.054 (21.04.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Исправлено название патронов 19x8мм.
+-Исправлены все вылеты связанные с глушителями.
+-Исправлена иконка сардин.
+-Исправлен вылет при пробуждении.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1601: (25.07.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Game engine code optimization and refactoring.
+-Modified artifact properties, file optimization. Added missing artifacts for detectors.
+-Moved a squad of soldiers to the checkpoint from the grass to the checkpoint itself, fixed the logic of the sentinel, sniper and patrol.
+-Added flashing animations to the detectors. Changed the artifact icon on the scientific detector, and the elite now displaying artifacts by type.
+-Added a command so you could set up a 3-person camera right in the game.
+-Modified the smoothness of the torso rotation in third-person shots.
+-Technicians' condition of repair has been changed, now the repair time depends on the condition of the item.
+-Fully reworked trading system based on the trade from CoC 1.5. The range of traders is updated on arrival of the caravan, the player may not see it. It happens once every 2 days. The system of discounts and assortment at traders and NPC is redesigned.
+-Fixed and optimized Yantar bunker guard unit, which has always been hostile to everyone.
+-Corrected the ability to drag and drop items into closed cells.
+-Added the ability to put an item of any size in one pocket cell, the ignore_size option.
+-Resigned the entire interface once again, redesigned the cursor and its animation, changed the spoiler in the main menu. In the inventory removed the side parts and reworked the grid, now it is almost not visible, but quite intuitive.
+-Added patch and PDA slots. Redesigned and improved functionality of slots. Knife and binocular slots are now complete weapon slots for small weapons. Small weapons can be placed in any of 4 slots.
+-Added overheating scale for slots 1 and 5.
+-Added the ability to attach addons for 1 and 5 slots.
+-Added ability to change weapons with the mouse wheel to weapons in 5 slots.
+-Fixed sortie for a large weapon hitting the knife slot.
+-Added the ability to assign a button to the partners menu in the options.
+-Removed the effects of using the first aid kit, now there is no blackout and you can use it safely, without a chance to get shot when the character gets up sitting in the hiding place.
+-Modified all material properties in the game closer to more real parameters. For example, a thin sheet of metal or wooden boards can be pierced with larger calibers.
+-Reworked opening zones function in the PDA, now it doesn't have to reapply a layer on the opened zones after which lags appear when opening a large number of locations on levels.
+-Added a new achievement, Traveler. Awarded for 5 unique geocaches and rank when visiting all zones on the levels. Different from the Discoverer in that it is given for visiting all locations.
+-Fixed a zombie suit, the visual was white, but the inventory was orange.
+-Added coexisting articles in the handbook. The list of recipes and schemes for creating items has been expanded.
+-Fixed a lot of spelling mistakes. Dialogues have been reworked, text replaced.
+-It added a new command to change the boundaries of the HUD display, independent of the overall angle of view.
+-Fixed orders that didn't work. Changed condition for some items.
+-Modified weather script, now all locations have the same cycle. Weather doesn't change after reboot.
+-Added the display of all parameters in the hint window when consuming items, both instant and durable.
+-Fixed the simplified item selection function, it did not work in code.
+-Reworked items durability, now It would take about 30 shots 5.45 or longer to break a wooden box or case. However, with a crowbar or hammer, you can break these items with a couple of hits. The wooden box now takes damage from the fire. A small metal container also withstands everything, it doesn't break down after falling to the ground like it used to. So now a hand weapon makes more sense.
+-Added the dependence of found items conditions from searching skill.
+-Fixed that the disassembly kits and the Swiss knife didn't remove at zero condition.
+-You can freshen small and medium game with any knife, but each knife now has its own strength, the worse it is, the less you can use it.
+-Hardening stones now for 3 uses, each use restores the knife by 50%.
+-Changed the probability of breaking an object. The very breakage of an object when parsing depends on the disassembling skill, the higher it is, the higher the chance that the object will not be damaged. All disassembling objects are designed for 10 uses.
+-Reworked the recipe to create a joint and a spin to be more real.
+-Added the ability to combine objects and transfuse liquids.
+-Added the ability to light only with fire. To do this, you need to drag matches or a lighter on a tobacco product. Added the effect of smoke when smoking, the smoking itself now gives only psy protection and slightly quenches hunger.
+-Kept out the drop of illogical parts of some mutants, leaving them only mutant meat that is smaller and weaker than them, but with less drop chance.
+-Added power to electrical devices from batteries. Now flashlights, detectors, NVG, PDAs, sights, exoskeletons and proto-exoskeletons use a charge to operate. Each item uses a different battery. The battery is charged by dragging and dropping onto an object.
+-Added battery power scale for exoskeletons on HUD. Power consumption depends on the physical action of the player and the weight to be carried. If a suit is not equipped with a battery, it is difficult to move around in it and a fine is imposed on the carried weight. The power consumption of each suit is individual and generally lasts approximately 2 days at low load.
+-Added battery power scale for suit slot and helmet in inventory.
+-Fixed the ability to turn on flashlights and PNV without batteries for a second, no longer on.
+-Fixed the ability to turn on a smartphone with or without a low battery for a second. If the PDA doesn't work or isn't in your pocket, it doesn't receive messages.
+-Changed the order of messages in the PDA section of the log. New messages are now displayed at the top, old messages at the bottom, and there is no need to flick through the entire log every time.
+-Resigned smartphone UI (PDA), now fits more lines in the job list, map is extended to the full screen, increased maximum map zoom.
+-Made a huge job in the file structure, removed all the multi sectional items.
+-Added a random state for collected items such as canisters and balloons.
+-Modified cooking mechanics. For cooking you need: a burner or stove, an object for fire, fuel, cooking tank and water. The crockery wears out a bit, so the pots are not eternal. You can cook several different foods at once and you can see the finished result in the bottom right corner. You can do the same by the fire using a pot or kettle. On the campfire, dishes wear a little more, it is done for balance.
+-Added an article about cooking to an encyclopedia. Draw up the cooking window. You can use wooden objects like buttstocks, guitars, etc. as fuel for the fuel stove.
+-Restored orange state icon on the HUD and in the inventory, as it was in the CoP.
+-The thirst icon is now hidden when the HUD is turned off.
+-Fixed the minimal thirst icon, it was always hiding behind the hunger icon.
+-Corrected a bug in the guide when the second part of the text was displayed in all articles.
+-Added 2 new possible upgrades: to save energy and increase volume.
+-Fixed the bolts, now working on the class of bolts as it should be. NPCs are no longer scared when throwing and they are saved after loading and switching.
+-Added the ability to pick up the thrown bolts.
+-Removed camera shaking effect after drinking water, left only for alcohol and psychotropic drugs.
+-Revealed all sleepiness settings from the plugin, in the object section. Sleepiness is now displayed in the item hint window.
+-When actor fall from a high, there's a good chance of dropping the object in his hands.
+-Corrected the return of the tool after repair, corrected the use of additional materials, now works as expected. Changed the texture of the window.
+-Fixed the crash in the repair window when you press Esc and the inability to press cancel when items have only one use at the set.
+-Added a new camouflage scheme for the costume, now you can assign each costume a separate level of stealth (as was the case with a camouflage suit). It's even possible to make improvements, but then.
+-The costumes have removed the extra weight to compensate for the weight they carry.
+-Added display of weapon and suit condition in percent, in item hint window.
+-Added new parameters with icons in the hint window for various effects such as: sleepness, radiation, stupefaction.
+-Reworked item crafting script, fixed some errors in recipes.
+-Corrected the inability to use the second row of pockets.
+-Corrected the ability to put objects in closed pockets.
+-Added depth of field when inventory and PDA are opened.
+-Added to the collision of NPC bodies, the bodies now stay over two days.
+-Fixed a bug with "Sleep" text or other texts of interaction through the loading screen.
+-Added physical currency of 3 countries, each item with its own model. Now NPCs pay for tasks with cash, each faction pays in a particular currency. Some traders exchange currency for electronic money, some cheaper, some more expensive. Money has the property of getting wet in the rain, and the traders do not take wet currency, so it is possible to dry it near a fire.
+-Added a wallet, it's convenient to keep money or other small things in it. It also has a volume, so it is not bottomless, but money in it is protected from moisture.
+-Modified management of items in the backpack. So, for example, if you use tin, you get an empty tin, etc. If you use a flash drive with information, it will remain with the character, but without any special value.
+-Added the option "Drop" and "Drop all" for items in drawers and backpacks.
+-Added the ability to limit the maximum number of items of the same kind for pockets.
+-Added multithreaded loading of .thm.
+-Fixed an option that turns on grass shadow, now works more correctly.
+-Added the option to disable the range limit for grass drawing.
+-Fixed the exploit with drag and drop increasing repair skill if repair is not possible.
+-Fixed the OnItemSlot call order.
+-Fixed OnMouseAction.
+-Fixed the character's direction when traveling from bar to garbage location.
+-Fixed descriptions of improvements and display of values for weapons and equipment. Added missing parameters, and reconfigured some.
+-Changed the textures of hooded masks to more appropriate ones, added different types for all types of masks and helmets.
+-Corrected the error when the player saves the game sitting still and after loading the camera flew from the sky or under the level to the original position.
+-Added the ability to change the flashlight mode from near to far, the button can be assigned in the settings.
+-Fixed an error in displaying statistics of saved wounded.
+-Added new item - Raven egg, possible to prepare.
+-Added possibility to specify real_time_boost to boosters.
+-Fixed unbreakable wooden and cardboard boxes at the meadow location.
+-Fixed the wrong type of animation of the Monolith in eastern Pripyat.
+-Fixed models and textures of medical kits, corrected the texture of the stimulator gun.
+-Fixed the angle of glow of the hand lamp, it's no longer shining behind the hand.
+-Added a command to turn off rain flow from surfaces, as well as new fine-tuning parameters.
+-Fixed the straight back of the character, especially when you look down or up.
+-Modified the initial direction of fire, now it's not the center of the camera but the muzzle of the gun as it should be. And for that, now you have to change your shooting tactics and get used to the new mechanics.
+-Added support for the sit-down animation, with no bullets in the gun. No more walking bolt frames when crouling with empty guns.
+-Fixed the crash when droping backpack if actor has artifacts in his pockets.
+-Fixed the display of dynamic shadows on R1, they disappear as soon as you move a few meters away from the object.
+-Fixed the saving while sleeping, now the game is saved after waking up, not before sleeping.
+-Fixed not wasting spare parts when repairing weapons and armor.
+-Gave the ability to throw items out of the inventory by dragging them to the right side of the inventory.
+-I added a model of a rat on a stick. Added in animations rat model on a stick for campfire.
+-I changed the condition bar by 10 divisions and reduced the size of the bar in the inventory.
+-Optimized the entire file structure of game resources, settings and scripts.
+-Fixed descriptions and characteristics of most technical improvements.
+-Fixed the "Azazel" mode. Now the state of objects is preserved after death. Fixed item release when moving to a new NPC. Redesigned functions to fit the new health system.
+-Fixed the display of the working area of Veles and Elite detectors.
+-Fixed the error of missing digits on the dosimeter after a certain operating time.
+-Fixed an error that did not allow throwing artifacts out of bodies and containers.
+-Fixed the work of the hud_adjust function.
+-Modified the principle of activating effectors in zones, now activated only if the character is in a zone.
+-Fixed most artifact models that didn't display correctly.
+-Redrew all artifact icons, returned all familiar models and icons back to the original.
+-Replaced all animation set from xrMPE. Fully adjusted the inverse kinematics and parameters of all animations. All NPCs use the new animations as well.
+-Added a scrolling function to the inventory when dragging an Item.
+-Added item filtering in character inventory, in the trade menu and in boxes. The filtration is divided into 7 categories: Weapons and addons, ammunition and magazines, equipment, artifacts and containers, food and medicine, devices.
+-Added multithreaded processing for smart covers.
+-Fixed a bug on the missing bone in the lamp at the Garbage location.
+-Fixed wrong patrol path gar_smart_terrain_6_1_walker_6_walk on Garbage location.
+-Removed duplicate patrol path mil_smart_terrain_2_3_kamp_1 in Army Warehouses location.
+-Fixed all errors ! VERIFY_FAILED: inventory_upgrade.cpp[119].
+-Fixed error ERROR: sizeof(str_value) + s_len_with_zero >= 4096.
+-Fixed an error that allowed to move to the transport when pointing the cursor and pressing the action button.
+-Fixed loss of transport when moving between levels.
+-Fixed an error that allowed to lift off in a transport by pressing the underbarrel button.
+-Added functionality to rotate in the Z-axis for a specific bone of the vehicle.
+-Fixed the option to deactivate unpacked products such as bread or sausage.
+-Fixed the crash when you tried to create a save in the save menu using inaccessible characters in the title. Added the option to use dot sign.
+-Fixed and redesigned the item removal manager. By default, every 24 hours all thrown items out of the actor radius will be deleted. Cleaner timer can be set in game settings, if you set 0 Cleaner is disabled.
+-Added an exception for backpacks in the Item Cleaner.
+-Fixed the music stop if you exit the game in the main menu. Also when the track is finished, it will be played first, or next from the list.
+-Added fire extinguishing if it starts raining.
+-Improved NPC logic. Now if it's raining, they won't try to light a fire if it's not under the shelter.
+-Added the horn function to the transport. Added a key for assignment in the settings.
+-Added the ability to assign a key to the skills tab in the PDA.
+-Removed unnecessary and duplicate items.
+-Replaced the morphine model.
+-Reworked the textures of the loading screen.
+-Added models for a cloth mask, GP5 respirator, bandanas, furhat and a protective helmet.
+-Added a GP9 respirator.
+-Fixed the world model of camouflage suit.
+-Made and replaced a model of a sports backpack.
+-Added a model to the artefact pliers.
+-Fixed the model's transparency in the vodka bottle.
+-Added mask removal function to the button, the button can be assigned in the settings (temporarily disabled).
+
+The character:
+-Fixed the character's name in dialogs.
+-Added the ability to hold your breath. When holding breath, stamina is consumed and hands are shaking less, which allows to make a sharp shot. To enable need to hold sprint and aim button.
+-It gives the character's heart rate. Heart rate depends on various physical actions, receiving damage, jumping, running, walking, consumption of something affect the heart rate. If the heart rate exceeds a certain threshold, the character will not be able to run, even if there is a margin of endurance. If you hold your breath, your heart rate will be heard depending on your heart rate. The lower your heart rate, the lower the shaking of your hands when aiming.
+-A volume has been added for all inventory. Now the character has a capacity parameter in addition to weight, which depends on the suit you are wearing. If you exceed the volume, you can carry extra things, provided that the hands are free. If the volume is exceeded, the last item raised will be dropped out.
+-This is a chance to die of cardiac arrest, which happens if the heart rate reaches 200 beats/min.
+-Added the heart rate to save the game.
+-Added new parameter for items that affect heart rate. There are items of instant action and long duration.
+-Added new object - dosimeter. It measures the external radiation background and the background of the player in Mzv. All objects have been completely reconfigured to the new radiation measurement scale. Radiation is now counted from 0 to 10,000 mSv. When the dosimeter displays 4 stars, it means that the background level is limited.
+-The operation of the dosimeter has been changed, the dosimeter will not emit the sound of batteries dead or removed.
+-Modified operation of the radiation sensor on the HUD and in the inventory, now they work only with a working dosimeter.
+-Reduced radiation damage by a factor of about 10. It's still dangerous, but it doesn't kill in a few minutes.
+-I've added a character parameter to adjust the range of items, the default is 1 meter, so you don't have to look at everything from long distances.
+-Added a smooth left/right look and the ability to adjust the tilt angle in the character settings or through a command in the console. Defaults to 30 degrees for balance.
+-Added a smooth squat and a command in the console for adjustment.
+-It added the display of weapons on the back of the 3rd face on the right and left shoulder.
+-Added display of worn helmets and backpacks on the character at the sight of the 3rd face, and a command in the console to adjust the bound items.
+-Fixed the height of the character sitting and lying down, so that you can not shoot back behind an obstacle, while remaining invisible.
+-Fixed the operation of the headlamp at the sight of the third face. The flashlight itself now only appears on the character when it's on the head.
+-Added the possibility of a hand kick. If the character is unarmed and looking straight ahead, the kick will be a hand, if with a weapon in his hand, the kick will be a butt or a weapon. If you look down, the kick will be a kick. To kick a character with a hand, the shooting button is used; to kick a character with a foot, there is a separate button.
+-Added a threshold to restrict kicking and hand kicking, put all settings in the character settings.
+-Added the effect and sound of the kick. Kicking consumes endurance.
+-Added a timeout after each kick or hand kick.
+-The kicking principle has been changed. Now the consumption of endurance on impact depends on the weight of the object. Added impact barring threshold, changed impact sound and added camera effect.
+-The movement speed of a character now depends on the ground he moves. The character moves twice slower on water, you can't run through bushes, and gravel, sand or crushed stone slows down the speed in different ways.
+-All the first-person hand models have been replaced. Replaced and redrawn all the textures of the hands, the character now does not look like a walking corpse.
+-Added the ability to throw an item out of a backpack, body or chest through the context menu.
+-It's not possible to take everything from another inventory.
+-Enabled lifting function has been redesigned, now works always after loading with or without a weapon in hand. If you try to pick up a few items at a time, they will be thrown back, all at once not captured.
+-Added item picking function. Added camera animation when picking up.
+-Added HUD animation when picking up an object.
+-Fixed a non-functioning Simplified Object Lifting function and redesigned the code for the new method. Forcefully activated precision matching mode.
+-Fixed weapon movement casinchron with character animation when seeing a third person.
+-Added the Always Run option, enabled by default. If it is disabled, you must hold the Acceleration key to run.
+-Fixed the non-working function of Simplified item pickup and modified the code for the new method. Forced Precision Selection Mode enabled by default.
+-Fixed weapon movement lag with character animation in the hands from 3rd person.
+-Added the Always Run option, enabled by default. If it is disabled, you must hold the Acceleration key to run.
+-Fixed the animation twitching when pulling out a detector or flashlight with an item in right hand.
+-Added the ability to run sideways in the sprint.
+-Added the world's animations to hit with hand and with weapon in stand position and crouch. Added world animations for all classes of weapons. Added kick animation.
+-Replaced world animations for walking, running and sprint, changed animation for standing and sitting without weapons.
+- Added world animations for moving and aiming at critical conditions of health and fatigue.
+-Added full body view in first person, with shadow, inverted kinematics, and all the Stalker charms.
+-Adjusted first-person camera, it is now tied to the head of the character and repeats the movement after the character's animation.
+-Adjusted third-person camera, now has collision and inertia. The position of the view from the third camera is adjusted. All camera parameters are set to settings.
+-Added the ability to rotate the head from the 3rd camera while holding Left ALT.
+-Added a unique character health system that radically changes the entire gameplay. Now character HP consists of several indicators, namely: bleeding, radiation, injuries, temperature, hunger, thirst, sleep, poisoning, mental state, pain and heart rate. The character now has body parts that can take different kinds of damage, whether it's a gunshot wound, bleeding, blow or fracture. Each part can have several injuries at once. Some healing items need to be applied locally to a certain part to get the effect.
+-Added a sleep restriction if the pain is moderate.
+-Stimulators now reduce only the pain threshold.
+-Medkits now restore HP of body parts, if part is restored the effect continues, the remainder is distributed equally to all damaged parts.
+-Slight bruises and fractures recover on their own over time. Big ones, however, can only be cured by a survival kit or by a doctor.
+-Added inertia of the 1st person's camera depending on the player's action, for example when jumping or running.
+-Dynamic speed of motion animation is added, the speed of animation changes depending on the speed of running.
+-Modified treatment by doctors to work with the new health system.
+-Added parameter fracture_restore_speed for helmets, suits and artifacts.
+-Added option for displaying character status bars in the health window.
+-Added the ability to use drag and drop healing with items for body parts. It is possible to drag both to a healthy part and to a damaged part.
+-Added illumination of damaged parts when pointing at a healing item.
+-Added an option to switch the function of artifact characteristics from the inventory. With this option enabled, artifacts will give only 75% of the properties when in a bag or suit and 100% when in a pocket.
+-Added to death in first person camera with body collision support.
+-Added context window to select body parts to apply items from quick slot.
+-Added a new function that calls up a context menu by double-clicking on an item.
+-Added a new function that creates a window by clicking on the quick slot button.
+-Reworked the method for discharging detectors and dosimeters. Now when the batteries are low or removed, they do not display anything.
+-Added the detector and flashlight animation slot. You can now hold the detector in your hand with a bolt, knife or gun in 3rd person view.
+-Fixed critical error causing inverse kinematics to fail.
+-Fixed the character acceleration bug by holding the walk button and moving backwards.
+-Removed the motion slowdown when in contact with fire.
+-Fixed an old bug with inventory if the trading or improvement window was open, the dialogue window remained open in the background, resulting in a mess if the inventory is transparent.
+
+Non-playing character (NPC):
+-Fixed non-functioning NPC model captures system. The damage is now distributed according to the damage pattern.
+-New equipment distribution system for NPC and complete re-equipping.
+-New NPC logic and behavior, they are faster, braver and more dangerous. Redesigned and optimized all NPC profiles, now they differ not only in groups, but also in rank.
+-NPCs can use knives, flamethrowers, and grenade launchers. They're also now throwing grenades in mutants.
+-The weapons selection scheme for the NPC has been improved. Pistols or flamethrowers are used only on short distances, knives only in close combat including against mutants. Grenade launchers and sniper weapons are selected only at long range.
+-The NPC has added a purchase limit if the item purchased exceeds the permitted volume or weight.
+-Added radiation exposure that comes from some mutants.
+-Added the possibility for NPC to change into any suit they found.
+-Added healing scheme for partners. The NPC evaluates the situation and, if possible, tries to heal an injured ally.
+-Changed the characteristics and behavior of the helicopter, now it's a dangerous opponent with whom it's better not to fight. Fixed machine gun parameters to take into account the caliber.
+-Added to the helicopter's ability to use missiles.
+-Added to the code the sound of a helicopter explosion. Changed the sound of his fall.
+-Fixed the silence of the NPC, changed the scheme of work at the campfires. Now NPCs talk more and react more correctly to the actions of others at the campfire.
+-Added NPC reaction if a character pulls a weapon nearby or points it at them.
+-Fixed all the radios on the bases. Now you can turn them off by approaching and interacting or shooting  them.
+-Fixed NPC models that led to crashes.
+-Removed knives in Azazel mode.
+-Added caravans. They consist of squads of well-trained fighters, who move from the perimeter to the traders and have to update their assortment.
+-It's possible that a local trader may ask for a caravan escort for an extra fee.
+-Exported unit of currency in the text, now you can change it to any one.
+-Medical functions for character treatment have been redesigned to take into account the new mechanics of character health.
+-The treatment time of a character in a doctor depends on the severity of the injury.
+-Done the concept of installing hacker software from a flash drive. If there is no PDA when using it, the program will not install. If at search of a body there is no PDA in a slot or the PDA is discharged, it will not be possible to withdraw from the account.
+-Fixed the mistake of missing hands when picking up items. Reworked the effect script so it wouldn't use an update often.
+-Fixed the crash when I talked to the swamp scientist, and the crash if there was no detector.
+-Corrected the drop-off of all the items at the door at the entrance to the Arena.
+-The flashlight now turns off and on when wearing armour or helmet.
+-Added the missing way for the helicopter to park in the swamp.
+-Fixed the logic and behavior of Max's squad at Army warehouses. Soldiers defend the barrier, not sit by the fire without reaction.
+-Moved a squad of soldiers at a checkpoint on Cordon who used to sit outside at campfire.
+-Fixed ignoring the military in the village by a newcomer to Cordon.
+-Fixed a dialogue with an army medic at the Agroprom.
+-Fixed the medic's position in the barracks at Army warehouses.
+-Added the ability to assemble weapons from parts of some technicians. Ask these technicians for more information.
+-Modified delivery scheme of flash drives with enhancements for technicians. You can also sell flash drives now.
+-Fixed a potential crash when NPC tried to hit another one with a grenade in hand.
+-Fixed companion work, now they obey commands and their logic doesn't break after moving from location.
+-Fixed the possibility of picking up my companion items through the PDA. Now the partners store and store only things issued by the character, they sell their own at a friendly price.
+-Added the ability to open the partner's inventory through a dialog.
+-Modified the logic of opening doors in a bunker on Yantar, now the NPC should not get stuck in the passage.
+-Poltergeist now spawns his physical body after death.
+-Telekinesis now turns off when a poltergeist dies or disappears.
+-Psi dogs will now attack with psi abilities when their ghosts are dead.
+-Fixed FPS drop and the wrong NPC spawn position.
+-Fixed raven's spawn point from one point, when loading or entering the location.
+-Fixed hostage scheme, now only one NPC from the squad is going to kill the injured enemy, not the whole squad.
+-Added models to all parts of the mutants that didn't have them. Replaced models: burer hands, pseudo giant hands, snorkel legs, dog and cat tail.
+-Fixed the texture of the dog's tail model.
+-Added skinning animations for all mutant parts.
+-Pseudo giants and telekinetics ignore objects with fixed bones.
+-Fixed an old mistake when telekinesis remained after the death of a poltergeist and objects kept floating.
+-Added the possibility for the poltergeist to come out and get out of invisibility. Removed unnecessary old polter crawling class.
+-Added different immunity for poltergeists in visible and invisible mode.
+-Removed the eye light from the dead and invisible bloodsuckers.
+-Added 2 parameters for the controller: tube_disable_camera_effect - disables the actor's camera movement during an attack and tube_disable_actor_block - disables the character's control lock during an attack. Disabled by default.
+-Fixed the settings for all the fractures, dogs and cats, some of which led to a crash with animations.
+-Fixed the bullet mark on the burer if it has an active shield and shoots at point-blank range.
+-Improved weapon selection for the NPC, now the best is always chosen.
+
+Storyline:
+-Removed option "Mystery of the Zone", now the completion of the story depends on the player's decision, the conditions of completion are the same.
+-Added the "Artifact Hunters" quest chain. Reworked all the dialogue and squads, replaced artifacts, as well as some of the conditions for the quest.
+-Reworked Zhurov's quest to find the machine gun.
+-Reworked in detail the first quest Fanat. Added new quests that he will give after the completion of the introductory.
+-Changed places of the missing gun's location on Fanat's quest.
+-Added new characters in the rockie village: Grisha and Father George. He has his own house where injured stalkers come to him.
+-Added a new character on the marshes, the head of the pumping station - Mikhalych.
+-Added a new job type - collector.
+-Added a new job type - cargo delivery.
+-Added ability to choose an item as a cash reward.
+-Changed job sequence of DRX tasks.
+-Expanded dynamic quests and conditions for their fulfilment.
+-Fixed incorrect timer function when doing timed quests.
+-Reduced the waiting time in the task of downloading doubtful material on the water tower at the request of a freeman.
+-Added different dialog variations for the same type of tasks.
+-Added greeting dialog variations for all factions.
+-Added the possibility of having a drink with an NPC and having a heart-to-heart talk. NPC may not agree if you seem suspicious to him. You must have something strong and a snack with you in order to have a drink. You can get something from your drinking buddy in the process.
+-Fixed conditions on NPC elimination quests. Now they are issued depending on the rank of the character, and the distance is no further than 2-3 locations from the current one.
+-Changed weapon search locations for Fatty in the meadow. Fixed reward after completion.
+-Changed the locations of items on the Fatty's Quest in the meadow.
+-Fixed crash on quest for SVD in the tunnel at the garbage.
+-Fixed the ability to obtain a tuned psi-helmet from Sakharov for the re-defense of the bunker. Psi helmet can now be sold.
+-Reworked the game of Russian roulette. Chances of getting lucky are now 50/50. Can only play once a day.
+-Fixed and reworked ability to change faction.
+-Fixed Sultan's mission to eliminate the group of stalkers on the farm.
+-Fixed the crash after the time expiration or cancellation of Fanat's quest to find the PM.
+-Fixed the currency reward function in quests that were completed.
+-Fixed the buggy mapping of mutants in laird clearing quests.
+-Fixed one barman crash and that he did not take an artifact on quest.
+-Added timers to certain events for the player.
+-Reworked checkpoint  squads on the cordon, created new patrols and changed their logic.
+-Fixed the barter at the Spirit in Yantar, changed and expanded the list of exchanges.
+
+Weapon:
+-Added weapon inertia with an option in the menu.
+-Added a unique magazine feeding system. All weapons now use magazines or ammo from equipment pockets.
+-Added dependence of magazine loading speed from shooting skill. Speed of sound changes with speed of loading ammo.
+-Added ability to detach the magazine from the weapon. The magazine is an add-on for a weapon with its own class and accessories.
+-Added 2 methods to adjust magazine icons on the weapon. The first one allows you to scale and rotate standard icon. The second method uses individual icon.
+-Added ability to load weapons with one cartridge without magazine/clip. If you insert the magazine and pull the slide, then remove the magazine, one cartridge will remain in the chamber of the weapon. In this way it is possible to load an additional round.
+-Added ability to use attachment through the specified bone in the model, without changing the gun section. Supports up to 64 attachments of each type.
+-Added a pop-up window for the magazine. It displays the number of rounds and all possible types of ammo that are supported.
+-Added display of compatible magazines when hovering over weapon.
+-Added display of recoil and bullet speed with comparison in weapon window.
+-Added sounds when retrieving and removing knife, bolt and grenade and other items.
+(Not transalated)
+-Added a new system of damage to cold weapons. Now each hit of the knife on an object wears it down, which reduces the damage caused by it. The second type of blow has twice as much power, but also wears the object accordingly. 
+-Added different degree of damage for the cold weapons, depending on the hit object. So, for example a strike on metal or a stone will cause much more damage to the weapon than a strike on the sand or bushes. If the weapon is in bad condition, it breaks permanently.
+-Added camera shake when shooting from 3rd person camera.
+-Added HUD zoom when close distance with obstacles.
+-Increased aiming radius up and down from 1st and 3rd person. Now you can aim under your legs or over your head.
+-Added option to disable weapon's inertia.
+-Added option to disable collision and aiming inertia. Added option for selecting in menu, you can select only one.
+-Fixed auto trigger pull after last shot on all weapon classes.
+Fixed the ammo re-packer on your belt.
+-Fixed the G43 model to make it look like a rifle, the sight can be removed. Fixed hand position, increased rate of fire and killing power.
+-Fixed world and HUD model of STG-44, fixed hand position and polished textures, fixed reloading and firing animations.
+-Fixed the lack of display hinges on weapons when hinging them, especially could be noticed on some models with ACOG.
+-Removed 2 types of VZ-65 "Scorpion", the rest of us reworked in models with unfolded buttstock.
+-Added a new parameter to disable autoloading of grenades from the belt after the shot (auto_reload in the section).
+-Changed parameters of 7.62x39 cartridges, they are killing now, as they should be, and 9x39 is weaker.
+-Reworked flamethrower model, corrected its position in hands and while aiming. Replaced the reload animation for a more appropriate, connected the animation of the shot with the gauge, corrected the error in the log associated with his particles on the din. objects. Fixed firing range and made an imitation of a cinders trace.
+-Adjusted silencer and its position on Forth12 and Walter P99.
+-Fixed targeting on Zulus PKM. Fixed gun texture.
+Added anti-personnel mine with its own parameters and icon, now there are 2 different mines in game.
+-Added new weapons: AA12, A-545, AEK-971, AK9, AK109, AK-12, ASVK, AUG A3, IZh-43, IZh-43 shortened, CZ58, CZ Scorpion Evo3, FAR15, FNC, Tactical Groza, G36C, HK416, HK417, Kriss Vector, KS23, L85, M1, M14, M21, MP7, P90, PL15, RGN, RU556, SOC94, Tactical Shaft, VSSK, Gauss, WA2000.
+-Replaced from AO 3.1: L85, M14, MP7 (buttstock redone), Gauss, TOZ-34. Added sights: Aimpoint, Coyote, Delta, Tars101, PKS-07, 1P78, OKP-7.
+-Replaced model and binoculars animations, corrected position of hands.
+-Fixed big bug which caused a grenade to appear in the emplacement sight after aiming, and at the option to unload in pg mode the bullets turned into grenades.
+-Added collision of shells, including with dynamic objects. Now at the contact bounce more plausibly.
+-Lengthened the drawing distance for the shell casing particle.
+-Added tactical hand flashlight from TAZ-2.
+-Added the ability to aim a gun with a hand flashlight.
+-Fixed the bug in the animation of reloading the gun with a flashlight in the left hand.
+-Replaced the OG-7B projectile model.
+-Reworked Swiss knife, now can be used as a melee weapon.
+-Replaced and adjusted all shell particles, added new textures.
+-Added the ability to change the type of loaded cartridge for shotguns by pressing the button to change the type of ammo, provided that they are in the pockets of the unload, the shot button stops charging the current type.
+-Removed the auto disabling of the aiming animation after the last shot.
+-Added the function of calculating the volume, weight and cost for the attached addons to the weapon.
+-Added HUD inertia for hip strafe and aiming mode.
+-Added ability to remove magazines in corpses.
+-Added a new firing mode for the double-barreled class, now there will be a duplicate shot when you switch to it.
+-Added an alternative sight system. Now all sights use the sight class, as it should be, with the ability to select a slot. Optimized the weapons and sights setup files.
+-Added a second rendering in the sight. Function can be switched off on fly in settings. If it is switched off, then texture sights are used.
+-Added night vision modes for sights with dual renderer. Enabled and disabled on night vision button.
+-Changed the vector of firing from 1st and 3rd person weapons. The shot is no longer fired from the center of the screen, but from the barrel of the weapon. This change changes the entire shooter component of the game. So, for example, the melee weapon will hit where the weapon animation has contact with the target, and the shot will come in the place where the weapon was directed, not exactly in the center of the screen.
+-Fixed the gun approach functions at the wall and first-person stabbing to work with the new firing vector.
+-Fixed duplicated HUD textures in sight lens, as well as messages and distance information.
+-Added weapon highlighting in the slot if you point it at a compatible addon.
+-Added calculation of the price of a magazine with ammo. Empty magazines can be sold as an exception. Added new parameter sell_damaged.
+-Added incomplete (tactical) reload animations for almost all weapons.
+-Added misfire animations for almost all weapons.
+-Added animations for reloading weapons without magazine and empty weapon without magazine.
+-Added new possibility to start HUD animation by timing, order: path to file, speed, start.
+-Added parameter detonation_on_hit for grenade class explosion on contact.
+-Weapon icon extension by one cell in length if you attach a silencer to the weapon.
+-Added display of type and number of loaded ammunition in the magazine window, the number of icons is created dynamically depending on how many types are assigned.
+-Added magazines for Gauss rifle for 10 and 20 rounds. How to load them now look for yourself.
+-Added option to change aiming from 3rd person to 1st.
+-Fixed global sausage model.
+-Added fresh axe animations.
+-Added the display of the item in the holster and scabbard slot. Guns and knives now have their own position on the character when in slots.
+-Changed CZ-75 Auto model and added new animations. Added ability to place silencer.
+-Added possibility to set sights on RC-33.
+-Fixed the scheme of improvements for Mosberg 590 camouflage.
+-Changed sprint and pistol pull animations to more appropriate ones. Added crouch motion animations. Added two boredom animations. 
+-Reworked HUD models of all guns to match 3rd person animations. Weapons are now pointed at the center of the screen and have more correct hand positions. 
+-Reworked the HUD models of all shotguns to match the third-person animations.
+
+Sound:
+-Replaced all the ambient on locations with dynamic ambient, added a large number of short songs, optimized settings files.
+-Increased cache of sounds and sound source by 2 times, it fixes overlapping of sounds.
+-Activated software EAX, added EFX.
+-Added HRTF.
+-Added ability to slow down and speed up sound speed.
+-Added different sounds for different actions, such as cutting things or disassembling weapons, making selfcooking, pouring water into pot.
+-Added different profiles and sounds when picking up items. Sounds of lifting are now also played when carrying an item from other inventories.
+-Added a sound when a magazine or weapon in an NPC's inventory or container is unloaded.
+-Replaced all sounds of surfaces, hits, ricochets, added sounds of bullets whistling.
+-Increased the number of walking sounds on surfaces from 4 to 6.
+-Changed dosimeter sounds and expanded to 8 levels.
+-Fixed commentary for all sounds. Fully adjusted smoothness, range type sound, volume and distance of the sound. Most of the sounds had these values out of spit, and this is important.
+-Added character peeking sounds.
+-Added sounds for turning your tablet on and off (yes the character now has a tablet).
+-Added sounds for looking left and right.
+-Added sounds of pulling the magazine and cartridge out of the weapon.
+-Static occlusion of sound volume depending on its position.
+-Added sounds when reloading after the weapon jams.
+-Added ability to start HUD sound by timing, order of arguments: path to file, volume, speed, delay, frequency, start.
+-Added new sound of duple shot for double-barreled weapon class.
+-Replaced all zombie sounds.
+-Fixed merchant's sound source, now it will be played from his position.
+-Fixed crash if sound has more than one channel.
+-Added function to play sounds of movement in the exoskeleton.
+-Added support for sounds in XML.
+-Added button sounds when clicked and hovered in all interfaces.
+-Added button sounds when clicked in the smartphone.
+
+Graphics:
+-Optimization of all renders, which gave a total gain of 5-10 frames, depending on the configuration.
+-Added function to disable loading textures in virtual memory, resulting in the game began to consume twice less memory. This gives a chance to play on maximal graphics settings without any problems.
+-Added water reflection for statics with R2.
+-Added option for clouds rotation which does not depend on sky rotation, can be set in weather settings via cloud_rotation line.
+-Added a new command to adjust texture rendering on short and long distances. This fixes some old graphical artifacts.
+-Fixed "Sun Ray Translucency" on static lighting, mainly on AMD graphics cards.
+-Fixed not being able to run game on R3 after FXAA was enabled.
+-Fixed R3's volumetric fog lighting.
+-Fixed Dimensional Light's interaction with static light sources.
+-Fixed static lighting of campfires.
+-Fixed the expansion on the first start of the game. Changed the method of expanding window.
+-Fixed bug with flickering of transparent surfaces on R1.
+-rsDrawDynamic and rsDrawStatic now work on R2-R4 like they do on R1.
+-Maximum frame delay for R4 is now 1.
+-Fixed Too many occlusion queries were issued(>1536)!!!
+-Fixed virtual radius of lamps.
+-Changed the position of the text of the name of the item when selecting the item.
+-Added ability to set text color when picking from item section, set via pickup_color = 255,255,255,255 ;R G B A
+-Full reorganization and optimization of the texture of the icons. Now the resolution of textures 4096x4096, allowing owners of older graphics cards to play without distortion of the icons.
+-Added volumetric rays for transports.
+-Added volumetric light for anomalous zones. Added option to menu to disable.
+-Added ability to save screenshots in PNG and TGA format. In order to work add necessary --ss_png or --ss_tga key.
+-Reworked the effect of glare from lenses.
+-Fixed the rare departure if you look towards the sun if you aim, related to the glare effect.
+-Fixed too many occ queries bug on R3-R4.
+-Added detection and release of lost queries from OGSR.
+-Fixed leakage of OCC queries from OGSR. 
+-Corrected specular glare color from OGSR.
+-Fixed a critical bug in DetailManager.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1602: (26.07.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Repacked textures archives, now all textures are displayed correctly.
+-Fixed input hanging when opening the trade menu.
+-Fixed camera view through textures when character dies.
+-Fixed an error with the hands and camera when wearing a mask or suit.
+-Fixed an error with MSAA in shaders on R3.
+-Fixed icon for unloading pocket.
+-Fixed mutants skinning with knives and axes.
+-Fixed crash when a character runs for a long time.
+-Fixed crash with rusty TOZ-34.
+-Fixed crash when trying to have a drink with a Fanat.
+-Fixed crash with sport enhanced backpack.
+-Fixed crash caused by throwing an object out of hands when a body part is injured.
+-Fixed crash when losing conscious.
+-Fixed crash associated caused by stalkers immunities.
+-Slightly increased thirst quenching from water.
+-Added animation for energy drink and redbull.
+-Readjusted the AK-74 position.
+-Readjusted the camera position in the 2nd camera.
+-Reworked effects when using items.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1603 (04.08.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed item pickup function.
+-Fixed medic healing function, now time passes correctly and the character doesn't get injured.
+-Fixed Swamp Doctor's healing function.
+-Fixed an error with filters in the trade menu, when you could increase Buy/Sell values and clone items by pressing the filter button.
+-Fixed the functionality of some starter skills.
+-Fixed the lack of support for some mags for AK-74M.
+-Fixed the backpack icon for the Fanat quest.
+-Fixed the key icon for the Doctor's quest.
+-Fixed inability to charge 11.43x23 hydra-shock cartridges in mags.
+-Fixed award for delivery Nimble PDA.
+-Fixed the cost of recharging the battery to technicians.
+-Fixed an error when character received damage when pulling an artifact out of a container with pliers in his inventory.
+-Fixed door logic at scientists' bunker on Yantar.
+-Fixed character's jump animation with or without an object in his hand.
+-Fixed frequency parameter for sound.
+-Fixed servo icon.
+-Fixed ability to climb ladders with devices in the left hand.
+-Fixed flickering of textures in the far distance.
+-Fixed the appearance of hands flying around the camera in the arena.
+-Fixed aiming on Browning HPSA.
+-Fixed aiming on rusty Mosin.
+-Fixed the description of the delivery task.
+-Fixed the heart rate lock after using some items.
+-Fixed the target distance location in inaccessible or distant locations.
+-Fixed an abnormal phenomenon with a duplicate character backpack on levels.
+-Fixed the appearance of backpacks at traders feet.
+-Fixed the unsaved hero settings if you load autosaved after sleep.
+-Fixed the position of axes and shovels on the character and NPC.
+-Fixed playback of item effects after character's death.
+-Fixed thirst suppression when using a vodka bottle.
+-Fixed crash associated with Fanat reward.
+-Fixed crash caused by containers with artifacts pickup.
+-Fixed crash with the scope of OC-33.
+-Fixed ranking reset in the character creation menu.
+-Fixed crash associated with item dropping, part two.
+-Fixed crash with rusty AKMS. Fixed model animations.
+-Fixed crash with technician trade profiles.
+-Fixed crash with the start location when playing as bandit.
+-Fixed epinephrine recipe.
+-Fixed the effects of disassembling weapons and outfits.
+-Fixed knife icons.
+-Fixed crash with artefact containers.
+-Fixed protection sections for stalkers in exoskeletons and heavy suits.
+-Moved manager of exoskeleton sounds to the game engine. The steps sound now come from the level of the legs, when in contact with the surface. The NPC are now using this pattern, too.
+-Increased desire to sleep within 24 hours.
+-Disabled thermal vision in 1P29 scope.
+-Disabled extra options.
+-Increased pain reduction in alcohol consumption.
+-Reduced threshold when character has severe shortness of breath with low endurance.
+-Inhalation and exhalation rates have been changed, the transition is smoother.
+-Modified volume of ammo packs and for some items to more real values.
+-Changed the animation and camera position when climbing the stairs.
+-Changed HUD position for: STG-44, MP5, MP5SD.
+-Temporarily disabled backpack upgrades.
+-Added the ability to assign a button to check the heart rate in the settings.
+-Added Mosin rifle cartridges in the start menu.
+-Added conditions for some tasks to fail if the employer is killed.
+-Added the option for NPC to put on backpacks.
+-Added missing description for Sidorovich's package and collector tasks.
+-Added feature to display flashlight in hand in 3rd person view.
+-Added more products on sale for mercenary leader.
+-Added description of rusty TOZ-34.
+-Added descriptions for some mutant parts.
+-Added all missing sights for AKS-74.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1604 (05.08.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed all crashes related to skills.
+-Fixed crash with Nimble task reward.
+-Fixed the duration of the indraline.
+-Fixed position of all scopes on AK-74.
+-Fixed underbarrel sounds for AUG A3.
+-Modified the weight and volume of some parts of mutants and materials.
+-Added a new mode of switching the sighting. Allows you to switch between optics and ironsight, or to an additional view of the camera.
+-Added the ability to assign a key to switch the sight.
+-Added the option to hold when switching the sight.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1605 (18.08.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed display of suit protection sensor in inventory.
+-Fixed the condition for the CS hostage task.
+-Fixed the missing axe blade in skinning animation.
+-Fixed the number of possible exoskeleton pockets.
+-Fixed AK-74 aim position on 4:3 monitors.
+-Fixed APS aim position.
+-Fixed VSK-94 aim position.
+-Fixed the wrong name for the radio music files
+-Fixed the name and description of 7.62x54 mm PP cartridges.
+-Fixed the condition of tasks to search for patches, now npc asks to find patches of factions that conflict with them.
+-Fixed the mismatch of magazine icons on HUD.
+-Fixed the name of the Containers with Thorn artefact.
+-Fixed Lumberjack skill description.
+-Fixed switch to knife when trying to skin mutant with an axe if the knife was in the first slot.
+-Fixed the logic of some immortal characters who did not respond to damage.
+-Fixed the cause of the failure of some faction tasks.
+-Fixed the ability to regain stamina in the sprint by using breath hold.
+-Fixed working of hand lamps after removing the battery.
+-Fixed possibility to get whole weapons from prisoners through dialogue.
+-Fixed the texture of the KC-23 casing.
+-Fixed mistake when the bandits on George's task were dropping their pda.
+-Fixed head damage in exoskeletons.
+-Fixed crash when opening a small backpack from the boxes.
+-Fixed crash with water can model.
+-Fixed the damage from the artifact when it's in the container, or when loading the game.
+-Fixed potential crash with expired products.
+-Fixed crash with PO4x34 scope at OC-14. Added lens.
+-Fixed crash with K98 scope. Added lens.
+-Fixed crash on Sultan's task to eliminate the squad.
+-Fixed Scrooge's warehouse volume.
+-Fixed VSS wrong bump.
+-Fixed crash caused by missing sound in the Sarcophagus.
+-Fixed crash when trying to trade with the Lumberjack. Added ability to recharge his batteries.
+-Fixed some grammatical errors in texts.
+-Fixed non-working orders from Lumberjack.
+-Fixed some items' icons.
+-Fixed damage to some NPC models.
+-Fixed the icons of the MP5  Berserk magazines, corrected the name.
+-Fixed crash with mutant freshening window.
+-Added animations for water bottles.
+-Added animations of the magazine insertion in an empty or full weapon. Added for all guns.
+-Added descriptions: FAL, AK-12 modernized.
+-Added function for weight and volume dispersion for all items.
+-Added a weapon for the Fanat.
+-Added a magazine for Scar Mk.20.
+-Added a respawn for the Scientists' Bunker Squad on Yantar.
+-Added a new mercenary trader, now he's running supplies.
+-Added novocaine and injector instead of 3 stimpacks, used as a painkiller. It needs to be charged before it can be used.
+-Replaced models of G36 and G36K. Fixed draw/holster animations with underbarrel grenade launcher. Added them lenses and aim switch.
+-Replaced SAKO TRG models and animations. Adjusted position, added support for all sights. Added them lenses and a change of sighting.
+-Re-adjusted position vz.65. Added aim switch.
+-Replaced the AS VAL and AS VAL tactical models, added an alternative sighting. Added support for all sights.
+-Replaced sounds of AK-105 draw/holster.
+-Changed the number of pockets on some suits.
+-Changed weather cycles, now it's more diverse. 
+-Changed the volume of most objects to more real values.
+-Changed arsenal of zombie stalkers.
+-Removed any unnecessary messages for the developer.
+-Removed crosshairs from AK-109, KSVK, RG-6.
+-Removed from reward and simulation all empty closed containers.
+-Removed some more unwanted objects from the spawn.
+-Removed skinning animation when trying to take an object that is not part of the body.
+-Removed the chain of quests Artifact Hunters are preparing a replacement.
+-Enhancement of endurance in regular, medium and science suits.
+-Enhanced item pick-up function.
+-Enhanced English translation.
+-Returned the method of moving in transport between locations.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1606 (31.08.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Fixed the passage of the first camera through obstacles.
+-Fixed the character's body passage through obstacles.
+-Fixed FPS drops in cases of a large number of anomalies.
+-Fixed the work of grass shadow function, affects the frames insignificantly.
+-Fixed the SKAT-9M suit hand model.
+-Fixed Cat's Eye pills effect.
+-Fixed an error in which a character refused to sleep even if he did not take any stimulants.
+-Fixed the option of rain drops on the screen.
+-Fixed an old engine bug for which the water collision sounds were not played.
+-Fixed an error where you can repair masks and helmets by dragging the battery.
+-Fixed the position of the second camera.
+-Fixed HUD-a shake on all renderers.
+-Fixed character bouncing and dropping while moving.
+-Fixed backpack or helmet flickering on certain movements.
+-Fixed aiming at worn-out AKMS. Added view switching to the side.
+-Fixed aiming at VSK-94 with sights.
+-Fixed aiming at AK-74M (alternative), on monitors 4:3.
+-Fixed display of UI elements of inventory and tablet, on monitors 4:3.
+-Fixed squad duplication on Yantar.
+-Fixed the spawn of a nonexistent squad in Pripyat.
+-Fixed HUD texture stretching of combat helmets when minimizing the game or changing suits.
+-Fixed mouse sensitivity in aiming through collimators.
+-Fixed grammatical errors in Russian and English localization.
+-Fixed crashes associated with the mutant elimination quest award.
+-Fixed descriptions of some magazines.
+-Fixed reset of first-person sighting switching function after loading or switching to another level.
+-Fixed crash at NPC search.
+-Fixed crash with VSS model with 1P78 scope.
+-Fixed potential crash with weapons found in stashes.
+-Fixed crash associated with the NPC rank in the debt task.
+-Fixed crash with the missing model OC-33 with the delta sight.
+-Fixed crash caused by lack of space in slot 5, when playing on monitors 4:3.
+-Fixed crash with Zhurov rifle and bandit SVD.
+-Fixed pseudodog strike protection.
+-Improved English translation.
+-Reworks of Monolith snipers and Stormtroopers squad.
+-Redesigned injector world model.
+-Adjusted particles of smoke from weapons. Now it is not tied to HUD-y.
+-Adjusted the code of the game, now the game will not fall in the absence of the prescribed particles, instead it will be logged.
+-Readjusted the position of AN-92 in the hands, added a change of sighting.
+-Removed random weight and volume dispersion from bandages.
+-Firing effector the 3rd camera is removed.
+-Remove the sprint when the character moves on water.
+-Casing particles at the helicopter were removed and the potential flight was corrected.
+-This reduced display of artifact icons on Veles and Svarog detectors.
+-New materials for casings and contact sounds have been added.
+-Added contact sounds of casings with different surfaces.
+-Added a function that moves a character to the last point if it falls under the level.
+-Added setting of the mouse sensitivity in the sights.
+-Added 7.92x57 cartridges for G43 and Mauser 98K. Added ability to put them in your pocket to charge the Mauser 98K.
+-Added delay in character rotation.
+-Added unique implementation of these shells for all weapons. Added new features to customize the shells, the shells themselves are selected.
+-Added option to disable 3D casings for use with ordinary particles.
+-A possibility to assign ammunition material to its section has been added.
+-Temporary fix for battery charging by technicians has been added.
+-Added switching of sighting from texture sights to additional aiming.
+-Added a fire if a character has received fire damage.
+-Added a fire of dynamic objects and NPC.
+-Added description of the item in the order dialog, before ordering the item.
+-Added magazine and ammo for Colt 1911 in mercenaries and Freedom starting gear.
+-Added damage to the character's head if he accelerates and hits the wall, and a penalty for endurance.
+-Added camera hit at aiming for the second camera.
+-Added weight and volume spread for mutant parts.
+-Added  new material for flamethrower fuel, now it does not make a hit sound and does not crush the surface at contact.
+-Mauser 98K model and animation has been replaced. Added a change of sighting with installed sight.
+-Replacement of model and animation AK102. Added and adjusted all sights, store animations. Added change of sighting.
+-Replacement of model and animation AK105. Added and adjusted all sights, store animations. Added switching of a sighting.
+-Replaced sounds of shells and dosimeter take-out and removal.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1608 (29.09.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added the function of increased inertia of the HUD model. Added an option in the settings.
+-Added option: 3D shells only for player.
+-Added a missing texture of the sight bar.
+-Added a unique developer function to control any creature or object.
+-Added option to select the radius of A-life. A small value will be useful for weak PCs and also to avoid some problematic moments.
+-Added some animations for usable items.
+-Added night sights: PN23 "Saracin", 1PN93 "Kid", NSPU.
+-Added required damage parameters to 82 NPC models, 20 more fixed sections.
+-Added types of batteries used in the description of dosimeter and tactical flashlight.
+-Added HUD shell models.
+-Added obvious transition to the Agroprom dungeon and from bar to Rostock for all groups.
+-Added display of traces from hits on the character.
+-Added method of smooth attenuation of sounds when crossing the maximum sound distance.
+-Returned the console. Restored save bans and moved to game code, now it works more correctly.
+-Fixed character's death when transferring to Arena.
+-Fixed frame drops during frequent collisions of the model, when the model got stuck in planes, which created a lot of particles.
+-Fixed first-person body collision.
+-Fixed loss of all shell casings from the inventory if one was dropped.
+-Fixed bug with award receiving in Lukash tasks.
+-Fixed the logic of the wedge behavior.
+-Fixed a character model collision with dynamic objects.
+-Fixed inability to load armor-piercing cartridges of cal. 338.
+-Fixed a frequent bug that resulted in saving or crashing the game during loading.
+-Fixed ability to hold your breath after death.
+-Fixed army jacket icon.
+-Fixed ability to light cigarettes with an empty lighter.
+-Fixed work of the global event function CreateTimeEvent in all scripts.
+-Fixed a bug when wearing a mask with no helmet on and the sound of breathing in a gas mask was played.
+-Fixed artifact hit function that triggered when selecting a canister and broke the CreateTimeEvent global function.
+-Fixed jerry can pick up function that broke the CreateTimeEvent function.
+-Fixed the vol_take function which broke the CreateTimeEvent when the function of the section receiving object was called later.
+-Fixed the function of flies that broke the CreateTimeEvent function on a certain event. Fixed frame drops from flies.
+-Fixed breakage of the glass sweating function in the helmet when breathing.
+-Fixed broken animation when smoking a cigarette.
+-Fixed blocking of the control after cutting the mutant body part.
+-Fixed the absence of sounds when picking up objects.
+-Fixed the absence of sound from the FN Fal silencer.
+-Fixed turning of plastic bottles into mineral water bottles when filling with water.
+-Fixed opportunity to get a fully charged battery from any device.
+-Fixed camera lag when driving in transport.
+-Fixed the transmission of the lens effect through the body of the character.
+-Fixed the absence of shooting sounds after improvements to the technician.
+-Fixed the lack of displaying the Mosquito Bald anomaly on the Svarog detector.
+-Fixed creation of another empty lighter when it was filled with a can.
+-Fixed creation of another empty lighter refiller can when it was filled with gasoline.
+-Fixed the absence of damage from fire and chemical anomalies.
+-Fixed the Depression and Strong skills.
+-Fixed lags when saving.
+-Fixed all failed tasks that give important characters.
+-Fixed hit points for pistols at medium ranges.
+-Fixed crashes due to missing bullet material.
+-Fixed crash when part of the mutant was cut off when the script could not detect an active slot at the current time.
+-Fixed crash when recharging the integrated underbarrel grenade launcher.
+-Fixed single_handed parameter, now you can specify if the weapon is one-handed or two-handed.
+-Fixed crash when the maximum number of bullet marks on dynamic objects was reached.
+-Fixed crash when trying to sleep.
+-Fixed old xRay bug for which the model was stretched over the whole map under strong physical influence.
+-Fixed barrel type in AEK-971 after disassembling.
+-Fixed crash with Usas-12.
+-Fixed sound when cutting the equipment.
+-Fixed camera position when dying from 1st camera.
+-Optimized calculation of drawing distance for 3d shells.
+-Removed illogical items in mutants loot.
+-Removed meaningless sleep robbery function.
+-Removed the option to kill NPC in anomalies.
+-Enhancement of endurance when moving around in light suits.
+-Increased radius of items pickup.
+-Fixed 7.62x25 cartridges icon in the magazine charging window.
+-Fixed bloom and tonemap parameters for all renderers.
+-Adjusted the direction and position of shell casings ejection for all guns, shotguns, and automatic rifles.-In order to aim all pistols again, it is set to aim comfortably in exoskeletons.
+-Redesigned textures of green water.
+-Replaced the AK-12 models. Fixed reflex sights.
+-Replaced VSK-94 models. Reconfigured hand position and sighting. Added change of sighting.
+-Replaced RPK models. Added new animations and sounds. Adjusted position in hands and aiming.
+-Replaced RPK-74 models. Added new animations and sounds. Adjusted position in hands and aiming. Added support for all sights, added lenses for them.
+-Replaced SVD models. Added new animations and sounds. Adjusted position in hands and sighting. Added support for all sights, added lenses for them.
+-Replaced SVU models. Added support for all sights, added lenses for them. Reconfigured aiming and position in hands. Added change of sighting. Added new sounds and animations.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1609 (05.10.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added the button "Share everything" in the inventory.
+-Added the function of long moving of items between the inventory when clicking on "Take all" or "Transfer all". The more items, the longer the action time.
+-Added the ability to move things between the inventory by moving the cursor over the desired inventory and pressing the Sprint button.
+-Added the function of stopping extraneous sounds if the character is in a closed room.
+-Added the function to determine if an object is under a roof. Now all the campfires that are under the roof will not turn off when raining.
+-Added a new parameter for used items, volume_scale. It specifies if the volume should be proportionally reduced when using the item.
+-Reworked saving function. Simplified saving rules.
+-Fixed delivery parcel jobs, in description now show what to give to the recipient.
+-Fixed the absence of a dialog box at transitions and attempts to sleep in sleep zones.
+-Fixed bug when objects appearing after breaking crates fall under geometry.
+-Fixed magazines incompatibility of AKM and AKMS.
+-Fixed radio logic and music fading in the bar on Freedom base.
+-Fixed grass shadow option on 4:3 monitors.
+-Fixed too large size of grenade wallmarks.
+-Fixed crash when wearing a mask or suit.
+-Fixed head impact in narrow places like cellars.
+-Replaced the sound of sharpening knives and axes.
+-Removed cartography set from the start store. Now available only military maps with a fixed price.
+-Improved English localization.
+-Replaced AK-74 models with new collimator sights.
+-Replaced AUG A1 models, replaced reload sounds. Adjusted position in the hands, added a lens and changed the sighting.
+-Replaced AUG A3, adjusted position in hands. Added lens for all sights.
+-Adjusted AK-74M (alternative) position in hands.
+-Customized some inventory elements for all resolutions, added 1 more row.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1610 (19.10.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added feature of load spreading to all CPU threads, if there are several threads. Added option in settings.
+-Added option of frame limiting from 1 to 240. It is disabled by default. Note that VSync restricts frames to the frequency of your monitor.
+-Added burning sound to physical objects for fiery type of damage.
+-Added FOV changing function when the actor is moving. Added option in settings.
+-Added alpha channel support for all UI elements of the object icon.
+-Added a feature to mute all radio receivers.
+-Added the function of saving the state of dynamic objects on the level.
+-Added in reward exclusion NPC script medkit.
+-Added radiation items as an exception to the reward list.
+-Reworked weapons inertia while moving. Now the hands move more smoothly.
+-Fixed the character's impact on non-existent surfaces.
+-Fixed input lock when cutting mutant parts.
+-Fixed store description for SKS.
+-Fixed crash and errors in NPC sounds function.
+-Fixed crash when using the guidesservices.
+-Fixed crash when taking delivery task.
+-Fixed outbound and for M249.
+-Fixed crash when trying to load quickly from the main menu after character death.
+-Replaced SV-98 model. Reconfigured position and aiming. Added magazine for SV-98.Added change of sighting.
+-Adjusted AN-94 "Abakan" aim switch.
+-Adjusted position and aiming of SOC-94. Added and adjusted all sights, added lenses and holograms. Added change of sighting.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1614 (14.12.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added the ability to pour water into an empty beer bottle. Added description for plastic water bottle and empty beer bottle.
+-Added empty flask after using moonshine.
+-Added support for firing animation in aiming mode.
+-Added support for empty weapon firing animation. Added animations for all weapons.
+-Added full ability to use the helmet class from the headlamp slot.
+-Added the function of closing transitions. Reworked the mechanics of transitions, now they open and close randomly after each blowout.
+-Added ability to keep artifact Crystal in containers.
+-Added ability to wipe droplets from glass, button can be assigned in settings. Now the raindrops appear only when the mask or costume is worn.
+-Added ability to get information from the survival manual.
+-Added ability to pull the ampoule out of the injector. Now it is counted if the ampoule is infected. Fixed icon of irradiated Novocaine.
+-Added ability to pour water out of containers.
+-Added HUD mask movement feature. Added jitter to the hood from firing. Added option to game settings.
+-Added Seva-M rupture protection.
+-Added the ability to put coins in the wallet.
+-Added the ability to use chocolate from the quick slot.
+-Added information in the hint window for body parts.
+-Added a feature to check the remaining ammo in the magazine. Added button to control settings.
+-Added option of sprint on hold or toggle key.
+-Added option to select OpenAl sound device in sound settings.
+-Added a command to collect items in the companions menu. Added an option to close the partner menu by pressing Esc or left mouse button.
+-Added exceptions for mouse sensitivity when switching aiming.
+-Added display of damage, accuracy, usability and condition for melee weapons.
+-Added a new upgrade to reduce volume and increase suit capacity. Added only for exoskeletons so far.
+-Added survival skill increases if character survives blowout or psi ejection.
+-Added display of the number of pockets in outfit properties. Added a new icon to outfit properties.
+-Added warning about necessity to restart after change of anti-aliasing quality and SSAO type.
+-Added parameters of intoxication for the character. Intoxication accumulates and slowly eliminates itself, but affects stamina. At the maximum level the character dies.
+-Added parameter toxicity to all the necessary items and drugs. Mainly eliminated with first aid kits and activated charcoal.
+-Added activated charcoal to cure intoxication.
+-Added combustion sound to dynamic objects when set on fire.
+-Added cartridge case rotation during flight.
+-Added Trijicon SpecterDR sight. Added reticle for it.
+-Added chance of failure when slicing off part of a mutant. If the attempt is unsuccessful, the character also gets experience points. Hunter's kit and "Mutant slayer" gives a bonus to the attempt.
+-Added servo sound when climbing stairs in an exoskeleton.
+-Added speed consideration when moving stackable items in the same cell between the inventories.
+-Added a ban on picking up items if characters' hands are damaged. Also with damaged hands he can't hold a weapon.
+-Added new properties to some rare artifacts.
+-Added a few more exceptions for radioactive items as a reward.
+-Added outfits for some NPC visuals. Fixed some inconsistencies. Reworked and optimized script.
+-Added AK-109 and AK-12-M1 to weapons disassembly.
+-Added shooting animations for AK-74 when aiming.
+-Fixed too big spacing in the outfit properties window. Now this window has become more compact and can contain more information.
+-Fixed case when on the level two objects are spawned in one place and at contact they make a loud sound of blow.
+-Fixed the crash caused by open irradiated stew.
+-Fixed the switch in the military laboratory, now you can pass the plot Secrets of the Zone.
+-Fixed crash because of the magazine icon for SV-98.
+-Fixed the weight of the "Tourist" outfit in the autumn freedom camouflage.
+-Fixed the duplicated dialog about the availability of your equipment at the technician on the Yantar.
+-Fixed the scrolling down on the left side of the inventory when clicking on any item.
+-Fixed a potential crash associated with the sound scheme of the NPC.
+-Fixed the crash when trying to buy water from the traders through the dialogue.
+-Fixed the crash when picking up the detector if the character has a gun in his hands.
+-Fixed the spam in the log caused by the smoke particle.
+-Fixed the type of sounds of closing and reloading shotguns.
+-Fixed the scrolling of skills in the start menu. Increased the window, reconfigured all elements.
+-Fixed crash when pulling out G43.
+-Fixed crash because of lack of worn-out SVD. Added missing models.
+-Fixed crash due to wrong chunk size.
+-Fixed bug because of missing model of scientist's suit.
+-Fixed an old bug where the misfire caused one shot to be fired along with the sound of the bolt being jerked.
+-Fixed the ability to wear a helmet with a military isolation suit. Changed the properties of the suit.
+-Fixed detectors and dosimeter work after the battery died.
+-Fixed the collision of the character with phantoms and stalkers.
+-Fixed a bug that caused the mission conditions not to determine the character.
+-Fixed the ability to move more things than the volume or weight of the inventory, when you click or use "Take all" or "Move all".
+-Fixed a bug that caused NPCs to drop lanterns and other items from their inventory at an infinite rate.
+-Fixed the delay when eating a sandwich.
+-Fixed the delay when Abakan misfires.
+-Fixed the animation of NPC's death by fire and electric shock.
+-Fixed the discrepancy in the description of the Fanat reward for the beginning mission.
+-Fixed the playback scheme of NPC's sounds in wounded state.
+-Fixed a bug in the freshness animation when the skill was increased and the animation played without a weapon in hand.
+-Fixed the behavior of the second camera when riding transport, now it is fixed.
+-Fixed a bug that caused the crash if the model did not have a physical shell.
+-Fixed the purchase price and psi-helmet settings for Sakharov.
+-Fixed a bug in the logic of tushkans in the laboratory of X8.
+-Fixed decoder icon.
+-Fixed the disappearance of an empty battery or battery pack when replacing it by dragging.
+-Fixed the cost of the Sultan's Quest reward for eliminating a target.
+-Fixed the bone at the hanging lamp in the depot at the garbage location.
+-Fixed forced working of target locking system of digital binoculars. Changed effector of IR improvement.
+-Fixed the ability to select incompatible skills in the start menu.
+-Fixed a bug where you could gain skill points by moving the skill backwards.
+-Fixed auto-sorting skills in the start menu when clicking on the random selection button.
+-Fixed a bug in creating an outfit cutting kit, now the Swiss knife is removed.
+-Fixed the display of the status bar on costume cutting kits.
+-Fixed the lack of tool rewards for Polymer.
+-Fixed completion descriptions for mutant meat quest.
+-Fixed the switching of the night vision in the scope when the helmet or the suit with NVG was worn.
+-Fixed the number of created sandwiches, now there are 3.
+-Fixed forced stacking of items in the inventories.
+-Fixed the position of the Fort-17 silencer icon.
+-Fixed the appearance of a nameless flash drive in the loot.
+-Fixed the quest for the artifacts from the Bartender, Professor Herman and Sakharov.  Now they take the artifacts and give out a reward.
+-Fixed the number of uses for the MRE and the removal of the item after use.
+-fixed the number of items you will use and how many times they will be deleted.
+-Fixed the display size of lua data cleaning in the log.
+-Fixed the empty container appearing at the trader after filling with water.
+-Fixed some recipe descriptions and changed some components.
+-Fixed sound looping during the collision of dynamic objects with static.
+-Fixed the disappearance of the servo replacement kit when canceling its use.
+-Fixed the lack of ability to repair the exoskeleton when you press the repair button, now the set have 2 uses.
+-Fixed appearance of two dialogues at once about orders from Dushman.
+-Fixed getting a 7.62x39 caliber barrel while disassembling a worn out AEK-971.
+-Fixed dropping out of whole knives from NPC's, now the state of the knife depends on the NPC rank.
+-Fixed disappearance of holograms after loading. The active pointer is now preserved.
+-Fixed magazine disappearance on Vepr-12 after loading.
+-Fixed auto save message hanging on screen.
+-Fixed the sound of the helmet when you wear a camouflage suit.
+-Fixed mutant lair not being tagged in the Bartender's Quest.
+-Fixed the shaking of the LR300 model when aiming.
+-Fixed coordinates and direction of cartridge case ejection for VZ.65, PCA and OTs-02 "Cypress". Aiming at 4:3 resolutions was corrected.
+-Fixed crashes when using some products.
+-Fixed Steyr Aug A3 sounds and reload animations. Added a magazine icon.
+-Fixed grammatical errors in the texts.
+-Fixed the types of null restrictors on all locations.
+-Fixed the glowing eyes of pseudodogs.
+-Fixed firing modes of tactical "Groza".
+-Fixed animation bugs for using items.
+-Changed mine activation principle, added activation animators.
+-Changed vision of NPC depending on their rank, now a newbie won't shoot through the vegetation barely noticing you, but if he notices, he will definitely do it.
+-Changed display of mutant skins from artifacts to the equipment filter tab.
+-Changed equipment in Preacher's task.
+-Changed Klin's location, he now sits in the basement.
+-Changed the speed of Cat's Eye pills.
+-Changed exoskeleton movement function when the battery is low. Now if there is no charge and the character does not move, stamina is not taken away.
+-Changed the function of dressing up, if when dragging in the slot the suit is put on, then the HUD will change only after the animation is played, and the sound will start if necessary.
+-Changed thermite grenade explosion particle.
+-Changed the brain icon of the controller.
+-Changed the conditions for changing provisions and assortment for some traders.
+-Reconfigured the lighting settings on all renders.
+-Reconfigured some UI elements of the inventory and smartphone. Fixed the texture of the loading screen. Replaced the background texture of the smartphone's task list.
+-Reconfigured the position and aiming of the Duplet.
+-Reconfigured 9A91 position and aiming. Added aim switch.
+-Reconfigured A-545 position and aiming. Added aim switch.
+-Reconfigured ACE 21position and aiming. Corrected missing sights. Added aim switch.
+-Reconfigured AEK-971 position and aiming. Added aim switch.
+-Reconfigured AKM position and aiming. Added aim switch.
+-Reconfigured AK-12 position and aiming. Added aim switch. Replaced firing animations. Added holograms.
+-Reconfigured AK-12M1 position and aiming. Added aim switch.. Changed firing animations, corrected reload animation. Added holograms.
+-Reconfigured AK-74M position and aiming. Added aim switch and holograms. Replaced firing animations. Fixed sights and case ejection point.
+-Reconfigured AK-103 position and aiming. Changed models, animations and icons. Added aim switch, lenses and holograms. Corrected the point of cartridge case ejection.
+-Reconfigured AKS and AKS-74 position and aiming. Added aim switch.
+-Reconfigured AEK-971 position and aiming. Added aim switch. Added magazine icons.
+-Reconfigured ASH-12 position and aiming. Added aim switch. Added lenses to sights.
+-Reconfigured SKS position and aiming. Adjusted point of cartridge case ejection and flame.
+-Reconfigured SVD position and aiming. Added missing models.
+-Reconfigured SVD-C position and aiming. Added textures and lens for PSO-1. Fixed shell case ejection point. Added sounds and animations.
+-Reconfigured PKM position and aiming. Adjusted shell case ejection point and flame. Fixed delay after jamming.
+-Reconfigured PP-2000position and aiming. Added change of sight, lens and holograms. Adjusted point of cartridge case ejection and flame. Added reload animations.
+-Reconfigured FN F2000 position and aiming. Added change of sighting point. Added lenses to sights.
+-Reconfigured VSSC position and aiming. Added change of sights. Added lenses to sights.
+-Reconfigured LR-300 position and aiming. Changed animations and sounds. Adjusted case ejection point. Default mode of fire is set to auto. Added new sights and lenses.
+-Reconfigured M4 position and aiming. Adjusted case ejection point.  Default mode of shooting is set to auto.
+-Reconfigured M4A1 position and aiming. Adjusted case ejection point.  Firing mode is set to default auto. Rearrangement of the sights display was corrected. Added animations and sounds.
+-Reconfigured M16 position and aiming. Adjusted shell ejection point.
+-Reconfigured M98B position and aiming. Rearranged ejection point of shells. Added lenses and change of aiming. Changed animations and sounds.
+-Reconfigured SIG SG 550 Sniper position and aiming. Added change of aiming position. Added magazine icons and lens. Fixed texture baps.
+-Reconfigured SR-25 position and aiming. Added targeting change. Added targeting lens. Added targeting lens by default.
+-Reconfigured Gauss Cannon position and aiming. Added change of reticle. Added lenses to sights and removed sights.
+-Reconfigured and optimized stalker loot.
+-Revised armament of factions. Fixed possibility that NPCs will appear without weapons.
+-The Forester no longer repairs and upgrades, but trades all sorts of junk.
+-Removed quest repair kits from techs trading.
+-Removed the automatic activation of the NVG when dragging the battery on the suit or helmet.
+-Optimized files and sections.
+-Improved English translation.
+-Improved quality of Fanat model.
+-Increased time of detection by monoliths when the character is in disguise mode.
+-Improved NPC's logic, now they won't try to pick up the items if the volume of their inventory is more than allowed value.
+-Improved function of flies creation, now it should be less demanding of resources. Fixed bug with flies around bears and stalkers.
+-Increased the time of epinephrine's action.
+-Increased visibility range of NPCs while aiming with optics.
+-Increased shooting power of 7.62x54 ammunition.
+-Increased speed threshold at which a character takes damage on impact.
+-Increased damage to wooden boxes with knives.
+-Reduced camera wobble of the character.
+-Removed AEK-973 because of its low quality.
+-Changed music in the Bar, at the base of CS, Freedom and at the mercenaries.
+-Replaced controller's sounds with original ones.
+-Replaced gunshot sounds of Fort 12, Fort 17 and Beretta M92.
+-Replaced character's breathing sounds and sounds at severe wounds. Reworked the breathing function, corrected the volume adjustment of breathing sounds.
+-Changed DarkScape geometry, all containers now have visuals.
+-Changed geometry of X-18 Lab, fixed AI grid.
+-Changed Type 63 model and animations. Adjusted position and aiming. Added magazine, redrawn icon. Added reload sounds.
+-Changed models and animation of SVT-40. Adjusted position and aiming. Replaced sounds of reloading. Added lens and change of aiming.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1615 (17.12.2020):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added hud animation for "Stalker" energy drink.
+-Added magazines for the sold weapons to some traders. With relations improvement, the assortment will be expanded.
+-Added 3D step position for NPC and character's sounds.
+-Fixed missing sight model when aiming through a 3D lens.
+-Fixed missing assortment for Novikov and Polymer.
+-Fixed the saving possibility at campfire when it rains, if you could not ignite the fire.
+-Fixed missing knives when disassembling suits or opening cans.
+-Fixed the mineral water hud model.
+-Fixed crash with LR-300.
+-Fixed image on R4.
+-Fixed a crash when trying to improve Sunrise suits, added volume improvement.
+-Moved below the freshness window, now the text of the result for action is visible.
+-Reworked crafting script, you can now determine which item will be removed.
+-Reworked the penalty when moving in an exoskeleton with a dead battery.
+-Reduced thirst parameter of beer.
+-Readjusted the sounds of reloading in AKMS.
+-Readjusted position and aiming for PPSh-41. Adjusted point of cartridge case ejection and flame. Added sounds and animations.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1618 (21.02.2021):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added caching cform, hom, portals and sectors. Significantly speeds up game loading. Requires 2.6Gb of free disk space.
+-Added low stamina recovery to exoskeleton.
+-Added phantom spawn reduction depending on psi-helmet condition.
+-Added more than 1000 smart covers on northern locations.
+-Added stashes on generators.
+-Added a check for rain in flies function, now they won't fly in the rain.
+-Added a check on closed suits without helmets when calculating camouflage time.
+-Added option to zoom mask texture, some kind of compromise for fans of disabling mask HUD, default is 0.
+-Added waves on the grass for R3.
+-Added artifact containers to the scientist trade list.
+-Added obvious transitions, like from the Bar to Rostock or to the underground labs in the exceptions list.
+-Added magazines and some outfits to the traders assortment.
+-Added item pickup animation if it's in a mutant's inventory.
+-Added a previously redesigned simplified item pickup option, disabled by default.
+-Added ability to heal stalkers with elite first-aid kit.
+-Added ability to put the RPG's projectile and IED in a quick slot.
+-Added ability to move an item to a backpack by dragging it to the backpack.
+-Added function to automatically move all the items into the backpack at the start of a new campaign.
+-Added an animation for opening and closing doors.
+-Added a self-made bandage for dressing light wounds.
+-Added ability to set for an item a unique repair coefficient for technicians.
+-Medics are now more interested in mushrooms.
+-Increased arena rewards.
+-Increased the volume of inventory when trading with docent Semenov.
+-Reconfigured aiming for AK-74 with 1P78. Added possibility to put a drum magazine for 75 rounds. Fixed crash when attaching PSO-1 to the modern variant.
+-Reconfigured aiming for AK-74M with PSO-1 and Kobra sights.
+-Reconfigured aiming for AK-12 M1 with ACOG and Specter sights. Fixed silencer glow with AC10632 Barska sight.
+-Reconfigured aiming and sights position on AEK-971.
+-Reconfigured sights and positions of AKS-74U, added aim switch. Adjusted case ejection point and flame. Replaced texture of regular model.
+-Reconfigured aiming and position of AH-94 with sights.
+-Reconfigured aiming and position of RGO7 sight on RPG7, added sight lens and change of sight.
+-Reconfigured aiming and position of HK416, added sight lens, holograms and aim switch.
+-Reconfigured sighting and position of FAR-15, added sight change.
+-Reconfigured M16 and M16A2 aiming and position. Models and animations changed, lenses and holograms added to sights. Added sounds, redesigned icons.
+-Reconfigured aiming and position of RG-6.
+-Reconfigured aiming and position of PP-19 "Bizon". Fixed shell type, added aim switch and holograms to sights. Added 1PN34 sight.
+-Reconfigured aiming and position of Izh-43. Fixed shot animation without ammo.
+-Reconfigured aiming and positioning of SIG-550. Adjusted case ejection point. Changed default burst mode of fire.
+-Reconfigured sights on Vepr "Hammer", added change of sights.
+-Reconfigured sights and positions on Walther WA2000. Changed aiming settings. Changed sounds, removed zoom control. Fixed aiming sensitivity.
+-Reconfigured aiming system for HK G36. Fixed aiming sensitivity.
+-Reconfigured graphics presets.
+-Reconfigured and normalized breathing sounds in the masks.
+-Reconfigured intoxication parameters of the items.
+-Reconfigured parameters of some magazines. Fixed magazine's ammo count for Type 63.
+-Reworked and optimized Projection squads in sarcophagus.
+-Reworked the script and the functionality of the hand generator, redesigned its upgrades. Now the power of charging depends on the condition of the generator. To charge the battery it must be dragged to the generator.
+-Removed the original ability to put a silencer on the Ots-33.
+-Removed the function to use the tools for the technicians.
+-Removed some of the messages for the developer from the log.
+-Removed unnecessary items from the levels.
+-Removed unnecessary items from trade.
+-Removed NVG from heavy outfits.
+-Removed possibility to sprint in exoskeleton, available only after upgrading.
+-Removed crash when there is no HUD animation, instead of this there will be a record in the log.
+-Improved English translation.
+-Reduced the effect of Barvinok pills.
+-Restored food spoils, now the consumption of spoiled food will increase the toxicity in the body.
+-Restored delay during freshness and picking up items. Reworked item pickup functions.
+-Disabled timer when entering X-10 in "Wings of the Monolith" quest. Changed units on the level.
+-Fixed the lack of patches among duty, mercenaries and loners.
+-Fixed the lack of radiation when lighting a radioactive cigarette.
+-Fixed missing sound of full reload for RPK-74.
+-Fixed missing shot sound on Walther P99 with silencer. Added missing smoke particles.
+-Fixed missing possibility to repair 5.45x39 and 9x39 caliber firearms with small-caliber rifle repair kit.
+-Fixed the lack of ability to remove the Spike from the containers.
+-Fixed the lack of damage when picking up artifacts with bare hands.
+-Fixed the position of the Dead City location on the global map.
+-Fixed the possibility of re-cooking boiled eggs.
+-Fixed the ability to smoke joints without a fire.
+-Fixed the display of the number of locations in the statistics.
+-Fixed update of volume indicator on HUD.
+-Fixed disabling of masks HUD in the arena.
+-Fixed wrong drowsiness value for cigarettes, now they cheer up. Fixed item description.
+-Fixed the option to save at the campfire, saves occur as before through lighting the fire. Removed useless option "Allow quicksaves".  
+-Fixed visibility distance of NPCs, now they don't see further than visibility range.
+-Fixed Oasis Heart icon.
+-Fixed the model of the orange scientific outfit.
+-Fixed glowing grip on AUG A3 with EOTech.
+-Fixed SVD Lynx rifle scope sensitivity.
+-Fixed drowsiness off the shelf rolls.
+-Fixed the logic of Noah's dogs.
+-Fixed the check if the player has money to configure the psi helmet. Fixed the prices in the dialogue.
+-Fixed missing of batteries after connecting them to hand generator
+-Fixed the bug with the overheat progress bar on the HUD when the gun was blown up.
+-Fixed bug when after blowing up the barrel the overheat function stopped working on the next gun.
+-Fixed the bug with Sakharov's artifact searching task.
+-Fixed the bug with disappearance of movement sounds in the exoskeleton.
+-Fixed an error in the technician's logic in the Rookie Village.
+-Fixed a bug when dealing with the task of searching for the backpack, when there was the same backpack in the slot and the NPC took it instead of the empty one.
+-Fixed bugs in conditions of missions to eliminate a target, rescue a hostage, or deliver cargo.
+-Fixed the glowing eyes of the big pseudo-dog.
+-Fixed the thirst and hunger indicators in the inventory.
+-Fixed the descriptions of battles in the Arena, and some items.
+-Fixed grammatical errors in the texts.
+-Fixed the icons of artifacts in different application modules.
+-Fixed icons and transparent magazine for LR-300 with Coyote. Fixed holograms on camouflage models. Fixed shooting animation with Tars sight.
+-Fixed magazine icons for SOK-94.
+-Fixed the compatibility of the Marauder skill.
+-Fixed AEK-971 textures, corrected sights position.
+-Fixed the bug where when trying to sell a black box to an NPC and it exceeded the volume, the NPC threw the box away.
+-Fixed the return point for the unknown transition from the north passage on the Yantar to the Dead City.
+-Fixed a crash with the damage manager that caused broken saves.
+-Fixed a crash with the task on the delivery, often appearing among duty.
+-Fixed a crash when dialogue with traders about filling containers with water.
+-Fixed a crash when attempting to use a map kit while all of the passages were open.
+-Fixed a crash when destroying the Horizon receiver.
+-Fixed a crash when deactivating items.
+-Fixed a crash when transferring a sandwich to a backpack.
+-Fixed a crash when attempting to pour liquid from items in an NPC's backpack or inventory.
+-Fixed a crash with the Mosin rifle sight.
+-Fixed a crash with the sight on the worn out SKS.
+-Fixed the rare crash when an NPC dies.
+-Fixed the coefficient of currency sale at the maximum level of relations with the factions.
+-Fixed mineral bottle volume per use.
+-Fixed the looped sound of a girl crying in X8 after killing Burer.
+-Fixed rare crash when loading savegame with dead psi dog.
+-Fixed a potential crash with a Survival skill.
+-Fixed the ordering of a rifle from Scrooge.
+-Changed crafting recipe of reinforced special bandage.
+-Changed the holograms button to the night vision button.
+-Changed units in the simulation. Added respawn of units at the outposts of the debt on the location of the Bar.
+-Changed animations of bread and sausages eating. Added animation for cans of water.
+-Changed task fulfillment conditions. If someone performs the task for the player or the employer dies, the task is canceled without consequences to the player.
+-Changed model and animation of AK-101. Added all sights, holograms and lenses. Added change of sights. Adjusted shell casing ejection points, redrawn icon.
+-Changed model and animations of VSS Vintorez. Added all sights, holograms and lenses. Added aim switching. Adjusted the point of cartridge case ejection, redrawn icon.
+-Replaced models of PPSh-41, the magazine can be removed now.
+-Replaced sounds of filling magazines with bullets.
+-Reduced the penalty to relations if the player changes faction to hostile to the employer, himself refuses to perform or does not meet the deadline.
+-Reduced the firing range of flamethrowers.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1619 (01.03.2021):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added trading and the ability to charge batteries to Azot and Kardan.
+-Added missing stashes to the Army Warehouse.
+-Fixed aiming and positioning of G36K. Added change of aiming position. Fixed textures.
+-Fixed number of rounds in magazine for Type 63. Fixed weapon class. Reconfigured aiming and position, added change of aiming.
+-Fixed description of night vision device improvement.
+-Fixed the crash when attempting to trade with mercenary trader.
+-Fixed the crash when moving items into a backpack in slot.
+-Fixed the crash with NPC's sound schemes.
+-Fixed the locking of helmet slots for heavy armor.
+-Fixed the ability to buy transitions from NPCs.
+-Fixed the function of merging matches as well as removing them when dragging.
+-Fixed the number of sandwiches received from one use.
+-Fixed the description of duty PSZ-9D. Corrected the characteristics of all variations of duty heavy armor.
+-Fixed magazine icons for SIG-550 Sniper. Fixed default magazine.
+-Fixed text and english localization errors.
+-Fixed missing equipment for guards of Scientists' bunker on Jupiter. Added ability to talk with them.
+-Reworked inventory scrolling when dragging, now you have to hold down left ALT and drag the item to the desired cell.
+-Decreased Characteristics of immortal NPCs.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1628 (19.06.2021):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added support for 4K fonts, added fonts for 4K resolution.
+-Added ability to change inventory filters on keys 1-8. Filters are now changed on keys simultaneously in character and NPC window.
+-Added CDB cache version check with timestamp.
+-Added audio response of dosimeter to background radiation level.
+-Added ability to customize left hand position separately. Adjusted hand position when using detectors.
+-Added ability to rotate head in 1st and 3rd person view by holding LALT. When you switch the camera, the head keeps its position.
+-Added script ability to sit and stand, used in skinning animation, picking things up and when setting mines.
+-Added HUD texture for Army Voskhod.
+-Added crouch animation when opening a backpack or crates.
+-Added HUD smoking animations to all cigarettes.
+-Added animation of picking up items with your left hand. Now it is used to pick up an object with a weapon in hands.
+-Added function to determine where an object is located with which we interact with, for example, if the object is on the table, then by picking up the character will not squat.
+-Added function to disable input for certain actions, optimized scripting functions.
+-Added zoom function for devices in left hand by pressing underbarrel grenade launcher key.
+-Added artifact detection radius scaling function on Veles and Svarog detector, on + and - keys.
+-Added feature to divide items into multiple parts.
+-Added time slowing feature. See lua_help for usage.
+-Added function to resize backpack models.
+-Added function to output the name of the bone that took damage.
+-Added X8 Lab to the permanent transitions list.
+-Added HUD-a model for activated charcoal.
+-Added sandwich model.
+-Added depth of field when freshening up mutants.
+-Added option to adjust head bobbing in settings.
+-Added ability to disassemble heavy army armor.
+-Added ability to strap weapon to backpack on back. Added new options and commands to the backpacks section.
+-Added lock for opening inventory during reloading.
+-Added checking of backpack's volume at game start, if volume is exceeded item will stay in inventory.
+-Added display of body part status with colored text in percent while using heal items from quick slots and inventory.
+-Added description of ammo for PKM.
+-Added a separate description window for melee weapon class.
+-Added reputation loss when you donate to an NPC a spoiled or radioactive item.
+-Added auto-return of the weapon after using an item from handheld if it was in hand before.
+-Added whistle sounds when pressing command to partners.
+-Added ammo icons in the magazine loading window, depending on caliber.
+-Added durable options for food, water and alcohol (see defines.ltx).
+-Added animations when checking the magazine.
+-Added the Doppler effect.
+-Added display of information on picked up items. Added option in game settings.
+-Added handheld generator to trade, will appear on good relations. Fixed charging formula.
+-Added callback for animations events function. Added slot lock feature, now you can't disable or break animations.
+-Added quick melee attack if the knife is in slot. Added option to assign button in settings.
+-Added M249 and AA12 to mercenary and freedom orders and trade.
+-Added silencer for CZ-52.
+-Optimized thread shifts speed with load balancing option enabled for all cores.
+-Optimized global update function in scripts. According to observations, it was slow down performance.
+-Optimized particles, now they play smoother and depend on time_factor.
+-Corrected big bug in CoC 1.5, related to collapses during level change.
+-Fixed animation of bolt retracting for Otz-33.
+-Fixed leg kick animation.
+-Fixed double cartridge case for KS-23 shot.
+-Fixed input cancellation when creating marker on the map, when pressing certain buttons.
+-Fixed NPC logic in close combat, now they do not switch to knife from 50m.
+-Fixed SIG 550 Sniper icon in enhancements window.
+-Fixed lead container icon with night star artefact.
+-Fixed Max's icon.
+-Fixed a bug in the script with the definition of the character's death sounds.
+-Fixed a bug when you could cut part of a mutant with a knife or axe in bad condition.
+-Fixed a bug where money got a negative value when repaying a debt.
+-Fixed a bug where hud was blocked after the last grenade or bolt was thrown.
+-Fixed a bug where the weapon would not wear off when skinning mutants again.
+-Fixed a bug that caused a character to die from passing out while eating or drinking something when extremely thirsty.
+-Fixed a bug which caused a character to incorrectly calculate weapon wear and tear while overheating. Reconfigured wearing of all weapons.
+-Fixed bug that caused magazines to appear with 255 rounds when unloaded.
+-Fixed bug which caused wrong numbers and types of cartridges to be stored in magazines.
+-Fix bug that made it possible to load shotguns on the reload button from the inventory if you interrupt the load with the left mouse button.
+-Fixed a bug where you could load shotguns on the reload button if you interrupted charging and threw the ammo pack out of the inventory.
+-Fixed incorrect model of army backpack.
+-Fixed real-time sound speed. Changed tonality of sound restored.
+-Fixed ability to shoot during a sprint when the hold-to-press option is disabled.
+-Fixed FN2000 sight sensitivity.
+-Fixed NPC volume limit, NPCs no longer have to drop items.
+-Fixed the increase in the number of rounds by 1 when reloading a weapon by dragging a magazine.
+-Fixed the increase in scopes and binoculars, they are now retained.
+-Fixed the increase in shooting skill when killing with a hand weapon.
+-Fixed magazine status update after discharge.
+-Fixed sunlight shining through HUD-a model on R1-R2.
+-Fixed items irradiation in the backpack.
+-Fixed direction of shell models flying to one side on R1.
+-Fixed description and awards for Controller's Brain to Sakharov.
+-Fixed the continuation of magazine loading when a character dies.
+-Fixed the position of the item pop-up icon when hovering.
+-Fixed radiation cans turning into normal cans after opening them.
+-Fixed not having an exoskeleton EVP.
+-Fixed not being able to get the artifact "Spike" out of the SIMC.
+-Fixed not being able to repair 7.62mm weapons with cleaning kits.
+-Fixed the description of the barter at the Spirit, specified what kind of vodka is needed.
+-Fixed the decrease of volume for the cutting tools when using them.
+-Fixed missing dosimeter for NPCs. Added new items in the backpacks of stalkers, changed the chance of drop-off.
+-Fixed cutting of sounds on playback.
+-Fixed playing sounds after a game was paused.
+-Fixed the job with the Libertarian's laptop, changed the condition and description of the task.
+-Fixed the task to search for documents and pda in the stashes.
+-Fixed HUD model when skinning a mutant with fire or hunting axe.
+-Fixed the sounds of footsteps on metal ladders.
+-Fixed hunger and thirst penalties at game start.
+-Fixed 2 models of duties, removed duplicates.
+-Fixed crash on disassembling some suits because of old rags.
+-Fixed crash because of the lack of backpack model.
+-Fixed crash when moving cartridges in the backpack on the back.
+-Fixed crash when the target for a parcel delivery task died.
+-Fixed crash when receiving rewards for scientists quests on item search.
+-Fixed crash on stalker vs. stalker battles on arena.
+-Fixed the sound when using energy drinks, bread, and sausage.
+-Fixed the volume of storage for traders, hoarders, and merchants on Jupiter and Zaton.
+-Fixed the departure associated with the VSSK.
+-Fixed rifle orders from Dushman.
+-Fixed the cursor and button grabbing in the application window.
+-Fixed the sound of jamming in PPSh-41.
+-Changed damage parameters for monolith generators.
+-Changed prices and assortment of starting equipment. Now there is no advantage for certain factions.
+-Changed descriptions of some items in the guide.
+-Changed display message for mutant trophies, now it's only displayed after the animation is completed.
+-Changed time to create some items.
+-Changed how recoil is calculated in the shooting effects function. Now the recoil looks smoother.
+-Changed how items work. Now the effect will not appear on usage, but after animation completion.
+-Changed psy antenna's updater, now it is not from the actor and runs when needed.
+-Changed the Quick skill. Now it increases the speed of movement, but you should be careful when colliding with obstacles.
+-Changed the Athlete skill - increases overall stamina.
+-Changed the Resistant skill -increases a character's resistance.
+-Changed the Alcoholic skill - now has more resistance to alcohol, but medicine has weaker effects.
+-Changed skill Teatotaler - gets drunk faster, but gets bonus to medicine treatment.
+-Changed the Hungry skill - now the character wants to eat more often.
+-Changed the Thirsty skill - now the character needs more water.
+-Reworked barrel exploding feature, removed OGSE script and replaced with own.
+-Transferred HUD's matrix from local coordinates to world coordinates taking into account distortion of FOV, author Anton Hozarov (Hozar_2002).
+-Reconfigured aiming and positioning of RPK and RPK-74. Added holograms for sights.
+-Reconfigured aiming and position of AK-9. Added change of sights.
+-Changed H&K G3 models and animations. Reconfigured aiming and position. Added lenses and holograms. Reworked icons, added sounds.
+-Changed H&K G3SG1 models and animations. Reconfigured aiming and position. Added lens and change of aiming position. Reworked icons, added sounds.
+-Enabled death by exceeding maximum heart rate. Chance of dying depends on the survival skill, the higher the skill, the lower the chance.
+-Enhanced debug function in CreateTimeEvent, now when an error occurs, the system resumes instantly and displays the details of the error in the log.
+-Improved thermos model.
+-Improved English localization.
+-Increased probability of NPCs using smart shelters.
+-Increased resistance to radiation and chemical burns for proto exoskeletons.
+-Increased ambient volume when exposed to a psi emitter.
+-Reduced probability of a character falling (stumbling) into a geometry while moving.
+-Reduced bartender selling prices for water containers.
+-Reduced axes, hammer and crowbar wearout.
+-Reduced damage from tushkans.
+-Removed masked breathing sound from the camouflage outfit.
+-Removed character Silent in the eastern Pripyat. Added ability to trade for Suitcase.
+-Removed side facet in the upgrade window.
+-Removed useless duplicated features.
+-Removed possibility to load a magazine in the weapon by dragging a pack of cartridges on it. Now it is possible to load only one cartridge in the barrel.
+-Removed ability to hold breath in open inventory and open pda.
+-Removed the ability to pick up items quickly by hovering the cursor over a mutant corpse.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1640 (31.12.2021):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added the ability to put the game on pause with open PDA.
+-Added the ability to pick up an item immediately in the backpack, for this you must hold the walk button when picking up. If the backpack is full, the selection will be in the inventory.
+-Added the ability to use silencers and grenade launchers from the quick slots.
+-Added helicopter explosion event. Now the black box does not fall out of the sky when the helicopter drops, but appears on impact.
+-Added 38 stashes on Jupiter.
+-Added a new video in the main menu. Expanded and revised settings window.
+-Added changing the tone of the exoskeleton steps from the load. The greater the weight, the lower the pitch.
+-Added sound when adjusting sights approach. Added sounds for sights.
+-Added display of blood drops on dynamic objects.
+-Added the accumulation of booster effects in case of multiple applications. This means that the strength of the effect is not replaced by the strength of a new item, but increases.
+-Added distribution of treatment effect on the whole body. The part with the highest treatment effect will be the part on which the item was applied.
+-Added display of the effect of anesthesia and intoxication in item properties.
+-Added the display of nutritional properties in closed cans.
+-Added several post effects to work simultaneously. Now it will not be such that the damage effect will not be seen when NVG is turned on and so on.
+-Added SR-25 and KRISS Vector icon to upgrade window.
+-Added icon for heart rate check. Changed the method of message output, now it is a flash message without sound and smartphone logging.
+-Added option to disable flies over dead bodies. Optimized function, corrected timer of flies' appearance.
+-Added ability to run game if the PC doesn't have OpenAl installed. You will have to install it, if you want it to work properly.
+-Added a new option which switches the camera on the second in the dialogue and opening inventory.
+-Added a new feature of the character - the adrenaline rush. When you receive critical damage, for a certain time appears accelerated reaction and reflexes. To activate press the "Use" button when the icon appears on HUD.
+-Added animation of eating canned corn.
+-Added wallet model.
+-Added NPC's hearing of bullets and hits flying nearby.
+-Added delay and removal of the weapon when using the sights from the quick slots.
+-Added ability to move an item from one quick slot to another.
+-Added feature to block mutant hits through geometry.
+-Added the ability to assign a key to turn your head.
+-Added ability to open canned goods with axes.
+-Added ability to compare weapons regardless of type and class.
+-Added ability to take screenshots in windows mode. Added option to expansion settings.
+-Added chimera from ShoC. Now it has more animations, can attack in close combat and is more dangerous than before.
+-Added ability to use jewel box for wood stove.
+-Added support for anm_fire_mode change animation. Moved mode change sound to weapon section snd_fire_mode.
+-Added options to hold walk and tilt button. Reworked code, state changes on-the-fly, for example, from walk to sprint. Options moved to controls section.
+-Added animations for using flasks, canned tomatoes, chili beans.
+-Added peek sounds to the character sounds section.
+-Added icons to body part status bars.
+-Added sounds when installing and removing nozzles on weapons from quick slots.
+-Added new callbacks to the game code, cleaned the scripts.
+-Added environment sound zones on Jupiter, Zaton, East Pripyat, X-8 and the overpass. Changed sound effects, now they sound more believable.
+-Added functions for more convenient work with the container of backpacks, description in the script bind_container.
+-Added magazines for Gauss rifle in orders and trade.
+-Added new callback events for c++ scripts, description in axr_main.
+-Added new lua function update method, faster analogue of level.add_call, level.add_call, which when overloaded gives an error to run function on execution iteration.
+-Added a sleep indicator in the character state window. Moved the sleep function code into the engine.
+Added M2 Emerald proto-exoskeleton to Sakharov's orders.
+-Added machine gun section to Skryaga's orders.
+-Added the dialogue about the water to the bartender Svoboda and the merchant of the monolith in the central Pripyat.
+-Added stash at the cross in the Dark Valley.
+-Added new IsTexture method. Removed the message about the lack of textures when opening articles in the encyclopedia.
+-Added cooking dishes and lantern to merchants and the starter store.
+-Added backpack inventory class. Added backpack inventory binder. Fixed the crash when navigating to other locations.
+-Improved world animation set for machine guns and rifles.
+-Fixed random filling of killed NPCs' inventories after loading.
+-Fixed the lack of name and description for the overalls "Master".
+-Fixed the position of the shrouded P99 pistol.
+-Fixed the lack of armor protection for helmets.
+-Fixed Last Sigh, Sober and Alcoholic skill descriptions.
+-Fixed removing and creating a new copy of an item for NPCs when they pick them up off the floor. Fixed auto-repairing weapons and suits on them.
+-Fixed white edging in twigs and bushes textures.
+-Fixed the grass shadow option on R2.
+-Fixed disabling the function always run. Now you do not need to hold on the walk button to sprint.
+-Fixed big thirst and pain when selecting the skill Survivor.
+-Fixed the filter category for different items.
+-Fixed the texture of the global model of the worn out AKMS.
+-Fixed the visibility of the magazine on the global model of the Vintorez. Fixed jamming sound.
+-Fixed 9x18 round icon in loading window.
+-Fixed 7.92 mm barrel icon and description.
+-Fixed AK-9 icon in the upgrades window.
+-Fixed texture of scholar's patch.
+-Fixed lua bug "! [SCRIPT ERROR]: No such operator defined". Measures were taken to prevent this situation.
+-Fixed a bug in the function of determining where the item is, which caused the crash after a while.
+-Fixed a bug which caused displaced items to not appear in the inventory.
+-Fixed a bug in quests where items were not removed from character slots.
+-Fixed the smoothing model and texture of the Tukarev technician's head.
+-Fixed missing silencer on the HUD-model of the PMM. The position of the silencer's icons was corrected. The description about silencer was added.
+-Fixed the magnification of the 1P78 "Chestnut" rifle scope to x2.8.
+-Fixed the ability to increase money by changing the grouping in the start menu.
+-Fixed the ability to choose good skills by bypassing negative skills.
+-Fixed the logic when the leader of the Debt kept talking after death.
+-Fixed character action blocking when jumping.
+-Fixed the active sight lens when changing from aiming to underbarrel grenade launcher mode.
+-Fixed a bug where you could save with the excess volume, and after loading the restriction did not work when pulling out the weapon.
+-Fixed zooming in underbarrel grenade launcher mode.
+-Fixed the display of accuracy parameters in the weapon's properties.
+-Fixed the magazine display on the AKSU HUD model, if there is no magazine.
+-Fixed the display of the box on PKM model, if it was absent. Fixed texture of the HUD model.
+-Fixed the description and properties of the rookie CS jacket.
+-Corrected name of custom AUG.
+-Corrected the immortality of all partners.
+-Fixed disappearing knives in the hiding places.
+-Fixed the disappearance of the depth of the field when opening the trade window.
+-Fixed the disappearance of weapons when reloading by dragging the magazine on the weapon in the inventory.
+-Fixed poltergeist's body disappearing after death with the body display option enabled.
+-Fixed the detector hiding when throwing with the right hand.
+-Fixed the fast use of items while wearing a helmet.
+-Fixed the write-off of money when handing in flight recorders. Fixed the attitude boost in Raccoon.
+-Fixed missing compass artifact properties.
+-Fixed the display of all available dodgers on world weapon models when they are not available.
+-Fixed the display of magazine icons for AKM and AKMS. Redrawn AKMS icon. Fixed the texture of the magazine, now matches the icon.
+-Fixed Sako TRG sighting with ACOG.
+-Fixed STG-44 sighting with ZF-4 sights.
+-Fixed SVT-40 sighting on 4:3 monitors.
+-Fixed SVD sighting on bandit's job on a junkyard.
+-Fixed sighting of unique AKS-74U.
+-Fixed sights on AEK-971.
+-Fixed targeting through sights on AK-103. Fixed missing texture of cobra sight on world model.
+-Fixed duplication of smoke and fire shot particles in the code.
+-Fixed the time acceleration at the beginning of the shot, which also made the actions and effects of the character to speed up.
+-Fixed the increase of the inventory weight when pulling the magazine of the weapon out of the slots.
+-Fixed the smoothing of the flask model.
+-Fixed resetting the head bobbing value on restart.
+-Fixed duplication of quest items in hiding places.
+-Fixed some grammatical errors.
+-Fixed 7.62x54R ammo icons in the loading window.
+-Fixed 7.62x39 magazine icons on HUD.
+-Fixed errors of spawning in the log.
+-Fixed some elements in the start menu for 4:3 ratio. Added grouping names in the selection window.
+-Fixed some item names.
+-Fixed vodka bottle shaders and textures.
+-Fixed NPC's spawn restriction radius.
+-Fixed spam in the log on Skadovsk.
+-Fixed a potential crash in sim_squad_scripted.
+-Fixed the reset of the level of proximity in the sight in the game and after loading.
+-Fixed the crash that occurred after changing the resolution, when trying to shoot.
+-Fixed the exit with the world model of AK M1 with ACOG sight.
+-Fixed a crash when trying to quickly drag an item into a backpack before the previous one finished moving.
+-Fixed crashes due to the absence of the model IED-AS, corrected its rate of fire. Fixed crashes when attaching sights.
+-Fixed crashes if you zoom in the detector and put the game on pause.
+-Fixed crashes in the eastern Pripyat in contact with the stool in the high.
+-Fixed ejection while picking up objects.
+-Fixed the crash when improving weapons and binoculars.
+-Fixed the crash when selecting weapon priorities for NPCs.
+-Fixed the crash in the action planner.
+-Fixed crash when navigating to the Army Depot through the bar's conductor.
+-Fixed crash when loading magazine G43.
+-Fixed the volume of Ashot's inventory.
+-The volume of empty tare was corrected.
+-Changed file system structure. Add-ons can now be placed on the path database\addons or gamedata\addons.
+-Changed prices for some items.
+-Changed protection parameters for cats.
+-Changed dosimeter sounds.
+-Changed the properties of some artifacts.
+-Changed some weather settings. Fog became more dense.
+-Changed model of camouflage suit arms.
+-Changed Sapsan faction, now he belongs to the scientists faction.
+-Changed CreateTimeEvent function to other functions in places it is not intended for.
+-Changed lighting, adding dynamic shadow adjustment. Different lighting parameters for each location have been adjusted.
+-Changed the methods of opening the transition in X18, you can find out from the notes Shooter.
+-Changed the leader of freedom to Lukash, along with his old visuals. Now he is armed and very dangerous. Fixed the names in the dialogues.
+-Strengthened Swamp Doctor, now he will not die on the expanses of the swamps.
+-Increased the number of pockets in the PSZ-9D Dolga.
+-Optimized use of smart shelters.
+-Reworked weather script. Fixed function and part of meteorite showers.
+-Reworked damage by body parts in game code. Fixed damage formula. Ammo parameters reconfigured.
+-Readjusted accuracy of all weapons to be more realistic.
+-Readjusted the position of the second camera.
+-Readjusted the aiming position of the CWC. Added magazine check animations. Added change of aiming, lens and hologram.
+-Readjusted the aiming position of the AH-94. Added holograms to sights.
+-Readjusted sighting position of AK-101. Added holograms to sights.
+-Readjusted aiming position of AK-104. Added animations for magazine check.
+-Readjusted HK MP7 sighting position. Added animation for magazine check. Fixed pulling out of the magazine. Model was corrected, buttstock is now extended.
+-Readjusted HK UMP45 aiming position and alignment. Added change of sighting position. Added lenses and holograms for sights, new animations and sounds.
+-Readjusted position and aiming for Kriss Vector V. Added change of aiming.Corrected sprint animation.
+-Readjusted positioning and aiming of Ots-14 Tactical. Fixed wrong magazine types.
+-Readjusted positioning and aiming of PP-19-01 Vityaz. Changed model and animation. Added change of aiming, sounds and sights.
+-Reduced overheating of ribbon machine guns.
+-Enhanced the movement speed of the kink. Added unused animations.
+-Increased weight of thermite grenade.
+-Increased chance for stalker to have dosimeter with him. Increased chance to appear in trade.
+-Decreased sleeping area in the booth in the Dark Valley.
+-Improved English localization. Revised most of the dialogues. Fixed the description of the Agroprom location in the files. Fixed the descriptions of quests for the retrieval of objects tasks.
+-Removed the display of messages from HUD. Added message icon like in ShoC. Now you will be able to see all incoming messages from your smartphone. System alerts are not touched.
+-Removed acceleration in 3D sight.
+-Remove the Eat function from closed cans.
+-Removed casings from PG-25 and RG-6 grenade launcher. Added casing for 40mm M209 grenade.
+-Removed flash when firing Vintoresis.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1642 (26.01.2022):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added static type of sight. The shooting vector is still in the direction of the barrel.
+-Added ability to create a new item.
+-Added model of the servo drive.
+-Added model of the helicopter body when it crashes.
+-Added the ability to disassemble the bag from the tent for clothes.
+-Added Lift anomaly to the list of dynamic anomalies. Added encyclopedia article.
+-Added holograms and lenses to sights for Gauss rifle.
+-Added magazine icons to G3, M4, M4A1.
+-Added messages about created items and their quantity.
+-Added new methods to area_methods. Added to_table for string objects. Replaced by alun_utils.str_explode.
+-Added parameters for controlling the character while sleeping. Thirst and hunger are now consumed much less while sleeping.
+-Added effect of character movement on hunger and thirst. The more he runs, jumps, drags heavy weight, the more hunger and thirst increases.
+-Added animation of eating cheese.
+-Added a new hologram to the Eotech sight.
+-Fixed a not working manager of bodies removal. Added in game options: the time of removal of bodies, the minimum distance of removal and the maximum number of bodies.
+-Fixed the rotation of the body instead of the head when holding down the button.
+-Fixed the crash when using energizers.
+-Fixed the crash when receiving messages.
+-Fixed crash when throwing grenades.
+-Fixed the crash due to an error in the weather script.
+-Fixed the crash that occurred after creating an item while trying to open your inventory.
+-Fixed the health drop when rewinding time if at least one part was wounded.
+-Fixed duplication of quest items in stashes, now for sure.
+-Fixed incorrect number of remaining items when creating items.
+-Fixed the lack of damage from phantoms.
+-Fixed the appearance of weapons with sights in stashes that later didn't work correctly.
+-Fixed the position of the sound of flies over corpses, now the sound is updated along with the position.
+-Fixed the hang animation of the bandit model in the heavy suit.
+-Fixed non-saving of the ammo types in the magazine when pulling the magazine out of the weapon.
+-Fixed the lack of emissions on the outskirts of Pripyat.
+-Fixed item usage animation that hangs when you put the helmet on.
+-Fixed missing dosimeter sound. Fixed blocking the animation when removing the dosimeter.
+-Fixed adding an item to the drop-down list received from the slot.
+-Fixed the hang animation of picking up in the crouch when searching a corpse when there are other items nearby.
+-Fixed stacking of ammo packs.
+-Fixed helmet retraction for all arena actions.
+-Fixed character icons after changing faction in Character Creation Menu. Fixed scholar rank text. 
+-Fixed the vision of chimeras. Increased resistance to stabbing damage.
+-Fixed grenade launcher disappearing when pulling out/taking away the G36. Fixed magazines on world model.
+-Fixed not being able to put a silencer after upgrade.
+-Fixed wrong fracture system, now fractures can be healed normally.
+-Fixed incorrect pulse work.
+-Fixed the ability to stack things in the backpack in the merchant window.
+-Fixed a bug with Noah not picking up Protecta at the end of a task.
+-Fixed a bug in Noah's quest to clean up the northern plateau from the snorks, because of which it could not be performed.
+-Fixed a bug in disassembling items when the skill was not taken into account.
+-Fixed an error in the calculation of inventory volume. The backpack binder now counts the volume itself.
+-Fixed the psi-helmet from the inventory.
+-Fixed texture of worn out M16.
+-Fixed incorrect calculation of the remaining items when using the decontamination mixture.
+-Fixed crashes due to the absence of some models of items.
+-Fixed shaders in the Stronglav model.
+-Readjusted the disassembly of weapons. Added all weapons to the expansion. Added disassembled parts of weapons according to caliber and class.
+-Readjusted RU 556 aiming position. Added holograms to sights.
+-Readjusted position of OTs-14 Groza. Added a new option to set silencer for Quicksilver. Added target sight lens, corrected reload sound.
+-Readjusted position of FN P90. Added animations, changed reload sounds.
+-Readjusted position of PKP "Pecheneg". Fixed world model.
+-Reworked exoskeleton helmet model.
+-Reworked backpack and inventory volume function, reworked item reset function.
+-Reworked exoskeleton helmet model.
+-Readjusted the weight of the ammo packs according to the actual weight of the ammo and the number in the pack. 
+-Readjusted positioning and aiming of XM8. Added possibility to place PG AG-36. Added sighting lens, added change of sighting.
+-Readjusted list of possible items in stashes.
+-Removed option to disable flies, now the value 0 in the number of flies disables the function.
+-Reinforced duty squad on location Bar "100 X-Ray".
+-Lowered the increase of thirst when consuming food.
+-Replaced everywhere world models of first-aid kits.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1647 (05.06.2022):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added a more detailed report on wrong fixed bone.
+-Added a new secret weapon created in the laboratories of the Zone.
+-Added description of the sleepiness sensor.
+-Added linear sound attenuation.
+-Added ability for pseudo-giant to knock weapons out of hands when kicking. Now the character doesn't take damage if he jumps when giant hit.
+-Added ability to assign control to additional keyboard buttons. 
+-Added ability to heal NPCs with irradiated medkits. NPCs can now use all bandages for healing.
+-Added show active task button to the controls.
+-Added backpack opening and closing animation, animation taken from FDDA. Now all backpacks open with animation. Removed animator when opening inventory.
+-Added a missing model of medium backpack. Fixed position of the heavy backpack.
+-Added options to optimize 3D sights. Added option for adjusting frames in the sights lens. Default maximum value.
+-Added inertia of first camera in transport.
+-Added to disassembly: raider Zarya, VZ-65 worn and rusted.
+-Added 2 disabled anomalies at the cordon, need a new game.
+-Added ability to put a silencer on the MP-443.
+-Added VOG-25P grenade.
+-Added Pug's way to the base of Freedom.
+-Fixed 7.62mm rifle disassembling flight.
+-Fixed crash on quick save.
+-Fixed crash with health debug information.
+-Fixed crash with G3. Added new sights.
+-Fixed crash with the VSSC model.
+-Fixed crash with AKMS model.
+-Fixed crash with KVK animations.
+-Fixed the sound of a full reload of AKM and AKMS.
+-Fixed the reset of skills and characteristics of a character if you end the game session and create a new character or when reloading another session.
+-Fixed the detector repair timer. Reworked technician dialogs about detectors in English localization.
+-Fixed most functions timer. Now it saves the value correctly.
+-Fixed the character relationship registry.
+-Fixed the price of charging the batteries in the repair window of the technicians, now as in the dialogs. Removed the ability to fix devices.
+-Fixed the movement speed for the NPC. Now it's synchronized with the animation and is equal to the speed of the character.
+-Fixed conversion of the .338 caliber bullets to the regular bullets when loading guns after RP was reloaded.
+-Fixed an error in the conversation logic of the Duty leader.
+-Fixed an error in the calculation of barrel overheating.
+-Fixed the animation and sound of Sako TRG's full reload. Fixed the icon in the magazine loading window.
+-Fixed possibility to get unlimited number of quests for patches. Added reward where it was absent.
+-Fixed high waste of energy while moving in some suits.
+-Fixed crash when loading eastern Pripyat (new game required).
+-Fixed stopping of the effects of Agile and Feeble skill, after the character receives damage or is overloaded.
+-Fixed a bug in the ini_file object cache that caused AddUniqueCall to crash without displaying an error.
+-Fixed a bug with Spirit not picking up vodka for barter.
+-Fixed a bug in displaying the state of product expiration.
+-Fixed a bug in the dynamic job rewards logic.
+-Fixed a bug in the function of transferring the player's items when completing tasks.
+-Fixed the shape of the world models of hand lanterns. Now you can pick up them and they roll.
+-Fixed the double award for escorting a Clear Sky scientist.
+-Fixed run lock when legs are broken.
+-Fixed inability to run after leg recovery without reloading.
+-Fixed ignoring of character's death at critical psi damage.
+-Fixed the price of sardines.
+-Fixed the price of the respirator mask in Sultan's orders.
+-Fixed the presence of the option to pour or drink from empty tars.
+-Fixed the texture of the PKM at the northern outpost in the Bar.
+-Fixed the bug that made the hold aim and hold aim change function to not work.
+-Fixed a bug that caused campfires to burn outdoors at any intensity of rain.
+-Fixed the bug that caused NPC to freeze when they stayed in one place with the walk or run animation turned on.
+-Fixed incorrect display of thirst and hunger on HUD.
+-Fixed screen darkening while turning on NVG after loading.
+-Fixed the increase of crafting skill when inserting the ampoule into the injector.
+-Fixed the increase of looting skill when re-searching a body.
+-Fixed the lack of reward for a successful game of Russian roulette at the bandit bartender.
+-Fixed the lack of ability to repair 5.45 caliber weapons with the universal cleaning kit.
+-Fixed the lack of assortment at Nitro, Kardan and Rocket. The assortment of military equipment on Cordon and equipment on the Jupiter was added.
+-Fixed disappearance of the squads and the NPC on the levels. If you have previously run the game, delete gamedata folder.
+-Fixed the lack of a squad of snorks on Noah's quest.
+-Fixed the absence of the name of the item when requesting some quests from the stalkers.
+-Fixed condition to increase fail chance to create an item when getting psi damage.
+-Fixed getting psi damage while wearing the suit and helmet.
+-Fixed Aug A1 aiming. Fixed the sound of a full reload.
+-Fixed moving the player behind the teleporter when moving from the meadow to the Dark Valley. (Requires new game)
+-Fixed denial of withdrawal of stash money from Freedom's bartender.
+-Fixed the withdrawal of money instead of receiving an award when giving documents from the meadow factory to the Bartender.
+-Fixed the textures of the world models of AKS-74.
+-Fixed missing parts for Poltergeist and wrong parts for Strongclaw.
+-Fixed the properties and description of the Vicarii's injection.
+-Fixed the parameters of the military backpack.
+-Fixed items effects parameters on mental health. Drugs now reduce psi health, antidepressants and smokes restore.
+-Fixed improvements to AA-12. Added an icon to the improvement window.
+-Fixed default lighting options.
+-Fixed poltergeist sounds.
+-Fixed Ots-33 reloading sounds and animations.
+-Fixed icons for stashes on the map.
+-Fixed some invisible stashes on the Jupiter.
+-Rearmed mercenaries and freedom fighters.
+-Reworked the CreateTimeEvent function.
+-Reworked M14 helmet model. Recalibrated position.
+-Reworked the position and aiming of the FNC. Rearranged models and animations. Added lenses and holograms to sights.
+-Reworked L96A1 gun position and aiming. Changed models and animations. Added lenses and holograms to sights, tuned 3d shells, added to trade and orders.
+-Reworked slots highlighting. Fixed inventory UI elements for all aspect ratios.
+-Reworked the sound of jamming for SVT40.
+-Reworked double mode of fire for AN-94 Abakan.
+-Reworked the model of the EO-19 PBF gas mask.
+-Reconfigured the charge rate of the lanterns. Fixed their description.
+-Reconfigured position and aiming of Steyr Aug A3. Added: magazine icons, new animations and new sights.
+-Removed effectors and camera animators in 3D sights.
+-Removed poltergeist blast particle on death if it's visible.
+-Reduced sight crosshairs.
+-Decreased damage from campfires.
+-Reworked some dialogue and mission descriptions.
+-Improved English localization, corrected errors in texts and descriptions of items.
+-Replaced upgraded Glock with Glock 18 with real rate of fire. Added to orders.
+-Replaced animation of the machine gunner.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1693 (31.12.2022):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added sound and animation of M14 tactical reloading.
+-Added IZh-43 to simulation and sale.
+-Added exclude method for script object (removing sections of string by matching substring). Replaces “gsub” in scripts.
+-Added additional experience to shooting skill for headshot.
+-Added a new method r_list_ex (with data caching).
+-Added a new method for string objects "string.get_started". Returns part of the string from the beginning to the specified character.
+-Added sight lens and sight change for Type 63. Fixed sight icon and reload sounds. Fixed flash and smoke.
+-Added global error function to display error information in script.
+-Added new mechanics of NPC's armour and helmets breaking based on damage received and depending on hit location. Added an option to the settings.
+-Added an article about the health system in the smartphone files, in the survival basics section.
+-Added article about creating some ammo. Replaced the icon.
+-Added ability to open backpack by pressing walk + inventory buttons.
+-Added ability to deactivate items at Sakharov.
+-Added the ability to charge artefacts by throwing them into the anomaly in which the artefact was created.
+-Added the ability to use the skin in the repair of equipment.
+-Added the ability to call settings directly in the game without going into the menu. Added a keybind for that.
+-Added ability to dynamically change the name, description and icon of the item in Lua.
+-Added ability to combine ammo. Ammo is no longer automatically merged when closing inventory.
+-Added ability to put all sights on custom and worn AKSU. Fixed magazine visibility on world models.
+-Added option of grass optimization.
+-Added grass collision for all creatures and dynamic objects, for anomalies, explosions and pseudo-giant kicks.
+-Added the wetting of the grass. If there is a high humidity the grass will go lower. If there is a shelter over the grass, it will not get wet.
+-Added trampling of grass. Added parameter for radius of influence on the grass from object position.
+-Added smooth return of grass back to its initial state if it was not trampled till the end.
+-Added percentage display of settings in options.
+-Added parameters for sections zone grass_collision and radius_grass_colission. Added a command to adjust the speed of grass transition to initial state.
+-Added terrain parallax (by Misha Yudin).
+-Added parallax and tonemap settings.
+-Added separate frame rate limiters: in menu, in game and in pause mode.
+-Added magazine variations to trading.
+-Added animations of inertia and magazine check to all weapons. Added sounds.
+-Added animations when removing and wearing helmets.
+-Added missing animators when eating some meat.
+-Added new challenges: anomaly_zone_on_net_spawn, anomaly_zone_on_net_destroy, anomaly_zone_on_update.
+-Added new character state parameters to the actor_condition section. Added parameters for sleeping.
+-Fixed the bug with the missing weapon parameter in the script.
+-Fixed the crash in the magazine system function.
+-Fixed the crash in the captions script.
+-Fixed the crash when trying to eat or drink quickly.
+-Fixed the crash when trying to close the dialog box when it is already closed.
+-Fixed the crash on magazines, when the magazine was spawned before the character and it was NULL.
+-Fixed the bug with removing or throwing the helmet out of the slot after loading when it was thought to be worn.
+-Fixed the bug with the increase in skillы in recipes that aren't intended to increase the crafting skill.
+-Fixed the artefact condition reset if you take it out of the container, save and load.
+-Fixed inaccessible stash in the north of the army warehouses (need New Game).
+-Fixed the sudden break of the backpack animation.
+-Fixed and optimised NPC's equipment spawn script.
+-Fixed the weight of all pistols according to the real models, taking into account the empty magazines.
+-Fixed the weight of all first-aid kits. Fixed volume of VSK-94.
+-Fixed magazine type for Desert Eagle in .45 ACP calibre.
+-Fixed a potential crash when searching for the number of rounds in a pack in all sections.
+-Fixed the ability to waste toolkits from the context menu.
+-Fixed the ability to repair Heavy Armor with a servo replacement kit.
+-Fixed the ability to restore all health when selecting "Use Painkiller or Anti-Rad" from the first aid kit context menu. The effects now apply along with the treatment on part.
+-Fixed the inability to light a fire in rainy weather, even if the fire is under a shelter.
+-Fixed loss of a cartridge from the weapon when cancelling the reload animation.
+-Fixed the loss of the weapon when reloading mag in the inventory, if the reload animation was interrupted.
+-Fixed a control lock if you drag a helmet from a slot into an open backpack.
+-Fixed a bug in the code when the account balance becomes negative, but you can buy everything from the traders and the achievement was issued.
+-Fixed a bug when the removed artefact from the container, turned into a new one.
+-Fixed a bug in the disguise function.
+-Fixed the option "Delayed repair" if you give up several items for repair and they couldn't be obtained. Added notification when a technician completes a repair.
+-Fixed fatal error if you open a backpack while the game is minimised.
+-Fixed the rendering range of grass.
+-Fixed job cancellation if the player was in disguise mode when he took a job from an enemy NPC.
+-Fixed the job of the corpse removal manager. Corpses are now removed as they are added to the cleaning queue.
+-Fixed the bug when the NPC died from a mine or an explosion and it dropped the whole weapon.
+-Fixed AK-101's gunshot animation while aiming.
+-Fixed the memory leak in the upgrades window.
+-Fixed bug with dynamic lighting in some locations.
+-Fixed all interactions between NPC and sights.
+-Fixed mouse button sticking in case of extremely low fps or freezes.
+-Fixed a hang-up when opening stashes. Weapons with the sight now spawn as two separate items.
+-Fixed lack of rays on R3 and R4. Removed mixed type rays.
+-Fixed some NPCs not having equipment.
+-Fixed the lack of expiration date for boar steak. Changed the expiration date of some mutant parts.
+-Fixed the lack of the ability to disassemble the CBF of the Dolg and Freedom.
+-Fixed the lack of sound when clicking on filters on the left side of the inventory.
+-Fixed the magazines display on the AK-105.
+-Fixed forced window closing during the search of backpack and other things.
+-Fixed displaying of the 3rd generation NVG improvement icon.
+-Fixed missing sound after sharpening something.
+-Fixed freezes when there are a lot of items in inventory or backpacks with irradiation of items option enabled.
+-Fixed some bugs in string.add and string.add_all methods.
+-Fixed AKS-74 reloading animation with sights. Added holograms for sights. Fixed display of magazines on the world model. Redrawn icons.
+-Fixed various syntax errors of Lua.
+-Fixed parameters of cat jumping attack animation.
+-Fixed possible crashes in game engine code.
+-Fixed magazine capacity of PP-2000 to match actual specifications. Added extended magazine capacity for 44 rounds.
+-Renamed the suit improvement " Durability" to "Armor Class", for clearer presentation.
+-Reworked the display of articles in the smartphone files (PDA). Now articles are added as you learn them, rather than being displayed all at once as blocked.
+-Reworked the system of artefact degradation, now artefact degradation is carried out taking into account the game time. Removed artifact_degradation.script, now all the logic is in bind_artefact.script.
+-Reworked food spoilage feature.
+-Reworked item wetting system. Now any item can get wet, not only bullets and bills. Added parameter for item resistance to moisture.
+-Reworked NPC's best weapon selection, optimised code. Added calculation of distance for current weapon depending on radius of A-life.
+-Improved NPC's weapon selection logic. If an NPC doesn't have ammo for his current weapon, he will choose the next highest priority weapon. If there are no weapons with ammo, he will choose the melee weapon.
+-Improved NPC logic. If they don't have a weapon, then they will not go to finish off the wounded.
+-Improved English localization.
+-Improved the calculation of the shot materials.
+-Decreased block height under the text in the item's pop-up window.
+-Removed the need to restart the game when changing a number of settings.
+-Changed AK-47 and AKS model and animations. Changed the sounds of reload. Rewritten icons, added icons for magazines.
+-Changed the model and icons of the axe.
+-Changed model of Father George.
+-Replaced the vegetation on the several locations like: Swamp, Cordon, Junkyard, Agroprom, Army Depots, Dark Valley, Dark Hollow, Amber and the Bar.
+-Reduced the volume of weapons with folding butts.
+-Reduced the activation radius of roasters and geysers.
+-Reduced fracture recovery and sobering speed.
+-Reduced the rate of radiation output while awake and asleep. Enabled radiation damage in sleep.
+-Creation of grass objects is now multi-threaded. Grass cache is now multi-threaded.
+-Optimised loading of portals.
+-Optimised game engine code.
+------------------------------------------------------------------------------------------------------------------------------------------
+Update 1.1693 (31.12.2022):
+------------------------------------------------------------------------------------------------------------------------------------------
+-Added sights with lenses and holograms for PP-19-01 Vityaz. Added reload animations and sounds. Fixed magazine visibility.
+-Fixed helmet hud when entering the arena.
+-Fixed crash when trying to craft backpacks.
+-Fixed crash when killing an NPC if the part that took damage is unknown.
+-Fixed bug in task reward function and found smartphones (PDAs). The money is now issued in cash.
+-Fixed the dead body removal manager.
+-Fixed inability to take item in left hand with Desert Eagle.
+-Fixed crashes when receiving squad destruction quests.
+-Fixed some mission conditions.
+-Reworked positioning and aiming of SVD with 1PN34 and 1PN93 sights.
+-Redrawn icons for RPK and RPK74. Added icons to magazines.
+-Moved the transition from Red forest to Limansk farther to the tunnel.
+-Increased max mouse sensitivity in aiming.
+-Optimized grenades explosions.

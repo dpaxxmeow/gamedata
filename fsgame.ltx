@@ -1,0 +1,42 @@
+; abbreviation			= recurs| notif | root			| subdir				| ext			| description
+; appdata
+$app_data_root$			= true	| false | appdata\
+$logs$					= true	| false | $app_data_root$| logs\				| *.log
+$screenshots$			= true	| false | $app_data_root$| screenshots\			| *.jpg;*.tga;*.png
+$game_saves$			= true	| false | $app_data_root$| savedgames\			| *.scop;*.scoc
+$downloads$				= false	| false | $app_data_root$| downloads\
+; database
+$database$				= false	| false | $fs_root$		| database\
+$database_configs$		= false	| false | $database$	| configs\
+$database_maps$			= false	| false | $database$	| maps\
+$database_meshes$		= false	| false | $database$	| meshes\
+$database_sounds$		= false	| false | $database$	| sounds\
+$database_patches$		= false	| true  | $database$	| patches\
+$database_addons$		= false	| true  | $database$	| addons\
+$database_textures$		= false	| true  | $database$	| textures\
+$database_resources$	= false	| false	| $database$	| resources\
+; addons
+$addons$				= true	| false	| $database$	| addons\
+$addons_configs$		= true	| false | $addons$		| configs\
+$addons_maps$			= true	| false | $addons$		| maps\
+$addons_meshes$			= true	| false | $addons$		| meshes\
+$addons_sounds$			= true	| false | $addons$		| sounds\
+$addons_textures$		= true	| false	| $addons$		| textures\
+; gamedata
+$game_data$				= true	| true  | $fs_root$		| gamedata\
+$game_ai$				= true	| false | $game_data$	| ai\
+$game_spawn$			= true	| false | $game_data$	| spawns\
+$game_levels$			= true	| false | $game_data$	| levels\
+$level$					= false	| false | $game_levels$
+$game_meshes$			= true	| true  | $game_data$	| meshes\				| *.ogf;*.omf	| Game Object files
+$game_anims$			= true	| true  | $game_data$	| anims\				| *.anm;*.anms	| Animation files
+$game_dm$				= true	| true  | $game_data$	| meshes\				| *.dm			| Detail Model files
+$game_scripts$			= true	| false | $game_data$	| scripts\				| *.script		| Game script files
+$game_shaders$			= true	| true  | $game_data$	| shaders\
+$game_sounds$			= true	| true  | $game_data$	| sounds\
+$game_textures$			= true	| true  | $game_data$	| textures\
+$game_addons$			= true	| false | $game_data$	| addons\
+$game_config$			= true	| false | $game_data$	| configs\
+$game_weathers$			= true	| false | $game_config$	| environment\weathers
+$game_weather_effects$	= true	| false | $game_config$	| environment\weather_effects
+$game_text$				= true	| false | $game_config$	| text\
